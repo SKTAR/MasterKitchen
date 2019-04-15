@@ -1,0 +1,21 @@
+<ScrollView orientation="vertical" >      
+    <StackLayout>
+         <GridLayout>
+                <RadListView [items]="dataItems" multipleSelection="true" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)">
+                    
+                    <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewGridLayout>
+                    <ng-template tkListItemSwipeTemplate let-item="item">
+                        <StackLayout orientation="vertical">  
+                            <Image width="150" class="img-rounded m-b-20" [src]="item.imgPath"></Image>
+                            <Label  [text]="item.name"></Label>
+                            <Label  [text]="item.description"></Label>
+                            <Label  [text]="item.imgPath"></Label>
+                        </StackLayout>
+                    </ng-template>
+
+                </RadListView>
+            </GridLayout>
+            
+            
+    </StackLayout>
+</ScrollView>

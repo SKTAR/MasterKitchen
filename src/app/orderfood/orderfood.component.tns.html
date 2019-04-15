@@ -1,0 +1,23 @@
+<app-actionbar-helper [pageName]="page"></app-actionbar-helper>
+<StackLayout>
+<Label [text]="caption" textWrap="true" verticalAlign="center"  class="h2 p-15 text-center"></Label>
+
+<SegmentedBar [items]="orderTypeTabList"  [(ngModel)]="selectedBarIndex" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
+
+<!--
+<TextField [(ngModel)]="caption" width="90" height="100"></TextField>
+<Button (tap)="showMessage()">Tap here</Button>
+-->
+
+<TabView>
+    <ng-container *ngFor="let tab of menuCategoryList">
+               
+        <StackLayout *tabItem="{title: tab, iconSource: 'res://icon'}">
+        <Label text="First TabView item with Icon Font" textAlignment="center" textWrap="true" class="h2 m-x-auto" color="blue"></Label>
+        <Label text="&#xe913;" textWrap="true" class="h2 m-x-auto" color="blue"></Label>
+        
+        </StackLayout>
+    </ng-container>
+</TabView>
+
+</StackLayout>

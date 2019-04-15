@@ -1,0 +1,11 @@
+@import '~nativescript-theme-core/scss/light';
+
+Button{
+
+background: greenyellow;
+border-width: 1;
+border-color: greenyellow;
+color:white; // text color
+width: 100;
+height: 100;
+}
