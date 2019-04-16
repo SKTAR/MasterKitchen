@@ -1,3 +1,22 @@
-<p>
-  home works!
-</p>
+<h1>
+  Master of Kitchen v0.1
+</h1>
+<hr>
+
+<h2>Menu</h2>
+<table border="1" style="width: 100%;">
+  <tr style="background-color: #CCC">
+    <td>ID</td>
+    <td>Name</td>
+    <td>Type</td>
+    <td>Price</td>
+  </tr>
+
+  <tr *ngFor="let menu of MenuInformation">
+    <td>{{ menu.partNumber }}</td>
+    <td>{{ menu.name }}</td>
+    <td>{{ menu.category }}</td>
+    <td>{{ menu.price }}</td>
+  </tr>
+</table>
+

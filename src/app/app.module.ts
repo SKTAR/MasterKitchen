@@ -4,6 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Add Module for Http Request
+import { HttpModule } from '@angular/http'; 
+import { HttpClientModule } from '@angular/common/http'
+
 
 // import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 // import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
@@ -36,6 +40,8 @@ import { KitchenComponent } from './kitchen/kitchen.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpModule,
+    HttpClientModule
     // NativeScriptModule,  // Don't define  Native script Module in angular file
     // NativeScriptUISideDrawerModule
   ],
