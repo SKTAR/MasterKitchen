@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -21,7 +21,7 @@ import { LearningComponent } from './learning/learning.component';
 import { ActionbarHelperComponent } from './shared/ui/actionbar-helper/actionbar-helper.component';
 import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +40,11 @@ import { KitchenComponent } from './kitchen/kitchen.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule,
-    HttpClientModule
+  //  HttpModule,
+    HttpClientModule,
+    FormsModule,
+   // ReactiveFormsModule,
+    NgbModule // https://ng-bootstrap.github.io
     // NativeScriptModule,  // Don't define  Native script Module in angular file
     // NativeScriptUISideDrawerModule
   ],
