@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class BaseAPI{ 
   apiURL: string = 'http://www.yesboxlab.com:3600';
   subURL: string = '';
+
   constructor(
     protected httpClient: HttpClient) {
   }
