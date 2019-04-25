@@ -11,4 +11,13 @@ export class MenuService extends BaseAPI {
     super(httpClient);
     this.subURL = '/menu';
   }
+
+  // Additional Methods for Menu Service
+  public listCategories(){
+    return this.httpClient.get(`${this.apiURL}/menu/getAllCategories`);
+  }
+  public listMenuByCategory(category){
+    return this.httpClient.get(`${this.apiURL}/listByCategory/${category}`);
+  }
+
 }
