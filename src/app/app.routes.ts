@@ -5,9 +5,11 @@ import { OrderfoodComponent } from './orderfood/orderfood.component';
 import { ZonetableComponent } from './zonetable/zonetable.component';
 import { MenuComponent } from './menu/menu.component';
 import { LearningComponent } from './learning/learning.component';
-import { NsRadlistviewComponent } from './ns-radlistview/ns-radlistview.component';
 import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
 import { ButtonComponent } from './learning/ui/button/button.component';
+import { GridComponent } from './learning/layouts/grid/grid.component';
+import { FlexComponent } from './learning/layouts/flex/flex.component';
+import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
 
 export const routes: Routes = [
   {
@@ -35,16 +37,11 @@ export const routes: Routes = [
     path: 'menu',
     component: MenuComponent,
   },
-  //#region Learni
+  //#region Learning
   {
     path: 'learning',
     component: LearningComponent,
   },
-  {
-    path: 'ns-radlistview',
-    component: NsRadlistviewComponent,
-  }
-  ,
   {
     path: 'radlistview',
     component: RadlistviewComponent,
@@ -53,6 +50,20 @@ export const routes: Routes = [
   {
     path: 'button',
     component: ButtonComponent,
+  },
+  {
+    path: 'grid',
+    component: GridComponent
+  }
+  ,
+  {
+    path: 'flex',
+    component: FlexComponent
+  }
+  ,
+  {
+    path: 'absolute',
+    component: AbsoluteComponent
   }
   //#endregion
 ];

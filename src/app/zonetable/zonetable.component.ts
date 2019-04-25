@@ -34,6 +34,8 @@ export class ZonetableComponent implements OnInit {
 
 
   ngOnInit() {
+    // this.dragImageItem = <Image>this.dragImage.nativeElement;
+    
     this.dragImageItem = <Image>this.dragImage.nativeElement;
     this.dragImageItem.translateX = 100;
     this.dragImageItem.translateY = 200;

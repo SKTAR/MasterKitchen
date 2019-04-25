@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { ButtonComponent, TableObj } from '../learning/ui/button/button.component';
+import { MenuService } from '../shared/kitchen-services/menu.service';
 // import { MenuService } from '../helper/menucategory/menu.service';
 // import { MenuItemsService } from '../helper/menuitems/menu-items.service';
 
@@ -23,17 +24,22 @@ export class MenuComponent implements OnInit, AfterViewInit {
   private btComp: ButtonComponent;
   ngAfterViewInit(): void {
   }
-  constructor() { // (private menuService: MenuService,
-    // private menuItemService: MenuItemsService) {
-    // this.menutab = menuService.getMenuTab();
 
-  this.tableList = [
-    new TableObj('Table1', 0, 1),
-    new TableObj('Table2', 0, 10),
-    new TableObj('Table3', 0, 20)
-  ];
+  constructor(private menuService: MenuService)
+  {
+     menuService.listCategories()
+    .subscribe({
+      next(response) { console.log('next' + response); },
+      error(err) { console.error('Error: ' + err); },
+      complete() { console.log('Completed'); }
+    });
+
+    this.tableList = [
+      new TableObj('Table1', 0, 1),
+      new TableObj('Table2', 0, 10),
+      new TableObj('Table3', 0, 20)
+    ];
   }
-
 
   ngOnInit() {
    //  this.dataItems = this.menuItemService.getMenuItems();
@@ -44,11 +50,11 @@ export class MenuComponent implements OnInit, AfterViewInit {
   }
 
 
-  onItemSelected(arg) {
-    //   this.menuItemService.onItemSelected(arg);
+  onCategorySelected(arg) {
+    //   this.itemService.onItemSelected(arg);
   }
-  onItemDeselected(arg) {
-    //   this.menuItemService.onItemDeselected(arg);
+  onCategoryDeselected(arg) {
+    //   this.itemService.onItemDeselected(arg);
   }
 
 

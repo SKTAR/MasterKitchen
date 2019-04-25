@@ -1,17 +1,27 @@
 <app-actionbar-helper [pageName]="page"></app-actionbar-helper>
 
   
+<ScrollView orientation="vertical" >      
+    <StackLayout>
+         <GridLayout>
+                <RadListView [items]="dataItems" multipleSelection="true" selectionBehavior="Press" (itemSelected)="onCategorySelected($event)" (itemDeselected)="onCategoryDeselected($event)">
+                    
+                    <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewGridLayout>
+                    <ng-template tkListItemSwipeTemplate let-item="item">
+                        <StackLayout orientation="vertical">  
+                            <Image width="150" class="img-rounded m-b-20" [src]="item.imgPath"></Image>
+                            <Label  [text]="item.name"></Label>
+                            <Label  [text]="item.description"></Label>
+                            <Label  [text]="item.imgPath"></Label>
+                        </StackLayout>
+                    </ng-template>
 
-<StackLayout orientation="vertical">
-    
-    <div *ngFor="let v of tableList">
-        <app-button [tableObj]="v" #table></app-button> 
-    </div>
-
-
-</StackLayout>
-
- 
+                </RadListView>
+            </GridLayout>
+            
+            
+    </StackLayout>
+</ScrollView>
 <!--  
    <GridLayout row="1" rows="*" columns="*" class="nav">
     <Image row="0" col="0" src={{navbar}} opacity="0.6"></Image>

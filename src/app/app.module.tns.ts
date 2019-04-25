@@ -10,19 +10,19 @@ import { ZonetableComponent } from './zonetable/zonetable.component';
 import { MenuComponent } from './menu/menu.component';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
-import { NsRadlistviewComponent } from './ns-radlistview/ns-radlistview.component';
 import { LearningComponent } from './learning/learning.component';
 import { ActionbarHelperComponent } from './shared/ui/actionbar-helper/actionbar-helper.component';
 import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
-// import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
-// import { ActionBarComponent } from './ui/action-bar/action-bar.component';
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 import { ButtonComponent } from './learning/ui/button/button.component';
+import { GridComponent } from './learning/layouts/grid/grid.component';
+import { FlexComponent } from './learning/layouts/flex/flex.component';
+import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +32,14 @@ import { ButtonComponent } from './learning/ui/button/button.component';
     OrderfoodComponent,
     ZonetableComponent,
     MenuComponent,
-    NsRadlistviewComponent,
     LearningComponent,
     ActionbarHelperComponent,
     RadlistviewComponent,
     KitchenComponent,
     ButtonComponent,
+    GridComponent,
+    FlexComponent,
+    AbsoluteComponent,
     // RadlistviewComponent,
 
     // ActionBarComponent,
@@ -46,9 +48,9 @@ import { ButtonComponent } from './learning/ui/button/button.component';
     AppRoutingModule,
     NativeScriptModule,
     NativeScriptUISideDrawerModule, // RadSideDrawer
-    NativeScriptFormsModule,
+    NativeScriptFormsModule,        // 2 Way Binding
     NativeScriptUIListViewModule, // RadListView
-    NativeScriptHttpClientModule  // You have to import this one when you import HttpclientModule int app.module.ts
+    NativeScriptHttpClientModule  // You have to import this one when you import HttpclientModule in app.module.ts
   ],
   providers: [],
   bootstrap: [AppComponent],

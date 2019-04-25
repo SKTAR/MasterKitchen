@@ -24,11 +24,12 @@
     <SegmentedBar [items]="orderTypeTabList"  [(ngModel)]="selectedBarIndex" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
 
     <GridLayout [visibility]="selectedIndex === 0 ? 'visible' : 'collapsed'" backgroundColor="white">
-        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+     <!--   <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+     -->
         <StackLayout orientation="vertical">
-            <div *ngFor="let v of tableList">
-            <app-button [tableObj]="v" #table></app-button> 
-            </div>
+           
+            <app-button  *ngFor="let tableobj of tableList" [tableObj]="tableobj" #table></app-button> 
+          
         </StackLayout>
     </GridLayout>
 

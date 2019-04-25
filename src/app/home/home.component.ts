@@ -26,52 +26,31 @@ export class HomeComponent implements OnInit {
   constructor
     (private drawerService: RadSideDrawerService,
     private menuService: MenuService,
-    private fakeService: FakeHttpService
+    // private fakeService: FakeHttpService
   ) {
     // Initialise Service Example Information
- /*  this.menuService.get().subscribe(
+  /* this.menuService.get().subscribe(
       res => {this.MenuInformation = res;
       console.log(JSON.stringify(this.MenuInformation)); }
     );
+    /*
  this.fakeService.testGet().subscribe({
         next(response) { console.log('next' + response); },
         error(err) { console.error('Error: ' + err); },
         complete() { console.log('Completed'); }
       });
 */
+      this.menuService.listCategories()
+      .subscribe(
+         res => {
+        this.result = res,
+        console.log(this.result); }
+      );
 
-
-    // this.TestGetTypeUser();
-      this.TestFilter();
-    }
+     }
 
   ngOnInit(): void {
     this.menuItem = new MenuItem();
-  }
-
-  public TestGet() {
-    this.fakeService.testGet().subscribe(data => console.log(data));
-  }
-
-
-  public TestGetTypeUser() {
-    this.fakeService.testGet()
-    .pipe(
-      map(response => this.result = response)
-    ).subscribe(data => console.log('map :' + data));
-  }
-
-  public TestFilter() {
-    this.fakeService.testGetUser()
-    .pipe(
-      filter(response => response.id  > 2)
-    ).subscribe(data => console.log('map :' + data.id));
-  }
-
-  public TestMapRxjs() {
-    this.fakeService.testGet().pipe(
-      map(response => this.result = response)
-    ).subscribe(data => console.log('map :' + data));
   }
 
   public showMenu() {
@@ -93,15 +72,6 @@ export class HomeComponent implements OnInit {
       console.log('Error', error);
     });
   }
-
-    public getMenubyFilterPrice() {
-      this.menuService.get().subscribe({
-        next(response) { console.log(response); },
-        error(err) { console.error('Error: ' + err); },
-        complete() { console.log('Completed'); }
-       });
-    }
-
 
 
   public deleteMenuItem(id: string) {

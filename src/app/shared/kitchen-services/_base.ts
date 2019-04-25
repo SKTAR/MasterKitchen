@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 @Injectable({
     providedIn: 'root'
 })
@@ -9,11 +10,15 @@ export class BaseAPI {
   constructor(
     protected httpClient: HttpClient) {
   }
-  
+
   // Basic Abstract Method
   public get() {
     return this.httpClient.get(`${this.apiURL}${this.subURL}`);
   }
+  public post(data) { // Add by Tar
+    return this.httpClient.post(`${this.apiURL}${this.subURL}`, data);
+  }
+
   public getOne(id) {
     return this.httpClient.get(`${this.apiURL}${this.subURL}/get/${id}`);
   }

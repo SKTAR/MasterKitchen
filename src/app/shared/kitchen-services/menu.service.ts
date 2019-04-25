@@ -13,11 +13,13 @@ export class MenuService extends BaseAPI {
   }
 
   // Additional Methods for Menu Service
-  public listCategories(){
-    return this.httpClient.get(`${this.apiURL}/menu/getAllCategories`);
+  public listCategories() {
+    // return this.httpClient.post(`${this.apiURL}/menu/getAllCategories`,null); // Cuz we extend Base API
+    this.subURL =  '/menu/getAllCategories';
+    return this.post(null);
   }
-  public listMenuByCategory(category){
-    return this.httpClient.get(`${this.apiURL}/listByCategory/${category}`);
+  public listMenuByCategory(category) {
+    return this.httpClient.post(`${this.apiURL}/listByCategory/${category}`, null);
   }
 
 }

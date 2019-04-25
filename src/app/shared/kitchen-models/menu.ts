@@ -18,11 +18,11 @@ export class Menu {
 
 
 class MenuItems {
-    "partNumber": string;
-    "name": string;
-    "type": string;
-    "category": string;
-    "sku": string;
-    "quantity": number;
-    "quantityUnit": string;
+    'partNumber': string;
+    'name': string;
+    'type': string;
+    'category': string;
+    'sku': string;
+    'quantity': number;
+    'quantityUnit': string;
 }

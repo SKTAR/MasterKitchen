@@ -1,19 +1,23 @@
 <app-actionbar-helper></app-actionbar-helper>>
 
-<ScrollView row="0" scrollBarIndicatorVisible="false" paddingBottom="100">
-    
-<AbsoluteLayout width="100%" height="100%" backgroundColor="lightblue">
-   
-   
-    <Image #dragImage class="table" width="100" height="100" horizontalAlignment="left" verticalAlignment="top" (tap)="loadMenu()" (pan)="onPan($event)" src="~/assets/images/table.png"></Image>
-   
-    <StackLayout orientation="horizontal">
-       
-  
-    <Label class="h2 p-15" [text]="dragImageItem.deltaX" horizontalAlignment="center" verticalAlignment="center" ></Label>
-    <Label class="h2 p-15" [text]="dragImageItem.deltaY" horizontalAlignment="center" verticalAlignment="center" ></Label>
-</StackLayout>
+<!-- <ScrollView row="0" scrollBarIndicatorVisible="true" paddingBottom="100"> -->
+    <StackLayout>  
+        <AbsoluteLayout  height="100%" >
+            
+            <StackLayout #dragImage orientation="vertical">
+             <Image  class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu()" (pan)="onPan($event)" src="~/assets/images/restaurant-circle.png"></Image>
+             <Label class="h2 p-15" text="table 1" horizontalAlignment="center" verticalAlignment="center" ></Label>
+            
+            </StackLayout>
+           
+            <!-- X,Y -->
+            <StackLayout #dragImage orientation="horizontal">
+            <Label class="h2 p-15" [text]="dragImageItem.translateX" horizontalAlignment="center" verticalAlignment="center" ></Label>
+            <Label class="h2 p-15" [text]="dragImageItem.translateY" horizontalAlignment="center" verticalAlignment="center" ></Label>
+            </StackLayout>
+            <!-- End X,Y -->
+      
 
-</AbsoluteLayout>
-
-</ScrollView>
+        </AbsoluteLayout>
+    </StackLayout>
+<!-- </ScrollView> -->

@@ -16,13 +16,15 @@ import { HomeComponent } from './home/home.component';
 import { OrderfoodComponent } from './orderfood/orderfood.component';
 import { ZonetableComponent } from './zonetable/zonetable.component';
 import { MenuComponent } from './menu/menu.component';
-import { NsRadlistviewComponent } from './ns-radlistview/ns-radlistview.component';
 import { LearningComponent } from './learning/learning.component';
 import { ActionbarHelperComponent } from './shared/ui/actionbar-helper/actionbar-helper.component';
 import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ButtonComponent } from './learning/ui/button/button.component';
+import { GridComponent } from './learning/layouts/grid/grid.component';
+import { FlexComponent } from './learning/layouts/flex/flex.component';
+import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,12 +33,14 @@ import { ButtonComponent } from './learning/ui/button/button.component';
     OrderfoodComponent,
     ZonetableComponent,
     MenuComponent,
-    NsRadlistviewComponent,
     LearningComponent,
     ActionbarHelperComponent,
     RadlistviewComponent,
     KitchenComponent,
     ButtonComponent,
+    GridComponent,
+    FlexComponent,
+    AbsoluteComponent,
 
   ],
   imports: [
