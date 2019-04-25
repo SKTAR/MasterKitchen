@@ -6,7 +6,8 @@ export class SegmentedBarService {
     }
     public getOrderTypeTab() {
     }
-    public onSelectedIndexChange(args: any) {
+    public onSelectedIndexChange(args: any): number {
+        return 0;
     }
     public getRadListView() {
     }

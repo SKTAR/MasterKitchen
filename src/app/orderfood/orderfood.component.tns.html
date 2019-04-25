@@ -1,13 +1,9 @@
 <app-actionbar-helper [pageName]="page"></app-actionbar-helper>
+<!--
 <StackLayout>
 <Label [text]="caption" textWrap="true" verticalAlign="center"  class="h2 p-15 text-center"></Label>
 
-<SegmentedBar [items]="orderTypeTabList"  [(ngModel)]="selectedBarIndex" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
 
-<!--
-<TextField [(ngModel)]="caption" width="90" height="100"></TextField>
-<Button (tap)="showMessage()">Tap here</Button>
--->
 
 <TabView>
     <ng-container *ngFor="let tab of menuCategoryList">
@@ -21,3 +17,20 @@
 </TabView>
 
 </StackLayout>
+-->
+
+
+<StackLayout orientation="vertical">
+    <SegmentedBar [items]="orderTypeTabList"  [(ngModel)]="selectedBarIndex" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
+
+    <GridLayout [visibility]="selectedIndex === 0 ? 'visible' : 'collapsed'" backgroundColor="white">
+        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+        <StackLayout orientation="vertical">
+            <div *ngFor="let v of tableList">
+            <app-button [tableObj]="v" #table></app-button> 
+            </div>
+        </StackLayout>
+    </GridLayout>
+
+</StackLayout>
+

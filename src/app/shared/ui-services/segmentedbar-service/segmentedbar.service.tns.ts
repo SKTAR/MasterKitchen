@@ -26,9 +26,10 @@ export class SegmentedBarService {
             }
            return this.orderTypeItems;
         }
-        public onSelectedIndexChange(args: { object: SegmentedBar; }) {
+        public onSelectedIndexChange(args: { object: SegmentedBar; }): number {
             const segmentedBar = <SegmentedBar>args.object;
-            return this.orderTypeList[segmentedBar.selectedIndex];
+           // return this.orderTypeList[segmentedBar.selectedIndex];
+           return segmentedBar.selectedIndex;
         }
 
         public getRadListView() {

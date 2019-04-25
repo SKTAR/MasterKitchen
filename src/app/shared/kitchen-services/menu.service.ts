@@ -8,7 +8,7 @@ import { BaseAPI } from './_base';
 export class MenuService extends BaseAPI {
   constructor(
     protected httpClient: HttpClient) {
-    super(httpClient)
+    super(httpClient);
     this.subURL = '/menu';
   }
 }

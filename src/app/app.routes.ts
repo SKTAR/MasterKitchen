@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { LearningComponent } from './learning/learning.component';
 import { NsRadlistviewComponent } from './ns-radlistview/ns-radlistview.component';
 import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
+import { ButtonComponent } from './learning/ui/button/button.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,7 @@ export const routes: Routes = [
     path: 'menu',
     component: MenuComponent,
   },
+  //#region Learni
   {
     path: 'learning',
     component: LearningComponent,
@@ -47,5 +49,10 @@ export const routes: Routes = [
     path: 'radlistview',
     component: RadlistviewComponent,
   }
-
+  ,
+  {
+    path: 'button',
+    component: ButtonComponent,
+  }
+  //#endregion
 ];

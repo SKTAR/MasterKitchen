@@ -21,7 +21,8 @@ import { KitchenComponent } from './kitchen/kitchen.component';
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
-// import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
+import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
+import { ButtonComponent } from './learning/ui/button/button.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { KitchenComponent } from './kitchen/kitchen.component';
     ActionbarHelperComponent,
     RadlistviewComponent,
     KitchenComponent,
+    ButtonComponent,
     // RadlistviewComponent,
 
     // ActionBarComponent,
@@ -46,7 +48,7 @@ import { KitchenComponent } from './kitchen/kitchen.component';
     NativeScriptUISideDrawerModule, // RadSideDrawer
     NativeScriptFormsModule,
     NativeScriptUIListViewModule, // RadListView
-  //  NativeScriptHttpClientModule
+    NativeScriptHttpClientModule  // You have to import this one when you import HttpclientModule int app.module.ts
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -39,11 +39,11 @@
 </div>
 -->
 
-<div class="form-group w-50 justify-content-center border border-light p-5">
+
+
+<div class="form-group w-50  border border-light p-5">
 
   <p class="h4 mb-4">Create Menu</p>
-
-
 
   <!-- Menu Name -->
   <input   [(ngModel)]="menuItem.id" type="text" class="form-control mb-4" placeholder="Menu ID">
@@ -56,8 +56,9 @@
   <button type="button" class="mr-3 btn btn-primary" (click)="createNewMenu(menuItem)">Create Menu</button>
   <button type="button" class="mr-3 btn btn-danger" (click)="deleteMenuItem(menuItem.id)">Delete Menu</button>
 
-
-  
+  <div>
+  <ul><li *ngFor="let data of result">ID : {{data.id}}</li></ul>
+</div>
   <!--
   <div class="row">
     <div class="col">
@@ -74,4 +75,18 @@
 
    
 
+</div>
+
+<div class="center input-group">
+  <span class="input-group-btn">
+      <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+        <span class="glyphicon glyphicon-minus"></span>
+      </button>
+  </span>
+  <input type="text" name="quant[2]" class="form-control input-number text-center" value="1" min="1" max="100">
+  <span class="input-group-btn">
+      <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+         
+      </button>
+  </span>
 </div>

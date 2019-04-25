@@ -1,39 +1,15 @@
 <app-actionbar-helper [pageName]="page"></app-actionbar-helper>
 
   
-<StackLayout >
-  <Label [text]="caption" textWrap="true" verticalAlign="center"  class="h2 p-15 text-center"></Label>
-   
-  <!--<SegmentedBar [items]="menutab"  [(ngModel)]="selectedBarIndex" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>-->
- 
- 
-<ScrollView orientation="vertical" >      
-    <StackLayout>
-         <GridLayout>
-                <RadListView [items]="dataItems" multipleSelection="true" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)">
-                    
-                    <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewGridLayout>
-                    <ng-template tkListItemSwipeTemplate let-item="item">
-                        <StackLayout orientation="vertical">  
-                            <Image width="150" class="img-rounded m-b-20" [src]="item.imgPath"></Image>
-                            <Label  [text]="item.name"></Label>
-                            <Label  [text]="item.description"></Label>
-                            <Label  [text]="item.imgPath"></Label>
-                        </StackLayout>
-                    </ng-template>
 
-                </RadListView>
-            </GridLayout>
-            
-            
-    </StackLayout>
-</ScrollView>
-  
+<StackLayout orientation="vertical">
     
+    <div *ngFor="let v of tableList">
+        <app-button [tableObj]="v" #table></app-button> 
+    </div>
 
 
-  </StackLayout>
-
+</StackLayout>
 
  
 <!--  

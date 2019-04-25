@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
 })
-export class BaseAPI{ 
-  apiURL: string = 'http://www.yesboxlab.com:3600';
-  subURL: string = '';
+export class BaseAPI {
+  apiURL = 'http://www.yesboxlab.com:3600';
+  subURL = '';
   constructor(
     protected httpClient: HttpClient) {
   }
-
+  
   // Basic Abstract Method
   public get() {
     return this.httpClient.get(`${this.apiURL}${this.subURL}`);

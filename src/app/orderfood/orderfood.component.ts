@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 // import { OrderTypeService } from '../helper/menucategory/ordertype.service';
-import { KOTService } from '../shared/backend-services/KOT-Service/kot.service';
+// import { KOTService } from '../shared/backend-services/KOT-Service/kot.service';
+import { TableObj } from '../learning/ui/button/button.component';
+import { SegmentedBarService } from '../shared/ui-services/segmentedbar-service/segmentedbar.service';
 // import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 
 @Component({
@@ -15,12 +17,21 @@ export class OrderfoodComponent implements OnInit {
   imageDir = '';
   caption;
   dataItems;
-  orderTypeTabList: string[]; // Dine In ,Take Away ....
+  orderTypeTabList; // Dine In ,Take Away ....
   menuCategoryList: string[]; // ของดี เมืองอุบล , ต้ม ，ทอด
-  selectedBarIndex = 0;
-  constructor(private kotService: KOTService) {
-      this.orderTypeTabList = kotService.getOrderTypeList();
-      this.menuCategoryList = kotService.getMenuCategoryList();
+  selectedIndex = 0;
+  
+  tableList: TableObj[] = [];
+ 
+
+  constructor(private orderTabService: SegmentedBarService) {
+    this.orderTypeTabList = orderTabService.getOrderTypeTab();
+     // this.menuCategoryList = kotService.getMenuCategoryList();
+      this.tableList = [
+        new TableObj('Table1', 0, 1),
+        new TableObj('Table2', 0, 10),
+        new TableObj('Table3', 0, 20)
+      ];
   }
 
 
@@ -32,7 +43,7 @@ ngOnInit(): void {
 
 
   onSelectedIndexChange(arg) {
-   // this.caption = this.oService.onSelectedIndexChange(arg);
+    this.selectedIndex = this.orderTabService.onSelectedIndexChange(arg);
    }
 
   showMessage() {
