@@ -14,6 +14,12 @@ export class Menu {
     updatedDate: string;
 
     items: MenuItems[];
+
+    constructor(partNumber: string, name: string, price: number) {
+        this.partNumber = partNumber;
+        this.name = name;
+        this.price = price;
+      }
 }
 
 

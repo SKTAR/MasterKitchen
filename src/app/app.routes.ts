@@ -12,11 +12,11 @@ import { FlexComponent } from './learning/layouts/flex/flex.component';
 import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
 
 export const routes: Routes = [
-  {
-      path: '',
-      redirectTo: '/home',
-      pathMatch: 'full',
-  },
+   {
+       path: '',
+       redirectTo: '/home',
+       pathMatch: 'full',
+   },
   {
       path: 'home',
       component: HomeComponent,

@@ -9,7 +9,7 @@ import { RadSideDrawerService } from './shared/ui-services/radside-drawer-servic
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  collapsed = true;
   username  = 'Surasak Kaewsiri';
   position  = 'Owner';
   profile   = '';
@@ -21,7 +21,9 @@ export class AppComponent {
        this.drawerService.load();
       this.profile = this.username + ' ' + this.position;
    }
-
+   toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
+  }
 
   onNavItemTap(navItemRout: string) {
     this.drawerService.onNavItemTap(navItemRout);

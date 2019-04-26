@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 @Injectable({
@@ -18,7 +18,6 @@ export class BaseAPI {
   public post(data) { // Add by Tar
     return this.httpClient.post(`${this.apiURL}${this.subURL}`, data);
   }
-
   public getOne(id) {
     return this.httpClient.get(`${this.apiURL}${this.subURL}/get/${id}`);
   }
