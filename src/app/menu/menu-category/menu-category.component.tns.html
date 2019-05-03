@@ -1,0 +1,23 @@
+
+
+<StackLayout>
+        <SegmentedBar [items]="menuCategorySegmentedBar"  [(ngModel)]="menuIndex" (selectedIndexChange)="onSelectedCategory($event)" ></SegmentedBar>
+    
+      <ng-container *ngFor="let item of menuCategoryList">
+      
+        <GridLayout  [visibility]="selectedIndex === 0 ? 'visible' : 'collapsed'" backgroundColor="white">
+            <!--   <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+            -->
+               <StackLayout orientation="vertical">
+                  
+                <Label *ngFor="let menuitem of menuListByCategory" [text]="menuitem.price"></Label> 
+             </StackLayout>
+            
+        </GridLayout>
+     </ng-container>
+
+</StackLayout> 
+
+    <!-- <StackLayout>
+        <Label *ngFor="let item of menuCategoryList" [text]="item"></Label> 
+    </StackLayout> -->

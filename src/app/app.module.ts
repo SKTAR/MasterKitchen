@@ -15,7 +15,7 @@ import { SettingComponent } from './setting/setting.component';
 import { HomeComponent } from './home/home.component';
 import { OrderfoodComponent } from './orderfood/orderfood.component';
 import { ZonetableComponent } from './zonetable/zonetable.component';
-import { MenuComponent } from './menu/menu.component';
+
 import { LearningComponent } from './learning/learning.component';
 import { ActionbarHelperComponent } from './shared/ui/actionbar-helper/actionbar-helper.component';
 import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
@@ -25,6 +25,13 @@ import { ButtonComponent } from './learning/ui/button/button.component';
 import { GridComponent } from './learning/layouts/grid/grid.component';
 import { FlexComponent } from './learning/layouts/flex/flex.component';
 import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
+import { MenuCategoryComponent } from './menucategory/menucategory.component';
+import { TabviewComponent } from './learning/ui/tabview/tabview.component';
+import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
+import { MenuModule } from './menu/menu.module';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +39,7 @@ import { AbsoluteComponent } from './learning/layouts/absolute/absolute.componen
     HomeComponent,
     OrderfoodComponent,
     ZonetableComponent,
-    MenuComponent,
+    MenuCategoryComponent,
     LearningComponent,
     ActionbarHelperComponent,
     RadlistviewComponent,
@@ -41,6 +48,8 @@ import { AbsoluteComponent } from './learning/layouts/absolute/absolute.componen
     GridComponent,
     FlexComponent,
     AbsoluteComponent,
+    TabviewComponent,
+    TabGridlayoutAutoRowComponent,
 
   ],
   imports: [
@@ -50,11 +59,12 @@ import { AbsoluteComponent } from './learning/layouts/absolute/absolute.componen
     HttpClientModule,
     FormsModule,
    // ReactiveFormsModule,
-    NgbModule // https://ng-bootstrap.github.io
-    // NativeScriptModule,  // Don't define  Native script Module in angular file
-    // NativeScriptUISideDrawerModule
+    NgbModule, // https://ng-bootstrap.github.io
+   // RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+  
 })
 export class AppModule { }

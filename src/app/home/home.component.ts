@@ -40,12 +40,12 @@ export class HomeComponent implements OnInit {
         complete() { console.log('Completed'); }
       });
 */
-      this.menuService.listCategories()
-      .subscribe(
-         res => {
-        this.result = res,
-        console.log(this.result); }
-      );
+      // this.menuService.listCategories()
+      // .subscribe(
+      //    res => {
+      //   this.result = res,
+      //   console.log(this.result); }
+      // );
 
      }
 

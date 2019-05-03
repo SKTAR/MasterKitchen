@@ -1,0 +1,36 @@
+.anim-images {
+    opacity: 0;
+    animation-name: key-images;
+    animation-duration: 1;
+    animation-delay: 0.7;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+@keyframes key-images {
+    0% {
+        opacity: 0;
+        transform: translate(0, 550) scale(0, 0);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    30% {
+        opacity: 0.5;
+        transform: scale(0.6, 0.6);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1, 1);
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+}
+.card-img-thumb {
+    background-color: #828282;
+    vertical-align: center;
+    border-radius: 5;
+    width: 130;
+    height: 70;
+    margin-left: 5;
+}

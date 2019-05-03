@@ -7,13 +7,13 @@ import { SettingComponent } from './setting/setting.component';
 import { HomeComponent } from './home/home.component';
 import { OrderfoodComponent } from './orderfood/orderfood.component';
 import { ZonetableComponent } from './zonetable/zonetable.component';
-import { MenuComponent } from './menu/menu.component';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { LearningComponent } from './learning/learning.component';
 import { ActionbarHelperComponent } from './shared/ui/actionbar-helper/actionbar-helper.component';
 import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
+import { AutoGridRows, AutoGridColumns } from './shared/grid.directive';
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
@@ -23,6 +23,10 @@ import { ButtonComponent } from './learning/ui/button/button.component';
 import { GridComponent } from './learning/layouts/grid/grid.component';
 import { FlexComponent } from './learning/layouts/flex/flex.component';
 import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
+import { MenuCategoryComponent } from './menucategory/menucategory.component';
+import { TabviewComponent } from './learning/ui/tabview/tabview.component';
+import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
+import { MenuModule } from './menu/menu.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,7 @@ import { AbsoluteComponent } from './learning/layouts/absolute/absolute.componen
     HomeComponent,
     OrderfoodComponent,
     ZonetableComponent,
-    MenuComponent,
+    MenuCategoryComponent,
     LearningComponent,
     ActionbarHelperComponent,
     RadlistviewComponent,
@@ -40,12 +44,18 @@ import { AbsoluteComponent } from './learning/layouts/absolute/absolute.componen
     GridComponent,
     FlexComponent,
     AbsoluteComponent,
+    TabviewComponent,
+    TabGridlayoutAutoRowComponent,
+    AutoGridColumns, // Directive   TabGridlayoutAutoRowComponent
+    AutoGridRows  // Directive      TabGridlayoutAutoRowComponent
+    // MenuComponent
     // RadlistviewComponent,
 
     // ActionBarComponent,
   ],
   imports: [
     AppRoutingModule,
+
     NativeScriptModule,
     NativeScriptUISideDrawerModule, // RadSideDrawer
     NativeScriptFormsModule,        // 2 Way Binding
@@ -54,6 +64,6 @@ import { AbsoluteComponent } from './learning/layouts/absolute/absolute.componen
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule { }

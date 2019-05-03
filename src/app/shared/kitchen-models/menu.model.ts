@@ -1,5 +1,4 @@
 
-
 export class Menu {
     partNumber: string;
     name: string;
@@ -22,7 +21,13 @@ export class Menu {
       }
 }
 
-
+export class Category {
+    categoryName: string;
+    constructor(categoryName: string)
+    {
+      this.categoryName = categoryName;
+    }
+  }
 class MenuItems {
     'partNumber': string;
     'name': string;

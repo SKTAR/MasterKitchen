@@ -1,0 +1,40 @@
+<app-actionbar-helper [pageName]="page"></app-actionbar-helper>
+
+<!-- <TabView id="tabViewContainer" class="icon" [(ngModel)]="tabSelectedIndex" (selectedIndexChanged)="onSelectedIndexChanged($event)">
+    <StackLayout *tabItem="{title: '&#xe913;'}">
+        <Label text="First TabView item with Icon Font" textAlignment="center" textWrap="true" class="h2 m-x-auto" color="blue"></Label>
+        <Label text="&#xe913;" textWrap="true" class="h2 m-x-auto" color="blue"></Label>
+    </StackLayout>
+    <StackLayout *tabItem="{title: '&#xe908;'}">
+        <Label text="Second TabView item with Icon Font" textAlignment="center" textWrap="true" class="h2 m-x-auto" color="green"></Label>
+        <Label text="&#xe908;" textWrap="true" class="h2 m-x-auto" color="green"></Label>
+    </StackLayout>
+</TabView> -->
+<StackLayout>
+<TabView [(ngModel)]="tabSelectedIndex" (selectedIndexChanged)="onSelectedIndexChanged($event)">
+    <ng-container *ngFor="let tab of categoryList">
+               
+        <StackLayout *tabItem="{title: tab, iconSource: 'res://icon'}">
+        <Label text="First TabView item with Icon Font" textAlignment="center" textWrap="true" class="h2 m-x-auto" color="blue"></Label>
+        <Label text="&#xe913;" textWrap="true" class="h2 m-x-auto" color="blue"></Label>
+        
+        </StackLayout>
+    </ng-container>
+</TabView>
+
+</StackLayout>
+
+
+
+
+<!--  
+   <GridLayout row="1" rows="*" columns="*" class="nav">
+    <Image row="0" col="0" src={{navbar}} opacity="0.6"></Image>
+    <GridLayout row="0" col="0" rows="*" columns="*, *, *, *, *" >
+        <Label row="0" col="0" text="Billing" horizontalAlignment="center" verticalAlignment="center" class="ico active"></Label>
+        <Label row="0" col="1" text="b" horizontalAlignment="center" verticalAlignment="center" class="ico fs20" (tap)="gotolist()"></Label>
+        <Label row="0" col="2" text="c" horizontalAlignment="center" verticalAlignment="center" class="ico fs20" (tap)="goToPlayer()"></Label>
+        <Label row="0" col="3" text="d" horizontalAlignment="center" verticalAlignment="center" class="ico fs20"></Label>
+        <Label row="0" col="4" text="e" horizontalAlignment="center" verticalAlignment="center" class="ico fs20"></Label>
+    </GridLayout>
+</GridLayout>    -->

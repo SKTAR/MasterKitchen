@@ -1,14 +1,9 @@
 /* Add mobile styles for the component here.  */
-.nav {
-    height: 100%;
-    width: 100%;
+Label
+{
+    font-size: 30;  
+    color:black;  
+
+
 }
 
-.anim-page {
-    background-color: #d4d6d8;
-    animation-name: key-page;
-    animation-duration: 2;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-}

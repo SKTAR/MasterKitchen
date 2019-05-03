@@ -1,19 +1,5 @@
 
-<h1>Menu Category</h1>
-<ul><li *ngFor="let item of categoryList">{{item}}</li></ul>
 
-<h1 >
-    Menu by Category
-  </h1>
-  <table border="1" style="width: 33%">
-    <tr>
-      <th>Part Number</th>
-      <th>Menu Name</th>
-      <th>Price</th>
-    </tr>
-    <tr *ngFor="let menu of menuList">
-      <td>{{ menu.partNumber }}</td>
-      <td>{{ menu.name }}</td>
-      <td>{{ menu.price }}</td>
-    </tr>
-  </table>
+<app-menu-category></app-menu-category>
+
+<router-outlet> </router-outlet>

@@ -1,18 +1,21 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { SettingComponent } from './setting/setting.component';
 import { HomeComponent } from './home/home.component';
 import { OrderfoodComponent } from './orderfood/orderfood.component';
 import { ZonetableComponent } from './zonetable/zonetable.component';
-import { MenuComponent } from './menu/menu.component';
+import { MenuCategoryComponent } from './menucategory/menucategory.component';
 import { LearningComponent } from './learning/learning.component';
 import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
 import { ButtonComponent } from './learning/ui/button/button.component';
 import { GridComponent } from './learning/layouts/grid/grid.component';
 import { FlexComponent } from './learning/layouts/flex/flex.component';
 import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
+import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
+
 
 export const routes: Routes = [
-   {
+
+  {
        path: '',
        redirectTo: '/home',
        pathMatch: 'full',
@@ -34,9 +37,15 @@ export const routes: Routes = [
     component: SettingComponent,
   },
   {
+    path: 'menucategory',
+    component: MenuCategoryComponent,
+   },
+  {
     path: 'menu',
-    component: MenuComponent,
-  },
+    loadChildren: './menu/menu.module#MenuModule'
+
+  }
+  ,
   //#region Learning
   {
     path: 'learning',
@@ -65,5 +74,11 @@ export const routes: Routes = [
     path: 'absolute',
     component: AbsoluteComponent
   }
+  ,
+  {
+    path: 'autogrid',
+    component: TabGridlayoutAutoRowComponent
+  }
+  
   //#endregion
 ];

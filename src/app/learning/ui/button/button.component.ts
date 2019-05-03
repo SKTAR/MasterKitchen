@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IncreaseButtonService } from './increaseButton.service.tns';
+import { RoutingHelperService } from '../../../shared/router-helper/routing-helper.service';
+//import { RouterExtensions } from 'nativescript-angular/router';
 export class TableObj {
   NumberCustomer: number;
   TableID: string;
@@ -28,7 +30,8 @@ export class ButtonComponent implements OnInit {
  // tableObj: TableObj;
 
   // birthDate: Date = new Date();
-  constructor(private increaseBTService: IncreaseButtonService) {
+  constructor(private increaseBTService: IncreaseButtonService,
+              private routerHelper: RoutingHelperService) {
     // this.tableObj = new TableObj('', 1, 1);
    }
 
@@ -54,6 +57,10 @@ export class ButtonComponent implements OnInit {
   }
 
   loadMenu() {
+    this.routerHelper.goToPage('/menu');
+   }
+
+   onPan(arg) {
    }
 
 }

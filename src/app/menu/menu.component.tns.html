@@ -1,35 +1,29 @@
-<app-actionbar-helper [pageName]="page"></app-actionbar-helper>
+<!-- <app-menu-category></app-menu-category>
+<page-router-outlet></page-router-outlet> -->
+<actionbar-helper [pageName]="page"></actionbar-helper>
+<StackLayout>
 
+
+       <!--  Show Tab Menu Category -->
+        <ScrollView class="anim-images" orientation="horizontal"> 
+                <StackLayout orientation="horizontal" class=""> 
+                     
+               
+                    <GridLayout *ngFor="let imageString of images; let i = index" rows="auto"
+                        columns="*" (tap)="selectCategory(i)">
+                        <StackLayout >
+                        <Image class="card-img-thumb" row="0" col="0" [src]="imageString"
+                            stretch="aspectFill">
+                        </Image>
+                        <Label [text]="menuCategoryList[i]" fontSize="20" color="blue" horizontalAlignment="center" ></Label>
+                    </StackLayout>
+                    </GridLayout>
+                
+                 </StackLayout>  
+       </ScrollView> 
   
-<ScrollView orientation="vertical" >      
-    <StackLayout>
-         <GridLayout>
-                <RadListView [items]="dataItems" multipleSelection="true" selectionBehavior="Press" (itemSelected)="onCategorySelected($event)" (itemDeselected)="onCategoryDeselected($event)">
-                    
-                    <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewGridLayout>
-                    <ng-template tkListItemSwipeTemplate let-item="item">
-                        <StackLayout orientation="vertical">  
-                            <Image width="150" class="img-rounded m-b-20" [src]="item.imgPath"></Image>
-                            <Label  [text]="item.name"></Label>
-                            <Label  [text]="item.description"></Label>
-                            <Label  [text]="item.imgPath"></Label>
-                        </StackLayout>
-                    </ng-template>
+       <!--  Load Menu Items By Menu Category -->
+    <!-- <app-menu-by-category [menuListByCategory]="menuListByCategory" [image]='imageSelected'></app-menu-by-category> -->
+        <app-menu-items (itemMenu)="getInputFromOutputMenuItem($event)" [menuListByCategory]="menuListByCategory" [image]="imageSelected" [menuName]="categorySelected" [dataItems]="dataItems"></app-menu-items>
 
-                </RadListView>
-            </GridLayout>
-            
-            
-    </StackLayout>
-</ScrollView>
-<!--  
-   <GridLayout row="1" rows="*" columns="*" class="nav">
-    <Image row="0" col="0" src={{navbar}} opacity="0.6"></Image>
-    <GridLayout row="0" col="0" rows="*" columns="*, *, *, *, *" >
-        <Label row="0" col="0" text="Billing" horizontalAlignment="center" verticalAlignment="center" class="ico active"></Label>
-        <Label row="0" col="1" text="b" horizontalAlignment="center" verticalAlignment="center" class="ico fs20" (tap)="gotolist()"></Label>
-        <Label row="0" col="2" text="c" horizontalAlignment="center" verticalAlignment="center" class="ico fs20" (tap)="goToPlayer()"></Label>
-        <Label row="0" col="3" text="d" horizontalAlignment="center" verticalAlignment="center" class="ico fs20"></Label>
-        <Label row="0" col="4" text="e" horizontalAlignment="center" verticalAlignment="center" class="ico fs20"></Label>
-    </GridLayout>
-</GridLayout>    -->
+</StackLayout>
