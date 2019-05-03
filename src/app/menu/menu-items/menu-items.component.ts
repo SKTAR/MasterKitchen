@@ -32,19 +32,19 @@ export class MenuItemsComponent implements OnInit {
     // else{
     //   alert('NO');
     // }
-    alert('constructor');
+  //  alert('constructor');
     
   }
 
   ngOnInit() {
    
-    alert('on Init');
+  //  alert('on Init');
   }
 
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
-    alert('after view Init');
+   // alert('after view Init');
   }
   onItemSelected(arg) {
    

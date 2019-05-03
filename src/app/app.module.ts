@@ -28,7 +28,7 @@ import { AbsoluteComponent } from './learning/layouts/absolute/absolute.componen
 import { MenuCategoryComponent } from './menucategory/menucategory.component';
 import { TabviewComponent } from './learning/ui/tabview/tabview.component';
 import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
-import { MenuModule } from './menu/menu.module';
+
 
 
 

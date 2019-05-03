@@ -11,6 +11,7 @@ import { GridComponent } from './learning/layouts/grid/grid.component';
 import { FlexComponent } from './learning/layouts/flex/flex.component';
 import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
 import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
+//import { MenuComponent } from './menu/menu.component';
 
 
 export const routes: Routes = [
@@ -42,6 +43,8 @@ export const routes: Routes = [
    },
   {
     path: 'menu',
+    //component:MenuComponent
+    //./menu/
     loadChildren: './menu/menu.module#MenuModule'
 
   }

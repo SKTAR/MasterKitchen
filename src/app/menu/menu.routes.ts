@@ -1,6 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
-import { MenuComponent } from './menu.component';
 import { MenuCategoryComponent } from './menu-category/menu-category.component';
+import { MenuComponent } from './menu.component';
+
+
 
 export const componentDeclarations: any[] = [
 ];

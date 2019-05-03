@@ -91,21 +91,21 @@ dataItems; // Sharing to Menu-Item- Component
 	 this.imageSelected = '';
 	 this.imageSelected = this.images[index];
 	 this.categorySelected = this.menuCategoryList[index];
-	 alert('index:'+index+' ,Selected :'+this.categorySelected );
+	// alert('index:'+index+' ,Selected :'+this.categorySelected );
 	if(this.categorySelected != null) {
 	 this.loadMenuByCategory(this.categorySelected);
 
 	// Make Observable Array
 	if(this.menuListByCategory != null)
 	  
-		alert('Have Data'+this.menuListByCategory.length);
+		//alert('Have Data'+this.menuListByCategory.length);
 		this.dataItems = this.menuItemService.getMenuObservableArray(this.menuListByCategory);
     
 		
 	}
 	else 
 	{
-		alert('NO Data');
+		//alert('NO Data');
 	}
 
 	
