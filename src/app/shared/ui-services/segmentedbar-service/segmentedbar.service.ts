@@ -4,15 +4,18 @@ export class SegmentedBarService {
 
     constructor() {
     }
-    public getOrderTypeTab() {
+    public onLoad(arg) {
     }
-    public onSelectedIndexChange(args: any): number {
+    public getSegmentBarTab(itemList: string[]) {
+    }
+    public onSelectedIndexChange(args: any) {
         return 0;
     }
     public getRadListView() {
     }
 
-
+    public generateView(args, index: number) {
+    }
 
 
 }

@@ -18,20 +18,55 @@
 
 </StackLayout>
 -->
+<StackLayout>
+     
+       
 
+        <!--  Show Tab Menu Category -->
+         <!-- <ScrollView class="anim-images" orientation="horizontal">  -->
+                 <StackLayout orientation="horizontal" class=""> 
+                    <GridLayout *ngFor="let item of orderTypeSegmentBarList; let i = index" rows="auto" height="100"
+                         columns="*" (tap)="selectCategory(i)">
+                         <StackLayout orientation="horizontal" class=""> 
+                         <Label [text] = "item" (tap)="onTapIncrease($event)" ></Label>
+                         <FormattedString>
+                                <Span text="&#xf068;"></Span>
+                        </FormattedString> 
+                         </StackLayout>
+                    </GridLayout>
+                  </StackLayout>  
+        <!-- </ScrollView>  -->
+   
+        <!--  Load Menu Items By Menu Category -->
+     
+ 
+ </StackLayout>
 
 <StackLayout orientation="vertical">
-    <SegmentedBar [items]="orderTypeTabList"  [(ngModel)]="selectedBarIndex" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
+    <SegmentedBar #tab  [items]="orderTypeSegmentBarList"  [(ngModel)]="selectedIndex" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
+    
 
     <GridLayout [visibility]="selectedIndex === 0 ? 'visible' : 'collapsed'" backgroundColor="white">
-     <!--   <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
-     -->
-        <StackLayout orientation="vertical">
-           
-            <app-button  *ngFor="let tableobj of tableList" [tableObj]="tableobj" #table></app-button> 
-          
-        </StackLayout>
+      <!-- <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+       -->
+      <StackLayout>
+          <Label horizontalAlignment="center" text="Zone1" fontSize="30" color ="blue" textWrap="true"></Label> 
+  
+          <app-button *ngFor="let table of tableList"  [tableObj]="table"></app-button>
+      </StackLayout>   
+
     </GridLayout>
 
+  <GridLayout [visibility]="selectedIndex === 1 ? 'visible' : 'collapsed'" backgroundColor="white">
+   <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+</GridLayout>
+
+<GridLayout [visibility]="selectedIndex === 2 ? 'visible' : 'collapsed'" backgroundColor="white">
+   <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+</GridLayout>
+
+<GridLayout [visibility]="selectedIndex === 3 ? 'visible' : 'collapsed'" backgroundColor="white">
+   <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+</GridLayout>
 </StackLayout>
 
