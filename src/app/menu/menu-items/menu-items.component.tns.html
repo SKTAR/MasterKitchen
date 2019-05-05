@@ -1,100 +1,88 @@
-<StackLayout>
+ <StackLayout>
     <Label [text]= "menuName" fontSize='40' color="blue" verticalAlignment="center" horizontalAlignment="center"> </Label>
-     <!-- <GridLayout>
-            <RadListView [items]="dataItems" multipleSelection="true" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)">
-                
-                <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewGridLayout>
-                <ng-template tkListItemSwipeTemplate let-item="item">
-                    <StackLayout orientation="vertical" >   
-                        <Image width="150" class="img-rounded m-b-20" [src]="image"></Image>
-                        <Label  [text]="item.name"></Label>
-                        <Label  [text]="item.price"></Label>
-                        <Label  [text]="item.partNumber"></Label>
-                    </StackLayout>
-                </ng-template>
-
-            </RadListView>
-        </GridLayout> -->
         <GridLayout>
             <RadListView [items]="menuListByCategory" multipleSelection="true" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)">
                 
-                <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewGridLayout>
-                <ng-template tkListItemSwipeTemplate let-item="item">
-                    <StackLayout orientation="vertical" borderWidth="2" borderColor="lightgreen"  >   
+                <ListViewStaggeredLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewStaggeredLayout>
+                <ng-template tkListItemSwipeTemplate let-item="item" let-i="index">
+                    <StackLayout  orientation="vertical" borderWidth="2" borderColor="lightgreen"  >   
+                        
                         <Image width="150" class="img-rounded m-b-20" [src]="image"></Image>
+                        <Label  [text]="i" horizontalAlignment="center"></Label>
                         <Label  [text]="item.name" horizontalAlignment="center"></Label>
                         <Label  [text]="item.price" horizontalAlignment="center"></Label>
-                        <Label  [text]="item.partNumber" horizontalAlignment="center"></Label>
+                        <!-- <Label  [text]="item.partNumber" horizontalAlignment="center"></Label>
+                          -->
+                          <StackLayout  orientation="horizontal" horizontalAlignment="center" >  
+                               <Button   id="{{'btd_'+i}}" class="decrease-btn circle-btn btn" text="" (tap)="onTapDecrease($event)">
+                                    <FormattedString>
+                                        <Span text="&#xf068;"></Span>
+                                    </FormattedString>
+                                </Button>
+                                <TextField
+                                id="{{'txt_'+i}}"
+                                hint="1" 
+                                text="1"
+                                textAlignment ="center"
+                                fontSize ="20"
+                                secure="false"
+                                keyboardType="number"
+                                returnKeyType="done" 
+                                (returnPress)="onReturnPress($event)"
+                                autocorrect="false"
+                                maxLength="2"
+                                class="input input-border"
+                                (textChange)="onTextChange($event)">
+                            
+                                </TextField>
+                                <Button  id="{{'bta_'+i}}" class="increase-btn circle-btn btn" text="" (tap)="onTapIncrease($event)">
+                                    <FormattedString>
+                                        <Span text="&#xf067;"></Span>
+                                    </FormattedString>
+                                </Button>
+                          </StackLayout>
+                  
                     </StackLayout>
                 </ng-template>
-
+               
+              
             </RadListView>
         </GridLayout>
-</StackLayout>    
-  
-  
-  
-  <!-- <StackLayout>
-        <Label [text]= "menuName" fontSize='40' color="blue" verticalAlignment="center" horizontalAlignment="center"> </Label>
-         <GridLayout>
-                <RadListView [items]="dataItems" multipleSelection="true" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)">
-                    
-                    <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewGridLayout>
-                    <ng-template tkListItemSwipeTemplate let-item="item">
-                        <StackLayout orientation="vertical" >   
-                            <Image width="150" class="img-rounded m-b-20" [src]="image"></Image>
-                            <Label  [text]="item.name"></Label>
-                            <Label  [text]="item.price"></Label>
-                            <Label  [text]="item.partNumber"></Label>
-                        </StackLayout>
-                    </ng-template>
+</StackLayout>     
 
-                </RadListView>
-            </GridLayout>
-            
-            
-    </StackLayout> -->
-
-   
-    <!-- <StackLayout orientation="vertical" *ngFor="let item of menuListByCategory; let i = index">
-            <Label  text="{{i}}"></Label>   
-            <Label  text="{{item.name}}"></Label>
-            <Label  text="{{item.partNumber}}"></Label>
-            <Label  text="{{item.price}}"></Label>
-            <Image  [src]="image" stretch="aspectFill"></Image> 
-     </StackLayout>  -->
-     
+  <!-- <ng-container *ngFor="let item of menuListByCategory; let i=index" >
+  
+  
+<StackLayout  orientation="horizontal" horizontalAlignment="center" >
+    <Button  class="decrease-btn circle-btn btn" text="" (tap)="onTapDecrease($event)">
+        <FormattedString>
+            <Span text="&#xf068;"></Span>
+        </FormattedString>
+    </Button>
        
-            <!-- <Label  text="{{menuListByCategory.length}}"></Label>
-            <StackLayout orientation="vertical" *ngFor="let item of menuListByCategory">
-                    <Label  text="{{item.name}}"></Label>
-                    <Label  text="{{item.partNumber}}"></Label>
-                    <Label  text="{{item.price}}"></Label>
-                   <Image  [src]="image" stretch="aspectFill"></Image> 
-             </StackLayout>    -->
-<!--          
-             <StackLayout>
-                    <Label [text]= "menuName" fontSize='40' color="blue" verticalAlignment="center" horizontalAlignment="center"> </Label>
-                       
-                    <GridLayout>
-                        <RadListView [items]="dataItems" multipleSelection="true" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)">
-                            
-                            <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewGridLayout>
-                            <ng-template tkListItemSwipeTemplate let-item="item">
-                                <StackLayout orientation="vertical">  
-                                    <Image width="150" class="img-rounded m-b-20" [src]="item.imgPath"></Image>
-                                    <Label  [text]="item.name"></Label>
-                                    <Label  [text]="item.description"></Label>
-                                    <Label  [text]="item.imgPath"></Label>
-                                </StackLayout>
-                            </ng-template>
-        
-                        </RadListView>
-                    </GridLayout>
-                   
-                    
-                    
-            </StackLayout>  -->
-       
-       
+    <TextField
+       id="{{'test_'+i}}"
+       hint="1" 
+       [(ngModel)] = "numberPerServing"
+       textAlignment ="center"
+       fontSize ="20"
+       secure="false"
+       keyboardType="number"
+       returnKeyType="done" 
+       (returnPress)="onReturnPress($event)"
+       autocorrect="false"
+       maxLength="2"
+       class="input input-border"
+       (textChange)="onTextChange($event)">
     
+    </TextField>
+    
+    <Button  class="increase-btn circle-btn btn" text="" (tap)="onTapIncrease($event)">
+        <FormattedString>
+            <Span text="&#xf067;"></Span>
+        </FormattedString>
+    </Button>
+        
+    
+        
+</StackLayout></ng-container> -->

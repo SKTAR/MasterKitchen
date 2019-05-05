@@ -1,8 +1,11 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 // import { OrderTypeService } from '../helper/menucategory/ordertype.service';
 // import { KOTService } from '../shared/backend-services/KOT-Service/kot.service';
-import { TableObj } from '../learning/ui/button/button.component';
+
 import { SegmentedBarService } from '../shared/ui-services/segmentedbar-service/segmentedbar.service';
+import { RoutingHelperService } from '../shared/router-helper/routing-helper.service';
+import { TableObj } from '../shared/common-model/dine-table.model';
+import { KOT, OrderType } from '../shared/common-model/kot.model';
 // import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 
 @Component({
@@ -27,7 +30,8 @@ export class OrderfoodComponent implements OnInit {
   visibleString = 'visibility';
  
   @ViewChild('tab') tabBar: ElementRef;
-  constructor(private segmentedService: SegmentedBarService) {
+  constructor(private segmentedService: SegmentedBarService,
+              private routerHelper: RoutingHelperService) {
     
     this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(this.orderTypeTabList);
      // this.menuCategoryList = kotService.getMenuCategoryList();
@@ -67,6 +71,15 @@ ngAfterViewInit(): void {
   showMessage() {
     alert('TAP BUTTON');
   }
+
+  loadMenu(table: TableObj) {
+  
+    this.routerHelper.goToPage('/menu');
+   }
+
+   onPan(arg) {
+   }
+
 }
 
 

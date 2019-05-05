@@ -100,26 +100,13 @@ dataItems; // Sharing to Menu-Item- Component
 	  
 		//alert('Have Data'+this.menuListByCategory.length);
 		this.dataItems = this.menuItemService.getMenuObservableArray(this.menuListByCategory);
-    
-		
+
 	}
 	else 
 	{
 		//alert('NO Data');
 	}
 
-	
-//	this.loadMenuByCategoryNext(this.categorySelected );
-	// console.log('selected-->' + JSON.stringify(this.menuListByCategory));
-
-	//  if(index == 0) {
-	//  	this.dataItems = this.itemService.getMenuItems();
-	//  }else	if(index == 1) {
-	// 	this.dataItems = this.itemService.getMenuItems2();
-	//  }
-	//  else {
-	// 	this.dataItems = this.itemService.getMenuItems3();
-	//  }
 
 	}
  
@@ -129,9 +116,6 @@ dataItems; // Sharing to Menu-Item- Component
 			return this.menuCategoryList = response;
 		}))
 		.subscribe((response) => {
-		//console.log(response);
-		// return this.menuCategoryList;
-	//	console.log('test' + this.menuCategoryList);
 		console.log('len' + this.menuCategoryList.length);
 },
 error => {
@@ -151,9 +135,7 @@ public loadMenuByCategory(category: string) {
 	// 	console.log('Promise-->' + JSON.stringify(this.menuListByCategory));
 	// },
 	.subscribe((response) => {
- // console.log(response);
  		this.menuListByCategory = response;
-	// console.log('test' + JSON.stringify(this.menuListByCategory));
      console.log('len' + this.menuListByCategory.length);
 	 },
 error => {

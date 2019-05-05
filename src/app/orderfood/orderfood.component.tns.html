@@ -49,11 +49,23 @@
     <GridLayout [visibility]="selectedIndex === 0 ? 'visible' : 'collapsed'" backgroundColor="white">
       <!-- <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
        -->
-      <StackLayout>
+       <StackLayout orientation="vertical" verticalAlignment="center">
           <Label horizontalAlignment="center" text="Zone1" fontSize="30" color ="blue" textWrap="true"></Label> 
   
-          <app-button *ngFor="let table of tableList"  [tableObj]="table"></app-button>
-      </StackLayout>   
+          <!-- Dine Table -->
+          <ng-container *ngFor="let table of tableList">
+            
+            <StackLayout   orientation="vertical" verticalAlignment="center"  >
+              <Label horizontalAlignment="center" [text]="table.TableID"  textWrap="true"></Label> 
+                  
+              <Image #dragImage class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu()" (pan)="onPan($event)" src="~/assets/images/restaurant-circle.png"></Image>
+
+              <app-numuric-button [tableObj]="table" [currentValue]="table.NumberOfCustomer"></app-numuric-button>
+              
+
+          </StackLayout>
+        </ng-container>
+        </StackLayout>   
 
     </GridLayout>
 

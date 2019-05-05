@@ -18,57 +18,35 @@ export class MenuItems {
 
 @Injectable({providedIn: 'root'})
 export class RadlistviewMenuService {
-    dataItems = new ObservableArray<MenuItems>();
+    dataItems = new ObservableArray<Menu>();
     img_folder = '~/assets/images/gallery/gallery';
     private _selectedItems: string;
 
     obsArray;
     
-    public getMenuObservableArray(menuListByCategory: Array<Menu>) {
-        
-        this.obsArray = new ObservableArray<Menu>();
-        for (let item of menuListByCategory) {
-            console.log('service'+ item.partNumber+','+item.name+','+item.price);
-            this.obsArray.push(new Menu(item.partNumber,item.name,item.price));
-          }
-          return this.obsArray;
-    }
+   
     
-    public getMenuItems() {
-        this.dataItems = new ObservableArray<MenuItems>();
-        for (let i = 1; i < 10; i++) {
-            this.dataItems.push(new MenuItems(i, 'Menu ' + i, 'This is item description.', this.img_folder + i + '.jpg'));
-          }
-
-          return this.dataItems;
-    }
-
-    public getMenuItems2() {
-        this.dataItems = new ObservableArray<MenuItems>();
-        for (let i = 1; i < 6; i++) {
-            this.dataItems.push(new MenuItems(i, 'Menu ' + i, 'This is item description.', this.img_folder + i + '.jpg'));
-          }
-
-          return this.dataItems;
-    }
-    public getMenuItems3() {
-        this.dataItems = new ObservableArray<MenuItems>();
-        
-          return this.dataItems;
-    }
-     selectedItems() {
+       selectedItems() {
         return this._selectedItems;
     }
     public onItemSelected(args: ListViewEventData): string {
+     //   alert('Select Item');
         const listview = args.object as RadListView;
-        const selectedItems = listview.getSelectedItems() as Array<MenuItems>;
+        const selectedItems = listview.getSelectedItems() as Array<Menu>;
         let selectedTitles = 'Selected items: ';
-        for (let i = 0; i < selectedItems.length; i++) {
-            selectedTitles += selectedItems[i] ? selectedItems[i].name : '';
+       
+        if(selectedItems == null){
+            alert('CRAP!!!');
+        }
 
-            if (i < selectedItems.length - 1) {
-                selectedTitles += ', ';
-            }
+        for (let i = 0; i < selectedItems.length; i++) {
+            // selectedTitles += selectedItems[i] ? selectedItems[i].name : '';
+
+            // if (i < selectedItems.length - 1) {
+            //     selectedTitles += ', ';
+            // }
+
+            alert('price'+ selectedItems[0].price);
         }
 
         this._selectedItems = selectedTitles;

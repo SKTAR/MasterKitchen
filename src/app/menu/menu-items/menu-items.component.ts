@@ -3,7 +3,8 @@ import { Menu } from '../../shared/kitchen-models/menu.model';
 import { MenuService } from '../../shared/kitchen-services/menu.service';
 import { map } from 'rxjs/operators';
 import { RadlistviewMenuService } from '../ui-service/radlistview-menu.service';
-
+import { TextField } from "tns-core-modules/ui/text-field";
+import { NumuricButtonService } from '../../shared/ui/numuric-button/numuric-button.service';
 @Component({
   selector: 'app-menu-items',
   templateUrl: './menu-items.component.html',
@@ -23,7 +24,15 @@ export class MenuItemsComponent implements OnInit {
   @Input() dataItems;
   
   @Output() itemMenu = new EventEmitter<string>();
-  constructor(private itemService: RadlistviewMenuService) {
+
+  @Output() selectedMenu = new EventEmitter<string>();
+
+  numberPerServing = 1;
+  minVal = 1;
+  maxVal = 99;
+  constructor(private itemService: RadlistviewMenuService
+              ,private numuricBtService: NumuricButtonService) {
+    
     //  if(this.menuListByCategory != null ) {
     //   this.dataItems = new ObservableArray<Menu>();
     //   this.dataItems = this.getMenuItems();
@@ -60,16 +69,36 @@ export class MenuItemsComponent implements OnInit {
   onItemDeselected(arg) {
        this.itemService.onItemDeselected(arg);
   }
-  public getMenuItems() {
-    // for (let item of this.menuListByCategory) {
-    //     this.dataItems.push(new Menu(item.partNumber,item.name,item.price));
-    //   }
-
-    // console.log('menu item :' + JSON.stringify(this.menuListByCategory));
-
-    //   return this.dataItems;
-}
   
+  
+  public onTapIncrease(args) {
+    // if (this.tableObj.NumberOfCustomer >= this.maxVal) {
+    //   this.tableObj.NumberOfCustomer = this.maxVal;
+    // } else {
+    //   this.tableObj.NumberOfCustomer ++;
+    // }
 
 
+    alert('Tap Increse Button');
+    this.numuricBtService.onTapIncrease(args);
+
+    // if (this.numberPerServing >= this.maxVal) {
+    //   this.numberPerServing = this.maxVal;
+    // } else {
+    //   this.numberPerServing ++;
+    // }
+   // this.increaseBTService.onTapIncrease(arg);
+}
+
+public onTapDecrease(args) {
+
+  alert('Tap Increse Button');
+   this.numuricBtService.onTapDecrease(args);
+}
+onTextChange(args) {
+  let textField = <TextField>args.object;
+  console.log("onTextChange");
+  alert('id:'+textField.id);
+
+}
 }
