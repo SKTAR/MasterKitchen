@@ -1,3 +1,14 @@
+# Setup Android Emulators
+https://docs.nativescript.org/angular/tooling/android-virtual-devices
+
+# Test Run Android 
+Run `tns run android --bundle`
+https://docs.nativescript.org/tooling/docs-cli/project/testing/run-android#tns-run-android
+
+# Test Run IOS
+Run `tns run ios --bundle`
+https://docs.nativescript.org/tooling/docs-cli/project/testing/run-ios
+
 # MasterKitchen
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.0.
