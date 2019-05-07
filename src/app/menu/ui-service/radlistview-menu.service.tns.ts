@@ -29,11 +29,12 @@ export class RadlistviewMenuService {
        selectedItems() {
         return this._selectedItems;
     }
-    public onItemSelected(args: ListViewEventData): string {
+    public onItemSelected(args: ListViewEventData):Array<Menu> {
      //   alert('Select Item');
         const listview = args.object as RadListView;
         const selectedItems = listview.getSelectedItems() as Array<Menu>;
-        let selectedTitles = 'Selected items: ';
+        
+       // let selectedTitles = 'Selected items: ';
        
         if(selectedItems == null){
             alert('CRAP!!!');
@@ -46,36 +47,38 @@ export class RadlistviewMenuService {
             //     selectedTitles += ', ';
             // }
 
-            alert('price'+ selectedItems[0].price);
+            alert('item:'+i+'-- price'+ selectedItems[i].price);
         }
 
-        this._selectedItems = selectedTitles;
-        const selectedItem = this.dataItems.getItem(args.index);
-        console.log('Item selected: ' + (selectedItem && selectedItem.name));
-        alert(selectedItem && selectedItem.name);
-        return selectedItem.name;
+       // this._selectedItems = selectedTitles;
+        //const selectedItem = this.dataItems.getItem(args.index);
+        //console.log('Item selected: ' + (selectedItem && selectedItem.name));
+        //alert(selectedItem && selectedItem.name);
+        return selectedItems;
     }
 
-    public onItemDeselected(args: ListViewEventData) {
+    public onItemDeselected(args: ListViewEventData): Array<Menu> {
         const listview = args.object as RadListView;
-        const selectedItems = listview.getSelectedItems() as Array<MenuItems>;
-        if (selectedItems.length > 0) {
-            let selectedTitles = 'Selected items: ';
-            for (let i = 0; i < selectedItems.length; i++) {
-                selectedTitles += selectedItems[i] ? selectedItems[i].name : '';
+        const selectedItems = listview.getSelectedItems() as Array<Menu>;
+        // if (selectedItems.length > 0) {
+        //     let selectedTitles = 'Selected items: ';
+        //     for (let i = 0; i < selectedItems.length; i++) {
+        //         selectedTitles += selectedItems[i] ? selectedItems[i].name : '';
 
-                if (i < selectedItems.length - 1) {
-                    selectedTitles += ', ';
-                }
-            }
+        //         if (i < selectedItems.length - 1) {
+        //             selectedTitles += ', ';
+        //         }
+        //     }
 
-            this._selectedItems = selectedTitles;
-        } else {
-            this._selectedItems = 'No Selected items.';
-        }
+        //     this._selectedItems = selectedTitles;
+        // } else {
+        //     this._selectedItems = 'No Selected items.';
+        // }
 
-        const deselectedItem = this.dataItems.getItem(args.index);
-        console.log('Item deselected: ' + (deselectedItem && deselectedItem.name));
+        // const deselectedItem = this.dataItems.getItem(args.index);
+       // console.log('Item deselected: ' + (deselectedItem && deselectedItem.name));
+            return selectedItems;
+
     }
 }
 

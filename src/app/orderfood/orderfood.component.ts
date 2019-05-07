@@ -6,6 +6,7 @@ import { SegmentedBarService } from '../shared/ui-services/segmentedbar-service/
 import { RoutingHelperService } from '../shared/router-helper/routing-helper.service';
 import { TableObj } from '../shared/common-model/dine-table.model';
 import { KOT, OrderType } from '../shared/common-model/kot.model';
+import { Menu } from '../shared/kitchen-models/menu.model';
 // import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 
 @Component({
@@ -40,8 +41,7 @@ export class OrderfoodComponent implements OnInit {
         new TableObj('Table2', 0, 10),
         new TableObj('Table3', 0, 20)
       ];
-      
-     
+
   }
   
 
@@ -80,6 +80,8 @@ ngAfterViewInit(): void {
    onPan(arg) {
    }
 
+
+  
 }
 
 

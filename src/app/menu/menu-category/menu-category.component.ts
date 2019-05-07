@@ -22,7 +22,7 @@ export class MenuCategoryComponent implements OnInit {
   constructor(private menuService: MenuService,
               private segmentBarService: SegmentedBarService) {
                   //  console.log('init' + this.menuCategoryList);
-                   //this.Test();
+                 //this.Test();
                    this.listAllCategory();
               }
     ngOnInit() {
@@ -53,22 +53,27 @@ export class MenuCategoryComponent implements OnInit {
 
         
          this.loadMenuByCategory(selecttab);
+
+         for (let i = 0; i < this.menuListByCategory.length; i++) {
+         alert(this.menuListByCategory[i].partNumber+','+ this.menuListByCategory[i].price+','+this.menuListByCategory[i].sku);
+         }
+
+
+        
       }
 
 
 
     public loadMenuByCategory(category: string) {
       this.menuService.listMenuByCategory(category).subscribe(
-        response => {
-           console.log( this.menuListByCategory);
-            this.menuListByCategory = response.map(item => {
-                  return new Menu(
-                    item.partNumber,
-                    item.name,
-                    item.price
-                  );
-              });
-          });
+        ((response: Menu[]) => {
+           //console.log( this.menuListByCategory);
+            // this.menuListByCategory = response.map(item => {
+            //       return new Menu();
+            //   });
+            this.menuListByCategory = response;
+
+          }));
     }
 
 }

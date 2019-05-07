@@ -67,7 +67,8 @@ dataItems; // Sharing to Menu-Item- Component
     this.autoCreateColumns =this.menuCategoryList.length;
 		this.autoCreateRows=1;
 		this.listAllCategory();
-		this.loadMenuByCategory(this.menuCategoryList[0]); // Initial Load index 0
+	//	this.selectCategory(0);						
+		//	this.loadMenuByCategory(this.menuCategoryList[0]); // Initial Load index 0
 	
 	
 	
@@ -94,21 +95,21 @@ dataItems; // Sharing to Menu-Item- Component
 	// alert('index:'+index+' ,Selected :'+this.categorySelected );
 	if(this.categorySelected != null) {
 	 this.loadMenuByCategory(this.categorySelected);
-
+	
 	// Make Observable Array
-	if(this.menuListByCategory != null)
+	// if(this.menuListByCategory != null)
 	  
-		//alert('Have Data'+this.menuListByCategory.length);
-		this.dataItems = this.menuItemService.getMenuObservableArray(this.menuListByCategory);
+	// 	//alert('Have Data'+this.menuListByCategory.length);
+	// 	this.dataItems = this.menuItemService.getMenuObservableArray(this.menuListByCategory);
+
+	// }
+	// else 
+	// {
+	// 	//alert('NO Data');
+	// }
 
 	}
-	else 
-	{
-		//alert('NO Data');
-	}
-
-
-	}
+}
  
 
 	public listAllCategory() {
@@ -135,7 +136,7 @@ public loadMenuByCategory(category: string) {
 	// 	console.log('Promise-->' + JSON.stringify(this.menuListByCategory));
 	// },
 	.subscribe((response) => {
- 		this.menuListByCategory = response;
+ 		// this.menuListByCategory = response;
      console.log('len' + this.menuListByCategory.length);
 	 },
 error => {
@@ -158,10 +159,22 @@ loadMenuByCategoryNext(category: string) {
 }
 
 getInputFromOutputMenuItem($event) {
+	
 	const itemNameFromMenuItem = $event;
 	alert('image from Output Menu Item:' + itemNameFromMenuItem);
+
 }
 
-
-
+getSelectedMenu($event) {
+	
+    const item: Menu[] = $event;
+    if (item.length > 0 || item != null) {
+    for (let i = 0 ; i < item.length ; i++) {
+    alert('item:' + i + '=' + item[i].name  + ' , ' + item[i].price);
+    // &#xf0d6;
+    }
+  
+  }
+  
+  }
 }

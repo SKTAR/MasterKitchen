@@ -1,6 +1,21 @@
  <StackLayout>
     <Label [text]= "menuName" fontSize='40' color="blue" verticalAlignment="center" horizontalAlignment="center"> </Label>
-        <GridLayout>
+    <StackLayout  orientation="horizontal"  horizontalAlignment="center">   
+                  
+        <Button  class= "ok-btn" horizontalAlignment="center" verticalAlignment="center" color="white"    (tap)="confirm()">
+            <FormattedString>
+                <Span text="&#xf00c;"></Span>
+            </FormattedString>
+        </Button>
+
+        <Button  class= "cancle-btn" horizontalAlignment="center"  verticalAlignment="center" color="red"   (tap)="cancle()">
+            <FormattedString>
+                <Span text="&#xf00c;"></Span>
+            </FormattedString>
+        </Button>
+        </StackLayout>  
+    
+    <GridLayout>
             <RadListView [items]="menuListByCategory" multipleSelection="true" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)">
                 
                 <ListViewStaggeredLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewStaggeredLayout>
@@ -48,6 +63,8 @@
               
             </RadListView>
         </GridLayout>
+   
+
 </StackLayout>     
 
   <!-- <ng-container *ngFor="let item of menuListByCategory; let i=index" >

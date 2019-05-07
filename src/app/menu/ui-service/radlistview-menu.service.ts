@@ -15,10 +15,11 @@ export class RadlistviewMenuService {
      selectedItems() {
 
     }
-    public onItemSelected(args) {
-        return '';
+    public onItemSelected(args): Array<Menu> {
+        return null;
     }
 
-    public onItemDeselected(args) {
+    public onItemDeselected(args): Array<Menu> {
+        return null;
     }
 }

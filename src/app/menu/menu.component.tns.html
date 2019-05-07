@@ -12,10 +12,11 @@
                     <GridLayout *ngFor="let imageString of images; let i = index" rows="auto"
                         columns="*" (tap)="selectCategory(i)">
                         <StackLayout >
+                        <Label [text]="menuCategoryList[i]" fontSize="20" color="blue" horizontalAlignment="center" ></Label>
                         <Image class="card-img-thumb" row="0" col="0" [src]="imageString"
                             stretch="aspectFill">
                         </Image>
-                        <Label [text]="menuCategoryList[i]" fontSize="20" color="blue" horizontalAlignment="center" ></Label>
+                       
                     </StackLayout>
                     </GridLayout>
                 
@@ -24,6 +25,6 @@
   
        <!--  Load Menu Items By Menu Category -->
     <!-- <app-menu-by-category [menuListByCategory]="menuListByCategory" [image]='imageSelected'></app-menu-by-category> -->
-        <app-menu-items (itemMenu)="getInputFromOutputMenuItem($event)" [menuListByCategory]="menuListByCategory" [image]="imageSelected" [menuName]="categorySelected" [dataItems]="dataItems"></app-menu-items>
+        <app-menu-items (selectedMenu) = "getSelectedMenu($event)"  [menuListByCategory]="menuListByCategory" [image]="imageSelected" [menuName]="categorySelected" [dataItems]="dataItems"></app-menu-items>
 
 </StackLayout>
