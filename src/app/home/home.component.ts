@@ -47,7 +47,12 @@ export class HomeComponent implements OnInit {
       //   console.log(this.result); }
       // );
 
-     }
+    this.menuService.list().subscribe(
+      res => {
+        this.MenuInformation = res;
+        console.log(res)
+    });
+   }
 
   ngOnInit(): void {
     this.menuItem = new MenuItem();
@@ -61,16 +66,14 @@ export class HomeComponent implements OnInit {
     this.drawerService.hide();
   }
 
-
-
-  public createNewMenu(item: MenuItem) {
-      this.menuService.create(item).subscribe(res => {
-        this.result = res;
-        console.log(JSON.stringify(this.result));
-    },
-    error => {
-      console.log('Error', error);
-    });
+  public createNewMenu(item) {
+    //   this.menuService.create(item).subscribe(res => {
+    //     this.result = res;
+    //     console.log(JSON.stringify(this.result));
+    // },
+    // error => {
+    //   console.log('Error', error);
+    // });
   }
 
 
