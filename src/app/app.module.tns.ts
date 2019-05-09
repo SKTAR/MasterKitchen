@@ -28,6 +28,7 @@ import { TabviewComponent } from './learning/ui/tabview/tabview.component';
 import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
 import { MenuModule } from './menu/menu.module';
 import { NumuricButtonComponent } from './shared/ui/numuric-button/numuric-button.component';
+import { StationComponent } from './station/station.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { NumuricButtonComponent } from './shared/ui/numuric-button/numuric-butto
     TabviewComponent,
     TabGridlayoutAutoRowComponent,
     AutoGridColumns, // Directive   TabGridlayoutAutoRowComponent
-    AutoGridRows, NumuricButtonComponent  // Directive      TabGridlayoutAutoRowComponent
+    AutoGridRows, NumuricButtonComponent, StationComponent  // Directive      TabGridlayoutAutoRowComponent
     // MenuComponent
     // RadlistviewComponent,
 

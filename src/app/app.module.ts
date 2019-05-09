@@ -29,6 +29,8 @@ import { MenuCategoryComponent } from './menucategory/menucategory.component';
 import { TabviewComponent } from './learning/ui/tabview/tabview.component';
 import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
 import { NumuricButtonComponent } from './shared/ui/numuric-button/numuric-button.component';
+import { StationComponent } from './station/station.component';
+
 
 
 
@@ -52,6 +54,8 @@ import { NumuricButtonComponent } from './shared/ui/numuric-button/numuric-butto
     TabviewComponent,
     TabGridlayoutAutoRowComponent,
     NumuricButtonComponent,
+    StationComponent,
+
 
   ],
   imports: [

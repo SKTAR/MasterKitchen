@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuService } from '../../shared/kitchen-services/menu.service';
-import { Menu, Category } from '../../shared/kitchen-models/menu.model';
+import { Menu} from '../../shared/kitchen-models/menu.model';
 import { map } from 'rxjs/operators';
 
 import { SegmentedBarService } from '../../shared/ui-services/segmentedbar-service/segmentedbar.service';

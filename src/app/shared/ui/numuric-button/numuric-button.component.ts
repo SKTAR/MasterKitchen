@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TableObj } from '../../common-model/dine-table.model';
 import { RoutingHelperService } from '../../router-helper/routing-helper.service';
+import { NumuricButtonService } from './numuric-button.service';
 
 @Component({
   selector: 'app-numuric-button',
@@ -14,7 +15,7 @@ export class NumuricButtonComponent implements OnInit {
 
   @Input() tableObj: TableObj;
 
-  @Input() currentValue: number;
+ // @Input() currentValue: number;
 
  // tableObj: TableObj;
 
@@ -26,31 +27,43 @@ export class NumuricButtonComponent implements OnInit {
   ngOnInit() {
   }
 
-  public onTapIncrease(arg) {
-      // if (this.tableObj.NumberOfCustomer >= this.maxVal) {
-      //   this.tableObj.NumberOfCustomer = this.maxVal;
-      // } else {
-      //   this.tableObj.NumberOfCustomer ++;
-      // }
-      if (this.currentValue >= this.maxVal) {
-        this.currentValue = this.maxVal;
+  public onTapIncrease(args) {
+      if (this.tableObj.NumberOfCustomer >= this.maxVal) {
+        this.tableObj.NumberOfCustomer = this.maxVal;
       } else {
-        this.currentValue ++;
+        this.tableObj.NumberOfCustomer ++;
       }
-      
-      console.log(this.currentValue);
+      // if (this.currentValue >= this.maxVal) {
+      //   this.currentValue = this.maxVal;
+      // } else {
+      //   this.currentValue ++;
+      // }
+     // this.numuricService.IncreaseValue(args);
+
+
+     //console.log(this.currentValue);
 
      // this.increaseBTService.onTapIncrease(arg);
   }
 
-  public onTapDecrease(arg) {
-    
-    if ( this.currentValue  <= this.minVal) {
-      this.currentValue  = this.minVal;
-    } else {
-      this.currentValue --;
-    }
+  public onTapDecrease(args) {
+   // this.numuricService.DecreaseValue(args);
+    // if ( this.currentValue  <= this.minVal) {
+    //   this.currentValue  = this.minVal;
+    // } else {
+    //   this.currentValue --;
+    // }
     // this.increaseBTService.onTapDecrease(arg);
+    if (this.tableObj.NumberOfCustomer >= this.maxVal) {
+      this.tableObj.NumberOfCustomer = this.maxVal;
+    } else {
+      this.tableObj.NumberOfCustomer --;
+    }
+    // if (this.currentValue >= this.maxVal) {
+    //   this.currentValue = this.maxVal;
+    // } else {
+    //   this.currentValue --;
+    // }
   }
 
  

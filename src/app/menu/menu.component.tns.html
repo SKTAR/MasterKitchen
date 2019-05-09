@@ -23,7 +23,7 @@
                  </StackLayout>  
        </ScrollView> 
   
-       <!--  Load Menu Items By Menu Category -->
+    <!--  Load Menu Items By Menu Category -->
     <!-- <app-menu-by-category [menuListByCategory]="menuListByCategory" [image]='imageSelected'></app-menu-by-category> -->
         <app-menu-items (selectedMenu) = "getSelectedMenu($event)"  [menuListByCategory]="menuListByCategory" [image]="imageSelected" [menuName]="categorySelected" [dataItems]="dataItems"></app-menu-items>
 

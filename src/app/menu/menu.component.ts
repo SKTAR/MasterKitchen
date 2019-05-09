@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, EventEmitter, ElementRef, Output } from '@angular/core';
-import { Menu } from '../shared/kitchen-models/menu.model';
 import { MenuService } from '../shared/kitchen-services/menu.service';
 import { map } from 'rxjs/operators';
 import { RadlistviewMenuService } from './ui-service/radlistview-menu.service';
-
+import { MenuItems, KOT } from '../shared/common-model/kot.model';
+import { Menu, Ingredients } from '../shared/kitchen-models/menu.model';
 // @Directive({
 //   selector: '[hash]',
 // })
@@ -25,12 +25,16 @@ export class MenuComponent implements OnInit {
  menuListByCategory: Array<Menu>; // send to Menu List By Category
  @ViewChild('tabHighlight') tabHighlight: ElementRef;
 	selectedTab: number = 0;
-colNum = 5;
-rowNum = 1;
-page = 'Select Menu';
-categorySelected = ''; // string after selected
-dataItems; // Sharing to Menu-Item- Component 
+	colNum = 5;
+	rowNum = 1;
+	page = 'Select Menu';
+	categorySelected = ''; // string after selected
+	dataItems; // Sharing to Menu-Item- Component 
 
+
+	newMenu: Menu;
+
+	ingredient: Ingredients;
 
 	// @ViewChild('image1') image1: ElementRef;
 	// @ViewChild('image2') image2: ElementRef;
@@ -69,8 +73,11 @@ dataItems; // Sharing to Menu-Item- Component
 		this.listAllCategory();
 	//	this.selectCategory(0);						
 		//	this.loadMenuByCategory(this.menuCategoryList[0]); // Initial Load index 0
-	
-	
+
+		// Create  New Menu  
+		this.newMenu = new Menu();
+		this.newMenu.items = [];
+		this.ingredient = new Ingredients();
 	
 	}
 
@@ -166,15 +173,123 @@ getInputFromOutputMenuItem($event) {
 }
 
 getSelectedMenu($event) {
+  
+	alert('Order Page');
+	const item: Menu[] = $event;
+	if (item.length > 0 || item != null) {
+	for (let i = 0 ; i < item.length ; i++) {
+	 alert('Menu Component item:' + i + '=' + item[i].name  + ' , ' + item[i].price);
+	// &#xf0d6;
+	}
+
+}
+
+let a = new KOT();
+Object.keys(a).forEach(key => console.log(key));
+
+for (let key in a) {
+    console.log(key);
+}
+
+
+const items2: MenuItems[] = 
+[{
+	'partNumber'  : '011',
+	'name'        : 'ข้าวผัด',
+	'unitPrice'   : 100,
+	'quantity'    : 2,  //4,
+	'total'       : 200
+
+}];
+
+
+const kot = new KOT();
+kot.customerName = 'Tar';
+kot.customerNumber = 3;
+kot.shipTo = 'table3';// table3
+kot.contactName = 'Tar'; ; 
+kot.saleName  = 'staff1';
+kot.status  = 'OPEN'; // 'OPEN'
+kot.type = 'DineIn';  // Dine In
+kot.orderNumber = 'Order0001'; //'Order0001',
+kot.paymentTerm = ''; // string;// "CASH",
+kot.deliveryTime = 0; //30,
+kot.deliveryUnit = 'Minute';//"Minute",
+kot.validDate = new Date();// Date //"2019-03-19T13:43:21.270Z",
+
+kot.items = items2;
+
+console.log(JSON.stringify(kot));
+
+}
+
+
+public createNewMenu(menu: Menu) {
+
+
 	
-    const item: Menu[] = $event;
-    if (item.length > 0 || item != null) {
-    for (let i = 0 ; i < item.length ; i++) {
-    alert('item:' + i + '=' + item[i].name  + ' , ' + item[i].price);
-    // &#xf0d6;
-    }
-  
-  }
-  
-  }
+	
+
+	this.menuService.create(menu).subscribe(
+		res => console.log(res),
+		error => console.log(error) // error path
+	);
+
+	alert('part number' + menu.partNumber + ',' + 'sku:' + menu.sku);
+
+
+
+		// newMenu.
+		// newMenu.partNumber: number;
+		// newMenu.name: string;
+		// newMenu.category: string;
+		// newMenu.sku: string;
+		// newMenu.price: number;
+		// newMenu.items: MenuItems;
+		// newMenu.createdDate: Date;
+		// newMenu.updatedDate: Date;
+		// newMenu.v: number;
+	  
+
+		//   'partNumber': string;
+		//   'name': string;
+		//   'type': string;
+		//   'category': string;
+		//   'sku': string;
+		//   'quantity': number;
+		//   'quantityUnit': string;
+	 
+	// this.menuService.create()
+}
+
+public deleteMenu(menu: Menu) {
+	this.menuService.delete(menu.partNumber).subscribe(
+		res => console.log(res)
+	);
+
+
+}
+
+public addIngredient(ingredient: Ingredients) {
+	//alert(ingredient.name);
+	this.newMenu.items.push(ingredient);
+//	console.log(this.newMenu);
+	console.log(this.newMenu.items);
+//	this.newMenu.items.push(ingredient);
+	//this.ingredients.push(items);
+
+}
+
+public removeIngredient(ingredient: Ingredients) {
+	//alert(ingredient.name);
+	this.newMenu.items.splice(1,1);
+	let removeIndex = this.newMenu.items.indexOf(ingredient,0);
+	alert('index to be remove:'+ removeIndex);//	
+    console.log(this.newMenu);
+	console.log(this.newMenu.items);
+//	this.newMenu.items.push(ingredient);
+	//this.ingredients.push(items);
+
+}
+
 }

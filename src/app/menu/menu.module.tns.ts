@@ -6,6 +6,7 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 import { MenuRoutingModule } from './menu-routing.module.tns';
+import { IngredientComponent } from './ingredient/ingredient.component';
 
 // import { AutoGridRows, AutoGridColumns } from '../shared/grid.directive';
 
@@ -14,6 +15,7 @@ import { MenuRoutingModule } from './menu-routing.module.tns';
     MenuComponent,
     MenuCategoryComponent,
     MenuItemsComponent,
+    IngredientComponent,
    // AutoGridRows,        //  Directive Auto Row Column
    // AutoGridColumns   // Directives  Auto Row Column
   ],

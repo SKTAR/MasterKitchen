@@ -7,10 +7,10 @@ export class NumuricButtonService implements OnInit {
 
   constructor() {
   }
-  public onTapIncrease(args): number {
+  public IncreaseValue(args,txtId: string): number {
     return 0;
   }
-  public onTapDecrease(args): number {
+  public DecreaseValue(args,txtId: string): number {
     return 0;
   }
 }

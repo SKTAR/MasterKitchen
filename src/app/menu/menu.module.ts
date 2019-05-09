@@ -6,6 +6,8 @@ import { MenuCategoryComponent } from './menu-category/menu-category.component';
 import { FormsModule } from '@angular/forms';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { MenuRoutingModule } from './menu-routing.module';
+import { IngredientComponent } from './ingredient/ingredient.component';
+
 
 
 
@@ -13,7 +15,7 @@ import { MenuRoutingModule } from './menu-routing.module';
 @NgModule({
   declarations: [
      MenuComponent, 
-     MenuCategoryComponent, MenuItemsComponent,
+     MenuCategoryComponent, MenuItemsComponent, IngredientComponent
     ],
   imports: [
     CommonModule,

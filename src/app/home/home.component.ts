@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RadSideDrawerService} from '../shared/ui-services/radside-drawer-service/radsidedrawer.service';
 import { MenuService } from '../shared/kitchen-services/menu.service';
 import { MenuItem, Recipe } from '../shared/kitchen-services/MenuItem';
-import { FakeHttpService } from '../shared/backend-services/test.service';
 import { map, filter } from 'rxjs/operators';
-import { User } from '../shared/backend-services/IUser';
+
 
 @Component({
   // providers: [DrawerService],
@@ -20,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   menuItem: MenuItem;
 
-   user: User[];
   url = '';
   result: any;
   constructor

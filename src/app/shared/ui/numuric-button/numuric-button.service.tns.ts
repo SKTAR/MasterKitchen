@@ -10,7 +10,9 @@ export class NumuricButtonService implements OnInit {
   }
   ngOnInit() {}
 
-  public onTapIncrease(args: EventData): number {
+  public IncreaseValue(args: EventData, textId: string): number {
+   
+   alert('send ID' + textId);
    const button = <Button>args.object;
    // alert('InService');
 
@@ -20,7 +22,7 @@ export class NumuricButtonService implements OnInit {
 
    const page = button.page;
    const txtField =  <TextField>page.getViewById(txtID);
-   alert('Button ID :' + button.id + 'ui:' + txtField.id + 'ui_value:' + txtField.text);
+   // alert('Button ID :' + button.id + 'ui:' + txtField.id + 'ui_value:' + txtField.text);
  
     const val =   parseInt(txtField.text)+1;
     const vm = new Observable();
@@ -29,8 +31,9 @@ export class NumuricButtonService implements OnInit {
     return val;
        // alert('button ID :' + button.id + 'X:' +  button.originX + 'Y:' + button.originY + 'counter:' + this.counter + ' times!');
   }
-  public onTapDecrease(args: EventData): number{
+  public DecreaseValue(args: EventData, textId: string): number{
     
+   alert('send ID' + textId);
    const button = <Button>args.object;
    // alert('InService');
 
@@ -40,7 +43,7 @@ export class NumuricButtonService implements OnInit {
 
    const page = button.page;
    const txtField =  <TextField>page.getViewById(txtID);
-   alert('Button ID :' + button.id + 'ui:' + txtField.id + 'ui_value:' + txtField.text);
+   //alert('Button ID :' + button.id + 'ui:' + txtField.id + 'ui_value:' + txtField.text);
  
     const val =   parseInt(txtField.text)-1;
     const vm = new Observable();

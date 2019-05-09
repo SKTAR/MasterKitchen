@@ -1,7 +1,7 @@
 import { Injectable, Optional } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BaseAPI } from './_base';
-import { Menu, Category } from '../kitchen-models/menu.model';
+import { Menu } from '../kitchen-models/menu.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +21,6 @@ export class MenuService extends BaseAPI {
     return this.post(null);
   }
 
-  public listCategories2() {
-    // return this.httpClient.post(`${this.apiURL}/menu/getAllCategories`, null); 
-    this.subURL =  '/menu/getAllCategories';
-    return this.httpClient.post<Category[]>(`${this.apiURL}${this.subURL}`, null);
-  }
 
   public listMenuByCategory(category: string) {
      this.subURL =  '/menu/listByCategory';
@@ -34,5 +29,12 @@ export class MenuService extends BaseAPI {
           category: category
          });
   }
+
+  public createMenu(menu: Menu) {
+    // return this.httpClient.post(`${this.apiURL}${this.subURL}`, {
+    //   category: category
+    //  });
+  }
+
 
 }

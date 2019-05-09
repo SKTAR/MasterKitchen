@@ -30,6 +30,11 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="1" text="Order Food (KOT)" class="p-r-10"></Label>
                 </GridLayout>
              
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/station')" (tap)="onNavItemTap('/station')">
+                    <Label col="0" text="&#xf017;" class="fa"></Label>
+                    <Label col="1" text="Station" class="p-r-10"></Label>
+                </GridLayout>
+
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/zonetable')" (tap)="onNavItemTap('/zonetable')">
                     <Label col="0" text="&#xf017;" class="fa"></Label>
                     <Label col="1" text="Zone & Table" class="p-r-10"></Label>

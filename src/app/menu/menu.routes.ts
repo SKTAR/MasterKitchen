@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { MenuCategoryComponent } from './menu-category/menu-category.component';
 import { MenuComponent } from './menu.component';
+import { IngredientComponent } from './ingredient/ingredient.component';
 
 
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
         path: 'menu-category',
         component: MenuCategoryComponent
     }
+    
 
 
 ];

@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { RadlistviewMenuService } from '../ui-service/radlistview-menu.service';
 import { NumuricButtonService } from '../../shared/ui/numuric-button/numuric-button.service';
 import { RoutingHelperService } from '../../shared/router-helper/routing-helper.service';
-import { KOT } from '../../shared/common-model/kot.model';
+import { KOT, MenuItems } from '../../shared/common-model/kot.model';
 
 
 interface SelectedMenu {
@@ -90,7 +90,7 @@ export class MenuItemsComponent implements OnInit {
   }
   
   
-  public onTapIncrease(args) {
+  public onTapIncrease(args,txtId: string) {
     // if (this.tableObj.NumberOfCustomer >= this.maxVal) {
     //   this.tableObj.NumberOfCustomer = this.maxVal;
     // } else {
@@ -99,7 +99,7 @@ export class MenuItemsComponent implements OnInit {
 
 
     alert('Tap Increse Button');
-    this.numuricBtService.onTapIncrease(args);
+    this.numuricBtService.IncreaseValue(args,txtId);
 
     // if (this.numberPerServing >= this.maxVal) {
     //   this.numberPerServing = this.maxVal;
@@ -109,10 +109,10 @@ export class MenuItemsComponent implements OnInit {
    // this.increaseBTService.onTapIncrease(arg);
 }
 
-public onTapDecrease(args) {
+public onTapDecrease(args, txtId: string) {
 
   alert('Tap Increse Button');
-   this.numuricBtService.onTapDecrease(args);
+   this.numuricBtService.DecreaseValue(args, txtId);
 }
 onTextChange(args) {
    // let textField = <TextField>args.object;
@@ -127,47 +127,7 @@ public confirm() {
       this.routerHelper.onGoBack();
   }
 
-  const kot = new KOT();
-  kot.customerName = 'Tar';
-  kot.customerNumber = 3;
-  kot.shipTo = 'table3';// table3
-  kot.contactName = 'Tar'; ; 
-  kot.saleName  = 'staff1';
-  kot.status  = 'OPEN'; // 'OPEN'
-  kot.type = 'DineIn'  // Dine In
-  kot.orderNumber = 'Order0001'; //'Order0001',
-  kot.paymentTerm = ''; // string;// "CASH",
-  kot.deliveryTime = 0; //30,
-  kot.deliveryUnit = 'Minute';//"Minute",
-  kot.validDate = new Date();// Date //"2019-03-19T13:43:21.270Z",
-
-//   export class KOT  { //Kitchen Order Token {
-//     customerName: string;
-//     customerNumber: number;
-//     shipTo: string; // table3
-//     contactName: string; 
-//     saleName: string;
-//     status: string; // 'OPEN'
-//     type: string;  // Dine In
-//     orderNumber: string;//'Order0001',
-//     paymentTerm: string;// "CASH",
-//     deliveryTime: number; //30,
-//     deliveryUnit: string;//"Minute",
-//     validDate: Date //"2019-03-19T13:43:21.270Z",
-//     items: MenuItems[];
-// }
-
-
-// export class MenuItems {
-//   'partNumber': string; //'p0001',
-//   'name': string;      //'ลอดช่องกะทิสด',
-//   'unitPrice': number;  // 100;
-//   'quantity': number;  //4,
-//   'total': number;    //400
-// }
-
-
- // orderKot = new KOT('0001',OrderType.DineIn,'S001','Table1',)
+ 
 
 
 }
