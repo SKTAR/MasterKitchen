@@ -30,7 +30,8 @@ import { TabviewComponent } from './learning/ui/tabview/tabview.component';
 import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
 import { NumuricButtonComponent } from './shared/ui/numuric-button/numuric-button.component';
 import { StationComponent } from './station/station.component';
-
+ import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { EmployeeComponent } from './employee/employee.component';
 
 
 
@@ -55,6 +56,7 @@ import { StationComponent } from './station/station.component';
     TabGridlayoutAutoRowComponent,
     NumuricButtonComponent,
     StationComponent,
+    EmployeeComponent,
 
 
   ],
@@ -66,7 +68,8 @@ import { StationComponent } from './station/station.component';
     FormsModule,
    // ReactiveFormsModule,
     NgbModule, // https://ng-bootstrap.github.io
-   // RouterModule.forRoot(routes)
+    MDBBootstrapModule.forRoot(),
+    // RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent],

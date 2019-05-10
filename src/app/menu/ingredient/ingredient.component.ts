@@ -8,7 +8,7 @@ import { Ingredients } from '../../shared/kitchen-models/menu.model';
 })
 export class IngredientComponent implements OnInit {
 
-  @Input() ingredient: Ingredients[];
+  @Input() ingredient: Array<Ingredients>;
   constructor() { }
 
   ngOnInit() {

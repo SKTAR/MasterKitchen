@@ -60,9 +60,9 @@
             <StackLayout   orientation="vertical" verticalAlignment="center"  >
               <Label horizontalAlignment="center" [text]="table.TableID"  textWrap="true"></Label> 
                   
-              <Image id="{{'table_'+i}}" class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu()" (pan)="onPan($event)" src="~/assets/images/restaurant-circle.png"></Image>
+              <Image id="{{'table_'+i}}" class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu($event)" (pan)="onPan($event)" src="~/assets/images/restaurant-circle.png"></Image>
 
-              <app-numuric-button [tableObj]="table" ></app-numuric-button>
+              <app-numuric-button (numberOfCustomer)="getNumberOfCustomer($event)" [tableObj]="table" ></app-numuric-button>
               
 
           </StackLayout>

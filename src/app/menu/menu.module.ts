@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { MenuRoutingModule } from './menu-routing.module';
 import { IngredientComponent } from './ingredient/ingredient.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -20,7 +21,8 @@ import { IngredientComponent } from './ingredient/ingredient.component';
   imports: [
     CommonModule,
     MenuRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
 
    // RouterModule.forChild(routes)
   ]

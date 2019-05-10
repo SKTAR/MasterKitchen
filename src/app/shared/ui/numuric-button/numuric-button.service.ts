@@ -13,4 +13,7 @@ export class NumuricButtonService implements OnInit {
   public DecreaseValue(args,txtId: string): number {
     return 0;
   }
+  getNumberCustomer(args, tableID: string) {
+    return 0;
+}
 }

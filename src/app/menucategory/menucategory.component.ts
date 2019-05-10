@@ -1,7 +1,7 @@
 
 import { ButtonComponent, TableObj } from '../learning/ui/button/button.component';
 import { MenuService } from '../shared/kitchen-services/menu.service';
-import { Menu } from '../shared/kitchen-models/menu.model';
+import { MenuModel } from '../shared/kitchen-models/menu.model';
 import { Component, OnInit, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 // import { MenuService } from '../helper/menucategory/menu.service';
 // import { MenuItemsService } from '../helper/menuitems/menu-items.service';
@@ -15,7 +15,7 @@ import { Component, OnInit, AfterViewInit, ViewChildren, QueryList } from '@angu
 })
 export class MenuCategoryComponent implements OnInit, AfterViewInit {
  
-  menuList = new Array<Menu>(); //
+  menuList = new Array<MenuModel>(); //
   categoryList;
   tabSelectedIndex: number;
 

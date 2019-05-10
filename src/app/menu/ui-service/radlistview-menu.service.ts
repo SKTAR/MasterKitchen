@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Menu } from '../../shared/kitchen-models/menu.model';
+import { MenuModel } from '../../shared/kitchen-models/menu.model';
 
 @Injectable({providedIn: 'root'})
 export class RadlistviewMenuService {
     
-    public getMenuObservableArray(menuListByCategory: Array<Menu>) {
+    public getMenuObservableArray(menuListByCategory: Array<MenuModel>) {
     }
     public getMenuItems() {
     }
@@ -15,11 +15,11 @@ export class RadlistviewMenuService {
      selectedItems() {
 
     }
-    public onItemSelected(args): Array<Menu> {
+    public onItemSelected(args): Array<MenuModel> {
         return null;
     }
 
-    public onItemDeselected(args): Array<Menu> {
+    public onItemDeselected(args): Array<MenuModel> {
         return null;
     }
 }

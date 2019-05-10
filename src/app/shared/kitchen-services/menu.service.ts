@@ -40,6 +40,7 @@ export class MenuService extends BaseAPI {
     return this.httpClient.get<MenuModel[]>(`${this.apiURL}${this.subURL}`);
   }
   public getOne(id): Observable<MenuModel> {
+    this.subURL =  '/menu';
     return this.httpClient.get<MenuModel>(`${this.apiURL}${this.subURL}/get/${id}`);
   }
   public update(id, data: MenuModel) {

@@ -3,9 +3,11 @@ import { SegmentedBarService } from '../shared/ui-services/segmentedbar-service/
 import { RoutingHelperService } from '../shared/router-helper/routing-helper.service';
 import { TableObj } from '../shared/common-model/dine-table.model';
 import { KOT, OrderType, MenuItems } from '../shared/common-model/kot.model';
-import { Menu } from '../shared/kitchen-models/menu.model';
+import { MenuModel } from '../shared/kitchen-models/menu.model';
+import { ActivatedRoute, NavigationExtras } from '@angular/router';
 // import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
-
+import { Image } from 'tns-core-modules/ui/image';
+import { NumuricButtonService } from '../shared/ui/numuric-button/numuric-button.service';
 @Component({
  // providers: [OrderTypeService],
   selector: 'app-orderfood',
@@ -24,13 +26,30 @@ export class OrderfoodComponent implements OnInit {
   selectedIndex = 0;
   
   tableList: TableObj[] = [];
- prop = 0;
+  prop = 0;
   visibleString = 'visibility';
- 
+
   @ViewChild('tab') tabBar: ElementRef;
+  tableID: string;
+  orderFromMenuItemComp: MenuModel[];
+  nCustomter = 1; // get From OutPut
   constructor(private segmentedService: SegmentedBarService,
-              private routerHelper: RoutingHelperService) {
-    
+              private routerHelper: RoutingHelperService,
+              private route: ActivatedRoute,
+              private numuricService: NumuricButtonService) {
+              //   this.route.parent.url.subscribe(url => console.log('path from' + url[0].path));
+              //   this.route.params
+              // .forEach(params => {
+              //   // this.id = this.route.snapshot.params['id'];
+              //   const data = this.route.snapshot.params.menu;
+              //   console.log(JSON.stringify(data));
+              // });
+              this.route.queryParams.subscribe(params => {
+                this.orderFromMenuItemComp = params['menuItems'];
+              this.tableID = params['tableID'];
+                console.log('pass Data' + this.orderFromMenuItemComp.length);
+                console.log('Table' + this.tableID);
+            });
     this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(this.orderTypeTabList);
      // this.menuCategoryList = kotService.getMenuCategoryList();
       this.tableList = [
@@ -44,7 +63,7 @@ export class OrderfoodComponent implements OnInit {
 
 ngOnInit(): void {
     // Init your component properties here.
-    
+  
    
 }
 ngAfterViewInit(): void {
@@ -69,15 +88,32 @@ ngAfterViewInit(): void {
     alert('TAP BUTTON');
   }
 
-  loadMenu(table: TableObj) {
+  loadMenu(args) {
+    //alert();
+     const img = <Image>args.object;
+     const table = img.id;
+     alert('tableID' + img.id);
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+          'tableID'  : table,
+          'numCust'  : this.nCustomter
+      }
+  };
+  // const number = this.numuricService.getNumberCustomer(args,table);
+  alert('custNumber:' + this.nCustomter);
   
-    this.routerHelper.goToPage('/menu');
+   alert()
+    this.routerHelper.goToPageExtra('menu', '', navigationExtras);
+   
    }
 
    onPan(arg) {
    }
 
-
+  getNumberOfCustomer($event) {
+    this.nCustomter = $event;
+    
+  }
   
 }
 

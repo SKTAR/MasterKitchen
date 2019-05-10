@@ -3,6 +3,8 @@ import { EventData, Page, getViewById, Observable } from 'tns-core-modules/ui/pa
 import { Button } from 'tns-core-modules/ui/button';
 import { TextField } from 'tns-core-modules/ui/text-field';
 import { userInfo } from 'os';
+import { Image } from 'tns-core-modules/ui/image';
+import { EventEmitter } from 'events';
 @Injectable({providedIn: 'root'})
 export class NumuricButtonService implements OnInit {
   // counter = 1;
@@ -10,6 +12,7 @@ export class NumuricButtonService implements OnInit {
   }
   ngOnInit() {}
 
+  
   public IncreaseValue(args: EventData, textId: string): number {
    
    alert('send ID' + textId);
@@ -53,6 +56,17 @@ export class NumuricButtonService implements OnInit {
   
     return val;
    // alert('button ID :' + button.id + 'X:' +  button.originX + 'Y:' + button.originY + 'counter:' + this.counter + ' times!');
+}
+
+ getNumberCustomer(args, tableID: string) {
+      const img =   <Image>args.object;
+      const page = img.page;
+   const txtID  = 'num' + tableID.split('_')[1];
+   const txtField =  <TextField>page.getViewById(txtID);
+   //alert('Button ID :' + button.id + 'ui:' + txtField.id + 'ui_value:' + txtField.text);
+    
+    const val =   parseInt(txtField.text);
+    return val;
 }
 
 }

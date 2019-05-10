@@ -4,24 +4,75 @@
 <hr> -->
 
 <h2>Menu</h2>
+<!-- export class MenuModel {
+  partNumber: number;
+  name: string;
+  category: string;
+  station: string;
+  sku: string; // large
+  price: number;
+  items: Array<Ingredients>;
+  createdDate: Date;
+  updatedDate: Date;
+  v: number;
 
+    constructor() {
+      }
+}
+
+export class Ingredients {
+    'name': string;
+    'category': string;
+    'sku': string;
+    'quantity': number;
+    'quantityUnit': string; -->
 <div>
 <table border="1" style="width: 100%;">
-  <tr style="background-color: #CCC">
-    <td>ID</td>
+  <tr style="background-color:yellow">
+    <td>PartNumber</td>
     <td>Name</td>
-    <td>Type</td>
-    <td>Price</td>
+    <td>Category</td>
+    <td>station</td>
+    <td>sku</td>
+    <td>price</td>    
+    <td>createdDate</td>
+    <td>updatedDate</td>
+    <td>version</td>
   </tr>
 
-  <tr *ngFor="let menu of MenuInformation">
-    <td>{{ menu.partNumber }}</td>
-    <td>{{ menu.name }}</td>
-    <td>{{ menu.category }}</td>
-    <td>{{ menu.price }}</td>
-  </tr>
+  <ng-container *ngFor="let menu of MenuInformation">  
+    <tr style="background-color: lightgreen">
+    <td>{{ menu.partNumber}}</td>
+    <td>{{ menu.name}}</td>
+    <td>{{ menu.category}}</td>
+    <td>{{ menu.station}}</td>
+    <td>{{ menu.sku}}</td>
+    <td>{{ menu.price}}</td>    
+    <td>{{ menu.createdDate}}</td>
+    <td>{{ menu.updatedDate}}</td>
+    <td>{{ menu.v}}</td>
+    </tr> 
+    <tr style="background-color: lightblue">
+        <td>Ingredient PartNumber</td>
+        <td>Name</td>
+        <td>Category</td>
+        <td>SKU</td>
+        <td>QTY</td>
+        <td>QTY Unit</td>
+    </tr>
+    <tr *ngFor="let item of menu.items">
+        <td>{{ item.partNumber}}</td>
+        <td>{{ item.name}}</td>
+        <td>{{ item.category}}</td>
+        <td>{{ item.sku}}</td>
+        <td>{{ item.quantity}}</td>
+        <td>{{ item.quantityUnit}}</td>
+    </tr>
+</ng-container>
+
 </table>
-</div>
+
+
 
 
 <!--
@@ -41,24 +92,7 @@
 
 
 
-<div class="form-group w-50  border border-light p-5">
 
-  <p class="h4 mb-4">Create Menu</p>
-
-  <!-- Menu Name -->
-  <input   [(ngModel)]="menuItem.id" type="text" class="form-control mb-4" placeholder="Menu ID">
-  <input   [(ngModel)]="menuItem.name" type="text" class="form-control mb-4" placeholder="Menu Name">
-  <input   [(ngModel)]="menuItem.category" type="text" class="form-control mb-4" placeholder="Menu Category">
-  <input   [(ngModel)]="menuItem.cookingTime" type="text" class="form-control mb-4" placeholder="Cooking Time">
-  <input   [(ngModel)]="menuItem.descripton" type="text" class="form-control mb-4" placeholder="Menu Description">
-  <input   [(ngModel)]="menuItem.price" type="text" class="form-control mb-4" placeholder="Menu Price">
- 
-  <button type="button" class="mr-3 btn btn-primary" (click)="createNewMenu(menuItem)">Create Menu</button>
-  <button type="button" class="mr-3 btn btn-danger" (click)="deleteMenuItem(menuItem.id)">Delete Menu</button>
-
-  <div>
-  <ul><li *ngFor="let data of result">ID : {{data.id}}</li></ul>
-</div>
   <!--
   <div class="row">
     <div class="col">

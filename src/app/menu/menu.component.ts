@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild, EventEmitter, ElementRef, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, ElementRef, Output, Input } from '@angular/core';
 import { MenuService } from '../shared/kitchen-services/menu.service';
 import { map } from 'rxjs/operators';
 import { RadlistviewMenuService } from './ui-service/radlistview-menu.service';
 import { MenuItems, KOT } from '../shared/common-model/kot.model';
-import { Menu, Ingredients } from '../shared/kitchen-models/menu.model';
+import { MenuModel, Ingredients  } from '../shared/kitchen-models/menu.model';
+import { ActivatedRoute } from '@angular/router';
 // @Directive({
 //   selector: '[hash]',
 // })
@@ -21,100 +22,75 @@ import { Menu, Ingredients } from '../shared/kitchen-models/menu.model';
 })
 export class MenuComponent implements OnInit {
 
- menuCategoryList: any = [];
- menuListByCategory: Array<Menu>; // send to Menu List By Category
- @ViewChild('tabHighlight') tabHighlight: ElementRef;
-	selectedTab: number = 0;
-	colNum = 5;
-	rowNum = 1;
-	page = 'Select Menu';
-	categorySelected = ''; // string after selected
-	dataItems; // Sharing to Menu-Item- Component 
+menuCategoryList: any = [];
+menuListByCategory: Array<MenuModel>; // send to Menu List By Category
+@ViewChild('tabHighlight') tabHighlight: ElementRef;
+selectedTab = 0;
+colNum = 5;
+rowNum = 1;
+page = 'Select Menu';
+categorySelected = ''; // string after selected
 
 
-	newMenu: Menu;
+newMenu: MenuModel;				// for creating new Menu  
+ingredient: Ingredients; // for creating  Ingredient of new Menu
 
-	ingredient: Ingredients;
-
-	// @ViewChild('image1') image1: ElementRef;
-	// @ViewChild('image2') image2: ElementRef;
-	// @ViewChild('image3') image3: ElementRef;
-	// @ViewChild('image4') image4: ElementRef;
-	// @ViewChild('image5') image5: ElementRef;
-
-//	@Output() tabSelected = new EventEmitter<number>();
-
-     autoCreateColumns = 5;
-     autoCreateRows = 1;
-     images = [
-			'~/assets/images/food/burger/burger1.jpg',
-			'~/assets/images/food/burger/burger2.jpg',
-			'~/assets/images/food/burger/burger3.jpg',
-			'~/assets/images/food/burger/burger4.jpg',
-			'~/assets/images/food/burger/burger5.jpg',
-			'~/assets/images/food/burger/burger6.jpg',
-		// 	"~/assets/images/food/burger/burger1.jpg",
-		// 	"~/assets/images/food/burger/burger2.jpg",
-		// 	"~/assets/images/food/burger/burger3.jpg",
-		// 	"~/assets/images/food/burger/burger4.jpg",
-		// 	"~/assets/images/food/burger/burger5.jpg",
-		// 	"~/assets/images/food/burger/burger6.jpg"
-	];
-
-	imageSelected = '';
+autoCreateColumns = 5;
+autoCreateRows = 1;
+imageSelected = '';
+images = [
+'~/assets/images/food/burger/burger1.jpg',
+'~/assets/images/food/burger/burger2.jpg',
+'~/assets/images/food/burger/burger3.jpg',
+'~/assets/images/food/burger/burger4.jpg',
+'~/assets/images/food/burger/burger5.jpg',
+'~/assets/images/food/burger/burger6.jpg',
+'~/assets/images/food/burger/burger1.jpg',
+'~/assets/images/food/cake/cake1.jpg',
+'~/assets/images/food/cake/cake2.jpg',
+'~/assets/images/food/cake/cake3.jpg',
+'~/assets/images/food/cake/cake4.jpg',
+'~/assets/images/food/burger/burger6.jpg'
+];
+tableID: string;
  //#endregion
- public status = 'not scrolling';
-	
-	constructor(private menuService: MenuService,
-							private menuItemService: RadlistviewMenuService) {
+// @Input() OrderMenuItem: MenuModel[] = []; // Recieve Data from MenuItemComponet then forward to Order Component
+station = ['station1', 'station2', 'station3'];
+constructor(private menuService: MenuService,
+						private menuItemService: RadlistviewMenuService,
+						private route: ActivatedRoute) {
 
-    this.autoCreateColumns =this.menuCategoryList.length;
-		this.autoCreateRows=1;
+	  this.autoCreateColumns =this.menuCategoryList.length;
+		this.autoCreateRows	=	1;
 		this.listAllCategory();
-	//	this.selectCategory(0);						
-		//	this.loadMenuByCategory(this.menuCategoryList[0]); // Initial Load index 0
-
-		// Create  New Menu  
-		this.newMenu = new Menu();
+		// Create  New Menu
+		this.newMenu = new MenuModel();
 		this.newMenu.items = [];
 		this.ingredient = new Ingredients();
-	
+			
+		this.route.queryParams.subscribe(params => {
+			this.tableID = params['tableID'];
+
+			console.log('pass Data TableID:' + this.tableID);
+			
+		});
+
+
 	}
 
 	ngOnInit(): void {
-		//this.selectCategory(0);
 		this.selectCategory(0);
 	}
 
-	ngAfterViewInit(): void {
-		//Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-		//Add 'implements AfterViewInit' to the class.
-		
-	}
 
 	public selectCategory(index: number) {
 
 	 this.menuListByCategory = [];
-	 this.categorySelected = '';
-	 this.imageSelected = '';
 	 this.imageSelected = this.images[index];
 	 this.categorySelected = this.menuCategoryList[index];
 	// alert('index:'+index+' ,Selected :'+this.categorySelected );
 	if(this.categorySelected != null) {
 	 this.loadMenuByCategory(this.categorySelected);
-	
-	// Make Observable Array
-	// if(this.menuListByCategory != null)
-	  
-	// 	//alert('Have Data'+this.menuListByCategory.length);
-	// 	this.dataItems = this.menuItemService.getMenuObservableArray(this.menuListByCategory);
-
-	// }
-	// else 
-	// {
-	// 	//alert('NO Data');
-	// }
-
 	}
 }
  
@@ -144,15 +120,13 @@ public loadMenuByCategory(category: string) {
 	// },
 	.subscribe((response) => {
  		// this.menuListByCategory = response;
-     console.log('len' + this.menuListByCategory.length);
+	 console.log('len' + this.menuListByCategory.length);
+	 console.log(this.menuListByCategory);
 	 },
 error => {
 	alert('Cannot get MenuItems ' + error);
 	console.log(error);
 });
-
-
-
 
 }
 
@@ -172,10 +146,11 @@ getInputFromOutputMenuItem($event) {
 
 }
 
-getSelectedMenu($event) {
+getSelectedMenu($event) { // recieve selected menu items from menu-item component
   
 	alert('Order Page');
-	const item: Menu[] = $event;
+	const item: MenuModel[] = $event;
+	
 	if (item.length > 0 || item != null) {
 	for (let i = 0 ; i < item.length ; i++) {
 	 alert('Menu Component item:' + i + '=' + item[i].name  + ' , ' + item[i].price);
@@ -192,77 +167,36 @@ for (let key in a) {
 }
 
 
-const items2: MenuItems[] = 
-[{
-	'partNumber'  : '011',
-	'name'        : 'ข้าวผัด',
-	'unitPrice'   : 100,
-	'quantity'    : 2,  //4,
-	'total'       : 200
-
-}];
-
-
-const kot = new KOT();
-kot.customerName = 'Tar';
-kot.customerNumber = 3;
-kot.shipTo = 'table3';// table3
-kot.contactName = 'Tar'; ; 
-kot.saleName  = 'staff1';
-kot.status  = 'OPEN'; // 'OPEN'
-kot.type = 'DineIn';  // Dine In
-kot.orderNumber = 'Order0001'; //'Order0001',
-kot.paymentTerm = ''; // string;// "CASH",
-kot.deliveryTime = 0; //30,
-kot.deliveryUnit = 'Minute';//"Minute",
-kot.validDate = new Date();// Date //"2019-03-19T13:43:21.270Z",
-
-kot.items = items2;
-
-console.log(JSON.stringify(kot));
 
 }
 
-
-public createNewMenu(menu: Menu) {
-
-
+public showMenuDetail(args) {
 	
-	
+   const partNo = args.target.value; 
+   alert(partNo);	
+	 this.menuService.getOne(partNo).pipe(map((response) =>  {
+		return this.newMenu = response;
+	}))
+	.subscribe((response) => {
+	console.log(response);
+},
+error => {
+	alert('Cannot get Menu By Id' + error);
+	console.log(error);
+});
+}
 
-	this.menuService.create(menu).subscribe(
-		res => console.log(res),
-		error => console.log(error) // error path
+public createNewMenu(menu: MenuModel) {
+
+
+this.menuService.create(menu).subscribe(
+	res => console.log(res),
+		error => console.log(error) 
 	);
-
 	alert('part number' + menu.partNumber + ',' + 'sku:' + menu.sku);
-
-
-
-		// newMenu.
-		// newMenu.partNumber: number;
-		// newMenu.name: string;
-		// newMenu.category: string;
-		// newMenu.sku: string;
-		// newMenu.price: number;
-		// newMenu.items: MenuItems;
-		// newMenu.createdDate: Date;
-		// newMenu.updatedDate: Date;
-		// newMenu.v: number;
-	  
-
-		//   'partNumber': string;
-		//   'name': string;
-		//   'type': string;
-		//   'category': string;
-		//   'sku': string;
-		//   'quantity': number;
-		//   'quantityUnit': string;
-	 
-	// this.menuService.create()
 }
 
-public deleteMenu(menu: Menu) {
+public deleteMenu(menu: MenuModel) {
 	this.menuService.delete(menu.partNumber).subscribe(
 		res => console.log(res)
 	);
@@ -270,26 +204,47 @@ public deleteMenu(menu: Menu) {
 
 }
 
-public addIngredient(ingredient: Ingredients) {
-	//alert(ingredient.name);
-	this.newMenu.items.push(ingredient);
-//	console.log(this.newMenu);
-	console.log(this.newMenu.items);
-//	this.newMenu.items.push(ingredient);
-	//this.ingredients.push(items);
+public updateMenu(menu:MenuModel) {
+	this.menuService.update(menu.partNumber, menu).subscribe(
+		res => console.log(res)
+	);
 
 }
 
-public removeIngredient(ingredient: Ingredients) {
-	//alert(ingredient.name);
-	this.newMenu.items.splice(1,1);
-	let removeIndex = this.newMenu.items.indexOf(ingredient,0);
-	alert('index to be remove:'+ removeIndex);//	
-    console.log(this.newMenu);
-	console.log(this.newMenu.items);
-//	this.newMenu.items.push(ingredient);
-	//this.ingredients.push(items);
+public addIngredient() {
+const ing = new Ingredients();
+ing['name'] 			= this.ingredient.name;
+ing['category'] 	= this.ingredient.category;
+ing['sku'] 			= this.ingredient.sku;
+ing['quantity'] 	= this.ingredient.quantity;
+ing['quantityUnit'] 	= this.ingredient.quantityUnit;
+this.newMenu.items.push(ing);
+}
+
+public removeIngredient() {
+const ing = new Ingredients();
+ing['name'] 			= this.ingredient.name;
+ing['category'] 	= this.ingredient.category;
+ing['sku'] 			= this.ingredient.sku;
+ing['quantity'] 	= this.ingredient.quantity;
+ing['quantityUnit'] 	= this.ingredient.quantityUnit;
+
+const removeIndex = this.newMenu.items.findIndex(item => item.name === ing['name']);
+// alert('index to be removed' + removeIndex);
+this.newMenu.items.splice(removeIndex, 1);
+console.log(this.newMenu.items);
+}
+
+clearIngredient() {
+	this.newMenu.items = [];
+}
+
+setStation(args) {
+
+ alert(args.target.value);
 
 }
+
+
 
 }

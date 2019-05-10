@@ -1,15 +1,16 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Menu } from '../../shared/kitchen-models/menu.model';
+import { MenuModel } from '../../shared/kitchen-models/menu.model';
 import { MenuService } from '../../shared/kitchen-services/menu.service';
 import { map } from 'rxjs/operators';
 import { RadlistviewMenuService } from '../ui-service/radlistview-menu.service';
 import { NumuricButtonService } from '../../shared/ui/numuric-button/numuric-button.service';
 import { RoutingHelperService } from '../../shared/router-helper/routing-helper.service';
 import { KOT, MenuItems } from '../../shared/common-model/kot.model';
+import { NavigationExtras } from '@angular/router';
 
 
 interface SelectedMenu {
-  [menuName: string]: Array<Menu>;
+  [menuName: string]: Array<MenuModel>;
 } 
 
 @Component({
@@ -20,116 +21,98 @@ interface SelectedMenu {
 export class MenuItemsComponent implements OnInit {
 
 
-  yourVar: Map<string, Menu[]>;
-   
   img_folder = '~/assets/images/gallery/gallery';
 
-  @Input() menuListByCategory: Array<Menu>;
+  @Input() menuListByCategory: Array<MenuModel>; //  From MenuComponent
   @Input() menuName: string;
   @Input() image: string;
   @Input() categorySelected: string;
- 
-  @Input() dataItems;
-  
-  //@Output() itemMenu = new EventEmitter<string>();
 
-  @Output() selectedMenu = new EventEmitter<Menu[]>();
+  @Output() selectedMenu = new EventEmitter<MenuModel[]>(); // emit value to menu component
 
-   orderKot: KOT;
-   // kotItems: OrderMenuItems[] ;
-
-  seletedMenuItems: Menu[] =[];
+  seletedMenuItems: MenuModel[] = []; // recieve data when tap on menu
   numberPerServing = 1;
   minVal = 1;
   maxVal = 99;
-  constructor(private itemService: RadlistviewMenuService
-              ,private numuricBtService: NumuricButtonService
-              ,private routerHelper: RoutingHelperService) {
-    
-    //  if(this.menuListByCategory != null ) {
-    //   this.dataItems = new ObservableArray<Menu>();
-    //   this.dataItems = this.getMenuItems();
-    //   alert('YES');
-    // }
-    // else{
-    //   alert('NO');
-    // }
-  //  alert('constructor');
-    
+
+  @Input() tableID: string;
+  constructor(private itemService: RadlistviewMenuService,
+              private numuricBtService: NumuricButtonService,
+              private routerHelper: RoutingHelperService) {
+                 
   }
 
   ngOnInit() {
    
-  //  alert('on Init');
   }
 
-  ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-   // alert('after view Init');
-  }
   onItemSelected(arg) {
-  
-  
+    alert('menuItem:' + this.tableID);
     this.seletedMenuItems =  this.itemService.onItemSelected(arg);
-  //  this.orderMenuSelected.push('')
-   // this.yourVar.set(this.menuName,selectedItem);
-   
-      // this.itemMenu.emit(itemName);
-      // this.dataItems = new ObservableArray<Menu>();
-      // this.dataItems = this.itemService.getMenuItems();
-
-
-
-      
   }
+
   onItemDeselected(arg) {
     this.seletedMenuItems =  this.itemService.onItemDeselected(arg);
-    // this.yourVar.set(this.menuName,selectedItem);
-     
   }
-  
-  
-  public onTapIncrease(args,txtId: string) {
-    // if (this.tableObj.NumberOfCustomer >= this.maxVal) {
-    //   this.tableObj.NumberOfCustomer = this.maxVal;
-    // } else {
-    //   this.tableObj.NumberOfCustomer ++;
-    // }
-
-
-    alert('Tap Increse Button');
-    this.numuricBtService.IncreaseValue(args,txtId);
-
-    // if (this.numberPerServing >= this.maxVal) {
-    //   this.numberPerServing = this.maxVal;
-    // } else {
-    //   this.numberPerServing ++;
-    // }
-   // this.increaseBTService.onTapIncrease(arg);
+  public onTapIncrease(args, txtId: string) {
+    this.numuricBtService.IncreaseValue(args, txtId);
 }
 
 public onTapDecrease(args, txtId: string) {
-
-  alert('Tap Increse Button');
    this.numuricBtService.DecreaseValue(args, txtId);
 }
 onTextChange(args) {
    // let textField = <TextField>args.object;
-  // console.log("onTextChange");
- //  alert('id:'+textField.id);
-
 }
 
 public confirm() {
   this.selectedMenu.emit(this.seletedMenuItems);
+
+ // const data = { 'menu': this.selectedMenu };
+
+  const navigationExtras: NavigationExtras = {
+    queryParams: {
+        'tableID'  : this.tableID,
+        'menuItems': this.seletedMenuItems
+    }
+};
+
+
+const items2: MenuItems[] = 
+[{
+	'partNumber'  : '011',
+	'name'        : 'ข้าวผัด',
+	'unitPrice'   : 100,
+	'quantity'    : 2,  //4,
+	'total'       : 200
+
+}];
+
+
+const kot = new KOT();
+kot.customerName = '';
+kot.customerNumber = 3;
+kot.shipTo = 'table3';// table3
+kot.contactName = 'Tar'; ; 
+kot.saleName  = 'staff1';
+kot.status  = 'OPEN'; // 'OPEN'
+kot.type = 'DineIn';  // Dine In
+kot.orderNumber = 'Order0001'; //'Order0001',
+kot.paymentTerm = ''; // string;// 'CASH',
+kot.deliveryTime = 0; //30,
+kot.deliveryUnit = 'Minute';//'Minute',
+kot.validDate = new Date();// Date //'2019-03-19T13:43:21.270Z',
+
+kot.items = items2;
+
+console.log(JSON.stringify(kot));
+
+
+
+
   if(this.routerHelper.canGoBack) {
-      this.routerHelper.onGoBack();
+    this.routerHelper.goToPageExtra('orderfood', '', navigationExtras);
   }
-
- 
-
-
 }
 public cancle() {
 }

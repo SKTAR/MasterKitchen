@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TableObj } from '../../common-model/dine-table.model';
 import { RoutingHelperService } from '../../router-helper/routing-helper.service';
 import { NumuricButtonService } from './numuric-button.service';
@@ -12,7 +12,7 @@ export class NumuricButtonComponent implements OnInit {
 
   minVal = 1;
   maxVal = 99;
-
+  @Output() numberOfCustomer = new EventEmitter<number>();
   @Input() tableObj: TableObj;
 
  // @Input() currentValue: number;
@@ -40,7 +40,7 @@ export class NumuricButtonComponent implements OnInit {
       // }
      // this.numuricService.IncreaseValue(args);
 
-
+     this.numberOfCustomer.emit(this.tableObj.NumberOfCustomer);
      //console.log(this.currentValue);
 
      // this.increaseBTService.onTapIncrease(arg);
@@ -59,6 +59,7 @@ export class NumuricButtonComponent implements OnInit {
     } else {
       this.tableObj.NumberOfCustomer --;
     }
+    this.numberOfCustomer.emit(this.tableObj.NumberOfCustomer);
     // if (this.currentValue >= this.maxVal) {
     //   this.currentValue = this.maxVal;
     // } else {

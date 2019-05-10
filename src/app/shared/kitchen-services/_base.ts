@@ -7,12 +7,13 @@ import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 export class BaseAPI {
   apiURL = 'http://www.yesboxlab.com:3600';
   subURL = '';
+  
   constructor(
     protected httpClient: HttpClient,
     ) {
   }
 
-  // // Basic Abstract Method
+  // Basic Abstract Method
   // public get(){
   //   return this.httpClient.get(`${this.apiURL}${this.subURL}`);
   // }

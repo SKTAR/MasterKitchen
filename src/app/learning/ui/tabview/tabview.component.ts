@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Menu } from '../../../shared/kitchen-models/menu.model';
+import { MenuModel } from '../../../shared/kitchen-models/menu.model';
 
 @Component({
   selector: 'app-tabview',
@@ -7,7 +7,7 @@ import { Menu } from '../../../shared/kitchen-models/menu.model';
   styleUrls: ['./tabview.component.scss']
 })
 export class TabviewComponent implements OnInit {
-  menuListByCategory:Array<Menu>;
+  menuListByCategory:Array<MenuModel>;
   constructor() { }
 
   ngOnInit() {

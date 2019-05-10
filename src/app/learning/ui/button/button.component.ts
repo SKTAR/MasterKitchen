@@ -55,7 +55,7 @@ export class ButtonComponent implements OnInit {
   }
 
   loadMenu() {
-    this.routerHelper.goToPage('/menu');
+    this.routerHelper.goToPage('/menu', '');
    }
 
    onPan(arg) {

@@ -1,5 +1,5 @@
 import {  Injectable, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 
 declare var android: any;
@@ -17,10 +17,12 @@ export class RoutingHelperService implements OnInit {
   }
 
   onGoBack() {
-   
   }
 
-  goToPage(routePath: string){
+  goToPageExtra(routePath: string , data: any,navigationExtra: NavigationExtras) {
     //  this.routerExt.navigate(['/menu'],{clearHistory: false});
-  }  
+  }
+  goToPage(routePath: string , data: any) {
+    //  this.routerExt.navigate(['/menu'],{clearHistory: false});
+  }
 }

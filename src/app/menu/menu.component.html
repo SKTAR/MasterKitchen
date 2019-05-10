@@ -1,3 +1,28 @@
+
+ <div class="row text-center">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary mb-4 mt-4" id="dropdownCategoryList" ngbDropdownToggle>Select Category</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem *ngFor="let item of menuCategoryList; let i=index" value="{{item}}" (click)="loadMenuByCategory($event.target.value)">{{item}}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-danger mb-4 mt-4" id="dropdownMenuList" ngbDropdownToggle>Select Existing Menu</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem *ngFor="let item of menuListByCategory; let i=index" value="{{item.partNumber}}" (click)="showMenuDetail($event)">{{item.name}}</button>
+          </div>
+        </div>
+      </div>
+    
+   </div>
+   
+   
+    
+
 <h1 class="text-center">Create Menu</h1>
 
 <div class= "row">
@@ -5,16 +30,29 @@
   <div class="col"> 
     <div class="form-group border border-light p-5">
       <p class="h4 mb-4">Create Menu</p>
-       <!-- Menu Name -->
+       <!-- Menu Name --> 
+ 
       <input   [(ngModel)]="newMenu.partNumber" type="text" class="form-control mb-4" placeholder="Part Number">
       <input   [(ngModel)]="newMenu.name" type="text" class="form-control mb-4" placeholder="Menu Name">
       <input   [(ngModel)]="newMenu.category" type="text" class="form-control mb-4" placeholder="Menu Category">
+      <div class="row">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-primary mb-4" id="dropdownBasic1" ngbDropdownToggle>Select Station</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem *ngFor="let item of station; let i=index" value="{{item}}" (click)="setStation($event)">{{item}}</button>
+              </div>
+            </div>
+          </div>
+         </div>
       <input   [(ngModel)]="newMenu.sku" type="text" class="form-control mb-4" placeholder="SKU">
       <input   [(ngModel)]="newMenu.price" type="text" class="form-control mb-4" placeholder="Price">
       <input   [(ngModel)]="newMenu.v" type="text" class="form-control mb-4" placeholder="Version">
       <div class="text-center mx-auto">
         <button type="button" class="mr-3 btn btn-primary" (click)="createNewMenu(newMenu)">Create Menu</button>
         <button type="button" class="mr-3 btn btn-danger" (click)="deleteMenu(newMenu.partNumber)">Delete Menu</button>
+        <button type="button" class="mr-3 btn btn-success" (click)="updateMenu(newMenu)">Update Menu</button>
+      
       </div>  
     </div> 
 
@@ -23,33 +61,24 @@
   
     <div class="form-group border border-light p-5">
     <h3>Recipe & Ingredients</h3>   
+            <div class="col"> <input   [(ngModel)]="ingredient.partNumber" type="text" class="form-control mb-4" placeholder="Ingredient ID"></div>
             <div class="col"> <input   [(ngModel)]="ingredient.name" type="text" class="form-control mb-4" placeholder="Ingredient Name"></div>
             <div class="col"> <input   [(ngModel)]="ingredient.category" type="text" class="form-control mb-4" placeholder="Ingredient Category"></div>
-            <div class="col"> <input  [(ngModel)]="ingredient.sku" type="text" class="form-control mb-4" placeholder="SKU"></div>
-            <div class="col"> <input   [(ngModel)]="ingredient.quantity" type="text" class="form-control mb-4" placeholder="QTY"></div>
+            <div class="col"> <input   [(ngModel)]="ingredient.sku" type="text" class="form-control mb-4" placeholder="SKU"></div>
+            <div class="col"> <input   [(ngModel)]="ingredient.quantity" type="number" class="form-control mb-4" placeholder="QTY"></div>
             <div class="col"> <input   [(ngModel)]="ingredient.quantityUnit" type="text" class="form-control mb-4" placeholder="QTY Unit"></div>
-            <button type="button" class="mr-3 btn btn-success" (click)="addIngredient(ingredient)">Add Ingredient</button>
+            <button type="button" class="mr-1 btn btn-success" (click)="addIngredient()">Add Ingredient</button>
+            <button type="button" class="mr-1 btn btn-danger" (click)="removeIngredient()">Remove Ingredient</button>
+            <button type="button" class="mr-1 btn btn-primary" (click)="clearIngredient()">Clear</button>
       
           
     </div>
    
     <!-- <ul><li *ngFor="let p of newMenu.items">{{p.name}}</li></ul>  -->
-    <app-ingredient [ingredient]="newMenu.items"></app-ingredient>
   </div>
   
 </div>
-
-           <!-- "name": "jasmine rice",
-                "category": "rice",
-                "sku": "white",
-                "quantity": 10,
-                "quantityUnit": "Kg." -->
-                   
-   
-   <!-- newMenu.items: MenuItems; -->
-   
-    <!-- <div>
-    <ul><li *ngFor="let data of result">ID : {{data.id}}</li></ul>
-  </div> -->
-  
+<div class="container">
+  <app-ingredient [ingredient]="newMenu.items"></app-ingredient>
+</div>
 <router-outlet> </router-outlet>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RadSideDrawerService} from '../shared/ui-services/radside-drawer-service/radsidedrawer.service';
 import { MenuService } from '../shared/kitchen-services/menu.service';
-import { MenuItem, Recipe } from '../shared/kitchen-services/MenuItem';
 import { map, filter } from 'rxjs/operators';
+import { MenuModel } from '../shared/kitchen-models/menu.model';
 
 
 @Component({
@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
   menuID = '';
   selectedCategory = '';
 
-  menuItem: MenuItem;
 
+it:MenuModel = new MenuModel();
   url = '';
   result: any;
   constructor
@@ -46,14 +46,18 @@ export class HomeComponent implements OnInit {
       // );
 
     this.menuService.list().subscribe(
-      res => {
+        (res: MenuModel[]) => { 
         this.MenuInformation = res;
-        console.log(res)
+        console.log(res);
     });
+
+
+
    }
 
+
+
   ngOnInit(): void {
-    this.menuItem = new MenuItem();
   }
 
   public showMenu() {

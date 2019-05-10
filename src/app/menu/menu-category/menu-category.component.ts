@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuService } from '../../shared/kitchen-services/menu.service';
-import { Menu} from '../../shared/kitchen-models/menu.model';
+import { MenuModel} from '../../shared/kitchen-models/menu.model';
 import { map } from 'rxjs/operators';
 
 import { SegmentedBarService } from '../../shared/ui-services/segmentedbar-service/segmentedbar.service';
@@ -18,7 +18,7 @@ export class MenuCategoryComponent implements OnInit {
   menuListString: string[] = [];
   menuCategorySegmentedBar; // Segment Bar UI  component List
  // for sharing to menu-by-category
- menuListByCategory: Array<Menu>;
+ menuListByCategory: Array<MenuModel>;
   constructor(private menuService: MenuService,
               private segmentBarService: SegmentedBarService) {
                   //  console.log('init' + this.menuCategoryList);
@@ -66,7 +66,7 @@ export class MenuCategoryComponent implements OnInit {
 
     public loadMenuByCategory(category: string) {
       this.menuService.listMenuByCategory(category).subscribe(
-        ((response: Menu[]) => {
+        ((response: MenuModel[]) => {
            //console.log( this.menuListByCategory);
             // this.menuListByCategory = response.map(item => {
             //       return new Menu();
