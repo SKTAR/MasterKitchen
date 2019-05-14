@@ -30,6 +30,7 @@ import { MenuModule } from './menu/menu.module';
 import { NumuricButtonComponent } from './shared/ui/numuric-button/numuric-button.component';
 import { StationComponent } from './station/station.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { AlertGlobalComponent } from './alert-global/alert-global.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,11 @@ import { EmployeeComponent } from './employee/employee.component';
     TabviewComponent,
     TabGridlayoutAutoRowComponent,
     AutoGridColumns, // Directive   TabGridlayoutAutoRowComponent
-    AutoGridRows, NumuricButtonComponent, StationComponent, EmployeeComponent  // Directive      TabGridlayoutAutoRowComponent
+    AutoGridRows, 
+    NumuricButtonComponent, 
+    StationComponent,
+     EmployeeComponent,
+      AlertGlobalComponent  // Directive      TabGridlayoutAutoRowComponent
     // MenuComponent
     // RadlistviewComponent,
 

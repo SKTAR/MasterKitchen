@@ -12,7 +12,7 @@ import { FlexComponent } from './learning/layouts/flex/flex.component';
 import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
 import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
 import { StationComponent } from './station/station.component';
-//import { MenuComponent } from './menu/menu.component';
+
 
 
 export const routes: Routes = [
@@ -87,6 +87,17 @@ export const routes: Routes = [
     path: 'autogrid',
     component: TabGridlayoutAutoRowComponent
   }
-  
+  ,
+  {
+    path: 'splitview',
+    loadChildren: './splitview/splitview.module#SplitviewModule'
+  }
+  ,
+  {
+    path: 'detail',
+    loadChildren: './detail/detail.module#DetailModule'
+  }
+  //{ path: "splitview", loadChildren: "./home/home.module#HomeModule" },
+  //  { path: "detail", loadChildren: "./detail/detail.module#DetailModule" }
   //#endregion
 ];

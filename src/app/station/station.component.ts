@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Station } from '../shared/common-model/station.model';
 import { StationService } from '../shared/kitchen-services/station.service';
 import { map } from 'rxjs/operators';
-
+import { Observable as RxObservable } from 'rxjs';
+export class DataItem {
+  constructor(public id: number, public name: string) { }
+}
 @Component({
   selector: 'app-station',
   templateUrl: './station.component.html',
@@ -12,23 +15,29 @@ export class StationComponent implements OnInit {
 
   station: Station;
   employee = ['Employee1', 'Employee2', 'Employee3', 'Employee4', 'Employee5'];
+  // stationpicker = ['Station1', 'Station2', 'Station3', 'Station4', 'Station5'];
   employeeList = [];
   staitonList: Station[] = [];
+  public myItems: RxObservable<Array<DataItem>>;
   constructor(private stationService: StationService) {
     this.station = new Station();
     this.station.active = true;
     this.employeeList = [];
     this.listStation();
+
+    //#region Mobile
+    this.creatStationListMobile();
+    //#endregion
   }
 
   ngOnInit() {
   }
   listStation() {
-    this.stationService.list().pipe(map((response) =>  {
+    this.stationService.list().pipe(map((response: Station[]) =>  {
 			return this.staitonList = response;
 		}))
 		.subscribe((response) => {
-		console.log('len' + this.staitonList.length);
+		console.log(response);
 },
 error => {
 		alert('Cannot get Menu Category' + error);
@@ -38,17 +47,35 @@ error => {
 
   createStation() {
      console.log(this.station);
-    //  this.stationService.create(this.station).subscribe(res => console.log(res)
-   //  );
+      this.stationService.create(this.station).subscribe(
+        res => console.log(res)
+     );
 
   }
   removeStation() {
-    console.log(this.station);
-    // this.stationService.delete(this.station).subscribe(res => console.log(res)
-    //  );
+       this.stationService.delete(this.station.uid).subscribe(res => console.log(res));
   }
   updateStation() {
+    this.stationService.update(this.station.uid, this.station)
+    .subscribe(res => console.log(res));
   }
+
+  loadStation(uid: string) {
+   console.log(uid);
+   // const station =  this.staitonList.find(x => x.uid === uid);
+   this.stationService.getOne(uid).pipe(map((response: Station) =>  {
+    return this.station = response;
+      }))
+      .subscribe((response) => {
+      console.log(response);
+    },
+    error => {
+      alert('Cannot get Menu Category' + error);
+      console.log(error);
+    });
+
+  }
+
   checkValue(args) {
     const switchOn: boolean = args.target.checked;
     this.station.active = switchOn;
@@ -66,4 +93,37 @@ error => {
     // alert(employeeName);
     this.employeeList.splice(employeeName);
   }
+
+//#region Mobile
+
+
+    creatStationListMobile() {
+        let items = [];
+        for (let i = 0; i < 3; i++) {
+            items.push(new DataItem(i, 'data item ' + i));
+        }
+
+        let subscr;
+        this.myItems = RxObservable.create(subscriber => {
+            subscr = subscriber;
+            subscriber.next(items);
+            return function () {
+                console.log('Unsubscribe called!');
+            };
+        });
+
+        let counter = 2;
+        let intervalId = setInterval(() => {
+            counter++;
+            items.push(new DataItem(counter + 1, 'data item ' + (counter + 1)));
+            subscr.next(items);
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(intervalId);
+        }, 15000);
+    }
+//#endregion
+
+
 }

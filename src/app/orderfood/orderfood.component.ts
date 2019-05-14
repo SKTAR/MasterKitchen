@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { SegmentedBarService } from '../shared/ui-services/segmentedbar-service/segmentedbar.service';
 import { RoutingHelperService } from '../shared/router-helper/routing-helper.service';
 import { TableObj } from '../shared/common-model/dine-table.model';
-import { KOT, OrderType, MenuItems } from '../shared/common-model/kot.model';
+import { KOT, OrderType } from '../shared/common-model/kot.model';
 import { MenuModel } from '../shared/kitchen-models/menu.model';
 import { ActivatedRoute, NavigationExtras } from '@angular/router';
 // import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
@@ -103,7 +103,7 @@ ngAfterViewInit(): void {
   alert('custNumber:' + this.nCustomter);
   
    alert()
-    this.routerHelper.goToPageExtra('menu', '', navigationExtras);
+    this.routerHelper.goToPageExtra('menu', navigationExtras);
    
    }
 

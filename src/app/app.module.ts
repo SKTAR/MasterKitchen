@@ -32,6 +32,7 @@ import { NumuricButtonComponent } from './shared/ui/numuric-button/numuric-butto
 import { StationComponent } from './station/station.component';
  import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { EmployeeComponent } from './employee/employee.component';
+import { AlertGlobalComponent } from './alert-global/alert-global.component';
 
 
 
@@ -57,7 +58,9 @@ import { EmployeeComponent } from './employee/employee.component';
     NumuricButtonComponent,
     StationComponent,
     EmployeeComponent,
+    AlertGlobalComponent,
 
+   
 
   ],
   imports: [

@@ -41,7 +41,7 @@ export class MenuItemListViewService {
 
     public onItemDeselected(args: ListViewEventData) {
         const listview = args.object as RadListView;
-        const selectedItems = listview.getSelectedItems() as Array<Menu>;
+        const selectedItems = listview.getSelectedItems() as Array<MenuModel>;
         if (selectedItems.length > 0) {
             let selectedTitles = 'Selected items: ';
             for (let i = 0; i < selectedItems.length; i++) {

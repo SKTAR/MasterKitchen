@@ -19,7 +19,7 @@ export class RoutingHelperService implements OnInit {
   onGoBack() {
   }
 
-  goToPageExtra(routePath: string , data: any,navigationExtra: NavigationExtras) {
+  goToPageExtra(routePath: string , navigationExtra: NavigationExtras) {
     //  this.routerExt.navigate(['/menu'],{clearHistory: false});
   }
   goToPage(routePath: string , data: any) {

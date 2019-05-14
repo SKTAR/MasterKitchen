@@ -1,5 +1,6 @@
 
 export class MenuModel {
+  uid: string;
   partNumber: number;
   name: string;
   category: string;

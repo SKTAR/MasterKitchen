@@ -1,3 +1,5 @@
+import { MenuModel } from '../kitchen-models/menu.model';
+
 export enum OrderType {
   DineIn = 1,
   TakeAway = 2,
@@ -18,15 +20,8 @@ export class KOT  { //Kitchen Order Token {
       deliveryTime: number; //30,
       deliveryUnit: string;//"Minute",
       validDate: Date //"2019-03-19T13:43:21.270Z",
-      items: MenuItems[];
+      items: MenuModel[];
 }
 
 
-export class MenuItems {
-    'partNumber': string; //'p0001',
-    'name': string;      //'ลอดช่องกะทิสด',
-    'unitPrice': number;  // 100;
-    'quantity': number;  //4,
-    'total': number;    //400
-  }
-  
+

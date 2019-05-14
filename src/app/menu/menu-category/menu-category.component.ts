@@ -18,13 +18,11 @@ export class MenuCategoryComponent implements OnInit {
   menuListString: string[] = [];
   menuCategorySegmentedBar; // Segment Bar UI  component List
  // for sharing to menu-by-category
- menuListByCategory: Array<MenuModel>;
+  menuListByCategory: Array<MenuModel>;
   constructor(private menuService: MenuService,
               private segmentBarService: SegmentedBarService) {
-                  //  console.log('init' + this.menuCategoryList);
-                 //this.Test();
-                   this.listAllCategory();
-              }
+              this.listAllCategory();
+  }
     ngOnInit() {
     }
 
@@ -35,8 +33,6 @@ export class MenuCategoryComponent implements OnInit {
             }))
             .subscribe((response) => {
             console.log(response);
-            // return this.menuCategoryList;
-            console.log('test' + this.menuCategoryList);
             console.log('len' + this.menuCategoryList.length);
             this.menuCategorySegmentedBar =  this.segmentBarService.getSegmentBarTab(this.menuCategoryList);
         },
@@ -50,16 +46,10 @@ export class MenuCategoryComponent implements OnInit {
         this.menuIndex = this.segmentBarService.onSelectedIndexChange(arg);
         // alert(this.menuCategorySegmentedBar[this.menuIndex]);
          const selecttab: string = this.menuCategorySegmentedBar[this.menuIndex].title;
-
-        
          this.loadMenuByCategory(selecttab);
-
          for (let i = 0; i < this.menuListByCategory.length; i++) {
-         alert(this.menuListByCategory[i].partNumber+','+ this.menuListByCategory[i].price+','+this.menuListByCategory[i].sku);
+        // alert(this.menuListByCategory[i].partNumber+','+ this.menuListByCategory[i].price+','+this.menuListByCategory[i].sku);
          }
-
-
-        
       }
 
 
@@ -67,12 +57,7 @@ export class MenuCategoryComponent implements OnInit {
     public loadMenuByCategory(category: string) {
       this.menuService.listMenuByCategory(category).subscribe(
         ((response: MenuModel[]) => {
-           //console.log( this.menuListByCategory);
-            // this.menuListByCategory = response.map(item => {
-            //       return new Menu();
-            //   });
             this.menuListByCategory = response;
-
           }));
     }
 

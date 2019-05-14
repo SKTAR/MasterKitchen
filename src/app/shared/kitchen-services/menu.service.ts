@@ -9,69 +9,27 @@ import { MenuModel } from '../kitchen-models/menu.model';
   providedIn: 'root'
 })
 export class MenuService extends BaseAPI {
-  
   constructor(
     protected httpClient: HttpClient) {
     super(httpClient);
     this.subURL = '/menu';
-
   }
-  
+
   public listCategories() {
-    return this.httpClient.post(`${this.apiURL}/menu/getAllCategories`, null);
-    // this.subURL =  '/menu/getAllCategories';
-    // return this.post(null);
+    return this.httpClient.post(`${this.apiURL}${this.subURL}/getAllCategories`, null);
   }
-  // Main Data
-  public list(): Observable<MenuModel[]> {
-    return this.httpClient.get<MenuModel[]>(`${this.apiURL}${this.subURL}`)
-  }
-
 
   public listMenuByCategory(category: string) {
-     this.subURL =  '/menu/listByCategory';
-    // return this.httpClient.post<Menu[]>(`${this.apiURL}/listByCategory/${category}`, null);
-    return this.httpClient.post<MenuModel[]>(`${this.apiURL}${this.subURL}`, {
+    return this.httpClient.post<MenuModel[]>(`${this.apiURL}${this.subURL}/listByCategory`, {
           category: category
          });
-
-        }
-  public get(): Observable<MenuModel[]> {
-    return this.httpClient.get<MenuModel[]>(`${this.apiURL}${this.subURL}`);
-  }
-  public getOne(id): Observable<MenuModel> {
-    this.subURL =  '/menu';
-    return this.httpClient.get<MenuModel>(`${this.apiURL}${this.subURL}/get/${id}`);
-  }
-  public update(id, data: MenuModel) {
-    return this.httpClient.post(`${this.apiURL}${this.subURL}/update/${id}`, data);
-  }
-  public create(data: MenuModel) {
-    return this.httpClient.post(`${this.apiURL}${this.subURL}/create`, data);
-  }
-  public delete(id) {
-    return this.httpClient.post(`${this.apiURL}${this.subURL}/delete/${id}`, {});
+   }
+ 
+  // Main Data
+   public list(): Observable<MenuModel[]> {
+    return this.httpClient.post<MenuModel[]>(`${this.apiURL}${this.subURL}/list`, null);
   }
 
-  // public listCategories2() {
-  //   // return this.httpClient.post(`${this.apiURL}/menu/getAllCategories`, null); 
-  //   this.subURL =  '/menu/getAllCategories';
-  //   return this.httpClient.post<Category[]>(`${this.apiURL}${this.subURL}`, null);
-  // }
-
-  // public listMenuByCategory(category: string) {
-  //    this.subURL =  '/menu/listByCategory';
-  //   // return this.httpClient.post<Menu[]>(`${this.apiURL}/listByCategory/${category}`, null);
-  //   return this.httpClient.post<Menu[]>(`${this.apiURL}${this.subURL}`, {
-  //         category: category
-  //        });
-  // }
-
-  public createMenu(menu: MenuModel) {
-    // return this.httpClient.post(`${this.apiURL}${this.subURL}`, {
-    //   category: category
-    //  });
-  }
 
 
 }

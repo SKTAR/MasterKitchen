@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { RadlistviewMenuService } from '../ui-service/radlistview-menu.service';
 import { NumuricButtonService } from '../../shared/ui/numuric-button/numuric-button.service';
 import { RoutingHelperService } from '../../shared/router-helper/routing-helper.service';
-import { KOT, MenuItems } from '../../shared/common-model/kot.model';
+import { KOT } from '../../shared/common-model/kot.model';
 import { NavigationExtras } from '@angular/router';
 
 
@@ -66,55 +66,51 @@ onTextChange(args) {
 }
 
 public confirm() {
+  
+  
   this.selectedMenu.emit(this.seletedMenuItems);
-
- // const data = { 'menu': this.selectedMenu };
-
-  const navigationExtras: NavigationExtras = {
-    queryParams: {
-        'tableID'  : this.tableID,
-        'menuItems': this.seletedMenuItems
-    }
-};
-
-
-const items2: MenuItems[] = 
-[{
-	'partNumber'  : '011',
-	'name'        : 'ข้าวผัด',
-	'unitPrice'   : 100,
-	'quantity'    : 2,  //4,
-	'total'       : 200
-
-}];
 
 
 const kot = new KOT();
 kot.customerName = '';
 kot.customerNumber = 3;
-kot.shipTo = 'table3';// table3
-kot.contactName = 'Tar'; ; 
-kot.saleName  = 'staff1';
-kot.status  = 'OPEN'; // 'OPEN'
-kot.type = 'DineIn';  // Dine In
-kot.orderNumber = 'Order0001'; //'Order0001',
-kot.paymentTerm = ''; // string;// 'CASH',
-kot.deliveryTime = 0; //30,
-kot.deliveryUnit = 'Minute';//'Minute',
-kot.validDate = new Date();// Date //'2019-03-19T13:43:21.270Z',
+kot.shipTo = this.tableID;        // get Input From Order Component
+kot.contactName = 'Tar';          // ***************************Watreceive when customer pay 
+kot.saleName  = 'staff1';         // recieve when login
+kot.status  = 'OPEN';             // 'OPEN'
+kot.type = 'DineIn';              // Dine In
+kot.orderNumber = 'Order0001';    //' Query and plus one
+kot.paymentTerm = '';             // ***************************payment;// 'CASH',
+kot.deliveryTime = 0;             // 30,
+kot.deliveryUnit = 'Minute';      //'Minute',
+kot.validDate = new Date();       // Date //'2019-03-19T13:43:21.270Z',
 
-kot.items = items2;
+ kot.items = this.seletedMenuItems;
 
 console.log(JSON.stringify(kot));
 
+}
 
 
+cancle() {
+}
 
-  if(this.routerHelper.canGoBack) {
-    this.routerHelper.goToPageExtra('orderfood', '', navigationExtras);
+placeOrder(kot: KOT) {
+  if(kot != null) {
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+          'tableID'  : this.tableID,
+          'menuItems': this.seletedMenuItems
+      }
+    };
+    
+      if(this.routerHelper.canGoBack) {
+        this.routerHelper.goToPageExtra('orderfood', navigationExtras);
+      }
+    
+    
+    }
   }
-}
-public cancle() {
-}
+
 
 }

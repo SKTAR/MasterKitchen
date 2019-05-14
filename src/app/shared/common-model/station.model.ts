@@ -5,4 +5,5 @@ export class Station
   department: string; // '',
   employees: [];
   active: boolean; // true
+  uid:    string;
 }

@@ -13,7 +13,7 @@
         <div ngbDropdown class="d-inline-block">
           <button class="btn btn-outline-danger mb-4 mt-4" id="dropdownMenuList" ngbDropdownToggle>Select Existing Menu</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem *ngFor="let item of menuListByCategory; let i=index" value="{{item.partNumber}}" (click)="showMenuDetail($event)">{{item.name}}</button>
+            <button ngbDropdownItem *ngFor="let item of menuListByCategory; let i=index" value="{{item.uid}}" (click)="showMenuDetail($event.target.value)">{{item.name}}</button>
           </div>
         </div>
       </div>
@@ -31,8 +31,8 @@
     <div class="form-group border border-light p-5">
       <p class="h4 mb-4">Create Menu</p>
        <!-- Menu Name --> 
- 
-      <input   [(ngModel)]="newMenu.partNumber" type="text" class="form-control mb-4" placeholder="Part Number">
+
+      <input   [(ngModel)]="newMenu.partNumber" (keyup.enter)="searchMenuItem($event.target.value)" type="text" class="form-control mb-4" placeholder="Part Number">
       <input   [(ngModel)]="newMenu.name" type="text" class="form-control mb-4" placeholder="Menu Name">
       <input   [(ngModel)]="newMenu.category" type="text" class="form-control mb-4" placeholder="Menu Category">
       <div class="row">
@@ -40,9 +40,12 @@
             <div ngbDropdown class="d-inline-block">
               <button class="btn btn-outline-primary mb-4" id="dropdownBasic1" ngbDropdownToggle>Select Station</button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button ngbDropdownItem *ngFor="let item of station; let i=index" value="{{item}}" (click)="setStation($event)">{{item}}</button>
+                <button ngbDropdownItem *ngFor="let item of stationList; let i=index" value="{{item.name}}" (click)="setStation($event.target.value)">{{item.name}}</button>
               </div>
             </div>
+          </div>
+          <div class="col">
+            <input   [(ngModel)]="newMenu.station" type="text" class="form-control mb-4" placeholder="Station Name" >
           </div>
          </div>
       <input   [(ngModel)]="newMenu.sku" type="text" class="form-control mb-4" placeholder="SKU">

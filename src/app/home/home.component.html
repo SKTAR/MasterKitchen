@@ -1,31 +1,6 @@
-<!-- <h1>
-  Master of Kitchen v0.1
-</h1>
-<hr> -->
 
 <h2>Menu</h2>
-<!-- export class MenuModel {
-  partNumber: number;
-  name: string;
-  category: string;
-  station: string;
-  sku: string; // large
-  price: number;
-  items: Array<Ingredients>;
-  createdDate: Date;
-  updatedDate: Date;
-  v: number;
 
-    constructor() {
-      }
-}
-
-export class Ingredients {
-    'name': string;
-    'category': string;
-    'sku': string;
-    'quantity': number;
-    'quantityUnit': string; -->
 <div>
 <table border="1" style="width: 100%;">
   <tr style="background-color:yellow">
@@ -73,54 +48,5 @@ export class Ingredients {
 </table>
 
 
-
-
-<!--
-<div class="form-group w-50 justify-content-center">
-<form class="text-center border border-light p-5">
-
-  
-  <input #box type="text" class="form-control" [(ngModel)]= "menuID" placeholder="Menu ID" aria-label="Username" aria-describedby="basic-addon1">
-
-   <button type="button" class="btn btn-primary" (click)="getMenubyID(box.value)">Create Menu</button>
-
-   <label>{{menuID}}</label>
-
-</form>
-</div>
--->
-
-
-
-
-  <!--
-  <div class="row">
-    <div class="col">
-      <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Menu Category</button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button #selectedMenuCategory ngbDropdownItem *ngFor="let menu of MenuInformation" (click)="setMenuCategory('test')">{{menu.category}}</button>
-         <label>{{selectedMenuCategory}}</label>
-        </div>
-      </div>
-    </div>
-</div>
--->
-
-   
-
 </div>
 
-<div class="center input-group">
-  <span class="input-group-btn">
-      <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
-        <span class="glyphicon glyphicon-minus"></span>
-      </button>
-  </span>
-  <input type="text" name="quant[2]" class="form-control input-number text-center" value="1" min="1" max="100">
-  <span class="input-group-btn">
-      <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
-         
-      </button>
-  </span>
-</div>

@@ -2,9 +2,11 @@ import { Component, OnInit, ViewChild, EventEmitter, ElementRef, Output, Input }
 import { MenuService } from '../shared/kitchen-services/menu.service';
 import { map } from 'rxjs/operators';
 import { RadlistviewMenuService } from './ui-service/radlistview-menu.service';
-import { MenuItems, KOT } from '../shared/common-model/kot.model';
+import { KOT } from '../shared/common-model/kot.model';
 import { MenuModel, Ingredients  } from '../shared/kitchen-models/menu.model';
 import { ActivatedRoute } from '@angular/router';
+import { StationService } from '../shared/kitchen-services/station.service';
+import { Station } from '../shared/common-model/station.model';
 // @Directive({
 //   selector: '[hash]',
 // })
@@ -55,10 +57,11 @@ images = [
 tableID: string;
  //#endregion
 // @Input() OrderMenuItem: MenuModel[] = []; // Recieve Data from MenuItemComponet then forward to Order Component
-station = ['station1', 'station2', 'station3'];
+stationList: Station[];
 constructor(private menuService: MenuService,
 						private menuItemService: RadlistviewMenuService,
-						private route: ActivatedRoute) {
+						private route: ActivatedRoute,
+						private stationService: StationService) {
 
 	  this.autoCreateColumns =this.menuCategoryList.length;
 		this.autoCreateRows	=	1;
@@ -75,7 +78,16 @@ constructor(private menuService: MenuService,
 			
 		});
 
-
+		this.stationService.list().pipe(map((response:Station[]) =>  {
+			return this.stationList = response;
+		}))
+		.subscribe((response) => {
+		console.log(response);
+		},
+		error => {
+		alert('Cannot get station list' + error);
+		console.log(error);
+ 		});
 	}
 
 	ngOnInit(): void {
@@ -100,7 +112,7 @@ constructor(private menuService: MenuService,
 			return this.menuCategoryList = response;
 		}))
 		.subscribe((response) => {
-		console.log('len' + this.menuCategoryList.length);
+		console.log(response);
 },
 error => {
 		alert('Cannot get Menu Category' + error);
@@ -120,8 +132,7 @@ public loadMenuByCategory(category: string) {
 	// },
 	.subscribe((response) => {
  		// this.menuListByCategory = response;
-	 console.log('len' + this.menuListByCategory.length);
-	 console.log(this.menuListByCategory);
+	 console.log('len' + response.length);
 	 },
 error => {
 	alert('Cannot get MenuItems ' + error);
@@ -170,11 +181,12 @@ for (let key in a) {
 
 }
 
-public showMenuDetail(args) {
+public showMenuDetail(uid: string) {
 	
-   const partNo = args.target.value; 
-   alert(partNo);	
-	 this.menuService.getOne(partNo).pipe(map((response) =>  {
+  // const partNo = args.target.value;
+   
+ 	 alert(uid);	
+	 this.menuService.getOne(uid).pipe(map((response: MenuModel) =>  {
 		return this.newMenu = response;
 	}))
 	.subscribe((response) => {
@@ -239,12 +251,17 @@ clearIngredient() {
 	this.newMenu.items = [];
 }
 
-setStation(args) {
+setStation(stationName: string) {
 
- alert(args.target.value);
+ alert(stationName);
+ this.newMenu.station = stationName;
 
 }
 
-
+//#region Web method
+searchMenuItem(partNo: string) {
+	alert(partNo);
+}
+//#endregion
 
 }

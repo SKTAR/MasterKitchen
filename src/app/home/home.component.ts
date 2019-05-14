@@ -21,41 +21,16 @@ export class HomeComponent implements OnInit {
 it:MenuModel = new MenuModel();
   url = '';
   result: any;
-  constructor
-    (private drawerService: RadSideDrawerService,
-    private menuService: MenuService,
-    // private fakeService: FakeHttpService
-  ) {
-    // Initialise Service Example Information
-  /* this.menuService.get().subscribe(
-      res => {this.MenuInformation = res;
-      console.log(JSON.stringify(this.MenuInformation)); }
-    );
-    /*
- this.fakeService.testGet().subscribe({
-        next(response) { console.log('next' + response); },
-        error(err) { console.error('Error: ' + err); },
-        complete() { console.log('Completed'); }
-      });
-*/
-      // this.menuService.listCategories()
-      // .subscribe(
-      //    res => {
-      //   this.result = res,
-      //   console.log(this.result); }
-      // );
+  constructor (private drawerService: RadSideDrawerService,
+                private menuService: MenuService
+               ) {
 
     this.menuService.list().subscribe(
         (res: MenuModel[]) => { 
         this.MenuInformation = res;
         console.log(res);
     });
-
-
-
    }
-
-
 
   ngOnInit(): void {
   }
