@@ -27,44 +27,24 @@ export class NumuricButtonComponent implements OnInit {
   ngOnInit() {
   }
 
-  public onTapIncrease(args) {
+  public onTapIncrease() {
       if (this.tableObj.NumberOfCustomer >= this.maxVal) {
         this.tableObj.NumberOfCustomer = this.maxVal;
       } else {
         this.tableObj.NumberOfCustomer ++;
-      }
-      // if (this.currentValue >= this.maxVal) {
-      //   this.currentValue = this.maxVal;
-      // } else {
-      //   this.currentValue ++;
-      // }
-     // this.numuricService.IncreaseValue(args);
-
+      }   
      this.numberOfCustomer.emit(this.tableObj.NumberOfCustomer);
      //console.log(this.currentValue);
-
-     // this.increaseBTService.onTapIncrease(arg);
   }
 
-  public onTapDecrease(args) {
-   // this.numuricService.DecreaseValue(args);
-    // if ( this.currentValue  <= this.minVal) {
-    //   this.currentValue  = this.minVal;
-    // } else {
-    //   this.currentValue --;
-    // }
-    // this.increaseBTService.onTapDecrease(arg);
-    if (this.tableObj.NumberOfCustomer >= this.maxVal) {
-      this.tableObj.NumberOfCustomer = this.maxVal;
+  public onTapDecrease() {
+    if (this.tableObj.NumberOfCustomer <= this.minVal) {
+      this.tableObj.NumberOfCustomer = this.minVal;
     } else {
       this.tableObj.NumberOfCustomer --;
     }
     this.numberOfCustomer.emit(this.tableObj.NumberOfCustomer);
-    // if (this.currentValue >= this.maxVal) {
-    //   this.currentValue = this.maxVal;
-    // } else {
-    //   this.currentValue --;
-    // }
+
   }
 
  

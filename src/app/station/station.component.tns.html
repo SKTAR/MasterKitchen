@@ -1,12 +1,24 @@
-<StackLayout sdkExampleTitle sdkToggleNavButton>
-    <GridLayout>
-        <ListView [items]="myItems | async" class="list-group">
+<!-- sdkExampleTitle sdkToggleNavButton -->
+   
+<StackLayout horizontalAlignment="center" >
+  
+        <ListView   [items]="menuCategoryList" class="list-group">
+           
+            
             <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
-                <StackLayout orientation="horizontal" class="list-group-item" [class.odd]="odd" [class.even]="even">
-                    <Label [text]="item.name" android:class="label-item"></Label>
-                    <ListPicker [items]="stationList" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
-                </StackLayout>
+                 <StackLayout orientation="horizontal"  class="list-group-item" [class.odd]="odd" [class.even]="even">
+                   
+                    <Label horizontalAlignment="center" text="Category :" fontSize ="30" marginRight="30" ></Label>
+                   
+                    <Label horizontalAlignment="center" [text]="item"  fontSize ="30" marginRight="30" android:class="label-item"></Label>
+                    <Label text="&#xf0c1;" fontSize="30" color="black" class="fa"></Label>
+                    <ListPicker  [items]="stationListPicker" fontSize ="30" width="150" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
+                    <Button  class="btn btn-primary" width="50" height="50" text="OK"></Button>
+                
+                </StackLayout> 
+               
+                
             </ng-template>
         </ListView>
-    </GridLayout>
+    
 </StackLayout>

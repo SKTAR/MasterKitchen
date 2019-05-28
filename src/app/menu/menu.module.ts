@@ -8,6 +8,7 @@ import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { MenuRoutingModule } from './menu-routing.module';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ActionbarHelperComponent } from '../shared/ui/actionbar-helper/actionbar-helper.component';
 
 
 
@@ -15,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
+     ActionbarHelperComponent,
      MenuComponent, 
      MenuCategoryComponent, MenuItemsComponent, IngredientComponent
     ],

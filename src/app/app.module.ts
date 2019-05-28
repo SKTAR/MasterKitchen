@@ -17,7 +17,7 @@ import { OrderfoodComponent } from './orderfood/orderfood.component';
 import { ZonetableComponent } from './zonetable/zonetable.component';
 
 import { LearningComponent } from './learning/learning.component';
-import { ActionbarHelperComponent } from './shared/ui/actionbar-helper/actionbar-helper.component';
+// import { ActionbarHelperComponent } from './shared/ui/actionbar-helper/actionbar-helper.component';
 import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -33,6 +33,10 @@ import { StationComponent } from './station/station.component';
  import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { EmployeeComponent } from './employee/employee.component';
 import { AlertGlobalComponent } from './alert-global/alert-global.component';
+import { KdsComponent } from './kds/kds.component';
+import { KotComponent } from './kot/kot.component';
+import { BillComponent } from './kot/bill/bill.component';
+import { SplitBillComponent } from './kot/split-bill/split-bill.component';
 
 
 
@@ -46,7 +50,7 @@ import { AlertGlobalComponent } from './alert-global/alert-global.component';
     ZonetableComponent,
     MenuCategoryComponent,
     LearningComponent,
-    ActionbarHelperComponent,
+    //ActionbarHelperComponent,
     RadlistviewComponent,
     KitchenComponent,
     ButtonComponent,
@@ -59,9 +63,10 @@ import { AlertGlobalComponent } from './alert-global/alert-global.component';
     StationComponent,
     EmployeeComponent,
     AlertGlobalComponent,
-
-   
-
+    KdsComponent,
+    KotComponent,
+    BillComponent,
+    SplitBillComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +77,7 @@ import { AlertGlobalComponent } from './alert-global/alert-global.component';
    // ReactiveFormsModule,
     NgbModule, // https://ng-bootstrap.github.io
     MDBBootstrapModule.forRoot(),
+    
     // RouterModule.forRoot(routes)
   ],
   providers: [],

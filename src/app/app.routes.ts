@@ -12,6 +12,8 @@ import { FlexComponent } from './learning/layouts/flex/flex.component';
 import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
 import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
 import { StationComponent } from './station/station.component';
+import { KdsComponent } from './kds/kds.component';
+import { KotComponent } from './kot/kot.component';
 
 
 
@@ -29,6 +31,10 @@ export const routes: Routes = [
   {
     path: 'orderfood',
     component: OrderfoodComponent
+  },
+  {
+    path: 'kot',
+    component: KotComponent
   },
   {
     path: 'station',
@@ -51,6 +57,14 @@ export const routes: Routes = [
     //component:MenuComponent
     //./menu/
     loadChildren: './menu/menu.module#MenuModule'
+
+  }
+  ,
+  {
+    path: 'kds',
+    //component:MenuComponent
+    //./menu/
+   component: KdsComponent
 
   }
   ,

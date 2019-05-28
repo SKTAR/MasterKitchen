@@ -27,7 +27,12 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/orderfood')" (tap)="onNavItemTap('/orderfood')">
                     <Label col="0" text="&#xf016;" class="fa"></Label>
-                    <Label col="1" text="Order Food (KOT)" class="p-r-10"></Label>
+                    <Label col="1" text="Order Food" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/kot')" (tap)="onNavItemTap('/kot')">
+                    <Label col="0" text="&#xf016;" class="fa"></Label>
+                    <Label col="1" text="KOT" class="p-r-10"></Label>
                 </GridLayout>
              
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/station')" (tap)="onNavItemTap('/station')">
@@ -53,6 +58,11 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/orderfood')" (tap)="onNavItemTap('/orderfood')">
                     <Label col="0" text="&#xf019;" class="fa"></Label>
                     <Label col="1" text="Kitchen & Station" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/kds')" (tap)="onNavItemTap('/kds')">
+                    <Label col="0" text="&#xf019;" class="fa"></Label>
+                    <Label col="1" text="Kitchen & Station Display" class="p-r-10"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/orderfood')" (tap)="onNavItemTap('/orderfood')">

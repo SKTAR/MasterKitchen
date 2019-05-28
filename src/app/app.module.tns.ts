@@ -10,7 +10,7 @@ import { ZonetableComponent } from './zonetable/zonetable.component';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { LearningComponent } from './learning/learning.component';
-import { ActionbarHelperComponent } from './shared/ui/actionbar-helper/actionbar-helper.component';
+// import { ActionbarHelperComponent } from './shared/ui/actionbar-helper/actionbar-helper.component';
 import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
 import { AutoGridRows, AutoGridColumns } from './shared/grid.directive';
@@ -31,6 +31,13 @@ import { NumuricButtonComponent } from './shared/ui/numuric-button/numuric-butto
 import { StationComponent } from './station/station.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AlertGlobalComponent } from './alert-global/alert-global.component';
+import { ShareModule } from './shared/share/share.module.tns';
+import { KdsComponent } from './kds/kds.component';
+import { KotComponent } from './kot/kot.component';
+import { BillComponent } from './kot/bill/bill.component';
+import { SplitBillComponent } from './kot/split-bill/split-bill.component';
+
+
 
 @NgModule({
   declarations: [
@@ -41,7 +48,7 @@ import { AlertGlobalComponent } from './alert-global/alert-global.component';
     ZonetableComponent,
     MenuCategoryComponent,
     LearningComponent,
-    ActionbarHelperComponent,
+   // ActionbarHelperComponent,
     RadlistviewComponent,
     KitchenComponent,
     ButtonComponent,
@@ -52,11 +59,17 @@ import { AlertGlobalComponent } from './alert-global/alert-global.component';
     TabGridlayoutAutoRowComponent,
     AutoGridColumns, // Directive   TabGridlayoutAutoRowComponent
     AutoGridRows, 
-    NumuricButtonComponent, 
+    NumuricButtonComponent,
     StationComponent,
-     EmployeeComponent,
-      AlertGlobalComponent  // Directive      TabGridlayoutAutoRowComponent
-    // MenuComponent
+    EmployeeComponent,
+    AlertGlobalComponent,
+    KdsComponent,
+    KotComponent,
+    BillComponent,
+    SplitBillComponent,
+
+     // Directive      TabGridlayoutAutoRowComponent
+      // MenuComponent
     // RadlistviewComponent,
 
     // ActionBarComponent,
@@ -68,7 +81,8 @@ import { AlertGlobalComponent } from './alert-global/alert-global.component';
     NativeScriptUISideDrawerModule, // RadSideDrawer
     NativeScriptFormsModule,        // 2 Way Binding
     NativeScriptUIListViewModule, // RadListView
-    NativeScriptHttpClientModule  // You have to import this one when you import HttpclientModule in app.module.ts
+    NativeScriptHttpClientModule,  // You have to import this one when you import HttpclientModule in app.module.ts
+    ShareModule, // ActionbarHelper
   ],
   providers: [],
   bootstrap: [AppComponent],

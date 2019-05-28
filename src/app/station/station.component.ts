@@ -3,6 +3,7 @@ import { Station } from '../shared/common-model/station.model';
 import { StationService } from '../shared/kitchen-services/station.service';
 import { map } from 'rxjs/operators';
 import { Observable as RxObservable } from 'rxjs';
+import { MenuService } from '../shared/kitchen-services/menu.service';
 export class DataItem {
   constructor(public id: number, public name: string) { }
 }
@@ -12,29 +13,40 @@ export class DataItem {
   styleUrls: ['./station.component.scss']
 })
 export class StationComponent implements OnInit {
-
+  menuCategoryList: any = [];
   station: Station;
   employee = ['Employee1', 'Employee2', 'Employee3', 'Employee4', 'Employee5'];
   // stationpicker = ['Station1', 'Station2', 'Station3', 'Station4', 'Station5'];
   employeeList = [];
-  staitonList: Station[] = [];
+  stationList: Station[] = [];
+  stationListPicker = [];
   public myItems: RxObservable<Array<DataItem>>;
-  constructor(private stationService: StationService) {
+  constructor(private stationService: StationService,
+              private menuService: MenuService) {
     this.station = new Station();
     this.station.active = true;
     this.employeeList = [];
-    this.listStation();
-
+    // this.listStation();
+    this.listAllCategory();
     //#region Mobile
-    this.creatStationListMobile();
+    //this.creatStationListMobile();
+   
     //#endregion
   }
 
   ngOnInit() {
+    
+    this.stationService.refreshNeeded$.subscribe(() => {
+        this.listStation();
+    });
+
+    this.listStation();
+   
   }
-  listStation() {
-    this.stationService.list().pipe(map((response: Station[]) =>  {
-			return this.staitonList = response;
+
+  public listAllCategory() {
+		this.menuService.listCategories().pipe(map((response) =>  {
+			return this.menuCategoryList = response;
 		}))
 		.subscribe((response) => {
 		console.log(response);
@@ -43,17 +55,38 @@ error => {
 		alert('Cannot get Menu Category' + error);
 		console.log(error);
  });
+}
+
+  listStation() {
+    this.stationService.list().pipe(map((response: Station[]) =>  {
+			return this.stationList = response;
+		}))
+		.subscribe((response) => {
+      this.stationListPicker = response.map(x => x.name);
+		console.log(response);
+},
+error => {
+		alert('Cannot get Station List' + error);
+		console.log(error);
+ });
   }
 
   createStation() {
      console.log(this.station);
-      this.stationService.create(this.station).subscribe(
+      this.stationService.createStation(this.station).subscribe(
         res => console.log(res)
      );
 
   }
   removeStation() {
-       this.stationService.delete(this.station.uid).subscribe(res => console.log(res));
+    if (this.station.uid == null) {
+        const selectedStation =  this.stationList.find(x => x.name === this.station.name);
+        this.stationService.deleteStation(selectedStation.uid).subscribe(res => console.log(res));
+    }
+    else {
+      this.stationService.deleteStation(this.station.uid).subscribe(res => console.log(res));
+    }
+    
   }
   updateStation() {
     this.stationService.update(this.station.uid, this.station)

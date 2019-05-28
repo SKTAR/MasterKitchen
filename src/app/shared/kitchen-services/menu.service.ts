@@ -30,6 +30,6 @@ export class MenuService extends BaseAPI {
     return this.httpClient.post<MenuModel[]>(`${this.apiURL}${this.subURL}/list`, null);
   }
 
-
+  // http://www.yesboxlab.com:3600/menu/getByPartNumber/PROD234789
 
 }

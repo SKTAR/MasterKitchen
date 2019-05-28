@@ -60,7 +60,7 @@
             <StackLayout   orientation="vertical" verticalAlignment="center"  >
               <Label horizontalAlignment="center" [text]="table.TableID"  textWrap="true"></Label> 
                   
-              <Image id="{{'table_'+i}}" class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu($event)" (pan)="onPan($event)" src="~/assets/images/restaurant-circle.png"></Image>
+              <Image id="{{table.TableID}}"  class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu($event)" (pan)="onPan($event)" src="~/assets/images/restaurant-circle.png"></Image>
 
               <app-numuric-button (numberOfCustomer)="getNumberOfCustomer($event)" [tableObj]="table" ></app-numuric-button>
               
@@ -73,10 +73,12 @@
 
   <GridLayout [visibility]="selectedIndex === 1 ? 'visible' : 'collapsed'" backgroundColor="white">
    <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
-</GridLayout>
+    <app-menu></app-menu>
+  </GridLayout>
 
 <GridLayout [visibility]="selectedIndex === 2 ? 'visible' : 'collapsed'" backgroundColor="white">
    <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+   <app-menu></app-menu>
 </GridLayout>
 
 <GridLayout [visibility]="selectedIndex === 3 ? 'visible' : 'collapsed'" backgroundColor="white">

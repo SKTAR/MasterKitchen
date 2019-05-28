@@ -7,6 +7,8 @@ import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 import { MenuRoutingModule } from './menu-routing.module.tns';
 import { IngredientComponent } from './ingredient/ingredient.component';
+import { ShareModule } from '../shared/share/share.module.tns';
+
 
 // import { AutoGridRows, AutoGridColumns } from '../shared/grid.directive';
 
@@ -23,7 +25,8 @@ import { IngredientComponent } from './ingredient/ingredient.component';
     MenuRoutingModule,
     NativeScriptCommonModule,
     NativeScriptFormsModule,
-    NativeScriptUIListViewModule // Neeed for RadListView
+    NativeScriptUIListViewModule, // Neeed for RadListView
+    ShareModule
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

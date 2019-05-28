@@ -35,6 +35,7 @@
     "ajv-keywords": "^3.4.0",
     "angular-bootstrap-md": "^7.5.1",
     "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
     "nativescript": "^5.3.4",
@@ -50,7 +51,7 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.13.8",
+    "@angular-devkit/build-angular": "^0.13.9",
     "@angular-devkit/core": "^7.3.9",
     "@angular/cli": "^7.3.8",
     "@angular/compiler-cli": "^7.2.14",

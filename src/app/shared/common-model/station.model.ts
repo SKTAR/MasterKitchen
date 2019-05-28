@@ -7,3 +7,4 @@ export class Station
   active: boolean; // true
   uid:    string;
 }
+

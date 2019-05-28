@@ -8,6 +8,7 @@ import { ActivatedRoute, NavigationExtras } from '@angular/router';
 // import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { Image } from 'tns-core-modules/ui/image';
 import { NumuricButtonService } from '../shared/ui/numuric-button/numuric-button.service';
+import { KOTService } from '../shared/kitchen-services/kot.service';
 @Component({
  // providers: [OrderTypeService],
   selector: 'app-orderfood',
@@ -36,7 +37,8 @@ export class OrderfoodComponent implements OnInit {
   constructor(private segmentedService: SegmentedBarService,
               private routerHelper: RoutingHelperService,
               private route: ActivatedRoute,
-              private numuricService: NumuricButtonService) {
+              private numuricService: NumuricButtonService
+              ) {
               //   this.route.parent.url.subscribe(url => console.log('path from' + url[0].path));
               //   this.route.params
               // .forEach(params => {
@@ -77,7 +79,7 @@ ngAfterViewInit(): void {
 
 
 
-  onSelectedIndexChange(arg) {
+  onSelectedIndexChange(arg) { // SELECT TAB
     this.selectedIndex = this.segmentedService.onSelectedIndexChange(arg);
 
      //alert(this.orderTypeSegmentBarList[this.selectedIndex]);
@@ -89,20 +91,20 @@ ngAfterViewInit(): void {
   }
 
   loadMenu(args) {
-    //alert();
+    // alert();
      const img = <Image>args.object;
      const table = img.id;
-     alert('tableID' + img.id);
+     alert('id' + img.id);
     const navigationExtras: NavigationExtras = {
       queryParams: {
           'tableID'  : table,
-          'numCust'  : this.nCustomter
+          'numCust'  : this.nCustomter,
+          'orderType': this.orderTypeTabList[this.selectedIndex]
       }
   };
   // const number = this.numuricService.getNumberCustomer(args,table);
-  alert('custNumber:' + this.nCustomter);
+  // alert('custNumber:' + this.nCustomter);
   
-   alert()
     this.routerHelper.goToPageExtra('menu', navigationExtras);
    
    }
@@ -115,6 +117,8 @@ ngAfterViewInit(): void {
     
   }
   
+  
+
 }
 
 

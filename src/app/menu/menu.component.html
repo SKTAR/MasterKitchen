@@ -52,9 +52,9 @@
       <input   [(ngModel)]="newMenu.price" type="text" class="form-control mb-4" placeholder="Price">
       <input   [(ngModel)]="newMenu.v" type="text" class="form-control mb-4" placeholder="Version">
       <div class="text-center mx-auto">
-        <button type="button" class="mr-3 btn btn-primary" (click)="createNewMenu(newMenu)">Create Menu</button>
-        <button type="button" class="mr-3 btn btn-danger" (click)="deleteMenu(newMenu.partNumber)">Delete Menu</button>
-        <button type="button" class="mr-3 btn btn-success" (click)="updateMenu(newMenu)">Update Menu</button>
+        <button type="button" class="mr-3 btn btn-primary" (click)="createNewMenu()">Create Menu</button>
+        <button type="button" class="mr-3 btn btn-danger" (click)="deleteMenu()">Delete Menu</button>
+        <button type="button" class="mr-3 btn btn-success" (click)="updateMenu()">Update Menu</button>
       
       </div>  
     </div> 
