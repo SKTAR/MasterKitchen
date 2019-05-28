@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,6 +38,8 @@ import { KdsComponent } from './kds/kds.component';
 import { KotComponent } from './kot/kot.component';
 import { BillComponent } from './kot/bill/bill.component';
 import { SplitBillComponent } from './kot/split-bill/split-bill.component';
+import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module';
+import { AuthGuard } from './shared/guard';
 
 
 
@@ -77,10 +80,12 @@ import { SplitBillComponent } from './kot/split-bill/split-bill.component';
    // ReactiveFormsModule,
     NgbModule, // https://ng-bootstrap.github.io
     MDBBootstrapModule.forRoot(),
+    LanguageTranslationModule,
+    BrowserAnimationsModule,
     
     // RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 
   
