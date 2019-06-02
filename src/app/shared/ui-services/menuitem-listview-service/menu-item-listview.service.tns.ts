@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MenuModel } from '../../kitchen-models/menu.model';
+import { MenuModel } from '../../models/menu.model';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { ListViewEventData, RadListView } from 'nativescript-ui-listview';
 

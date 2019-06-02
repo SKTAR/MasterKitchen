@@ -9,79 +9,41 @@ import { AppComponent } from './app.component';
 // import { HttpModule } from '@angular/http';  // Deprecated
 import { HttpClientModule } from '@angular/common/http';
 
-
-// import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
-// import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
-import { SettingComponent } from './setting/setting.component';
-import { HomeComponent } from './home/home.component';
-import { OrderfoodComponent } from './orderfood/orderfood.component';
-import { ZonetableComponent } from './zonetable/zonetable.component';
-
-import { LearningComponent } from './learning/learning.component';
-// import { ActionbarHelperComponent } from './shared/ui/actionbar-helper/actionbar-helper.component';
-import { RadlistviewComponent } from './learning/ui-pro/radlistview/radlistview.component';
-import { KitchenComponent } from './kitchen/kitchen.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { ButtonComponent } from './learning/ui/button/button.component';
-import { GridComponent } from './learning/layouts/grid/grid.component';
-import { FlexComponent } from './learning/layouts/flex/flex.component';
-import { AbsoluteComponent } from './learning/layouts/absolute/absolute.component';
-import { MenuCategoryComponent } from './menucategory/menucategory.component';
-import { TabviewComponent } from './learning/ui/tabview/tabview.component';
-import { TabGridlayoutAutoRowComponent } from './learning/ui/tab-gridlayout-auto-row/tab-gridlayout-auto-row.component';
-import { NumuricButtonComponent } from './shared/ui/numuric-button/numuric-button.component';
-import { StationComponent } from './station/station.component';
- import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { EmployeeComponent } from './employee/employee.component';
-import { AlertGlobalComponent } from './alert-global/alert-global.component';
-import { KdsComponent } from './kds/kds.component';
-import { KotComponent } from './kot/kot.component';
-import { BillComponent } from './kot/bill/bill.component';
-import { SplitBillComponent } from './kot/split-bill/split-bill.component';
 import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module';
 import { AuthGuard } from './shared/guard';
-
+import { CommonModule } from '@angular/common';
+import { KotComponent } from './restaurant/kot/kot.component';
+import { HomeComponent } from './restaurant/home/home.component';
+import { OrderfoodComponent } from './restaurant/orderfood/orderfood.component';
+import { MenulistComponent } from './restaurant/menulist/menulist.component';
+import { IngredientComponent } from './restaurant/ingredient/ingredient.component';
+// import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SettingComponent,
+    KotComponent,
     HomeComponent,
     OrderfoodComponent,
-    ZonetableComponent,
-    MenuCategoryComponent,
-    LearningComponent,
-    //ActionbarHelperComponent,
-    RadlistviewComponent,
-    KitchenComponent,
-    ButtonComponent,
-    GridComponent,
-    FlexComponent,
-    AbsoluteComponent,
-    TabviewComponent,
-    TabGridlayoutAutoRowComponent,
-    NumuricButtonComponent,
-    StationComponent,
-    EmployeeComponent,
-    AlertGlobalComponent,
-    KdsComponent,
-    KotComponent,
-    BillComponent,
-    SplitBillComponent,
+    MenulistComponent,
+    IngredientComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     // HttpModule, Deprecated
     HttpClientModule,
     FormsModule,
    // ReactiveFormsModule,
-    NgbModule, // https://ng-bootstrap.github.io
-    MDBBootstrapModule.forRoot(),
+   // NgbModule, // https://ng-bootstrap.github.io
+  //  MDBBootstrapModule.forRoot(),
     LanguageTranslationModule,
-    BrowserAnimationsModule,
+  //  BrowserAnimationsModule,
+  //  AngularFontAwesomeModule
     
     // RouterModule.forRoot(routes)
   ],

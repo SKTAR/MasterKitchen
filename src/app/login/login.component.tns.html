@@ -1,1 +1,22 @@
-<Button text="login works!" class="btn btn-primary"></Button>
+
+<FlexboxLayout class="page">
+	<StackLayout class="form">
+		<!-- <Image class="logo" src="~/images/logo.png"></Image> -->
+		<Label class="header" text={{appName}}></Label>
+
+		<StackLayout class="input-field">
+			<TextField class="input" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="user.email" ></TextField>
+			<StackLayout class="hr-light"></StackLayout>
+		</StackLayout>
+
+		<StackLayout class="input-field">
+			<TextField #password class="input" hint="Password" secure="true" [(ngModel)]="user.password" ></TextField>
+			<StackLayout class="hr-light"></StackLayout>
+		</StackLayout>
+
+		
+		<Button text="Log in"  (tap)="onLoggedinMobile()" class="btn btn-primary m-t-20"></Button>
+		</StackLayout>
+
+	
+</FlexboxLayout>

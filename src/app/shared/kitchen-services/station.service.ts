@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BaseAPI } from './_base';
 
 import { Observable, Subject } from 'rxjs';
-import { MenuModel } from '../kitchen-models/menu.model';
-import { Station } from '../common-model/station.model';
+import { MenuModel } from '../models/menu.model';
+import { StationModel } from '../models/station.model';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class StationService extends BaseAPI {
   }
 
   public list() {
-     return this.httpClient.post(`${this.apiURL}${this.subURL}/list`, null);
+     return this.httpClient.post(`${this.apiURL}${this.subURL}/list`, null, this.httpOptions);
   }
   public createStation(data: any) {
     return this.create(data).pipe(

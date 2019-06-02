@@ -1,8 +1,8 @@
-<div class="login-page" [@routerTransition]>
+<div class="login-page bg-primary" [@routerTransition]>
     <div class="row justify-content-md-center">
         <div class="col-md-4">
             <img src="assets/images/logo.png" width="150px" class="user-avatar" />
-            <h1>SB Admin BS4 Angular7</h1>
+            <h1>{{appName}}</h1>
             <form role="form">
                 <div class="form-content">
                     <div class="form-group">
@@ -13,9 +13,10 @@
                         <input type="password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Password' | translate }}">
                     </div>
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()">{{ 'Log in' | translate }}</a>
+                <a class="btn rounded-btn bg-primary" [routerLink]="['/dashboard']" (click)="onLoggedin()">{{ 'Log in' | translate }}</a>
+               
                 &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/signup']">{{ 'Register' | translate }}</a>
+                <a class="btn rounded-btn bg-info" [routerLink]="['/signup']">{{ 'Register' | translate }}</a>
             </form>
         </div>
     </div>

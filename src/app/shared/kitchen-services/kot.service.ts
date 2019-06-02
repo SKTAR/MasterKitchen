@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BaseAPI } from './_base';
 
 import { Observable } from 'rxjs';
-import { MenuModel } from '../kitchen-models/menu.model';
+import { MenuModel } from '../models/menu.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class KOTService extends BaseAPI {
   }
 
   public list() {
-    return this.httpClient.post(`${this.apiURL}${this.subURL}/list`, null);
+    return this.httpClient.post(`${this.apiURL}${this.subURL}/list`, null, this.httpOptions);
  }
 
  

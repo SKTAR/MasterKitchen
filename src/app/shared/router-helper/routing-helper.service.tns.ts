@@ -19,7 +19,7 @@ export class RoutingHelperService implements OnInit {
     this.routerExt.backToPreviousPage();
   }
   goToPage(routePath: string, data: any) {
-    this.routerExt.navigate([routePath, { data }]);
+   this.routerExt.navigate([routePath, { data }]);
   }
 
 

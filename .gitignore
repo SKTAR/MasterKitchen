@@ -11,6 +11,8 @@
 # NativeScript
 /hooks
 /platforms
+.history
+.tmp_backup
 
 # IDEs and editors
 /.idea

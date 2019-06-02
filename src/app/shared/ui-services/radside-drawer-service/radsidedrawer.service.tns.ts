@@ -24,7 +24,7 @@ export class RadSideDrawerService {
   }
 
  public load() {
-      this._activatedUrl = '/home';
+      this._activatedUrl = '/layout';
       this._sideDrawerTransition = new SlideInOnTopTransition();
 
       this.router.events
@@ -50,5 +50,6 @@ export class RadSideDrawerService {
       const sideDrawer = <RadSideDrawer>app.getRootView();
       sideDrawer.closeDrawer();
   }
+ 
 
 }

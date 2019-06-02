@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Station } from '../shared/common-model/station.model';
+import { StationModel } from '../shared/models/station.model';
 import { StationService } from '../shared/kitchen-services/station.service';
 import { map } from 'rxjs/operators';
 import { Observable as RxObservable } from 'rxjs';
@@ -14,16 +14,16 @@ export class DataItem {
 })
 export class StationComponent implements OnInit {
   menuCategoryList: any = [];
-  station: Station;
+  station: StationModel;
   employee = ['Employee1', 'Employee2', 'Employee3', 'Employee4', 'Employee5'];
   // stationpicker = ['Station1', 'Station2', 'Station3', 'Station4', 'Station5'];
   employeeList = [];
-  stationList: Station[] = [];
+  stationList: StationModel[] = [];
   stationListPicker = [];
   public myItems: RxObservable<Array<DataItem>>;
   constructor(private stationService: StationService,
               private menuService: MenuService) {
-    this.station = new Station();
+    this.station = new StationModel();
     this.station.active = true;
     this.employeeList = [];
     // this.listStation();
@@ -58,7 +58,7 @@ error => {
 }
 
   listStation() {
-    this.stationService.list().pipe(map((response: Station[]) =>  {
+    this.stationService.list().pipe(map((response: StationModel[]) =>  {
 			return this.stationList = response;
 		}))
 		.subscribe((response) => {
@@ -96,7 +96,7 @@ error => {
   loadStation(uid: string) {
    console.log(uid);
    // const station =  this.staitonList.find(x => x.uid === uid);
-   this.stationService.getOne(uid).pipe(map((response: Station) =>  {
+   this.stationService.getOne(uid).pipe(map((response: StationModel) =>  {
     return this.station = response;
       }))
       .subscribe((response) => {

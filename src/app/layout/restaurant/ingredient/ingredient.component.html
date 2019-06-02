@@ -1,0 +1,40 @@
+
+<div class="card mb-3">
+  <div class="card-header">Ingredient</div>
+  <table class="card-body table">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Name</th>
+        <!-- <th>Category</th>
+        <th>SKU</th> -->
+        <th>QTY</th>
+        <th>QTY UNIT</th>
+        
+       
+      </tr>
+      </thead>
+      <tbody>
+          <tr class="table-active" *ngFor="let item of ingredient; let i=index">
+              <th scope="row">{{i+1}}</th>
+              <th>{{ item.name }}</th>
+              <!-- <th>{{ item.category }}</th> -->
+              <!-- <th>{{ item.sku }}</th> -->
+              <th>{{ item.quantity }}</th>
+              <th>{{ item.quantityUnit }}</th>
+        </tr>
+
+          <!-- <tr class="table-active">
+              <th scope="row">0</th>
+              <td>ID</td>
+              <td>Name</td>
+              <td>Category</td>
+              <td>SKU</td>
+              <td>QTY</td>
+              <td>QTY UNIT</td>
+          </tr> -->
+     
+      </tbody>
+  </table>
+</div>

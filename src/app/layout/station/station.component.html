@@ -1,0 +1,60 @@
+<div class="form-group border border-light p-5">
+    <h3>Example</h3> 
+    <span>"name": "Japanese Sushi",</span>
+    <span>"description": "Make some Japanese Sushi included California Maki, Salmon Rolls, etc.",</span>
+    <span>"department": "Japanese Food",</span>
+    <span>"employees": [],</span>
+    <span>"active": true</span>
+    <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary mb-4 mt-4" id="dropdownStationList" ngbDropdownToggle>Select Station</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem *ngFor="let item of stationList; let i=index" value="{{item.uid}}" (click)="loadStation($event.target.value)">{{item.name}}</button>
+          </div>
+        </div>
+      </div>
+  <h3>Station</h3>   
+          <div class="col"> <input   [(ngModel)]="station.name" type="text" class="form-control mb-4" placeholder="Station Name"></div>
+          <div class="col"> <input   [(ngModel)]="station.description" type="text" class="form-control mb-4" placeholder="Description"></div>
+          <div class="col"> <input   [(ngModel)]="station.department" type="text" class="form-control mb-4" placeholder="Department"></div>
+          <div class="col mb-4">
+              <div class="row">
+                  <label class="mr-2">Station Status</label>
+                
+                  <div class="custom-control custom-switch">
+                    
+                    <input  type="checkbox"  [(ngModel)]="station.active" (change)="checkValue($event)" class="custom-control-input" id="customSwitch1" checked> 
+                    <label class="custom-control-label" for="customSwitch1">Active</label>
+                  </div>
+              </div>
+          </div>
+
+
+      <div class="col mb-4">
+          <div class="row">
+          <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary mr-1" id="dropdownBasic1" ngbDropdownToggle>Add Employee</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem *ngFor="let item of employee; let i=index" value="{{item}}" (click)="addEmployee($event)">{{item}}</button>
+                </div>
+              </div>
+                 
+              <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="mr-1 btn btn-success" (click)="createStation()">Add Station</button>
+                      <button type="button" class="mr-1 btn btn-danger"  (click)="removeStation()">Remove Station</button>
+                      <button type="button" class="mr-1 btn btn-primary" (click)="updateStation()">Update Station</button>
+              </div>
+             
+             
+          </div>
+          </div>
+    </div>
+
+    
+    <div class="col mb-4"> <app-employee [employeeList]="employeeList"></app-employee> </div>
+
+        
+       
+        
+  </div>
