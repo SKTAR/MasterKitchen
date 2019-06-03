@@ -18,24 +18,31 @@ export class LayoutComponent implements OnInit {
   private _activatedUrl: string;
 //endregion
   constructor(private drawerService: RadSideDrawerService) {
-    // Use the component constructor to inject services.
-    
-     this.drawerService.load();
+
     this.profile = this.username + ' ' + this.position;
  }
  toggleCollapsed(): void {
   this.collapsed = !this.collapsed;
 }
 
-    ngOnInit() {}
-
+    ngOnInit() {
+      
+    }
+   
+    
     //#region Web Method
     receiveCollapsed($event) {
         this.collapedSideBar = $event;
     }
     //#endregion
-   
+  
     //#region Mobile Method
+    drawerLoaded(args) {
+     
+      this.drawerService.load(args);
+    }
+  
+  
     onNavItemTap(navItemRout: string) {
       this.drawerService.onNavItemTap(navItemRout);
       }

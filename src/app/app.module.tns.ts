@@ -29,12 +29,12 @@ import { IngredientComponent } from './restaurant/ingredient/ingredient.componen
     HomeComponent,
     OrderfoodComponent,
     MenulistComponent,
-    IngredientComponent, // Directive   TabGridlayoutAutoRowComponent
+    IngredientComponent, 
   ],
   imports: [
     AppRoutingModule,
     NativeScriptModule,
-    NativeScriptUISideDrawerModule, // RadSideDrawer
+ //   NativeScriptUISideDrawerModule, // RadSideDrawer
     NativeScriptFormsModule,        // 2 Way Binding
     NativeScriptUIListViewModule, // RadListView
     NativeScriptHttpClientModule,  // You have to import this one when you import HttpclientModule in app.module.ts

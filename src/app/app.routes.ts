@@ -23,8 +23,9 @@ export const routes: Routes = [
 
 
 export const routes2: Routes = [
-      { path: '', component: HomeComponent },
-      { path: 'orderfood', component: OrderfoodComponent },
+     // { path: '', component: HomeComponent },
+     { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
+     { path: 'orderfood', component: OrderfoodComponent },
       { path: 'kot', component: KotComponent},
       { path: 'menulist', component: MenulistComponent},
       { path: 'login', loadChildren: './login/login.module#LoginModule' },

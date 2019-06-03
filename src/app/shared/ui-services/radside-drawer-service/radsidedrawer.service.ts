@@ -11,7 +11,7 @@ export class RadSideDrawerService {
     // do nothing or add web implementation here
   }
 
-  public load() {
+  public load(args) {
 }
 
 

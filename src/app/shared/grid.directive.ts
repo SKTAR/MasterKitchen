@@ -1,12 +1,12 @@
-import { Directive, Input, ElementRef } from "@angular/core";
-import { GridLayout, ItemSpec } from "tns-core-modules/ui/layouts/grid-layout";
+import { Directive, Input, ElementRef } from '@angular/core';
+import { GridLayout, ItemSpec } from 'tns-core-modules/ui/layouts/grid-layout';
 @Directive({
-  selector: "[auto-grid-columns]",
+  selector: '[auto-grid-columns]',
 })
 export class AutoGridColumns {
     public constructor(private gridRef : ElementRef){}
   
-    @Input("auto-grid-columns")
+    @Input('auto-grid-columns')
     public set setDefinition(value: number){
       this.ResetGridColumns(value);
     }
@@ -17,22 +17,22 @@ export class AutoGridColumns {
       grid.removeColumns();
      
       for(let i =0; i<value; i++){
-        console.log("add column defintion");
-        grid.addColumn(new ItemSpec(1, "star"));
+        console.log('add column defintion');
+        grid.addColumn(new ItemSpec(1, 'star'));
       }
       
       let columns = grid.getColumns();
-      console.log("grid-column counts: " + columns.length);
+      console.log('grid-column counts: ' + columns.length);
     }
 }
 
 @Directive({
-  selector: "[auto-grid-rows]",
+  selector: '[auto-grid-rows]',
 })
 export class AutoGridRows {
     public constructor(private gridRef : ElementRef){}
   
-    @Input("auto-grid-rows")
+    @Input('auto-grid-rows')
     public set setDefinition(value: number){
       this.ResetGridRows(value);
     };

@@ -7,8 +7,7 @@ declare var android: any;
 
 @Injectable({providedIn: 'root'})
 export class ActionBarService implements OnInit {
-  @Input() title: string;
-
+ 
   constructor(private page: Page, private router: RouterExtensions) {}
 
   ngOnInit() {}
@@ -33,4 +32,7 @@ export class ActionBarService implements OnInit {
       }
     }
   }
+
+
+  
 }

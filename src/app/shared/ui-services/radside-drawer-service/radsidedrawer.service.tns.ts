@@ -4,27 +4,33 @@ import * as app from 'tns-core-modules/application';
 import { Router, NavigationEnd } from '@angular/router';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { filter } from 'rxjs/operators';
-
+import { Page } from 'tns-core-modules/ui/page';
 @Injectable({providedIn: 'root'})
 export class RadSideDrawerService {
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
 
-    constructor(private router: Router, private routerExtensions: RouterExtensions) {
+    private sideDrawer: RadSideDrawer;
+    constructor(private router: Router,
+                private routerExtensions: RouterExtensions) {
     }
 
     public show() {
-    const sideDrawer = <RadSideDrawer>app.getRootView();
-    sideDrawer.showDrawer();
+    //const sideDrawer = <RadSideDrawer>app.getRootView();
+       this.sideDrawer.showDrawer();     
+    
   }
 
   public hide() {
-    const sideDrawer = <RadSideDrawer>app.getRootView();
-    sideDrawer.closeDrawer();
+   // const sideDrawer = <RadSideDrawer>app.getRootView();
+    this.sideDrawer.closeDrawer();
   }
 
- public load() {
-      this._activatedUrl = '/layout';
+ public load(args) {
+    
+   // args.page.actionBarHidden = true;
+    this.sideDrawer = <RadSideDrawer>args.object;
+    this._activatedUrl = '/dashboard';
       this._sideDrawerTransition = new SlideInOnTopTransition();
 
       this.router.events
@@ -47,8 +53,8 @@ export class RadSideDrawerService {
           }
       });
 
-      const sideDrawer = <RadSideDrawer>app.getRootView();
-      sideDrawer.closeDrawer();
+      //const sideDrawer = <RadSideDrawer>app.getRootView();
+      this.sideDrawer.closeDrawer();
   }
  
 

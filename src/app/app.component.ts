@@ -18,19 +18,19 @@ export class AppComponent {
 // person: string[] = ['1', '2', '3'];
    constructor(private drawerService: RadSideDrawerService) {
       // Use the component constructor to inject services.
-       this.drawerService.load();
-      this.profile = this.username + ' ' + this.position;
+      // this.drawerService.load();
+      //this.profile = this.username + ' ' + this.position;
    }
    toggleCollapsed(): void {
     this.collapsed = !this.collapsed;
   }
 
-  onNavItemTap(navItemRout: string) {
-    this.drawerService.onNavItemTap(navItemRout);
-    }
+  // onNavItemTap(navItemRout: string) {
+  //   this.drawerService.onNavItemTap(navItemRout);
+  //   }
 
-  isComponentSelected(url: string) {
-    this.drawerService.isComponentSelected(url);
-  }
+  // isComponentSelected(url: string) {
+  //   this.drawerService.isComponentSelected(url);
+  // }
 
 }

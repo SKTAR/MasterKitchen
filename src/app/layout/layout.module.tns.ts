@@ -6,16 +6,18 @@ import { LayoutComponent } from './layout.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MobileModule } from '../shared/modules/mobile/mobile.module.tns';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
+import { HideActionBarDirective } from '../shared/directives/hide-actionbar-directive';
 
 
 @NgModule({
-  declarations: [LayoutComponent], // , HeaderComponent, SidebarComponent
+  declarations: [LayoutComponent, HideActionBarDirective], // , HeaderComponent, SidebarComponent
   imports: [
     LayoutRoutingModule,
     NativeScriptCommonModule,
     MobileModule,
     TranslateModule,
-   // NativeScriptUISideDrawerModule, // RadSideDrawer
+    NativeScriptUISideDrawerModule, // RadSideDrawer
+    
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })
