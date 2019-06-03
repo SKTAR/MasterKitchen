@@ -3,33 +3,20 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
-
-
-import { ZonetableComponent } from './zonetable/zonetable.component';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { AutoGridRows, AutoGridColumns } from './shared/grid.directive';
 import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 import { MobileModule } from './shared/modules/mobile/mobile.module.tns';
 import { AuthGuard } from './shared/guard';
-import { KotComponent } from './restaurant/kot/kot.component';
-import { HomeComponent } from './restaurant/home/home.component';
-import { OrderfoodComponent } from './restaurant/orderfood/orderfood.component';
-import { MenulistComponent } from './restaurant/menulist/menulist.component';
-import { IngredientComponent } from './restaurant/ingredient/ingredient.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ZonetableComponent,
     AutoGridColumns,
-    KotComponent,
-    HomeComponent,
-    OrderfoodComponent,
-    MenulistComponent,
-    IngredientComponent, 
   ],
   imports: [
     AppRoutingModule,

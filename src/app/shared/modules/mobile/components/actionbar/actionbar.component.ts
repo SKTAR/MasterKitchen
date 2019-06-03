@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RadSideDrawerService } from '../../../../ui-services/radside-drawer-service/radsidedrawer.service';
+import { RadSideDrawerService } from '../../../../services/ui/radside-drawer-service/radsidedrawer.service';
 
 @Component({
   selector: 'app-actionbar',

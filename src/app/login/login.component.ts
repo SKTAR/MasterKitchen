@@ -2,10 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
 import { AuthGuard } from '../shared/guard';
-import { User } from '../shared/services/login-service/model/user.model';
-import { LoginService } from '../shared/services/login-service/login.service';
-import { RoutingHelperService } from '../shared/router-helper/routing-helper.service';
-import { RadSideDrawerService } from '../shared/ui-services/radside-drawer-service/radsidedrawer.service';
+import { UserModel } from '../shared/models/user.model';
+import { RouterHelperService } from '../shared/services/router-helper/router-helper.service';
 
 @Component({
   selector: 'app-login',
@@ -16,30 +14,27 @@ import { RadSideDrawerService } from '../shared/ui-services/radside-drawer-servi
 export class LoginComponent implements OnInit {
     appName = 'Restaurant Intelligence';
     isLoggingIn = true;
-    user: User;
+    user: UserModel;
     @ViewChild('password') password: ElementRef;
     @ViewChild('confirmPassword') confirmPassword: ElementRef;
 
-  constructor(public router: RoutingHelperService,
+  constructor(public router: RouterHelperService,
               private auth: AuthGuard,
-              private loginService: LoginService,
-              private   drawerService: RadSideDrawerService
               ) {
-    this.user = new User();
+    this.user = new UserModel();
   }
 
   ngOnInit() {}
 
+  
   onLoggedin() {
-       this.loginService.logIn();
-  }
-
-  onLoggedinMobile(navItemRout: string) {
-    this.loginService.logIn();
-   
-     this.router.goToPage('/dashboard',null);
+   this.auth.onLoggedIn();
+}
+  // onLoggedinMobile(navItemRout: string) {
+  //   this.loginService.logIn();
+  //   // this.router.goToPage('/dashboard',null);
     
-  }
+  // }
 
 
 }

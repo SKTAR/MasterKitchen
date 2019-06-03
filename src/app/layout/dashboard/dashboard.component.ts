@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { RadSideDrawerService } from '../../shared/ui-services/radside-drawer-service/radsidedrawer.service';
+import { RadSideDrawerService } from '../../shared/services/ui/radside-drawer-service/radsidedrawer.service';
 
 @Component({
   selector: 'app-dashboard',

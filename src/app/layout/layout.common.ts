@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
-import { MenulistComponent } from '../restaurant/menulist/menulist.component';
+import { MenuSelectComponent } from './restaurant/menu-select/menu-select.component';
+
 
 
 export const componentDeclarations: any[] = [
@@ -23,9 +24,12 @@ export const routes: Routes = [
             { path: 'grid', loadChildren: './grid/grid.module#GridModule' },
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
-            { path: 'restaurant', loadChildren: './restaurant/restaurant.module#RestaurantModule' },
-            { path:  'station', loadChildren: './station/station.module#StationModule' },
-        ]
+            { path: 'kot', loadChildren: './restaurant/kot/kot.module#KotModule' },
+            { path: 'stock', loadChildren: './restaurant/stock/stock.module#StockModule' },
+            { path: 'menu-select', component: MenuSelectComponent },
+            { path: 'station', loadChildren: './restaurant/station/station.module#StationModule' },
+            { path: 'zonetable', loadChildren: './restaurant/setting/setting.module#SettingModule' },
+          
+                ]
     }
-   
 ];

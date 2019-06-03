@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutingHelperService } from '../shared/router-helper/routing-helper.service';
+
 import { NavigationExtras } from '@angular/router';
 import { PlatformService } from '../shared/platform.service';
+import { RouterHelperService } from '../shared/services/router-helper/router-helper.service';
 
 @Component({
   selector: 'app-splitview',
@@ -15,7 +16,7 @@ export class SplitviewComponent implements OnInit {
     data = [];
     selected = {};
 
-    constructor(private router: RoutingHelperService,
+    constructor(private router: RouterHelperService,
                 private checkType: PlatformService) {}
 
     select(args) {

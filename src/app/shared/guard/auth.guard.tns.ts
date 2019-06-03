@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
-import { RoutingHelperService } from '../router-helper/routing-helper.service.tns';
 import * as localStorage from 'nativescript-localstorage';
 import { RouterExtensions } from 'nativescript-angular/router';
 @Injectable()
@@ -15,6 +14,12 @@ export class AuthGuard implements CanActivate {
         this.router.navigate(['/login']);
         return false;
          
+    }
+    onLoggedIn() {
+        localStorage.setItem('isLoggedin', 'true');
+        }
+    onLoggedout() {
+        localStorage.removeItem('isLoggedin');
     }
    
 }

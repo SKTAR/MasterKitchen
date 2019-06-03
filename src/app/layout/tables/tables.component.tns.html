@@ -1,1 +1,22 @@
-<Button text="tables works!" class="btn btn-primary"></Button>
+<!-- <ScrollView row="0" scrollBarIndicatorVisible="true" paddingBottom="100"> -->
+   <app-actionbar [pageName]="Table Layout"></app-actionbar>
+    <StackLayout>  
+        <AbsoluteLayout  height="100%" >
+            
+            <StackLayout #dragImage orientation="vertical">
+             <Image  class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu()" (pan)="onPan($event)" src="~/assets/images/restaurant-circle.png"></Image>
+             <Label class="h2 p-15" text="table 1" horizontalAlignment="center" verticalAlignment="center" ></Label>
+            
+            </StackLayout>
+           
+            <!-- X,Y -->
+            <StackLayout #dragImage orientation="horizontal">
+            <Label class="h2 p-15" [text]="dragImageItem.translateX" horizontalAlignment="center" verticalAlignment="center" ></Label>
+            <Label class="h2 p-15" [text]="dragImageItem.translateY" horizontalAlignment="center" verticalAlignment="center" ></Label>
+            </StackLayout>
+            <!-- End X,Y -->
+      
+
+        </AbsoluteLayout>
+    </StackLayout>
+<!-- </ScrollView> -->
