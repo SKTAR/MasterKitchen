@@ -11,6 +11,7 @@ import { MenuSelectComponent } from './restaurant/menu-select/menu-select.compon
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { IngredientComponent } from './restaurant/ingredient/ingredient.component';
 import { MenuitemsComponent } from './restaurant/menuitems/menuitems.component';
+import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -25,7 +26,9 @@ import { MenuitemsComponent } from './restaurant/menuitems/menuitems.component';
     MobileModule,
     TranslateModule,
     NativeScriptUISideDrawerModule, // RadSideDrawer
-    NativeScriptFormsModule
+    NativeScriptUIListViewModule,   // RadListView
+    NativeScriptFormsModule,
+    
     
   ],
   schemas: [NO_ERRORS_SCHEMA]

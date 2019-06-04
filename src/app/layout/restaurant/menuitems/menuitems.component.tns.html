@@ -7,12 +7,16 @@
                 
                 <Image width="150" class="img-rounded m-b-20" [src]="image"></Image>
                 <!-- <Label  [text]="i" horizontalAlignment="center" fontSize="20"></Label> -->
-                <Label  [text]="item.name" horizontalAlignment="center" fontSize="20"></Label>
-                <Label  [text]="item.price" horizontalAlignment="center" fontSize="20"></Label>
+                <Label  [text]="item.name" horizontalAlignment="center" fontSize="20" ></Label>
+                <GridLayout  rows="*" columns="*,10,*" fontSize="20">
+                <Label  [text]="item.price"   row="0"  col="0" horizontalAlignment="right"  fontSize="20"></Label>
+                <Label  text  =""            row="0"  col="1"   fontSize="20"></Label>   
+                <Label  [text]="item.currency"row="0"  col="2"  fontSize="20"></Label>   
+                </GridLayout>
                 <!-- <Label  [text]="item.partNumber" horizontalAlignment="center"></Label>
                   -->
                   <StackLayout  orientation="horizontal" horizontalAlignment="center" >  
-                       <Button   id="{{'btd_'+i}}" class="decrease-btn circle-btn btn" text="" (tap)="onTapDecrease($event)">
+                       <Button   id="{{'btd_'+i}}" class="decrease-btn circle-btn btn" text="" (tap)="onTapDecrease($event,'txt_'+i)">
                             <FormattedString>
                                 <Span text="&#xf068;"></Span>
                             </FormattedString>

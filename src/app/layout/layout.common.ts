@@ -29,7 +29,7 @@ export const routes: Routes = [
             { path: 'menu-select', component: MenuSelectComponent },
             { path: 'station', loadChildren: './restaurant/station/station.module#StationModule' },
             { path: 'zonetable', loadChildren: './restaurant/setting/setting.module#SettingModule' },
-          
+            { path: 'kds', loadChildren: './restaurant/kds/kds.module#KdsModule' },
                 ]
     }
 ];

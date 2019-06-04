@@ -57,8 +57,8 @@ export class MenuitemsComponent implements OnInit {
     console.log(this.allSelectMenu.length);
     this.selectedMenu.emit(this.seletedMenuItems);
   }
-  public onTapIncrease(args, txtId: string) {
-    this.numuricBtService.IncreaseValue(args, txtId);
+  public onTapIncrease(args,txtId: string) {
+    this.numuricBtService.IncreaseValue(args,txtId);
 }
 
 public onTapDecrease(args, txtId: string) {

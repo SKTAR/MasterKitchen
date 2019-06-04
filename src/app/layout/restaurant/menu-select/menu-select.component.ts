@@ -31,7 +31,7 @@ export class MenuSelectComponent implements OnInit {
 
 
   menuCategoryList: any = [];
-  menuListByCategory; ///:  Array<MenuModel>; // send to Menu List By Category
+  menuListByCategory: MenuModel[];  //:  Array<MenuModel>; // send to Menu List By Category
   @ViewChild('tabHighlight') tabHighlight: ElementRef;
   selectedTab = 0;
   colNum = 5;
@@ -142,7 +142,7 @@ export class MenuSelectComponent implements OnInit {
    
    public loadMenuByCategory(category: string) {
     
-     this.menuService.listCategoryByName(category).pipe(map((response) =>  {
+     this.menuService.listCategoryByName(category).pipe(map((response: MenuModel[]) =>  {
       return this.menuListByCategory = response;
     }))
      .subscribe((response) => {
