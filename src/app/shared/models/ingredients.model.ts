@@ -1,6 +1,6 @@
 import { IngredientModel } from './menu.model';
 
-export class IngredientsModel {
+export class RtuModel {
     uid: string;     // m 
     productCode: string; // m
    // category: string;   // m

@@ -7,10 +7,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MenuSelectComponent } from './restaurant/menu-select/menu-select.component';
 import { FormsModule } from '@angular/forms';
 import { IngredientComponent } from './restaurant/ingredient/ingredient.component';
-import { MenuitemsComponent } from './restaurant/menuitems/menuitems.component';
+import { MenuitemsComponent } from './restaurant/menu/menuitems/menuitems.component';
+import { MenuSelectComponent } from './restaurant/menu/menu-select/menu-select.component';
 
 @NgModule({
   declarations: [LayoutComponent,

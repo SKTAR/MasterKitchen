@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { KotComponent } from './kot.component';
 
-
 export const componentDeclarations: any[] = [
 ];
 

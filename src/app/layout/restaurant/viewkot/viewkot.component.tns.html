@@ -1,0 +1,61 @@
+<app-actionbar [pageName]="'VIEW KOT'"></app-actionbar>
+
+<!-- The [columns] bit here makes this app a two-column layout on tablets, and a one-column layout on phones -->
+<GridLayout [columns]="isTablet ? '*, 2*' : '*'">
+	<GridLayout col="0" class="left-column">
+
+		<!-- The ListView shows on both tablets and phones. On tablets the list occupies the left-hand side
+		of the screen, and one phones the ListView takes up the whole screen. -->
+		<ListView class="list-group" [items]="orderList" (itemTap)="select($event)">
+			<ng-template let-item="item">
+				<GridLayout class="list-group-item" rows="*,*,*,*" columns="auto, *">
+					<!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
+                    <Label row="0" col="1" text="Dine In"></Label>
+                    <Label row="1" col="1" [text]="item.id"></Label>
+                    <Label row="3" col="1" [text]="item.status"></Label>
+                    <Label row="2" col="1" text="{{ item.createdDate | date:'medium' }}"></Label>
+				</GridLayout>
+			</ng-template>
+		</ListView>
+	</GridLayout>
+
+	<StackLayout col="1" class="p-20" >
+		   <ng-container *ngIf="isTablet">
+			<ListView class="list-group" [items]="selectedOrder.items" (itemTap)="select($event)">
+				<ng-template let-item="item">
+					<GridLayout class="list-group-item" rows="*,*,*,*,*" columns="auto, *">
+						<!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
+						
+						<Label row="0" col="0" text="ID:"></Label>
+						<Label row="1" col="0" text="Price:"></Label>
+						<Label row="2" col="0" text="QTY:"></Label>
+						<Label row="3" col="0" text="Total"></Label>
+
+						<Label row="0" col="1" [text]="item.id"></Label>
+						<Label row="1" col="1" [text]="item.unitPrice"></Label>
+						<Label row="2" col="1" [text]="item.quantity"></Label>
+						<Label row="3" col="1" [text]="item.total"></Label>
+						<Label row="4" col="1" text="{{getMenubyId(item.id)}}"></Label>
+					</GridLayout>
+				</ng-template>
+			</ListView>
+
+		
+				<GridLayout col="0" rows="*,*,*,*" columns="auto, *">
+
+					<Label row="0" col="0" text="Sub Total:"></Label>
+					<Label row="1" col="0" text="Tax Rate :"></Label>
+					<Label row="2" col="0" text="Total :"></Label>
+
+					<Label row="0" col="1" [text]="selectedOrder.subTotal"></Label>
+					<Label row="1" col="1" [text]="selectedOrder.percentTaxRate"></Label>
+					<Label row="2" col="1" [text]="selectedOrder.total"></Label>
+				
+					<!-- <Label row="3" col="1" [text]="getMenubyId("></Label> -->
+				</GridLayout>
+
+
+
+		</ng-container>
+	</StackLayout>
+</GridLayout>

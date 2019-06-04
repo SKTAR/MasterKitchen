@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { MenuModel, IngredientModel } from '../../../shared/models/menu.model';
-import { StationModel } from '../../../shared/models/station.model';
-import { MenuService } from '../../../shared/services/restaurant/menu.service';
-import { RadlistviewMenuService } from '../../../shared/services/ui/radlistview-menu-service/radlistview-menu.service';
+import { MenuModel, IngredientModel } from '../../../../shared/models/menu.model';
+import { StationModel } from '../../../../shared/models/station.model';
+import { MenuService } from '../../../../shared/services/restaurant/menu.service';
+import { RadlistviewMenuService } from '../../../../shared/services/ui/radlistview-menu-service/radlistview-menu.service';
 import { ActivatedRoute } from '@angular/router';
-import { StationService } from '../../../shared/services/restaurant/station.service';
-import { KOTService } from '../../../shared/services/restaurant/kot.service';
+import { StationService } from '../../../../shared/services/restaurant/station.service';
+import { KOTService } from '../../../../shared/services/restaurant/kot.service';
 import { map } from 'rxjs/operators';
-import { KotModel } from '../../../shared/models/kot.model';
+import { KotModel, CustomerModel } from '../../../../shared/models/kot.model';
 interface OrderItems {
 	"category": string;
 	"items": MenuModel[];
@@ -312,14 +312,17 @@ export class MenuSelectComponent implements OnInit {
    public confirm() {
    
      const kot = new KotModel();
-    //  kot.customerName = '';
+     kot.customers = this.getCustomer(this.numCustomer);
     //  kot.customerNumber = this.numCustomer;
     //  kot.shipTo = this.tableID;        // get Input From Order Component
     //  kot.contactName = 'Tar';          // ***************************Watreceive when customer pay 
     //  kot.saleName  = 'staff1';         // recieve when login
     //  kot.status  = 'OPEN';             // 'OPEN'
-    //  kot.type = 'DineIn';              // Dine In
-    //  kot.orderNumber = 'Order0001';    //' Query and plus one
+    kot.type = this.orderType;
+    kot.billTo = {'name' : this.tableID};              // Dine In
+    kot.shipBy = { 'operation': 'Hand'};
+    kot.shipTo = { 'name' : this.tableID};
+       //  kot.orderNumber = 'Order0001';    //' Query and plus one
     //  kot.paymentTerm = '';             // ***************************payment;// 'CASH',
     //  kot.deliveryTime = 0;             // 30,
     //  kot.deliveryUnit = 'Minute';      //'Minute',
@@ -354,4 +357,19 @@ export class MenuSelectComponent implements OnInit {
        
        }
  
+       //#region Customer
+
+       getCustomer(numCustomer: number): CustomerModel[] {
+        const custArray: CustomerModel[] = [];
+        for(let i=0; i < numCustomer;i++) {
+          const cust = new CustomerModel();
+          cust.age = 'Adult';
+          cust.gender='M';
+          custArray.push(cust);
+       }
+        return custArray;
+      }
+       //#endregion
+
+
 }

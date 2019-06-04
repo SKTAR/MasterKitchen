@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
-import { MenuSelectComponent } from './restaurant/menu-select/menu-select.component';
+import { MenuSelectComponent } from './restaurant/menu/menu-select/menu-select.component';
 
 
 
@@ -30,6 +30,7 @@ export const routes: Routes = [
             { path: 'station', loadChildren: './restaurant/station/station.module#StationModule' },
             { path: 'zonetable', loadChildren: './restaurant/setting/setting.module#SettingModule' },
             { path: 'kds', loadChildren: './restaurant/kds/kds.module#KdsModule' },
-                ]
+            { path: 'viewkot', loadChildren: './restaurant/viewkot/viewkot.module#ViewkotModule' },
+                 ]
     }
 ];

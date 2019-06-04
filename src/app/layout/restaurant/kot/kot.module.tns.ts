@@ -1,5 +1,4 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-
 import { KotRoutingModule } from './kot-routing.module';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { KotComponent } from './kot.component';

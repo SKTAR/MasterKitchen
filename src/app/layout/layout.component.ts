@@ -46,7 +46,10 @@ export class LayoutComponent implements OnInit {
   
   
     onNavItemTap(navItemRout: string) {
+    
+      if (navItemRout === "login") {
       this.auth.onLoggedout();
+      }
       this.drawerService.onNavItemTap(navItemRout);
       
       }

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
-import { routes} from './kds.common';
-//const routes: Routes = [];
+import { routes } from './viewkot.common';
 
 @NgModule({
   imports: [NativeScriptRouterModule.forChild(routes)],
   exports: [NativeScriptRouterModule]
 })
-export class KdsRoutingModule { }
+export class ViewkotRoutingModule { }
