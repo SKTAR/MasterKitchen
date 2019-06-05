@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
-import { MenuSelectComponent } from './restaurant/menu/menu-select/menu-select.component';
-
 
 
 export const componentDeclarations: any[] = [
@@ -26,7 +24,7 @@ export const routes: Routes = [
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
             { path: 'kot', loadChildren: './restaurant/kot/kot.module#KotModule' },
             { path: 'stock', loadChildren: './restaurant/stock/stock.module#StockModule' },
-            { path: 'menu-select', component: MenuSelectComponent },
+            { path: 'menu', loadChildren: './restaurant/menu/menu.module#MenuModule' },
             { path: 'station', loadChildren: './restaurant/station/station.module#StationModule' },
             { path: 'zonetable', loadChildren: './restaurant/setting/setting.module#SettingModule' },
             { path: 'kds', loadChildren: './restaurant/kds/kds.module#KdsModule' },

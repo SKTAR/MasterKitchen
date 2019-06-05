@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuModel } from '../../../shared/models/menu.model';
-import { KDS } from '../../../shared/models/kot.model';
+import { KDS, KotModel } from '../../../shared/models/kot.model';
 import { RouterHelperService } from '../../../shared/services/router-helper/router-helper.service';
 import { PlatformService } from '../../../shared/platform.service';
 import { KOTService } from '../../../shared/services/restaurant/kot.service';
 import { MenuService } from '../../../shared/services/restaurant/menu.service';
 import { NavigationExtras } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { map, filter, flatMap } from 'rxjs/operators';
+import { SegmentedBarService } from '../../../shared/services/ui/segmentedbar-service/segmentedbar.service';
 
 @Component({
   selector: 'app-viewkot',
@@ -19,42 +20,66 @@ export class ViewkotComponent implements OnInit {
    isTablet = false;
    data = [];
    selected = {};
- 
+   orderTypeSegmentBarList; // SegmentBar UI Component List
+   
  menuItem : MenuModel;
  
  page = 'Billing';
- orderList: KDS[] = [];
- selectedOrder: KDS;
-   constructor(private router: RouterHelperService,
-               private checkType: PlatformService,
-               private kotService: KOTService,
-               private menuService: MenuService) {}
+ orderList: KotModel[] = [];
+ selectedOrder: KotModel;
+ constructor(private router: RouterHelperService, private checkType: PlatformService,
+  private kotService: KOTService,  private menuService: MenuService,  private segmentedService: SegmentedBarService) {
+  const viewKotTabNameList  = this.kotService.getViewKotTabList(); // = ['Show All', 'Dine In' , 'Take Away' , 'Delivery', 'Others']; //
+  console.log(viewKotTabNameList);
+  this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(viewKotTabNameList);
+
+}
+  ngOnInit(): void {
+  this.listAllOrder();
+  this.onSelectKotItem(Event);
+  }
  
-   select(args) {
-     this.selectedOrder = new KDS();
-     
-     this.selectedOrder = this.orderList[args.index];
-       console.log('--------------------------------------');
-       console.log(this.selectedOrder);
-      // alert(this.selectedOrder['subTotal']);
-      
-       this.checkType.checkPlatformType(args);
-       this.isTablet = this.checkType.checkIsTablet();
-       console.log('Is Table true or false' + this.isTablet);
-       // For phone users we need to navigate to another page to show the detail view.
-       if (!this.isTablet) {
- 
-         const navigationExtras: NavigationExtras = {
-           queryParams: { selected: JSON.stringify(this.selected)}
-         };
-           this.router.goToPage('splitview-kot', navigationExtras);
-           }
-       }
- 
-   ngOnInit(): void {
-       this.listOrder();
+   //#region Mobile
+   onSelectedSegment(args) { // select Tab
+
    }
+  //#endregion
+
+
+   
+  onSelectKotItem(args) { // select Kitchen Order Token
+    this.selectedOrder = new KotModel();
+    
+    this.selectedOrder = this.orderList[args.index];
+      console.log('--------------------------------------');
+      console.log(this.selectedOrder);
+     // alert(this.selectedOrder['subTotal']);
+     
+      // For phone users we need to navigate to another page to show the detail view.
+      if (!this.isTablet) {
+
+        const navigationExtras: NavigationExtras = {
+          queryParams: { selected: JSON.stringify(this.selected)}
+        };
+          this.router.goToPage('splitview-kot', navigationExtras);
+          }
+      }
  
+ 
+   onLoaded(args) {
+    this.checkType.checkPlatformType(args);
+    this.isTablet = this.checkType.checkIsTablet();
+    console.log('Is Table true or false' + this.isTablet);
+
+    this.selectedOrder = new KotModel();
+    if (!this.isTablet) {
+ 
+      const navigationExtras: NavigationExtras = {
+        queryParams: { selected: JSON.stringify(this.selected)}
+      };
+        this.router.goToPage('splitview-kot', navigationExtras);
+        }
+   }
    getMenubyId(id: string) {
      console.log('get test:'+id);
      return this.menuService.getByUid(id).pipe(map(
@@ -71,8 +96,8 @@ export class ViewkotComponent implements OnInit {
      return 'test';
    }
  
-   listOrder() {
-     this.kotService.list().pipe(map((response: KDS[]) =>  {
+   listAllOrder() {
+     this.kotService.list().pipe(map((response: KotModel[]) =>  {
        return this.orderList = response;
      }))
      .subscribe((response) => {
@@ -86,13 +111,32 @@ export class ViewkotComponent implements OnInit {
   });
    }
  
+   listOrderByType(typeOrder: string) {
+    this.kotService.list().pipe(
+      flatMap((data: KotModel[]) => data.keys),
+      filter((kot: KotModel) => kot.type === typeOrder)
+    ) 
+    .subscribe((response) => {
+      console.log('Order List');
+      console.log(response);
+
+},
+error => {
+    alert('Cannot get Order List' + error);
+    console.log(error);
+ });
+  }
+
+
+
+
    selectOrderItem(args){
      const id = args.index;
      const kdsItem = this.orderList[id];
      // kdsItem['subTotal'];
  
      alert('id:' + id);
-     this.kotService.getByUid(id).pipe(map((response: KDS) =>  {
+     this.kotService.getByUid(id).pipe(map((response: KotModel) =>  {
        return this.selectedOrder = response;
      }))
      .subscribe((response) => {

@@ -1,5 +1,6 @@
 
-<StackLayout hideActionBar>
+<app-actionbar [pageName]="'Select Menu'"></app-actionbar>
+<StackLayout>
 
     <!--  Show Tab Menu Category -->
      <ScrollView class="anim-images" orientation="horizontal"> 
@@ -23,18 +24,21 @@
     <Label text="Number Of Customer :{{numCustomer}}" fontSize="20" color="black" verticalAlignment="top" horizontalAlignment="center" ></Label>
           
     <StackLayout  orientation="horizontal"  horizontalAlignment="center">   
-               
-     <Button  class= "ok-btn" text="Confirm" horizontalAlignment="center" verticalAlignment="center" color="white"    (tap)="confirm()">
+       
+        <!-- Confirm Button -->       
+     <Button  class= "ok-btn"       (tap)="confirm()" text="Confirm" horizontalAlignment="center" verticalAlignment="center" color="white">
          <!-- <FormattedString>
              <Span text="&#xf00c;"></Span>
          </FormattedString> -->
      </Button>
-    
-     <Button  class= "cancle-btn" text="Cancel" fontColor ="red" horizontalAlignment="center"  verticalAlignment="center" color="red"   (tap)="cancle()">
+
+     <!-- Cancel Button -->  
+     <Button  class= "cancle-btn"   (tap)="cancle()" text="Cancel" fontColor ="red" horizontalAlignment="center"  verticalAlignment="center" color="red">
          <!-- <FormattedString>
              <Span text="&#xf113;"></Span>
          </FormattedString> -->
      </Button>
+     
      </StackLayout>  
 
 

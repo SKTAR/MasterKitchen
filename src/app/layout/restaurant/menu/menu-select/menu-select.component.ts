@@ -329,10 +329,10 @@ export class MenuSelectComponent implements OnInit {
     //  kot.validDate = new Date();       // Date //'2019-03-19T13:43:21.270Z',
      
      kot.items = this.orderItems;
-     
-     console.log(JSON.stringify(kot));
-     
-     this.createNewKOT(kot);
+     console.log('-----------------------------');
+     console.log(kot);
+     console.log('----------create kitchen  order token -------------------');
+      this.createNewKOT(kot);
    
      }
      

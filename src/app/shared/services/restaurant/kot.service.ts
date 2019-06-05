@@ -26,10 +26,11 @@ export class KOTService extends BaseAPI {
     return this.httpClient.post(`${this.apiURL}${this.subURL}/reOpen/${uid}`, { }, this.httpOptions);
   }
 
-//   public list() {
-//     return this.httpClient.post(`${this.apiURL}${this.subURL}/list`, null, this.httpOptions);
-//  }
+  public getOrderTypeList() {
+   return  ['Dine In' , 'Take Away' , 'Delivery', 'Others'];
+  }
 
- 
-
+  public getViewKotTabList() {
+    return  ['Show All' ,'Dine In' , 'Take Away' , 'Delivery', 'Others'];
+   }
 }

@@ -8,14 +8,9 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
-import { IngredientComponent } from './restaurant/ingredient/ingredient.component';
-import { MenuitemsComponent } from './restaurant/menu/menuitems/menuitems.component';
-import { MenuSelectComponent } from './restaurant/menu/menu-select/menu-select.component';
-
+//import { IngredientComponent } from './restaurant/ingredient/ingredient.component';
 @NgModule({
-  declarations: [LayoutComponent,
-    HeaderComponent, SidebarComponent, MenuSelectComponent,IngredientComponent,
-    MenuitemsComponent],
+  declarations: [LayoutComponent, HeaderComponent, SidebarComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,

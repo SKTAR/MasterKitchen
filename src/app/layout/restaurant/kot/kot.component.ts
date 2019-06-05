@@ -5,6 +5,7 @@ import { SegmentedBarService } from '../../../shared/services/ui/segmentedbar-se
 import { RouterHelperService } from '../../../shared/services/router-helper/router-helper.service';
 import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Image } from 'tns-core-modules/ui/image';
+import { KOTService } from '../../../shared/services/restaurant/kot.service';
 @Component({
   selector: 'app-kot',
   templateUrl: './kot.component.html',
@@ -16,7 +17,7 @@ export class KotComponent implements OnInit {
   imageDir = '';
   caption;
   dataItems;
-  orderTypeTabList = ['Dine In' , 'Take Away' , 'Delivery', 'Others']; // Dine In ,Take Away ....
+   orderTypeList = [];//'Dine In' , 'Take Away' , 'Delivery', 'Others']; // Dine In ,Take Away ....
   orderTypeSegmentBarList; // SegmentBar UI Component List
   menuCategoryList: string[]; // ของดี เมืองอุบล , ต้ม ，ทอด
   selectedIndex = 0;
@@ -34,6 +35,7 @@ export class KotComponent implements OnInit {
   constructor(private segmentedService: SegmentedBarService,
               private routerHelper: RouterHelperService,
               private route: ActivatedRoute,
+              private kotService: KOTService
               ) {
               this.route.queryParams.subscribe(params => {
                 this.orderFromMenuItemComp = params['menuItems'];
@@ -42,7 +44,10 @@ export class KotComponent implements OnInit {
                 console.log('Table' + this.tableID);
             });
 
-              this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(this.orderTypeTabList);
+            this.orderTypeList = this.kotService.getOrderTypeList();
+            console.log('order type:'+this.orderTypeList);
+              this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(this.orderTypeList);
+              console.log(this.orderTypeSegmentBarList);
               this.tableList = [
                 new TableObj('Table1', 0, 1),
                 new TableObj('Table2', 200, 10),
@@ -70,11 +75,11 @@ export class KotComponent implements OnInit {
       queryParams: {
           'tableID'  : table,
           'numCust'  : this.nCustomter,
-          'orderType': this.orderTypeTabList[this.selectedIndex]
+          'orderType': this.orderTypeList[this.selectedIndex]
       }
   };
 
-    this.routerHelper.goToPageExtra('/menu-select', navigationExtras);
+    this.routerHelper.goToPageExtra('/menu', navigationExtras);
    
    }
 

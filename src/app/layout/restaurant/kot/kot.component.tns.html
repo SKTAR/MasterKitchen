@@ -1,11 +1,10 @@
 
 <app-actionbar [pageName]="'Order Food'"></app-actionbar>
-<GridLayout class="page page-content">
-          
 
 <!-- <StackLayout orientation="vertical"> -->
-    <SegmentedBar #tab  [items]="orderTypeSegmentBarList"  [(ngModel)]="selectedIndex" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
-    
+<StackLayout orientation="vertical">
+  <SegmentedBar #tab  [items]="orderTypeSegmentBarList"  [(ngModel)]="selectedIndex" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
+
     <GridLayout [visibility]="selectedIndex === 0 ? 'visible' : 'collapsed'" backgroundColor="white">
       <!-- <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
        -->
@@ -32,12 +31,13 @@
 
   <GridLayout [visibility]="selectedIndex === 1 ? 'visible' : 'collapsed'" backgroundColor="white">
    <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
-    <app-menu></app-menu>
+    <app-menu-select></app-menu-select>
+    
   </GridLayout>
 
 <GridLayout [visibility]="selectedIndex === 2 ? 'visible' : 'collapsed'" backgroundColor="white">
    <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
-   <app-menu></app-menu>
+  
 </GridLayout>
 
 <GridLayout [visibility]="selectedIndex === 3 ? 'visible' : 'collapsed'" backgroundColor="white">
@@ -45,4 +45,4 @@
 </GridLayout>
 <!-- </StackLayout> -->
 
-</GridLayout>
+</StackLayout>

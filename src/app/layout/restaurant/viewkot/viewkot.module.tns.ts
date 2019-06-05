@@ -4,7 +4,7 @@ import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { ViewkotComponent } from './viewkot.component';
 import { SplitviewKotComponent } from './splitview-kot/splitview-kot.component';
 import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
-import { FormsModule } from '@angular/forms';
+import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
 @NgModule({
   declarations: [ViewkotComponent, SplitviewKotComponent],
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
     ViewkotRoutingModule,
     NativeScriptCommonModule,
     MobileModule,
-    FormsModule
+    NativeScriptFormsModule
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

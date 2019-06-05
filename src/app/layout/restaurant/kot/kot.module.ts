@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { KotRoutingModule } from './kot-routing.module';
 import { KotComponent } from './kot.component';
+// import { MenuModule } from '../menu/menu.module';
 
 
 
@@ -9,7 +10,8 @@ import { KotComponent } from './kot.component';
   declarations: [KotComponent],
   imports: [
     CommonModule,
-    KotRoutingModule
+    KotRoutingModule,
+    
   ]
 })
 export class KotModule { }

@@ -12,7 +12,7 @@ export class SegmentedBarService {
 
     public segmentBarItem: Array<SegmentedBarItem>;
     dataItems = new ObservableArray<DataItem>();
-    orderTypeList: string[] = ['Dine In', 'Take Away', 'Delivery' , 'Others'];
+  //  orderTypeList: string[] = ['Dine In', 'Take Away', 'Delivery' , 'Others'];
 
 
     private _templateSelector: (item: DataItem, index: number, items: any) => string;
