@@ -29,7 +29,7 @@ import { CommonModule } from '@angular/common';
     // HttpModule, Deprecated
     HttpClientModule,
     FormsModule,
-   // ReactiveFormsModule,
+    ReactiveFormsModule,
    // NgbModule, // https://ng-bootstrap.github.io
   //  MDBBootstrapModule.forRoot(),
     LanguageTranslationModule,
