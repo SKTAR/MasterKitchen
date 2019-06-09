@@ -29,7 +29,6 @@ export const routes: Routes = [
             { path: 'zonetable', loadChildren: './restaurant/setting/setting.module#SettingModule' },
             { path: 'kds', loadChildren: './restaurant/kds/kds.module#KdsModule' },
             { path: 'viewkot', loadChildren: './restaurant/viewkot/viewkot.module#ViewkotModule' },
-            { path: 'viewmenu', loadChildren: './restaurant/viewmenu/viewmenu.module#ViewMenuModule' },
                  ]
     }
 ];
