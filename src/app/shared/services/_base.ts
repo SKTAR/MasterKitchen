@@ -10,8 +10,8 @@ export class BaseAPI {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      // tslint:disable-next-line:max-line-length
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Y2YxODU4MmMxOWNkMzFiYTQ2YjZmZWQiLCJlbWFpbCI6InN1cmFzYWsua2Fld3NpcmlAZ21haWwuY29tIiwicGVybWlzc2lvbkxldmVsIjoxLCJwcm92aWRlciI6ImVtYWlsIiwibmFtZSI6IlN1cmFzYWsgS2Fld3NpcmkiLCJvcmdhbml6YXRpb24iOiJfX01hc3RlcktpdGNoZW4iLCJyZWZyZXNoS2V5IjoiT0tTRlpxOEpNSDc4akdKYVhqRDlYdz09IiwiaWF0IjoxNTU5NDU5NjYyfQ.vxrLxO__-dJHldAtDREIvAl6TxH42MSOJ90F4tiOGbc'
+      'Authorization': 'Bearer ' + localStorage.getItem("accessToken")
+      // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Y2YxODU4MmMxOWNkMzFiYTQ2YjZmZWQiLCJlbWFpbCI6InN1cmFzYWsua2Fld3NpcmlAZ21haWwuY29tIiwicGVybWlzc2lvbkxldmVsIjoxLCJwcm92aWRlciI6ImVtYWlsIiwibmFtZSI6IlN1cmFzYWsgS2Fld3NpcmkiLCJvcmdhbml6YXRpb24iOiJfX01hc3RlcktpdGNoZW4iLCJyZWZyZXNoS2V5IjoiT0tTRlpxOEpNSDc4akdKYVhqRDlYdz09IiwiaWF0IjoxNTU5NDU5NjYyfQ.vxrLxO__-dJHldAtDREIvAl6TxH42MSOJ90F4tiOGbc'
     })
   };
 
