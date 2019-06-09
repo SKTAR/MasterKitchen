@@ -40,7 +40,11 @@ export class KotModel  { //Kitchen Order Token {
     }
 
 
-    
+    export class KotPassData { // Send Data from Kot Component to Select Menu Component
+      orderType: string;
+      tableID: string;
+      numCust: number;
+    }
 
 
 export class KDS  {

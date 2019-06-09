@@ -17,13 +17,13 @@ export class NumuricButtonService implements OnInit {
   
   public IncreaseValue(args: EventData, textId: string): number {
    
-   alert('send ID' + textId);
+  // alert('send ID' + textId);
    const button = <Button>args.object;
    // alert('InService');
 
     const id = button.id;
     const txtID = 'txt_'+ id.split('_')[1]; 
-    alert(txtID);
+  //  alert(txtID);
 
    const page = button.page;
    const txtField =  <TextField>page.getViewById(txtID);

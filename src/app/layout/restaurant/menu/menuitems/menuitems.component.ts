@@ -41,11 +41,11 @@ export class MenuitemsComponent implements OnInit {
   }
 
   onItemSelected(arg) {
-    alert('menuItem:' + this.tableID);
+    //alert('menuItem:' + this.tableID);
     this.seletedMenuItems =  this.itemService.onItemSelected(arg);
    // console.log(this.seletedMenuItems);
     this.allSelectMenu.push(this.seletedMenuItems);
-    console.log(this.allSelectMenu.length);
+    //console.log(this.allSelectMenu.length);
 
     this.selectedMenu.emit(this.seletedMenuItems);
   }
@@ -54,7 +54,7 @@ export class MenuitemsComponent implements OnInit {
     this.seletedMenuItems =  this.itemService.onItemDeselected(arg);
    // console.log(this.seletedMenuItems);
     this.allSelectMenu.push(this.seletedMenuItems);
-    console.log(this.allSelectMenu.length);
+   // console.log(this.allSelectMenu.length);
     this.selectedMenu.emit(this.seletedMenuItems);
   }
   public onTapIncrease(args,txtId: string) {

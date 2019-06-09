@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { KotComponent } from './kot.component';
+import { MenuSelectComponent } from '../menu/menu-select/menu-select.component';
 
 export const componentDeclarations: any[] = [
 ];
@@ -11,6 +12,10 @@ export const routes: Routes = [
     {
         path: '',
         component: KotComponent,
+    },
+    {
+        path: 'menu',
+        component: MenuSelectComponent,
     }
     
 ];

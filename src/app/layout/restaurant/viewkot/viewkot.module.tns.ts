@@ -5,6 +5,7 @@ import { ViewkotComponent } from './viewkot.component';
 import { SplitviewKotComponent } from './splitview-kot/splitview-kot.component';
 import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
+import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 
 @NgModule({
   declarations: [ViewkotComponent, SplitviewKotComponent],
@@ -12,7 +13,9 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
     ViewkotRoutingModule,
     NativeScriptCommonModule,
     MobileModule,
-    NativeScriptFormsModule
+    NativeScriptFormsModule,
+    NativeScriptUIListViewModule
+    
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

@@ -4,7 +4,7 @@
 
     <!--  Show Tab Menu Category -->
      <ScrollView class="anim-images" orientation="horizontal"> 
-             <StackLayout orientation="horizontal" borderWidth="1"> 
+             <StackLayout orientation="horizontal" > 
                            
                  <GridLayout *ngFor="let imageString of images; let i = index" rows="auto"
                      columns="*" (tap)="selectCategory(i)">
@@ -18,26 +18,39 @@
              
               </StackLayout>  
     </ScrollView> 
-    <Label [text]= "categorySelected" fontSize='40' color="blue" verticalAlignment="center" horizontalAlignment="center"> </Label>
-    <Label text="Table :{{tableID}}" fontSize="20" color="black" verticalAlignment="top" horizontalAlignment="center" ></Label>
-    <Label text="OrderType :{{orderType}}" fontSize="20" color="black" verticalAlignment="top" horizontalAlignment="center" ></Label>
-    <Label text="Number Of Customer :{{numCustomer}}" fontSize="20" color="black" verticalAlignment="top" horizontalAlignment="center" ></Label>
-          
-    <StackLayout  orientation="horizontal"  horizontalAlignment="center">   
-       
-        <!-- Confirm Button -->       
-     <Button  class= "ok-btn"       (tap)="confirm()" text="Confirm" horizontalAlignment="center" verticalAlignment="center" color="white">
-         <!-- <FormattedString>
-             <Span text="&#xf00c;"></Span>
-         </FormattedString> -->
-     </Button>
+    
+    <!-- <ng-container *ngIf="inputKotData.orderType">    -->
+   
+    <!-- </ng-container> -->
+   
+    <StackLayout backgroundColor="yellow" orientation="horizontal" verticalAlignment="center" horizontalAlignment="center">   
+            
+            <!-- <Label  text="Table :" fontSize="20" color="black"  ></Label>
+            <Label  text="{{ inputKotData.tableID}}" fontSize="20"></Label>
+             -->
+            <Label  text="Type  : " fontSize="20" color="black" b ></Label>
+            <Label  text="{{ inputKotData.orderType}}" color="blue" fontSize="20"></Label>
+            
+            <!-- <Label  text="Number Of Customer:" fontSize="20" ></Label>
+            <Label  text="{{ inputKotData.numCust}}" fontSize="20" ></Label> -->
+            
+    </StackLayout>
+            
+    <StackLayout  orientation="horizontal" verticalAlignment="center" horizontalAlignment="center">   
+    
+            <!-- Confirm Button -->       
+            <Button  class= "ok-btn"       (tap)="confirm()" text="Confirm" horizontalAlignment="center" verticalAlignment="center" color="green">
+                <!-- <FormattedString>
+                    <Span text="&#xf00c;"></Span>
+                </FormattedString> -->
+            </Button>
 
-     <!-- Cancel Button -->  
-     <Button  class= "cancle-btn"   (tap)="cancle()" text="Cancel" fontColor ="red" horizontalAlignment="center"  verticalAlignment="center" color="red">
-         <!-- <FormattedString>
-             <Span text="&#xf113;"></Span>
-         </FormattedString> -->
-     </Button>
+            <!-- Cancel Button -->  
+            <Button  class= "cancle-btn"   (tap)="cancle()" text="Cancel" fontColor ="red" horizontalAlignment="center"  verticalAlignment="center" color="red">
+                <!-- <FormattedString>
+                    <Span text="&#xf113;"></Span>
+                </FormattedString> -->
+            </Button>
      
      </StackLayout>  
 
@@ -45,5 +58,5 @@
  <!--  Load Menu Items By Menu Category -->
  <!-- <app-menu-by-category [menuListByCategory]="menuListByCategory" [image]='imageSelected'></app-menu-by-category> -->
      <!-- <app-menu-items (selectedMenu) = "getSelectedMenu($event)"  [tableID]="tableID" [menuListByCategory]="menuListByCategory" [image]="imageSelected"  ></app-menu-items> -->
-<app-menuitems (selectedMenu) = "getSelectedMenu($event)"  [tableID]="tableID" [menuListByCategory]="menuListByCategory" [image]="imageSelected"></app-menuitems>
+<app-menuitems (selectedMenu) = "getSelectedMenu($event)"   [menuListByCategory]="menuListByCategory" [image]="imageSelected"></app-menuitems>
 </StackLayout>

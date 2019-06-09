@@ -19,15 +19,26 @@
 				<ng-template let-item="item">
 					<GridLayout class="list-group-item" rows="*,*,*,*" columns="auto, *">
 						<!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
-						<Label row="0" col="1" text="Dine In"></Label>
-						<Label row="1" col="1" [text]="item.id"></Label>
+						<Label row="0" col="1" [text]="item.type"></Label>
+						<Label row="1" col="1" [text]="item.billTo['name']"></Label>
 						<Label row="3" col="1" [text]="item.status"></Label>
-						<Label row="2" col="1" text="{{ item.createdDate | date:'medium' }}"></Label>
+						<Label row="2" col="1" text="{{ item.updatedDate | date:'medium' }}"></Label>
 					</GridLayout>
 				</ng-template>
 			</ListView>
 
-	
+			<!-- customers: CustomerModel[];
+			type: string;
+			billTo: {'name': string;}
+			shipBy: {'operation': string;}
+			shipTo: {'name': string;}
+			items: MenuModel[];  //  name , quantity , price
+		
+			//#region List
+			status: string;
+			createdDate: Date;
+			updatedDate: Date;
+			uid: string; -->
 
 		</GridLayout>
 
@@ -43,34 +54,30 @@
 						<Label row="1" col="0" text="Price:"></Label>
 						<Label row="2" col="0" text="QTY:"></Label>
 						<Label row="3" col="0" text="Total"></Label>
-
-						<Label row="0" col="1" [text]="item.id"></Label>
-						<Label row="1" col="1" [text]="item.unitPrice"></Label>
+						<!-- price": 90,
+						JS:       "currency": "THB",
+						JS:       "createdDate": "2019-06-05T04:00:04.254Z",
+						JS:       "updatedDate": "2019-06-05T04:00:04.254Z",
+						JS:       "name": "ไส้กรอกอีสาน",
+						JS:       "quantity": 1,
+						JS:       "status": "Opened" -->
+						<Label row="0" col="1" [text]="item.uid"></Label>
+						<Label row="1" col="1" [text]="item.price"></Label>
 						<Label row="2" col="1" [text]="item.quantity"></Label>
-						<Label row="3" col="1" [text]="item.total"></Label>
-						<Label row="4" col="1" text="{{getMenubyId(item.id)}}"></Label>
+						<Label row="3" col="1" text="{{ item.quantity*item.price}}"></Label>
+					
 					</GridLayout>
 				</ng-template>
 			</ListView>
 
 		
-				<GridLayout col="0" rows="*,*,*,*" columns="auto, *">
-
-					<Label row="0" col="0" text="Sub Total:"></Label>
-					<Label row="1" col="0" text="Tax Rate :"></Label>
-					<Label row="2" col="0" text="Total :"></Label>
-
-					<Label row="0" col="1" [text]="selectedOrder.subTotal"></Label>
-					<Label row="1" col="1" [text]="selectedOrder.percentTaxRate"></Label>
-					<Label row="2" col="1" [text]="selectedOrder.total"></Label>
-				
-					<!-- <Label row="3" col="1" [text]="getMenubyId("></Label> -->
-				</GridLayout>
-
-
-
+		
 		</ng-container>
+	
 	</StackLayout>
 </GridLayout>
+
+
+
 </StackLayout>
 </StackLayout>

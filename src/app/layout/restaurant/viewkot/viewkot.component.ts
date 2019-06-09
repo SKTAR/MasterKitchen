@@ -15,7 +15,20 @@ import { SegmentedBarService } from '../../../shared/services/ui/segmentedbar-se
   styleUrls: ['./viewkot.component.scss']
 })
 export class ViewkotComponent implements OnInit {
-
+  countries: Array<any> = [
+    { name: "Amazon", imageSrc: "~/images/amazon.png", open: '+42.87%', type: 'plus' },
+    { name: "Netflix", imageSrc: "~/images/netflix.png", open: '+41.06%', type: 'plus' },
+    { name: "Apple", imageSrc: "~/images/apple.png", open: '+13.63%', type: 'plus' },
+    { name: "Paypal", imageSrc: "~/images/paypal.png", open: '+13.50%', type: 'plus' },
+    { name: "Google", imageSrc: "~/images/google.png", open: '+0.51%', type: 'plus' },
+    { name: "Spotify", imageSrc: "~/images/spotify.png", open: '-6.99%', type: 'minus' },
+    { name: "Tesla", imageSrc: "~/images/tesla.png", open: '+17.19%', type: 'plus' },
+    { name: "Facebook", imageSrc: "~/images/facebook.png", open: '-24.86%', type: 'minus' },
+    { name: "Bitcoin", imageSrc: "~/images/bitcoin.png", open: '-48.86%', type: 'minus' },
+    { name: "Ethereum", imageSrc: "~/images/et.png", open: '-48.86%', type: 'minus' },
+    { name: "Aliaba", imageSrc: "~/images/alibaba.png", open: '-21.63%', type: 'minus' },
+    { name: "AMD", imageSrc: "~/images/amd.png", open: '+86.63%', type: 'plus' }
+];
    //isTablet: boolean = device.deviceType === DeviceType.Tablet;
    isTablet = false;
    data = [];
@@ -23,15 +36,15 @@ export class ViewkotComponent implements OnInit {
    orderTypeSegmentBarList; // SegmentBar UI Component List
    
  menuItem : MenuModel;
- 
+ viewKotTabNameList; 
  page = 'Billing';
  orderList: KotModel[] = [];
  selectedOrder: KotModel;
  constructor(private router: RouterHelperService, private checkType: PlatformService,
   private kotService: KOTService,  private menuService: MenuService,  private segmentedService: SegmentedBarService) {
-  const viewKotTabNameList  = this.kotService.getViewKotTabList(); // = ['Show All', 'Dine In' , 'Take Away' , 'Delivery', 'Others']; //
-  console.log(viewKotTabNameList);
-  this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(viewKotTabNameList);
+   this.viewKotTabNameList  = this.kotService.getViewKotTabList(); // = ['Show All', 'Dine In' , 'Take Away' , 'Delivery', 'Others']; //
+  console.log(this.viewKotTabNameList);
+  this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(this.viewKotTabNameList);
 
 }
   ngOnInit(): void {
@@ -41,7 +54,30 @@ export class ViewkotComponent implements OnInit {
  
    //#region Mobile
    onSelectedSegment(args) { // select Tab
-
+    const tabIndex = this.segmentedService.onSelectedIndexChange(args);
+    //alert(tabIndex);
+   //const temp = this.listAllOrder();
+    if (tabIndex === 0) { // Show All
+      this.listAllOrder();
+    }
+    if (tabIndex === 1) { // Dine In
+      
+      for (let key in this.orderList) {
+        
+      }
+     
+    
+    }
+    if (tabIndex === 2) { // Take Away
+      this.orderList =[];
+    
+    }
+    if (tabIndex === 3) { // Delivery
+      this.orderList =[];
+    }
+    if (tabIndex === 4) { // Others
+      this.orderList =[];
+    }
    }
   //#endregion
 
@@ -81,7 +117,7 @@ export class ViewkotComponent implements OnInit {
         }
    }
    getMenubyId(id: string) {
-     console.log('get test:'+id);
+     console.log('get test:'+ id);
      return this.menuService.getByUid(id).pipe(map(
        (response: MenuModel) => 
        { response.name;
@@ -110,24 +146,8 @@ export class ViewkotComponent implements OnInit {
      console.log(error);
   });
    }
- 
-   listOrderByType(typeOrder: string) {
-    this.kotService.list().pipe(
-      flatMap((data: KotModel[]) => data.keys),
-      filter((kot: KotModel) => kot.type === typeOrder)
-    ) 
-    .subscribe((response) => {
-      console.log('Order List');
-      console.log(response);
-
-},
-error => {
-    alert('Cannot get Order List' + error);
-    console.log(error);
- });
-  }
-
-
+   
+   
 
 
    selectOrderItem(args){

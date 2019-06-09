@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { MenuModel, IngredientModel } from '../../../../shared/models/menu.model';
 import { StationModel } from '../../../../shared/models/station.model';
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { StationService } from '../../../../shared/services/restaurant/station.service';
 import { KOTService } from '../../../../shared/services/restaurant/kot.service';
 import { map } from 'rxjs/operators';
-import { KotModel, CustomerModel } from '../../../../shared/models/kot.model';
+import { KotModel, CustomerModel,  KotPassData } from '../../../../shared/models/kot.model';
 interface OrderItems {
 	"category": string;
 	"items": MenuModel[];
@@ -20,6 +20,8 @@ export class TabSelected {
 		
 	
 }
+
+
 @Component({
   selector: 'app-menu-select',
   templateUrl: './menu-select.component.html',
@@ -60,24 +62,26 @@ export class MenuSelectComponent implements OnInit {
   '~/assets/images/food/cake/cake4.jpg',
   '~/assets/images/food/burger/burger6.jpg'
   ];
-  tableID: string;
-  numCustomer: number;
-  orderType: string;
+  // tableID: string;
+  // numCustomer: number;
+  // orderType: string;
+  
    //#endregion
   // @Input() OrderMenuItem: MenuModel[] = []; // Recieve Data from MenuItemComponet then forward to Order Component
   stationList: StationModel[];
   
    tabSelect: TabSelected[] = [];
    orderItems: MenuModel[] = [];
-  
+   @Input() inputKotData: KotPassData = new KotPassData();
+   isDineInVisible = false;
   constructor(private menuService: MenuService,
               private menuItemService: RadlistviewMenuService,
               private route: ActivatedRoute,
               private stationService: StationService,
               private kotService: KOTService) {
   
-      this.tableID = null; // Clear
-      this.numCustomer = null; // Clear
+     // this.tableID = null; // Clear
+    //  this.numCustomer = null; // Clear
       this.autoCreateColumns =this.menuCategoryList.length;
       this.autoCreateRows	=	1;
       this.listAllCategory();
@@ -86,16 +90,24 @@ export class MenuSelectComponent implements OnInit {
       this.newMenu.items = [];
       this.ingredient = new IngredientModel();
       //#region Recieved Data From  KotComponent
-          this.route.queryParams.subscribe(params => {
-            this.tableID = params['tableID'];
-            this.numCustomer = params['numCust'];
-            this.orderType = params['orderType'];
-          // console.log('pass Data TableID:' + this.tableID);
-          // console.log('pass Data Number of Customer:' + this.numCustomer);
-      });
+      // this.kotData = new KotPassData();
+      //     this.route.queryParams.subscribe(params => {
+      //       this.tableID = params['tableID'];
+      //       this.numCustomer = params['numCust'];
+      //       this.orderType = params['orderType'];
+          
+      //       this.kotData.tableID = params['tableID'];
+      //       this.kotData.tableID = params['numCust'];
+      //       this.kotData.numCust = params['orderType'];
+      //     // console.log('pass Data TableID:' + this.tableID);
+      //     // console.log('pass Data Number of Customer:' + this.numCustomer);
+      // });
   
       //#endregion
       //#region List Station
+
+       
+
       this.stationService.list().pipe(map((response: StationModel[]) =>  {
         return this.stationList = response;
       }))
@@ -110,6 +122,7 @@ export class MenuSelectComponent implements OnInit {
     }
   
     ngOnInit(): void {
+     
       this.selectCategory(0);
       this.tabSelect =[];
   
@@ -311,17 +324,23 @@ export class MenuSelectComponent implements OnInit {
    //#endregion
    public confirm() {
    
-     const kot = new KotModel();
-     kot.customers = this.getCustomer(this.numCustomer);
+     
+    const kot = new KotModel();
+     kot.customers = this.getCustomer(this.inputKotData.numCust);
     //  kot.customerNumber = this.numCustomer;
     //  kot.shipTo = this.tableID;        // get Input From Order Component
     //  kot.contactName = 'Tar';          // ***************************Watreceive when customer pay 
     //  kot.saleName  = 'staff1';         // recieve when login
     //  kot.status  = 'OPEN';             // 'OPEN'
-    kot.type = this.orderType;
-    kot.billTo = {'name' : this.tableID};              // Dine In
+    kot.type =  this.inputKotData.orderType;
+    if (this.inputKotData.orderType === 'Dine In') {
+    kot.billTo = {'name' : this.inputKotData.tableID};
+    }
+    else {
+      kot.billTo = {'name' : 'customer2'};
+    }             // Dine In
     kot.shipBy = { 'operation': 'Hand'};
-    kot.shipTo = { 'name' : this.tableID};
+    kot.shipTo = { 'name' : this.inputKotData.tableID};
        //  kot.orderNumber = 'Order0001';    //' Query and plus one
     //  kot.paymentTerm = '';             // ***************************payment;// 'CASH',
     //  kot.deliveryTime = 0;             // 30,

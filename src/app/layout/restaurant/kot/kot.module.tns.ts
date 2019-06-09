@@ -4,7 +4,7 @@ import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { KotComponent } from './kot.component';
 import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
-
+import { MenuModule } from '../menu/menu.module.tns';
 @NgModule({
   declarations: [KotComponent],
   imports: [
@@ -12,6 +12,7 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
     NativeScriptCommonModule,
     MobileModule,
     NativeScriptFormsModule,
+    MenuModule
     
     
 

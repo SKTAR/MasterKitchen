@@ -10,7 +10,7 @@ export class MenuModel {
   lifetimeUnit: number;
   items: Array<IngredientModel>;
   price: number;
-  currency: string; //  
+  currency: string; //
 
     constructor() {
       }
