@@ -22,8 +22,13 @@ export class RouterHelperService implements OnInit {
    this.routerExt.navigate([routePath, { data }]);
   }
 
+  
 
   goToPageExtra(routePath: string, navigationExtra: NavigationExtras) {
     this.routerExt.navigate([routePath], navigationExtra);
   }
+
+  navigateByUrl(url: string) {
+    this.routerExt.navigateByUrl(url);
+}
 }

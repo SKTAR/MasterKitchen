@@ -15,8 +15,11 @@ export class AuthGuard implements CanActivate {
         return false;
          
     }
-    onLoggedIn() {
+    onLoggedIn(token: string) {
+        //localStorage.setItem('isLoggedin', 'true');
+        localStorage.setItem("accessToken", token);
         localStorage.setItem('isLoggedin', 'true');
+        this.router.navigateByUrl('/dashboard');
         }
     onLoggedout() {
         localStorage.removeItem('isLoggedin');

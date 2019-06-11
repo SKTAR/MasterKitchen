@@ -6,6 +6,11 @@ import { UserModel } from '../shared/models/user.model';
 import { RouterHelperService } from '../shared/services/router-helper/router-helper.service';
 import { LoginService } from '../shared/services/login/login.service';
 
+class login {
+  email: string;
+  password: string;
+
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,6 +25,7 @@ export class LoginComponent implements OnInit {
     @ViewChild('confirmPassword') confirmPassword: ElementRef;
 
   constructor(public router: Router,
+              public routerHelper: RouterHelperService,
               private auth: AuthGuard,
               private LoginService: LoginService
               ) {
@@ -29,18 +35,23 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   
-  onLoggedin(email, pass) {
-    this.LoginService.login({
-      "email": email,
-      "password": pass
-    }).subscribe(r => {
-        localStorage.setItem("accessToken", r['accessToken'])
-        localStorage.setItem('isLoggedin', 'true');
-        this.router.navigateByUrl('/dashboard');
-        alert("Logged In")
+  onLoggedin(email: string, pass: string) {
+    
+    //this.routerExt.goToPage('dashboard',null);
+
+    console.log(email +':'+ pass);
+    const l = new login();
+    l.email = email;
+    l.password = pass;
+    this.LoginService.login(l).subscribe(r => {
+       // localStorage.setItem("accessToken", r['accessToken']);
+       // localStorage.setItem('isLoggedin', 'true');
+       this.auth.onLoggedIn(r['accessToken']);
+     //   alert("Logged In")
     },
     e => {
-      alert("Your email or password is incorrect")
+       alert("Your email or password is incorrect");
+      console.log(e);
     }
     )
 

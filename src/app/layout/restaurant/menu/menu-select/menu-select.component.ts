@@ -9,6 +9,7 @@ import { StationService } from '../../../../shared/services/restaurant/station.s
 import { KOTService } from '../../../../shared/services/restaurant/kot.service';
 import { map } from 'rxjs/operators';
 import { KotModel, CustomerModel,  KotPassData } from '../../../../shared/models/kot.model';
+import { IngredientService } from '../../../../shared/services/restaurant/ingredient.service';
 interface OrderItems {
 	"category": string;
 	"items": MenuModel[];
@@ -44,7 +45,7 @@ export class MenuSelectComponent implements OnInit {
   
   newMenu: MenuModel;				// for creating new Menu  
   ingredient: IngredientModel; // for creating  Ingredient of new Menu
-  
+  ingredientUnits = [];
   autoCreateColumns = 5;
   autoCreateRows = 1;
   imageSelected = '';
@@ -78,7 +79,8 @@ export class MenuSelectComponent implements OnInit {
               private menuItemService: RadlistviewMenuService,
               private route: ActivatedRoute,
               private stationService: StationService,
-              private kotService: KOTService) {
+              private kotService: KOTService,
+              private ingreService: IngredientService) {
   
      // this.tableID = null; // Clear
     //  this.numCustomer = null; // Clear
@@ -106,7 +108,7 @@ export class MenuSelectComponent implements OnInit {
       //#endregion
       //#region List Station
 
-       
+      this.loadIngredientUnits();
 
       this.stationService.list().pipe(map((response: StationModel[]) =>  {
         return this.stationList = response;
@@ -169,6 +171,16 @@ export class MenuSelectComponent implements OnInit {
    });
   }
 
+  public loadIngredientUnits() {
+    this.ingredientUnits = this.ingreService.listUnits();
+    
+
+  }
+  setUnit(unit: string) {
+    this.ingredient.quantityUnit = unit;
+  }
+
+  
   //  loadMenuByCategoryNext(category: string) {
   //    this.menuService.listMenuByCategory(category).subscribe({
   //      next: x => console.log('next' + JSON.stringify(x)),

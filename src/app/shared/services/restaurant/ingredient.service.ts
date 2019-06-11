@@ -13,6 +13,9 @@ export class IngredientService extends BaseAPI {
   }
 
 
- 
+  listUnits() {
+
+    return ['G','KG','ML','L']
+  }
 
 }

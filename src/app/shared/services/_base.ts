@@ -44,4 +44,5 @@ export class BaseAPI {
   public delete(uid) {
     return this.httpClient.post(`${this.apiURL}${this.subURL}/delete/${uid}`,{}, this.httpOptions);
   }
+  
  }

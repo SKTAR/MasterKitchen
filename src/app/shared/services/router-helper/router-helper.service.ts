@@ -25,4 +25,8 @@ export class RouterHelperService implements OnInit {
   goToPage(routePath: string , data: any) {
     //  this.routerExt.navigate(['/menu'],{clearHistory: false});
   }
+
+  navigateByUrl(url: string) {
+      this.router.navigateByUrl(url);
+  }
 }

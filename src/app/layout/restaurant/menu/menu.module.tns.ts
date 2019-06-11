@@ -7,6 +7,7 @@ import { MenuitemsComponent } from './menuitems/menuitems.component';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
+import { IngredientModule } from '../ingredient/ingredient.module.tns';
 
 @NgModule({
   declarations: [MenuSelectComponent, MenuitemsComponent],
@@ -15,7 +16,9 @@ import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
     NativeScriptCommonModule,
     NativeScriptFormsModule,
     NativeScriptUIListViewModule,   // RadListView
-    MobileModule
+    MobileModule,
+    IngredientModule,
+  
   ],
   exports: [
     MenuSelectComponent, MenuitemsComponent

@@ -16,7 +16,6 @@
         </div>
       </div>
     </div>
-  
  </div>
  
  
@@ -84,7 +83,17 @@
             "quantityUnit": "มล" -->
           <div class="col"> <input   [(ngModel)]="ingredient.name" type="text" class="form-control mb-4" placeholder="Ingredient Name"></div>
           <div class="col"> <input   [(ngModel)]="ingredient.quantity" type="number" class="form-control mb-4" placeholder="QTY"></div>
-          <div class="col"> <input   [(ngModel)]="ingredient.quantityUnit" type="text" class="form-control mb-4" placeholder="QTY Unit"></div>
+          
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-primary mb-4" id="dropdownCategoryList" ngbDropdownToggle>QTY Unit</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem *ngFor="let item of ingredientUnits; let i=index" value="{{item}}" (click)="setUnit($event.target.value)">{{item}}</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col"> <input   [(ngModel)]="ingredient.quantityUnit" type="text" class="form-control mb-4" placeholder="QTY Unit"></div> -->
           <div class="col">
           <button type="button" class="mr-1 btn btn-success " (click)="addIngredient()">Add</button>
           <button type="button" class="mr-1 btn btn-danger" (click)="removeIngredient()">Remove</button>
@@ -98,5 +107,5 @@
 
 </div>
 <div class="container">
-<app-ingredient [ingredient]="newMenu.items"></app-ingredient>
+<app-ingredient [ingredientList]="newMenu.items"></app-ingredient>
 </div>
