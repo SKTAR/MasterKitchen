@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
      //   alert("Logged In")
     },
     e => {
+      alert('test');
        alert("Your email or password is incorrect");
       console.log(e);
     }
