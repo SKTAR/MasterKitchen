@@ -8,6 +8,8 @@ import { EventEmitter } from 'events';
 @Injectable({providedIn: 'root'})
 export class NumuricButtonService implements OnInit {
   // counter = 1;
+  minVal = 1;
+  maxVal = 99;
   constructor() {
   }
   ngOnInit() {}
@@ -15,19 +17,22 @@ export class NumuricButtonService implements OnInit {
   
   public IncreaseValue(args: EventData, textId: string): number {
    
-   alert('send ID' + textId);
+  // alert('send ID' + textId);
    const button = <Button>args.object;
    // alert('InService');
 
     const id = button.id;
     const txtID = 'txt_'+ id.split('_')[1]; 
-    alert(txtID);
+  //  alert(txtID);
 
    const page = button.page;
    const txtField =  <TextField>page.getViewById(txtID);
    // alert('Button ID :' + button.id + 'ui:' + txtField.id + 'ui_value:' + txtField.text);
  
-    const val =   parseInt(txtField.text)+1;
+    let val =   parseInt(txtField.text)+1;
+    if(val > this.maxVal) {
+       val = this.maxVal;
+    }
     const vm = new Observable();
     txtField.text = String(val);
     txtField.bindingContext = vm;
@@ -35,12 +40,14 @@ export class NumuricButtonService implements OnInit {
        // alert('button ID :' + button.id + 'X:' +  button.originX + 'Y:' + button.originY + 'counter:' + this.counter + ' times!');
   }
   public DecreaseValue(args: EventData, textId: string): number{
-    
-   alert('send ID' + textId);
-   const button = <Button>args.object;
+   alert('send ID' +textId);
+  
+    const button = <Button>args.object;
    // alert('InService');
-
+  
+  
     const id = button.id;
+  
     const txtID = 'txt_'+ id.split('_')[1]; 
     alert(txtID);
 
@@ -48,7 +55,11 @@ export class NumuricButtonService implements OnInit {
    const txtField =  <TextField>page.getViewById(txtID);
    //alert('Button ID :' + button.id + 'ui:' + txtField.id + 'ui_value:' + txtField.text);
  
-    const val =   parseInt(txtField.text)-1;
+    
+    let val =   parseInt(txtField.text)-1;
+    if(val < this.minVal) {
+       val = this.minVal;
+    }
     const vm = new Observable();
     txtField.text = String(val);
     txtField.bindingContext = vm;

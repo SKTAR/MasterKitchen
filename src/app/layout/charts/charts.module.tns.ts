@@ -3,12 +3,14 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ChartsRoutingModule } from './charts-routing.module';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { ChartsComponent } from './charts.component';
+import { MobileModule } from '../../shared/modules/mobile/mobile.module.tns';
 
 @NgModule({
   declarations: [ChartsComponent],
   imports: [
     ChartsRoutingModule,
-    NativeScriptCommonModule
+    NativeScriptCommonModule,
+    MobileModule
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

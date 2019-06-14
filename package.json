@@ -4,6 +4,9 @@
     "id": "org.nativescript.MasterKitchen",
     "tns-android": {
       "version": "5.1.0"
+    },
+    "tns-ios": {
+      "version": "5.4.1"
     }
   },
   "version": "0.0.0",
@@ -21,15 +24,15 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^7.2.14",
-    "@angular/common": "^7.2.14",
-    "@angular/compiler": "^7.2.15",
-    "@angular/core": "^7.2.15",
-    "@angular/forms": "^7.2.15",
-    "@angular/http": "^7.2.15",
-    "@angular/platform-browser": "^7.2.14",
-    "@angular/platform-browser-dynamic": "^7.2.15",
-    "@angular/router": "^7.2.15",
+    "@angular/animations": "~7.2.0",
+    "@angular/common": "~7.2.0",
+    "@angular/compiler": "~7.2.0",
+    "@angular/core": "~7.2.0",
+    "@angular/forms": "~7.2.0",
+    "@angular/http": "~7.2.0",
+    "@angular/platform-browser": "~7.2.0",
+    "@angular/platform-browser-dynamic": "~7.2.0",
+    "@angular/router": "~7.2.0",
     "@ng-bootstrap/ng-bootstrap": "^4.1.3",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
@@ -43,7 +46,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "nativescript": "^5.4.0",
-    "nativescript-angular": "^7.2.4",
+    "nativescript-angular": "^8.0.0",
     "nativescript-localstorage": "^2.0.0",
     "nativescript-theme-core": "^1.0.6",
     "nativescript-ui-listview": "6.0.0",
@@ -51,10 +54,10 @@
     "ng2-charts": "^2.2.3",
     "popper.js": "^1.15.0",
     "reflect-metadata": "~0.1.12",
-    "rxjs": "^6.5.1",
+    "rxjs": "^6.3.3",
     "rxjs-compat": "^6.5.2",
-    "tns-core-modules": "^5.4.1",
-    "zone.js": "^0.8.26"
+    "tns-core-modules": "^5.4.2",
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.9",
@@ -75,8 +78,9 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "nativescript-dev-sass": "~1.6.0",
-    "nativescript-dev-typescript": "^0.9.0",
-    "nativescript-dev-webpack": "^0.24.0",
+    "nativescript-dev-typescript": "^0.10.0",
+    "nativescript-dev-webpack": "^0.24.1",
+    "node-sass": "^4.12.0",
     "protractor": "~5.3.0",
     "rxjs-tslint": "^0.1.7",
     "ts-node": "~5.0.1",

@@ -1,0 +1,124 @@
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
+-->
+
+
+  <RadSideDrawer [drawerTransition]="sideDrawerTransition" (loaded)="drawerLoaded($event)" hideActionBar>
+    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+        <StackLayout row="0" class="sidedrawer-header">
+            <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+            <Label class="sidedrawer-header-brand" text={{profile}}></Label>
+            <Label class="footnote" text={{email}}></Label>
+        </StackLayout>
+    
+        <ScrollView row="1">
+            <StackLayout class="sidedrawer-content">
+                
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/login')" (tap)="onNavItemTap('/login')">
+                    <Label col="0" text="&#xf014;" class="fa"></Label>
+                    <Label col="1" text="Log out" class="p-r-10"></Label>
+                </GridLayout>
+                <StackLayout class="hr-light"></StackLayout>
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/dashboard')" (tap)="onNavItemTap('/dashboard')">
+                    <Label col="0" text="&#xf015;" class="fa"></Label>
+                    <Label col="1" text="Dash Board" class="p-r-10"></Label>
+                </GridLayout>
+                
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/kot')" (tap)="onNavItemTap('/kot')">
+                    <Label col="0" text="&#xf016;" class="fa"></Label>
+                    <Label col="1" text="Ordering" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/viewkot')" (tap)="onNavItemTap('/viewkot')">
+                    <Label col="0" text="&#xf016;" class="fa"></Label>
+                    <Label col="1" text="View Kitchen Order Token" class="p-r-10"></Label>
+                </GridLayout>
+             
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/kds')" (tap)="onNavItemTap('/kds')">
+                    <Label col="0" text="&#xf017;" class="fa"></Label>
+                    <Label col="1" text="Kitchen & Station Display" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/viewmenu')" (tap)="onNavItemTap('/viewmenu')">
+                    <Label col="0" text="&#xf01a;" class="fa"></Label>
+                    <Label col="1" text="Menu" class="p-r-10"></Label>
+                </GridLayout>
+             
+                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/stock')" (tap)="onNavItemTap('/stock')">
+                    <Label col="0" text="&#xf01b;" class="fa"></Label>
+                    <Label col="1" text="Stock" class="p-r-10"></Label>
+                </GridLayout> 
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/zonetable')" (tap)="onNavItemTap('/zonetable')">
+                    <Label col="0" text="&#xf017;" class="fa"></Label>
+                    <Label col="1" text="Zone & Table" class="p-r-10"></Label>
+                </GridLayout>
+
+                <!-- <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/menucategory')" (tap)="onNavItemTap('/menucategory')">
+                    <Label col="0" text="&#xf018;" class="fa"></Label>
+                    <Label col="1" text="Menu Category" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/menu')" (tap)="onNavItemTap('/menu')">
+                    <Label col="0" text="&#xf018;" class="fa"></Label>
+                    <Label col="1" text="Menu" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/orderfood')" (tap)="onNavItemTap('/orderfood')">
+                    <Label col="0" text="&#xf019;" class="fa"></Label>
+                    <Label col="1" text="Kitchen & Station" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/kds')" (tap)="onNavItemTap('/kds')">
+                    <Label col="0" text="&#xf019;" class="fa"></Label>
+                    <Label col="1" text="Kitchen & Station Display" class="p-r-10"></Label>
+                </GridLayout>-->
+
+                <!-- <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/orderfood')" (tap)="onNavItemTap('/orderfood')">
+                    <Label col="0" text="&#xf01a;" class="fa"></Label>
+                    <Label col="1" text="Inventory" class="p-r-10"></Label>
+                </GridLayout> 
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/orderfood')" (tap)="onNavItemTap('/orderfood')">
+                    <Label col="0" text="&#xf01b;" class="fa"></Label>
+                    <Label col="1" text="User Management" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/orderfood')" (tap)="onNavItemTap('/orderfood')">
+                    <Label col="0" text="&#xf01c;" class="fa"></Label>
+                    <Label col="1" text="Promotions" class="p-r-10"></Label>
+                </GridLayout>
+
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/browse')" (tap)="onNavItemTap('/browse')">
+                    <Label col="0" text="&#xf1ea;" class="fa"></Label>
+                    <Label col="1" text="Browse" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/search')" (tap)="onNavItemTap('/search')">
+                    <Label col="0" text="&#xf002;" class="fa"></Label>
+                    <Label col="1" text="Search" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/featured')" (tap)="onNavItemTap('/featured')">
+                    <Label col="0" text="&#xf005;" class="fa"></Label>
+                    <Label col="1" text="Featured" class="p-r-10"></Label>
+                </GridLayout>
+    
+                <StackLayout class="hr-light"></StackLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/setting')" (tap)="onNavItemTap('/setting')">
+                    <Label col="0" text="&#xf013;" class="fa"></Label>
+                    <Label col="1" text="Settings" class="p-r-10"></Label>
+                </GridLayout>  -->
+
+                
+              
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+    <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
+</RadSideDrawer>  

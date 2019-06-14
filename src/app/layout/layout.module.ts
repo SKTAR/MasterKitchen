@@ -7,17 +7,16 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { AppModule } from '../app.module';
-import { AppRoutingModule } from '../app-routing.module';
-
-
+import { FormsModule } from '@angular/forms';
+//import { IngredientComponent } from './restaurant/ingredient/ingredient.component';
 @NgModule({
   declarations: [LayoutComponent, HeaderComponent, SidebarComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
     TranslateModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    FormsModule
   ]
 })
 export class LayoutModule { }

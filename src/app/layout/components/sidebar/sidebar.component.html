@@ -15,7 +15,7 @@
             <li class="nested" [class.expand]="showMenu === 'pages'">
                 <ul class="submenu">
                     <li>
-                        <a routerLink="/restaurant" [routerLinkActive]="['router-link-active']">
+                        <a routerLink="/menu" [routerLinkActive]="['router-link-active']">
                             <i class="fa fa-monument" aria-hidden="true"></i>&nbsp;
                             <span>{{ 'Create' | translate }}</span>
                         </a>
@@ -38,6 +38,11 @@
         <a [routerLink]="['/station']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
             <span>{{ 'Station' | translate }}</span>
+        </a>
+
+        <a [routerLink]="['/stock']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
+            <span>{{ 'Stock' | translate }}</span>
         </a>
 
         <div class="nested-menu">

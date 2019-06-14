@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RadSideDrawerService } from '../shared/ui-services/radside-drawer-service/radsidedrawer.service';
+import { RadSideDrawerService } from '../shared/services/ui/radside-drawer-service/radsidedrawer.service';
+import { AuthGuard } from '../shared/guard';
 
 @Component({
   selector: 'app-layout',
@@ -17,27 +18,40 @@ export class LayoutComponent implements OnInit {
   email     = 'surasak.kaewsiri@gmail.com';
   private _activatedUrl: string;
 //endregion
-  constructor(private drawerService: RadSideDrawerService) {
-    // Use the component constructor to inject services.
-    
-     this.drawerService.load();
+  constructor(private drawerService: RadSideDrawerService,
+              private auth: AuthGuard) {
+
     this.profile = this.username + ' ' + this.position;
  }
  toggleCollapsed(): void {
   this.collapsed = !this.collapsed;
 }
 
-    ngOnInit() {}
-
+    ngOnInit() {
+      
+    }
+   
+    
     //#region Web Method
     receiveCollapsed($event) {
         this.collapedSideBar = $event;
     }
     //#endregion
-   
+  
     //#region Mobile Method
+    drawerLoaded(args) {
+     
+      this.drawerService.load(args);
+    }
+  
+  
     onNavItemTap(navItemRout: string) {
+    
+      if (navItemRout === "login") {
+      this.auth.onLoggedout();
+      }
       this.drawerService.onNavItemTap(navItemRout);
+      
       }
   
     isComponentSelected(url: string) {

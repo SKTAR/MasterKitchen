@@ -2,7 +2,7 @@
 <div class="card mb-3">
   <div class="card-header">Ingredient</div>
   <table class="card-body table">
-      <thead>
+      <thead class="text-center">
       <tr>
         <th>#</th>
         <th>ID</th>
@@ -16,13 +16,16 @@
       </tr>
       </thead>
       <tbody>
-          <tr class="table-active" *ngFor="let item of ingredient; let i=index">
+          <tr class="table-active text-center" *ngFor="let item of ingredientList; let i=index">
               <th scope="row">{{i+1}}</th>
+              <th>{{ item.uid }}</th>
               <th>{{ item.name }}</th>
               <!-- <th>{{ item.category }}</th> -->
               <!-- <th>{{ item.sku }}</th> -->
               <th>{{ item.quantity }}</th>
               <th>{{ item.quantityUnit }}</th>
+              <th><button type="button" class="mb-1 btn btn-sm btn-danger" value="{{item}}" (click)="removeIngredient($event)">X</button></th>
+ 
         </tr>
 
           <!-- <tr class="table-active">

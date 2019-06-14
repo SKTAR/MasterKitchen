@@ -2,11 +2,15 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
 import { AuthGuard } from '../shared/guard';
-import { User } from '../shared/services/login-service/model/user.model';
-import { LoginService } from '../shared/services/login-service/login.service';
-import { RoutingHelperService } from '../shared/router-helper/routing-helper.service';
-import { RadSideDrawerService } from '../shared/ui-services/radside-drawer-service/radsidedrawer.service';
+import { UserModel } from '../shared/models/user.model';
+import { RouterHelperService } from '../shared/services/router-helper/router-helper.service';
+import { LoginService } from '../shared/services/login/login.service';
 
+class login {
+  email: string;
+  password: string;
+
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,30 +20,49 @@ import { RadSideDrawerService } from '../shared/ui-services/radside-drawer-servi
 export class LoginComponent implements OnInit {
     appName = 'Restaurant Intelligence';
     isLoggingIn = true;
-    user: User;
+    user: UserModel;
     @ViewChild('password') password: ElementRef;
     @ViewChild('confirmPassword') confirmPassword: ElementRef;
 
-  constructor(public router: RoutingHelperService,
+  constructor(public router: Router,
+              public routerHelper: RouterHelperService,
               private auth: AuthGuard,
-              private loginService: LoginService,
-              private   drawerService: RadSideDrawerService
+              private LoginService: LoginService
               ) {
-    this.user = new User();
+    this.user = new UserModel();
   }
 
   ngOnInit() {}
 
-  onLoggedin() {
-       this.loginService.logIn();
-  }
-
-  onLoggedinMobile(navItemRout: string) {
-    this.loginService.logIn();
-   
-     this.router.goToPage('/dashboard',null);
+  
+  onLoggedin(email: string, pass: string) {
     
+    //this.routerExt.goToPage('dashboard',null);
+
+    console.log(email +':'+ pass);
+    const l = new login();
+    l.email = email;
+    l.password = pass;
+    this.LoginService.login(l).subscribe(r => {
+       // localStorage.setItem("accessToken", r['accessToken']);
+       // localStorage.setItem('isLoggedin', 'true');
+       this.auth.onLoggedIn(r['accessToken']);
+     //   alert("Logged In")
+    },
+    e => {
+      alert('test');
+       alert("Your email or password is incorrect");
+      console.log(e);
+    }
+    )
+
+  //  this.auth.onLoggedIn();
   }
+  // onLoggedinMobile(navItemRout: string) {
+  //   this.loginService.logIn();
+  //   // this.router.goToPage('/dashboard',null);
+    
+  // }
 
 
 }

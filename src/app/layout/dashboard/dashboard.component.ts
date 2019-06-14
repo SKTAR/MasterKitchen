@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import { RadSideDrawerService } from '../../shared/services/ui/radside-drawer-service/radsidedrawer.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,13 @@ export class DashboardComponent implements OnInit {
   public alerts: Array<any> = [];
   public sliders: Array<any> = [];
 
-  constructor() {
+  username  = 'Surasak Kaewsiri';
+  position  = 'Owner';
+  profile   = '';
+  email     = 'surasak.kaewsiri@gmail.com';
+  constructor(private drawerService: RadSideDrawerService) {
+
+  // this.drawerService.load();
       this.sliders.push(
           {
               imagePath: 'assets/images/slider1.jpg',
@@ -60,4 +67,5 @@ export class DashboardComponent implements OnInit {
       this.alerts.splice(index, 1);
   }
 
+  
 }

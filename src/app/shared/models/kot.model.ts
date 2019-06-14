@@ -24,21 +24,12 @@ export class KotModel  { //Kitchen Order Token {
     shipTo: {'name': string;}
     items: MenuModel[];  //  name , quantity , price
 
-      // uid;
-      // customerName: string;
-      // customerNumber: number;
-      // shipTo: string; // table3
-      // contactName: string; 
-      // saleName: string;
-      // status: string; // 'OPEN'
-      // type: string;  // Dine In
-      // orderNumber: string;//'Order0001',
-      // paymentTerm: string;// 'CASH',
-      // deliveryTime: number; //30,
-      // deliveryUnit: string;//'Minute',
-      // validDate: Date; //'2019-03-19T13:43:21.270Z',
-      // items: MenuModel[];
-
+    //#region List
+    status: string;
+    createdDate: Date;
+    updatedDate: Date;
+    uid: string;
+    //#endregion
     }
 
     export class CustomerModel {
@@ -48,6 +39,12 @@ export class KotModel  { //Kitchen Order Token {
 
     }
 
+
+    export class KotPassData { // Send Data from Kot Component to Select Menu Component
+      orderType: string;
+      tableID: string;
+      numCust: number;
+    }
 
 
 export class KDS  {

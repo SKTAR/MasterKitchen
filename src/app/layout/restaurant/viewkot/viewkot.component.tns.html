@@ -1,0 +1,80 @@
+<app-actionbar [pageName]="'VIEW KOT'"></app-actionbar>
+<StackLayout>
+<!-- The [columns] bit here makes this app a two-column layout on tablets, and a one-column layout on phones -->S<
+<StackLayout orientation="vertical">
+
+		<SegmentedBar #tab  [items]="orderTypeSegmentBarList"  [(ngModel)]="selectedIndex" (selectedIndexChange)="onSelectedSegment($event)" ></SegmentedBar>
+    
+
+</StackLayout>
+
+<StackLayout orientation="vertical">
+
+<GridLayout [columns]="isTablet ? '*, 3*' : '*'">
+		<GridLayout col="0" class="left-column" (loaded)="onLoaded($event)">		
+			<!-- The ListView shows on both tablets and phones. On tablets the list occupies the left-hand side
+			of the screen, and one phones the ListView takes up the whole screen. -->
+	
+				<ListView class="list-group" [items]="orderList" (itemTap)="onSelectKotItem($event)">
+				<ng-template let-item="item">
+					<GridLayout class="list-group-item" rows="*,*,*,*" columns="auto, *">
+						<!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
+						<Label row="0" col="1" [text]="item.type"></Label>
+						<Label row="1" col="1" [text]="item.billTo['name']"></Label>
+						<Label row="3" col="1" [text]="item.status"></Label>
+						<Label row="2" col="1" text="{{ item.updatedDate | date:'medium' }}"></Label>
+					</GridLayout>
+				</ng-template>
+			</ListView>
+
+			<!-- customers: CustomerModel[];
+			type: string;
+			billTo: {'name': string;}
+			shipBy: {'operation': string;}
+			shipTo: {'name': string;}
+			items: MenuModel[];  //  name , quantity , price
+		
+			//#region List
+			status: string;
+			createdDate: Date;
+			updatedDate: Date;
+			uid: string; -->
+
+		</GridLayout>
+
+
+	<StackLayout col="1" class="p-20" >
+		   <ng-container *ngIf="isTablet">
+			
+
+			<GridLayout>
+				<ScrollView class="page">
+					<GridLayout>
+						<ScrollView class="page">
+							<StackLayout>
+								<!-- On Android the card view plugin requires adding an external library
+									therefore it can't be demoed on Playground. You will have to download this project
+									and build it locally to try it on Android -->
+								<CardView *ngFor="let item of data" class="cardStyle" elevation="40" radius="10" ios:shadowRadius="3">
+									<StackLayout class="card-layout">
+										<Label class="h2" [text]="item.heading"></Label>
+										<Label class="body" textWrap="true" [text]="item.content"></Label>
+									</StackLayout>
+								</CardView>
+							</StackLayout>
+						</ScrollView>
+					</GridLayout>
+				</ScrollView>
+			</GridLayout>
+		
+		
+		
+		</ng-container>
+	
+	</StackLayout>
+</GridLayout>
+
+
+
+</StackLayout>
+</StackLayout>
