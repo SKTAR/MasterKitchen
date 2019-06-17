@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuModel } from '../../../shared/models/menu.model';
 import { KDS, KotModel } from '../../../shared/models/kot.model';
 import { RouterHelperService } from '../../../shared/services/router-helper/router-helper.service';
-import { PlatformService } from '../../../shared/platform.service';
+import { PlatformService } from '../../../shared/services/platform/platform.service';
 import { KOTService } from '../../../shared/services/restaurant/kot.service';
 import { MenuService } from '../../../shared/services/restaurant/menu.service';
 import { NavigationExtras } from '@angular/router';
@@ -15,6 +15,8 @@ import { SegmentedBarService } from '../../../shared/services/ui/segmentedbar-se
   styleUrls: ['./viewkot.component.scss']
 })
 export class ViewkotComponent implements OnInit {
+  
+  screenHeight: number;
   countries: Array<any> = [
     { name: "Amazon", imageSrc: "~/images/amazon.png", open: '+42.87%', type: 'plus' },
     { name: "Netflix", imageSrc: "~/images/netflix.png", open: '+41.06%', type: 'plus' },
@@ -40,43 +42,57 @@ export class ViewkotComponent implements OnInit {
  page = 'Billing';
  orderList: KotModel[] = [];
  selectedOrder: KotModel;
- constructor(private router: RouterHelperService, private checkType: PlatformService,
-  private kotService: KOTService,  private menuService: MenuService,  private segmentedService: SegmentedBarService) {
+ constructor( private router: RouterHelperService,
+              private platform: PlatformService,
+              private kotService: KOTService,
+              private menuService: MenuService,
+              private segmentedService: SegmentedBarService
+              ) {
    this.viewKotTabNameList  = this.kotService.getViewKotTabList(); // = ['Show All', 'Dine In' , 'Take Away' , 'Delivery', 'Others']; //
   console.log(this.viewKotTabNameList);
   this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(this.viewKotTabNameList);
-
+  this.screenHeight = this.platform.heightPixels()-200;
+  console.log(this.screenHeight);
 }
   ngOnInit(): void {
   this.listAllOrder();
-  this.onSelectKotItem(Event);
+  this.screenHeight = this.platform.heightPixels();
+   
+    // this.onSelectKotItem(Event);
   }
  
    //#region Mobile
    onSelectedSegment(args) { // select Tab
     const tabIndex = this.segmentedService.onSelectedIndexChange(args);
-    //alert(tabIndex);
+     const orderType: string = this.viewKotTabNameList[tabIndex];
+    
+    console.log('Order by Type:' + orderType);
+    this.orderList = [];
+     //alert(tabIndex);
    //const temp = this.listAllOrder();
     if (tabIndex === 0) { // Show All
       this.listAllOrder();
     }
     if (tabIndex === 1) { // Dine In
-      
-      for (let key in this.orderList) {
-        
-      }
+     
+      this.listOrderByType(orderType);
+    
+     // console.log(this.orderList);
      
     
     }
     if (tabIndex === 2) { // Take Away
-      this.orderList =[];
+      this.listOrderByType(orderType);
+    
     
     }
     if (tabIndex === 3) { // Delivery
-      this.orderList =[];
+      this.listOrderByType(orderType);
+    
     }
     if (tabIndex === 4) { // Others
-      this.orderList =[];
+      this.listOrderByType(orderType);
+    
     }
    }
   //#endregion
@@ -90,7 +106,6 @@ export class ViewkotComponent implements OnInit {
       console.log('--------------------------------------');
       console.log(this.selectedOrder);
      // alert(this.selectedOrder['subTotal']);
-     
       // For phone users we need to navigate to another page to show the detail view.
       if (!this.isTablet) {
 
@@ -103,8 +118,8 @@ export class ViewkotComponent implements OnInit {
  
  
    onLoaded(args) {
-    this.checkType.checkPlatformType(args);
-    this.isTablet = this.checkType.checkIsTablet();
+    this.platform.checkPlatformType(args);
+    this.isTablet = this.platform.checkIsTablet();
     console.log('Is Table true or false' + this.isTablet);
 
     this.selectedOrder = new KotModel();
@@ -137,8 +152,8 @@ export class ViewkotComponent implements OnInit {
        return this.orderList = response;
      }))
      .subscribe((response) => {
-       console.log('Order List');
-       console.log(response);
+     //  console.log('Order List');
+     //  console.log(response);
  
  },
  error => {
@@ -147,7 +162,20 @@ export class ViewkotComponent implements OnInit {
   });
    }
    
-   
+   listOrderByType(orderType: string) {
+    this.kotService.list().pipe(map((response: KotModel[]) =>  {
+     return this.orderList = response.filter(response => response['type'] ===  orderType)
+    }))
+    .subscribe((response) => {
+    //  console.log('Order List');
+    //  console.log(response);
+
+},
+error => {
+    alert('Cannot get Order List' + error);
+    console.log(error);
+ });
+  }
 
 
    selectOrderItem(args){

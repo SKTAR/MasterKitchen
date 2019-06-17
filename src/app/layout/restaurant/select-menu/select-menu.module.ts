@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MenuRoutingModule } from './menu-routing.module';
+import { SelectMenuRoutingModule } from './select-menu-routing.module';
 import { MenuSelectComponent } from './menu-select/menu-select.component';
 import { MenuitemsComponent } from './menuitems/menuitems.component';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [ MenuSelectComponent, MenuitemsComponent],
   imports: [
     CommonModule,
-    MenuRoutingModule,
+    SelectMenuRoutingModule,
     FormsModule,
     IngredientModule,
     NgbModule
@@ -21,4 +21,4 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MenuSelectComponent, MenuitemsComponent
   ],
 })
-export class MenuModule { }
+export class SelectMenuModule { }

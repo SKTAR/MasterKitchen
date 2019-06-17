@@ -1,29 +1,28 @@
 <app-actionbar [pageName]="'VIEW KOT'"></app-actionbar>
 <StackLayout>
 <!-- The [columns] bit here makes this app a two-column layout on tablets, and a one-column layout on phones -->S<
-<StackLayout orientation="vertical">
+	
 
 		<SegmentedBar #tab  [items]="orderTypeSegmentBarList"  [(ngModel)]="selectedIndex" (selectedIndexChange)="onSelectedSegment($event)" ></SegmentedBar>
     
 
-</StackLayout>
 
 <StackLayout orientation="vertical">
-
-<GridLayout [columns]="isTablet ? '*, 3*' : '*'">
-		<GridLayout col="0" class="left-column" (loaded)="onLoaded($event)">		
+		<GridLayout [columns]="isTablet ? '*, 3*' : '*'">
+			
+			<GridLayout col="0" class="left-column" (loaded)="onLoaded($event)">		
 			<!-- The ListView shows on both tablets and phones. On tablets the list occupies the left-hand side
 			of the screen, and one phones the ListView takes up the whole screen. -->
 	
-				<ListView class="list-group" [items]="orderList" (itemTap)="onSelectKotItem($event)">
+				<ListView class="list-group"  [items]="orderList" (itemTap)="onSelectKotItem($event)">
 				<ng-template let-item="item">
-					<GridLayout class="list-group-item" rows="*,*,*,*" columns="auto, *">
+					<GridLayout class="list-group-item"  rows="*,*,*,*" columns="auto, *">
 						<!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
 						<Label row="0" col="1" [text]="item.type"></Label>
 						<Label row="1" col="1" [text]="item.billTo['name']"></Label>
 						<Label row="3" col="1" [text]="item.status"></Label>
 						<Label row="2" col="1" text="{{ item.updatedDate | date:'medium' }}"></Label>
-					</GridLayout>
+			</GridLayout>
 				</ng-template>
 			</ListView>
 
@@ -41,9 +40,9 @@
 			uid: string; -->
 
 		</GridLayout>
+	
 
-
-	<StackLayout col="1" class="p-20" >
+		<StackLayout col="1" class="p-20" >
 		   <ng-container *ngIf="isTablet">
 			<ListView class="list-group" [items]="selectedOrder.items" (itemTap)="select($event)">
 				<ng-template let-item="item">
@@ -68,16 +67,14 @@
 					
 					</GridLayout>
 				</ng-template>
-			</ListView>
+			 </ListView>
+			</ng-container>
+		</StackLayout>
+		</GridLayout>
 
-		
-		
-		</ng-container>
-	
-	</StackLayout>
-</GridLayout>
 
 
 
 </StackLayout>
+
 </StackLayout>

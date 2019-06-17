@@ -5,12 +5,14 @@
 		<Label class="header" text={{appName}}></Label>
 
 		<StackLayout class="input-field">
-			<TextField class="input" hint="Email" #emailid keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="user.email" ></TextField>
+			<!-- <TextField class="input" hint="Email" #emailid keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="user.email" ></TextField> -->
+			<TextField class="input" hint="Email" #emailid keyboardType="email" autocorrect="false" autocapitalizationType="none"  ></TextField>
 			<StackLayout class="hr-light"></StackLayout>
 		</StackLayout>
 
 		<StackLayout class="input-field">
-			<TextField #password class="input" #password hint="Password" secure="true" [(ngModel)]="user.password" ></TextField>
+			<!-- <TextField #password class="input" #password hint="Password" secure="true" [(ngModel)]="user.password" ></TextField> -->
+			<TextField #password class="input"  hint="Password" secure="true"  ></TextField>
 			<StackLayout class="hr-light"></StackLayout>
 		</StackLayout>
 

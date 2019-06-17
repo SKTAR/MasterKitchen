@@ -7,16 +7,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MobileModule } from '../shared/modules/mobile/mobile.module.tns';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 import { HideActionBarDirective } from '../shared/directives/hide-actionbar-directive';
-// import { MenuSelectComponent } from './restaurant/menu/menu-select/menu-select.component';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
-// import { IngredientComponent } from './restaurant/ingredient/ingredient.component';
-// import { MenuitemsComponent } from './restaurant/menu/menuitems/menuitems.component';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
+
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    HideActionBarDirective,
+   // HideActionBarDirective,
    // MenuSelectComponent,
    //  IngredientComponent,
   //  MenuitemsComponent

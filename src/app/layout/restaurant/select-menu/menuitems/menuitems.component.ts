@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { KotModel } from '../../../../shared/models/kot.model';
 import { MenuModel } from '../../../../shared/models/menu.model';
 import { RadlistviewMenuService } from '../../../../shared/services/ui/radlistview-menu-service/radlistview-menu.service';
 import { NumuricButtonService } from '../../../../shared/modules/mobile/components/numric-button/numuric-button.service';
 import { RouterHelperService } from '../../../../shared/services/router-helper/router-helper.service';
 import { NavigationExtras } from '@angular/router';
+import { Input, EventEmitter, Output, OnInit, Component } from '@angular/core';
 
 @Component({
   selector: 'app-menuitems',

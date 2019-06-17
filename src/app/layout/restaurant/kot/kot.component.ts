@@ -7,6 +7,7 @@ import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Image } from 'tns-core-modules/ui/image';
 import { KOTService } from '../../../shared/services/restaurant/kot.service';
 import { KotPassData } from '../../../shared/models/kot.model';
+
 @Component({
   selector: 'app-kot',
   templateUrl: './kot.component.html',
@@ -53,11 +54,21 @@ export class KotComponent implements OnInit {
               this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(this.orderTypeList);
              // console.log(this.orderTypeSegmentBarList);
               this.tableList = [
-                new TableObj('Table1', 0, 1),
-                new TableObj('Table2', 200, 10),
-                new TableObj('Table3', 400, 10),
-             
-                //new TableObj('Table3', 0, 20)
+                new TableObj('Table1', 50, 50),
+                new TableObj('Table2', 350, 50),
+                new TableObj('Table3', 650, 50),
+                new TableObj('Table4', 1000, 50),
+                new TableObj('Table5', 1350, 50),
+                
+                new TableObj('Table6', 50, 300),
+                new TableObj('Table7', 350, 300),
+                new TableObj('Table8', 650, 300),
+                new TableObj('Table9', 1000, 300),
+
+                new TableObj('Table10', 50, 600),
+                new TableObj('Table11', 350, 600),
+                new TableObj('Table12', 650, 600),
+                new TableObj('Table13', 1000, 600),
               ];
   }
 

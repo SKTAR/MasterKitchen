@@ -11,7 +11,12 @@ export class PlatformService  {
    constructor() {
        
    }
-
+   public heightPixels(): number {
+      return 0;
+   }
+   public heightDIPs(){
+      return 0;
+   }
    public checkPlatformType(args) {
       
    }

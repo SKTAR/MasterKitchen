@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NavigationExtras } from '@angular/router';
-import { PlatformService } from '../shared/platform.service';
+import { PlatformService } from '../shared/services/platform/platform.service';
 import { RouterHelperService } from '../shared/services/router-helper/router-helper.service';
 
 @Component({

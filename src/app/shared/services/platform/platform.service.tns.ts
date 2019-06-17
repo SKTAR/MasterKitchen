@@ -54,6 +54,7 @@ export class PlatformService  {
            screen.mainScreen.widthDIPs,
            screen.mainScreen.widthPixels);
    }
+ 
 
    public checkPlatformType(args) {
        let message = "";
@@ -65,6 +66,13 @@ export class PlatformService  {
        alert(message);
    }
 
+   public heightPixels(): number {
+       return   this.screenInformation.heightPixels;
+   }
+   public heightDIPs(): number {
+    return   this.screenInformation.heightDIPs;
+}
+   
    public deviceInfo(args) {
        if (this.isItemVisible) {
            this.isItemVisible = false;

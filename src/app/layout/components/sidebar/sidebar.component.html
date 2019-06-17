@@ -8,16 +8,16 @@
        
 
         <div class="nested-menu">
-            <a  class="list-group-item" (click)="addExpandClass('pages')">
+            <a class="list-group-item" (click)="addExpandClass('pages')">
                 <i class="fa fa-book fa-fw"></i>&nbsp;
                 <span>{{ 'Menu' | translate }}</span>
             </a>
             <li class="nested" [class.expand]="showMenu === 'pages'">
                 <ul class="submenu">
                     <li>
-                        <a routerLink="/menu" [routerLinkActive]="['router-link-active']">
+                        <a routerLink="/viewmenu/menucategory" routerLinkActive="active">
                             <i class="fa fa-monument" aria-hidden="true"></i>&nbsp;
-                            <span>{{ 'Create' | translate }}</span>
+                            <span>{{ 'Menu Category' | translate }}</span>
                         </a>
                     </li>
                     <li>

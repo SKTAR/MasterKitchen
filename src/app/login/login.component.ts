@@ -39,18 +39,18 @@ export class LoginComponent implements OnInit {
     
     //this.routerExt.goToPage('dashboard',null);
 
-    console.log(email +':'+ pass);
-    const l = new login();
-    l.email = email;
-    l.password = pass;
-    this.LoginService.login(l).subscribe(r => {
+    console.log(email + ':' + pass);
+    const loginData = new login();
+    loginData.email = email;
+    loginData.password = pass;
+    this.LoginService.login(loginData).subscribe(r => {
        // localStorage.setItem("accessToken", r['accessToken']);
        // localStorage.setItem('isLoggedin', 'true');
        this.auth.onLoggedIn(r['accessToken']);
      //   alert("Logged In")
     },
     e => {
-       alert("Your email or password is incorrect");
+       alert('Your email or password is incorrect');
       console.log(e);
     }
     )

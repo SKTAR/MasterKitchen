@@ -1,6 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { MenuRoutingModule } from './menu-routing.module';
+import { SelectMenuRoutingModule } from './select-menu-routing.module';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { MenuSelectComponent } from './menu-select/menu-select.component';
 import { MenuitemsComponent } from './menuitems/menuitems.component';
@@ -12,7 +12,7 @@ import { IngredientModule } from '../ingredient/ingredient.module.tns';
 @NgModule({
   declarations: [MenuSelectComponent, MenuitemsComponent],
   imports: [
-    MenuRoutingModule,
+    SelectMenuRoutingModule,
     NativeScriptCommonModule,
     NativeScriptFormsModule,
     NativeScriptUIListViewModule,   // RadListView
@@ -25,4 +25,4 @@ import { IngredientModule } from '../ingredient/ingredient.module.tns';
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })
-export class MenuModule { }
+export class SelectMenuModule { }

@@ -7,32 +7,40 @@
 
     <GridLayout [visibility]="selectedIndex === 0 ? 'visible' : 'collapsed'" backgroundColor="white">
       <!-- <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
+       -->   
+       <!-- <StackLayout orientation="vertical" verticalAlignment="center" left="100" top="200" backgroundColor="green" verticalAlignment="center">
+        <Label horizontalAlignment="center" text="Zone1" fontSize="30" color ="blue" textWrap="true"></Label> 
+      </StackLayout>  
        -->
-       <AbsoluteLayout  *ngIf="isDineInVisible" width="250" height="auto" >
+       <ScrollView class="anim-images" orientation="horizontal" > 
+        <ScrollView class="anim-images" orientation="vertical" > 
+     
+        <AbsoluteLayout  *ngIf="isDineInVisible" width="auto" height="auto" >
         
-       <StackLayout orientation="vertical" verticalAlignment="center"  verticalAlignment="center">
-          <Label horizontalAlignment="center" text="Zone1" fontSize="30" color ="blue" textWrap="true"></Label> 
-      
-          <!-- Dine Table -->
-          <ng-container *ngFor="let table of tableList; let i = index" #dragImage [left]="table.positionX" top="table.positionX" >
-             
+      <!-- Dine Table -->
+     
+      <ng-container *ngFor="let table of tableList; let i = index" #dragImage   >
+           
                   
-                      <StackLayout   orientation="vertical" verticalAlignment="center"  >
+                      <StackLayout   orientation="vertical" verticalAlignment="center" [left]="table.PositionX" [top]="table.PositionY" >
                           <Label horizontalAlignment="center" [text]="table.TableID"  textWrap="true"></Label> 
                               
-                          <Image id="{{table.TableID}}"  class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu($event)" (pan)="onPan($event)" src="~/assets/images/restaurant-circle.png"></Image>
+                          <!-- <Image id="{{table.TableID}}"  class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu($event)" (pan)="onPan($event)" src="~/assets/images/restaurant-circle.png"></Image> -->
+                  
+                          <Image id="{{table.TableID}}"  class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu($event)"  src="~/assets/images/restaurant-circle.png"></Image>
             
                           <app-numric-button (numberOfCustomer)="getNumberOfCustomer($event)" [tableObj]="table" ></app-numric-button>
                       </StackLayout>
-                  
+       
+     
+         </ng-container> 
+       
          
-     
-        </ng-container>
-     
-        </StackLayout>  
+      
      
       </AbsoluteLayout>
-
+      </ScrollView>
+    </ScrollView>
       <app-menu-select *ngIf="isMenuVisible" [inputKotData]="kotPassData"></app-menu-select>
    
 

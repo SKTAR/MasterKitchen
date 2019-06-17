@@ -24,11 +24,13 @@ export const routes: Routes = [
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
             { path: 'kot', loadChildren: './restaurant/kot/kot.module#KotModule' },
             { path: 'stock', loadChildren: './restaurant/stock/stock.module#StockModule' },
-            { path: 'menu', loadChildren: './restaurant/menu/menu.module#MenuModule' },
+            { path: 'select-menu', loadChildren: './restaurant/select-menu/select-menu.module#SelectMenuModule' },
             { path: 'station', loadChildren: './restaurant/station/station.module#StationModule' },
             { path: 'zonetable', loadChildren: './restaurant/setting/setting.module#SettingModule' },
             { path: 'kds', loadChildren: './restaurant/kds/kds.module#KdsModule' },
             { path: 'viewkot', loadChildren: './restaurant/viewkot/viewkot.module#ViewkotModule' },
+            { path: 'viewmenu', loadChildren: './restaurant/viewmenu/viewmenu.module#ViewmenuModule' },
+            
                  ]
     }
 ];
