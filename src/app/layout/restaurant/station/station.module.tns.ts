@@ -5,6 +5,7 @@ import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { StationComponent } from './station.component';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
+import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 
 @NgModule({
   declarations: [StationComponent],
@@ -12,6 +13,7 @@ import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
     StationRoutingModule,
     NativeScriptCommonModule,
     NativeScriptFormsModule,
+    NativeScriptUIListViewModule,
     MobileModule
   ],
   schemas: [NO_ERRORS_SCHEMA]

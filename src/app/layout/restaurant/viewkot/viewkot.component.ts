@@ -35,12 +35,12 @@ export class ViewkotComponent implements OnInit {
    this.viewKotTabNameList  = this.kotService.getViewKotTabList(); // = ['Show All', 'Dine In' , 'Take Away' , 'Delivery', 'Others']; //
   console.log(this.viewKotTabNameList);
   this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(this.viewKotTabNameList);
-  this.screenHeight = this.platform.heightPixels()-200;
-  console.log(this.screenHeight);
+ // this.screenHeight = this.platform.heightPixels()-200;
+ // console.log(this.screenHeight);
 }
   ngOnInit(): void {
   this.listAllOrder();
-  this.screenHeight = this.platform.heightPixels();
+ // this.screenHeight = this.platform.heightPixels();
    
     // this.onSelectKotItem(Event);
   }

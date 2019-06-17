@@ -4,13 +4,14 @@ import { StationService } from '../../../shared/services/restaurant/station.serv
 import { MenuService } from '../../../shared/services/restaurant/menu.service';
 import { map } from 'rxjs/operators';
 import { Observable as RxObservable } from 'rxjs';
+import { MenuModel } from '../../../shared/models/menu.model';
 @Component({
   selector: 'app-station',
   templateUrl: './station.component.html',
   styleUrls: ['./station.component.scss']
 })
 export class StationComponent implements OnInit {
-
+  menuListByCategory: MenuModel[];
   menuCategoryList: any = [];
   station: StationModel;
   employee = ['Employee1', 'Employee2', 'Employee3', 'Employee4', 'Employee5'];
@@ -19,6 +20,7 @@ export class StationComponent implements OnInit {
   stationList: StationModel[] = [];
   stationListPicker = [];
   // public myItems: RxObservable<Array<DataItem>>;
+  isExpanded = false;
   constructor(private stationService: StationService,
               private menuService: MenuService) {
     this.station = new StationModel();
@@ -125,6 +127,26 @@ error => {
     this.employeeList.splice(employeeName);
   }
 
+  public loadMenuByCategory(category: string) {
+    
+    this.menuService.listCategoryByName(category).pipe(map((response: MenuModel[]) =>  {
+     return this.menuListByCategory = response;
+   }))
+    .subscribe((response) => {
+     console.log('method load by category :'+category);
+       console.log( response);
+     },
+  error => {
+       alert('Cannot get MenuItems ' + error);
+       console.log('error');
+       console.log(error);
+  });
+ }
+
+ customize(args,id:string) {
+   alert(id);
+   this.isExpanded= true;
+ }
 //#region Mobile
 
 
