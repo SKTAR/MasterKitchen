@@ -3,7 +3,7 @@
   "nativescript": {
     "id": "org.nativescript.MasterKitchen",
     "tns-android": {
-      "version": "5.1.0"
+      "version": "5.4.1"
     },
     "tns-ios": {
       "version": "5.4.1"
