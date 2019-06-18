@@ -1,24 +1,28 @@
 <app-actionbar [pageName]="'Station'"></app-actionbar>
 
 <StackLayout>
-    <GridLayout col="0" >		
+    <GridLayout >		
             <!-- The ListView shows on both tablets and phones. On tablets the list occupies the left-hand side
             of the screen, and one phones the ListView takes up the whole screen. -->
     
-                <ListView  class="list-group"  rowHeight="200" [items]="menuCategoryList">
+                <ListView  class="list-group"   [items]="menuCategoryList">
                 <ng-template let-item="item">
                     <GridLayout class="list-group-item"  rows="*,*,*,*" columns="300, *,*,*">
                         <!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
-                        <Label row="0" col="0" [text]="item"   id="{{'txt_'+i}}" ></Label>
+                        <Label row="0" col="0" [text]="item"   id="{{'txt_'+i}}" fontsize="25"></Label>
                         <Label row="0" col="1" text="&#xf0c1;" class="fa"></Label>
                         
-                         <ListPicker row="0" col="2" height="200" horizontal="center" [items]="stationListPicker"   selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker> -->
-                        <Button  row ="0" col="3"  class="btn btn-primary" width="100"  height="75" text="customize" (tap)="customize($event)"></Button>
-             
+                       <ListPicker row="0" col="2"  horizontal="center" [items]="stationListPicker" fontsize="25"  selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker> -->
+                        <Button  row ="0" col="3"  class="btn btn-primary"  text="customize" width="100" height="75" (tap)="customize($event)"></Button>
+                   
+                        <ng-container *ngIf="isExpanded">
+                                
+                         </ng-container>
                     </GridLayout>
                 </ng-template>
             </ListView>
             </GridLayout>
+            
     <!-- 
         <ListView   [items]="menuCategoryList" class="list-group" (itemTap)="select($event)">
         <ng-template  let-item="item" let-i="index">

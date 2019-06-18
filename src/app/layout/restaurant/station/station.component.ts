@@ -27,6 +27,7 @@ export class StationComponent implements OnInit {
 
 cookingStation: CookingStationModel;
 productsInStation: StationProduct[];
+categorySelected: string;
 
 //#endregion
 
@@ -93,6 +94,21 @@ error => {
  });
   }
 
+  ListStationbyUID(uid: string) {
+    alert(uid);
+    this.stationService.getByUid(uid).pipe(map((response: CookingStationModel) =>  {
+			return this.cookingStation = response;
+		}))
+		.subscribe((response) => {
+     // this.stationListPicker = response.map(x => x.name);
+		console.log(response);
+},
+error => {
+		alert('Cannot get Station List' + error);
+		console.log(error);
+ });
+  }
+
   createStation() {
      console.log(this.cookingStation);
       this.stationService.createStation(this.cookingStation).subscribe(
@@ -150,7 +166,7 @@ error => {
   }
 
   public loadMenuByCategory(category: string) {
-    
+    this.categorySelected = category
     this.menuService.listCategoryByName(category).pipe(map((response: MenuModel[]) =>  {
      return this.menuListByCategory = response;
    }))
@@ -167,7 +183,7 @@ error => {
 
  customize(args) {
    // alert(id);
-   this.isExpanded= true;
+   this.isExpanded = true;
    this.util.getTextFromButton(args);
 
  }

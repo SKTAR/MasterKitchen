@@ -1,66 +1,20 @@
-<div class="form-group border border-light p-5">
    
 <div class="row">
-    <div class="col"> <input   [(ngModel)]="cookingStation.name" type="text" class="form-control" placeholder="Enter New Station Name">
-      <div ngbDropdown class="d-inline-block">
+  <div class="col"> 
+    <div class="form-group border border-light p-5">
+     <div ngbDropdown class="d-inline-block">
             <button class="btn btn-outline-primary mb-4 mt-4" id="dropdownCategoryList" ngbDropdownToggle>Select Cooking Station</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem *ngFor="let item of stationList; let i=index" value="{{item.name}}">{{item.name}}</button>
+              <button ngbDropdownItem *ngFor="let item of stationList; let i=index" value="{{item.uid}}" (click)="ListStationbyUID($event.target.value)">{{item.name}}</button>
             </div>
-          </div>
-  </div>
-</div>
+     </div>
 
-    <div class="row">
-        <div class="col">
-          <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary mb-4 mt-4" id="dropdownCategoryList" ngbDropdownToggle>Select Category</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem *ngFor="let item of menuCategoryList; let i=index" value="{{item}}" (click)="loadMenuByCategory($event.target.value)">{{item}}</button>
-            </div>
-          </div>
-        </div>
-    </div>
+  
 
-    <div class="row">
-        <div class="col">
-        <div class="card mb-3">
-            <div class="card-header text-center">Menu Items</div>
-            <table class="card-body table">
-                <thead class="text-center">
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>ProductCode</th>
-                 <!-- uid: string;
-                  name: string;
-                  productCode: number; -->
-                </tr>
-                </thead>
-                <tbody>
-                    <tr class="table-active text-center" *ngFor="let item of menuListByCategory; let i=index">
-                        <th scope="row">{{i+1}}</th>
-                        <th>{{item.name }}</th>
-                        <th>{{ item.productCode }}</th>
-                        <input #menuName type ="hidden" [value]="item.name">
-                        <input #prodCode type ="hidden" [value]="item.productCode">
-                        <th><button type="button" class="mb-1 btn btn-sm btn-success" value="{{item.uid}}" (click)="addItemToStation($event,menuName.value,prodCode.value)">+</button></th>
-           
-                  </tr>
-          
-                 
-               
-            </table>
-            </div>
-            </div>
-            </div> 
-            <!-- End Menu Item -->
-
-            <div class="row">
-                <div class="col">
-                <div class="card mb-3">
-                    <div class="card-header text-center">{{cookingStation.name}}</div>
-                    <table class="card-body table">
+      <input [(ngModel)]="cookingStation.name" type="text" class="form-control" placeholder="Enter New Station Name">
+  
+    <div class="card-header text-primary">Cooking Station :<span class="text-success"> {{cookingStation.name}}</span></div>
+        <table class="card-body table">
                         <thead class="text-center">
                         <tr>
                           <th>#</th>
@@ -74,20 +28,78 @@
                         <tbody>
                             <tr class="table-active text-center" *ngFor="let item of cookingStation.products; let i=index">
                                 <th scope="row">{{i+1}}</th>
-                                <th>{{ item.name}}</th>
-                                <th>{{ item.productCode }}</th>
+                                <th> <input [(ngModel)]="item.name" type="text" class="form-control" placeholder=""></th>
+                                <th> <input [(ngModel)]="item.productCode" type="text" class="form-control" placeholder=""></th>
                                  <th><button type="button" class="mb-1 btn btn-sm btn-danger" value="{{item.name}}" (click)="removeMenuItem($event)">X</button></th>
-                   
                           </tr>
-                  
-                         
-                       
-                    </table>
-                    </div>
+                        </tbody>
+        </table>
+    
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary mb-4 mt-4" id="dropdownCategoryList" ngbDropdownToggle>Select Category</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem *ngFor="let item of menuCategoryList; let i=index" value="{{item}}" (click)="loadMenuByCategory($event.target.value)">{{item}}</button>
+            </div>
+        </div>
+        <div class="card-header text-primary">Menu Category Name :<span class="text-success">{{categorySelected}}</span></div>
+        <table class="card-body table">
+            <thead class="text-center">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>ProductCode</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr class="table-active text-center" *ngFor="let item of menuListByCategory; let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <th>{{item.name }}</th>
+                    <th>{{ item.productCode }}</th>
+                    <input #menuName type ="hidden" [value]="item.name">
+                    <input #prodCode type ="hidden" [value]="item.productCode">
+                    <th><button type="button" class="mb-1 btn btn-sm btn-success" value="{{item.uid}}" (click)="addItemToStation($event,menuName.value,prodCode.value)">+</button></th>
+              </tr> 
+            </tbody>
+        </table>
+  
+  <!-- <div class="card mb-3">
+      <div class="card-header text-center">Menu Items</div>
+            <table class="card-body table">
+                <thead class="text-center">
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>ProductCode</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-active text-center" *ngFor="let item of menuListByCategory; let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <th>{{item.name }}</th>
+                        <th>{{ item.productCode }}</th>
+                        <input #menuName type ="hidden" [value]="item.name">
+                        <input #prodCode type ="hidden" [value]="item.productCode">
+                        <th><button type="button" class="mb-1 btn btn-sm btn-success" value="{{item.uid}}" (click)="addItemToStation($event,menuName.value,prodCode.value)">+</button></th>
+           
+                  </tr> 
+          </table>
+  </div> -->
+</div>
+</div>
+</div>
+           
+           
+            <!-- End Menu Item -->
+
+            <div class="row">
+                <div class="col">
+                <div class="card mb-3">
+                    
                     </div>
                    
 
                     </div> 
+            </div>
                     <div class="row text-center">
                         <div class="col">
                             <div class="btn-group" role="group" aria-label="Basic example">
@@ -97,7 +109,7 @@
                             </div>
                           </div>
                     </div>
-</div>
+
 
 
 
