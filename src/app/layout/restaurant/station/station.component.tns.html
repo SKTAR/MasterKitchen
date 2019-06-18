@@ -1,50 +1,54 @@
 <app-actionbar [pageName]="'Station'"></app-actionbar>
+
 <StackLayout>
-<GridLayout col="0" >		
-        <!-- The ListView shows on both tablets and phones. On tablets the list occupies the left-hand side
-        of the screen, and one phones the ListView takes up the whole screen. -->
-
-            <ListView class="list-group"  [items]="menuCategoryList" (itemTap)="onSelectKotItem($event)">
-            <ng-template let-item="item">
-                <GridLayout class="list-group-item"  rows="*,*,*,*" columns="auto, *">
-                    <!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
-                    <Label row="0" col="1" [text]="item"   id="{{'txt_'+i}}"  fontSize="20"></Label>
-                    <Label row="0" col="1" text="&#xf0c1;" class="fa"    fontSize="30"   ></Label>
-                    <Label row="3" col="1" [text]="item"></Label>
-                    <Label row="2" col="1" text="{{ item}}"></Label>
-                </GridLayout>
-            </ng-template>
-        </ListView>
-        </GridLayout>
-<!-- 
-    <ListView   [items]="menuCategoryList" class="list-group" (itemTap)="select($event)">
-    <ng-template  let-item="item" let-i="index">
-          
-        <GridLayout columns="300, 100, auto ,auto "  height="100" horizontalAlignment="center">
-           
-                <Label col="0" id="{{'txt_'+i}}" [text]="item"  fontSize="30"  class="mr-10" ></Label>
-           
-                <Label col="1" text="&#xf0c1;" fontSize="30" color="black" class="fa"></Label>    
-           
-                <ListPicker col="2" horizontal="center" [items]="stationListPicker" fontSize ="30" width="150" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
-              
-                <Button  col="3"  class="btn btn-primary" width="100" height="70" text="customize" (tap)="customize($event,'txt_'+i)"></Button>
-           
-        </GridLayout>
+    <GridLayout col="0" >		
+            <!-- The ListView shows on both tablets and phones. On tablets the list occupies the left-hand side
+            of the screen, and one phones the ListView takes up the whole screen. -->
     
-    </ng-template>
-    </ListView> -->
-
-  
-            <ng-container *ngIf="isExpanded">
-                    <ListView class="list-group" [items]="menuCategoryList" (itemTap)="customize($event)">
-                        <ng-template let-item="item">
-                            <GridLayout class="list-group-item" rows="*,*,*,*,*" columns="auto, *">
-                                <!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
-                                
-                                <Label row="0" col="0" text="item"></Label>
+                <ListView  class="list-group"  rowHeight="200" [items]="menuCategoryList">
+                <ng-template let-item="item">
+                    <GridLayout class="list-group-item"  rows="*,*,*,*" columns="300, *,*,*">
+                        <!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
+                        <Label row="0" col="0" [text]="item"   id="{{'txt_'+i}}" ></Label>
+                        <Label row="0" col="1" text="&#xf0c1;" class="fa"></Label>
                         
-                            </GridLayout>
-                            </ng-template></ListView>
-                            </ng-container>
-   </StackLayout>
+                         <ListPicker row="0" col="2" height="200" horizontal="center" [items]="stationListPicker"   selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker> -->
+                        <Button  row ="0" col="3"  class="btn btn-primary" width="100"  height="75" text="customize" (tap)="customize($event)"></Button>
+             
+                    </GridLayout>
+                </ng-template>
+            </ListView>
+            </GridLayout>
+    <!-- 
+        <ListView   [items]="menuCategoryList" class="list-group" (itemTap)="select($event)">
+        <ng-template  let-item="item" let-i="index">
+              
+            <GridLayout columns="300, 100, auto ,auto "  height="100" horizontalAlignment="center">
+               
+                    <Label col="0" id="{{'txt_'+i}}" [text]="item"  fontSize="30"  class="mr-10" ></Label>
+               
+                    <Label col="1" text="&#xf0c1;" fontSize="30" color="black" class="fa"></Label>    
+               
+                    <ListPicker col="2" horizontal="center" [items]="stationListPicker" fontSize ="30" width="150" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
+                  
+                    <Button  col="3"  class="btn btn-primary" width="100" height="70" text="customize" (tap)="customize($event,'txt_'+i)"></Button>
+               
+            </GridLayout>
+        
+        </ng-template>
+        </ListView> -->
+    
+      
+                <ng-container *ngIf="isExpanded">
+                        <ListView class="list-group" [items]="menuCategoryList" (itemTap)="customize($event)">
+                            <ng-template let-item="item">
+                                <GridLayout class="list-group-item" rows="*,*,*,*,*" columns="auto, *">
+                                    <!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
+                                    
+                                    <Label row="0" col="0" text="item"></Label>
+                            
+                                </GridLayout>
+                                </ng-template></ListView>
+                                </ng-container>
+       </StackLayout>
+    

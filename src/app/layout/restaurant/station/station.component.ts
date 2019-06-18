@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { StationModel } from '../../../shared/models/station.model';
+import { StationModel, CookingStationModel, StationProduct } from '../../../shared/models/station.model';
 import { StationService } from '../../../shared/services/restaurant/station.service';
 import { MenuService } from '../../../shared/services/restaurant/menu.service';
 import { map } from 'rxjs/operators';
 import { Observable as RxObservable } from 'rxjs';
 import { MenuModel } from '../../../shared/models/menu.model';
+import { UtilService } from '../../../shared/services/ui/util/util.service';
 @Component({
   selector: 'app-station',
   templateUrl: './station.component.html',
@@ -17,16 +18,31 @@ export class StationComponent implements OnInit {
   employee = ['Employee1', 'Employee2', 'Employee3', 'Employee4', 'Employee5'];
   // stationpicker = ['Station1', 'Station2', 'Station3', 'Station4', 'Station5'];
   employeeList = [];
-  stationList: StationModel[] = [];
+  stationList: CookingStationModel[] = [];
   stationListPicker = [];
   // public myItems: RxObservable<Array<DataItem>>;
   isExpanded = false;
+
+//#region Cooking Station
+
+cookingStation: CookingStationModel;
+productsInStation: StationProduct[];
+
+//#endregion
+
+
+
   constructor(private stationService: StationService,
-              private menuService: MenuService) {
-    this.station = new StationModel();
+              private menuService: MenuService,
+              private util: UtilService) {
+
+    this.cookingStation = new CookingStationModel(); // new  
+    this.cookingStation.products = [];
+    
+    this.station = new StationModel(); // Old 
     this.station.active = true;
     this.employeeList = [];
-    // this.listStation();
+     this.listStation();
     this.listAllCategory();
     //#region Mobile
     //this.creatStationListMobile();
@@ -43,7 +59,13 @@ export class StationComponent implements OnInit {
     this.listStation();
    
   }
+//   onListViewLoaded(args): void {
+//     this.listView = args.object;
 
+//     if (isIOS) {
+//         this.listView.iosEstimatedRowHeight = 0; // or your own preffered value
+//     }
+// }
   public listAllCategory() {
 		this.menuService.listCategories().pipe(map((response) =>  {
 			return this.menuCategoryList = response;
@@ -58,7 +80,7 @@ error => {
 }
 
   listStation() {
-    this.stationService.list().pipe(map((response: StationModel[]) =>  {
+    this.stationService.list().pipe(map((response: CookingStationModel[]) =>  {
 			return this.stationList = response;
 		}))
 		.subscribe((response) => {
@@ -72,15 +94,15 @@ error => {
   }
 
   createStation() {
-     console.log(this.station);
-      this.stationService.createStation(this.station).subscribe(
+     console.log(this.cookingStation);
+      this.stationService.createStation(this.cookingStation).subscribe(
         res => console.log(res)
      );
 
   }
   removeStation() {
     if (this.station.uid == null) {
-        const selectedStation =  this.stationList.find(x => x.name === this.station.name);
+        const selectedStation =  this.stationList.find(x => x.name === this.cookingStation.name);
         this.stationService.deleteStation(selectedStation.uid).subscribe(res => console.log(res));
     }
     else {
@@ -89,15 +111,15 @@ error => {
     
   }
   updateStation() {
-    this.stationService.update(this.station.uid, this.station)
+    this.stationService.update(this.cookingStation.uid, this.cookingStation)
     .subscribe(res => console.log(res));
   }
 
   loadStation(uid: string) {
    console.log(uid);
    // const station =  this.staitonList.find(x => x.uid === uid);
-   this.stationService.getByUid(uid).pipe(map((response: StationModel) =>  {
-    return this.station = response;
+   this.stationService.getByUid(uid).pipe(map((response: CookingStationModel) =>  {
+    return this.cookingStation = response;
       }))
       .subscribe((response) => {
       console.log(response);
@@ -143,10 +165,41 @@ error => {
   });
  }
 
- customize(args,id:string) {
-   alert(id);
+ customize(args) {
+   // alert(id);
    this.isExpanded= true;
+   this.util.getTextFromButton(args);
+
  }
+
+//#region Cooking Station Model
+addItemToStation(args,menuName: string,productCode: string)
+{
+  const prods  = new StationProduct();
+  prods.name = menuName;
+  prods.productCode=productCode;
+
+  if(this.cookingStation.products.findIndex((prods) => prods.name === menuName) < 0) {
+    this.cookingStation.products.push(prods); 
+  }
+  else{
+    alert('item is already exist');
+  }
+
+ 
+}
+
+removeMenuItem(args) {
+  const menu = args.target.value;
+  const removeIndex = this.cookingStation.products.findIndex(item => item === menu);
+  // alert('index to be removed' + removeIndex);
+  this.cookingStation.products.splice(removeIndex, 1);
+  console.log(this.cookingStation.products);
+}
+
+
+//#endregion  cookingStationModel
+
 //#region Mobile
 
 

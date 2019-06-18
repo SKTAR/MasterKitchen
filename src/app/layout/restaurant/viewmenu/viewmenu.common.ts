@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ViewmenuComponent } from './viewmenu.component';
 import { MenucategoryComponent } from './menucategory/menucategory.component';
+import { CreatemenuComponent } from './createmenu/createmenu.component';
 
 export const componentDeclarations: any[] = [
 ];
@@ -15,6 +16,10 @@ export const routes: Routes = [
         children: [
            {
                path: 'menucategory' , component: MenucategoryComponent
+           }
+           ,    
+           {
+                path: 'createmenu' , component: CreatemenuComponent
            }
        ]
     }

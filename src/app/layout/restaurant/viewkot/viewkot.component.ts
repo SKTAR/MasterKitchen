@@ -7,7 +7,7 @@ import { KOTService } from '../../../shared/services/restaurant/kot.service';
 import { MenuService } from '../../../shared/services/restaurant/menu.service';
 import { NavigationExtras } from '@angular/router';
 import { map, filter, flatMap } from 'rxjs/operators';
-import { SegmentedBarService } from '../../../shared/services/ui/segmentedbar-service/segmentedbar.service';
+import { SegmentedBarService } from '../../../shared/services/ui/segmentedbar/segmentedbar.service';
 
 @Component({
   selector: 'app-viewkot',

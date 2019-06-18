@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { KDS } from '../../../../shared/models/kot.model';
-import { SegmentedBarService } from '../../../../shared/services/ui/segmentedbar-service/segmentedbar.service';
+import { SegmentedBarService } from '../../../../shared/services/ui/segmentedbar/segmentedbar.service';
 import { ActivatedRoute } from '@angular/router';
 import { KOTService } from '../../../../shared/services/restaurant/kot.service';
 import { RouterHelperService } from '../../../../shared/services/router-helper/router-helper.service';

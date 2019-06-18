@@ -5,6 +5,7 @@ import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { ViewmenuComponent } from './viewmenu.component';
 import { MenucategoryComponent } from './menucategory/menucategory.component';
 import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
+import { CreatemenuComponent } from './createmenu/createmenu.component';
 
 
 
@@ -12,6 +13,7 @@ import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
   declarations: [
     ViewmenuComponent,
     MenucategoryComponent,
+    CreatemenuComponent,
    
     
   ],

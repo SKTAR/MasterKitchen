@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { TableObj } from '../../../shared/models/dine-table.model';
 import { MenuModel } from '../../../shared/models/menu.model';
-import { SegmentedBarService } from '../../../shared/services/ui/segmentedbar-service/segmentedbar.service';
+import { SegmentedBarService } from '../../../shared/services/ui/segmentedbar/segmentedbar.service';
 import { RouterHelperService } from '../../../shared/services/router-helper/router-helper.service';
 import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Image } from 'tns-core-modules/ui/image';

@@ -1,3 +1,41 @@
-<p>
-  menucategory works!
-</p>
+<div class="row text-center">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary mb-4 mt-4" id="dropdownCategoryList" ngbDropdownToggle>Select Category</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem *ngFor="let item of menuCategoryList; let i=index" value="{{item}}" (click)="loadMenuByCategory($event.target.value)">{{item}}</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+    <div class="card mb-3">
+        <div class="card-header text-center">Menu Items</div>
+        <table class="card-body table">
+            <thead class="text-center">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>ProductCode</th>
+             <!-- uid: string;
+              name: string;
+              productCode: number; -->
+            </tr>
+            </thead>
+            <tbody>
+                <tr class="table-active text-center" *ngFor="let item of menuListByCategory; let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <th>{{ item.name }}</th>
+                    <th>{{ item.productCode }}</th>
+                    <th><button type="button" class="mb-1 btn btn-sm btn-danger" value="{{item.uid}}" (click)="removeItem($event)">X</button></th>
+       
+              </tr>
+      
+             
+           
+            </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
