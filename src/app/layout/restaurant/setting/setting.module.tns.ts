@@ -5,14 +5,22 @@ import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { ZonetableComponent } from './zonetable/zonetable.component';
 import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
+import { CookstationComponent } from './cookstation/cookstation.component';
+import { SettingComponent } from './setting.component';
+import { DropDownModule } from 'nativescript-drop-down/angular';
+import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
+import { MenuStationComponent } from './menu-station/menu-station.component';
 
 @NgModule({
-  declarations: [ZonetableComponent],
+  declarations: [ZonetableComponent, CookstationComponent, SettingComponent, MenuStationComponent],
   imports: [
     SettingRoutingModule,
     NativeScriptCommonModule,
     NativeScriptFormsModule,
-    MobileModule
+    NativeScriptUIListViewModule,
+    MobileModule,
+    DropDownModule,
+    
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

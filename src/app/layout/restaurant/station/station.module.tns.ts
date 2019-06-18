@@ -14,7 +14,8 @@ import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/l
     NativeScriptCommonModule,
     NativeScriptFormsModule,
     NativeScriptUIListViewModule,
-    MobileModule
+    MobileModule,
+  
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

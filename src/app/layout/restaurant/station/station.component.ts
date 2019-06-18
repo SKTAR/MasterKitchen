@@ -32,10 +32,12 @@ categorySelected: string;
 //#endregion
 
 
-
   constructor(private stationService: StationService,
               private menuService: MenuService,
               private util: UtilService) {
+
+               
+
 
     this.cookingStation = new CookingStationModel(); // new  
     this.cookingStation.products = [];
@@ -247,5 +249,10 @@ removeMenuItem(args) {
     // }
 //#endregion
 
+
+//#region Dropdown
+
+
+//#endregion
 
 }

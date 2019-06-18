@@ -30,6 +30,7 @@ export const routes: Routes = [
             { path: 'kds', loadChildren: './restaurant/kds/kds.module#KdsModule' },
             { path: 'viewkot', loadChildren: './restaurant/viewkot/viewkot.module#ViewkotModule' },
             { path: 'viewmenu', loadChildren: './restaurant/viewmenu/viewmenu.module#ViewmenuModule' },
+            { path: 'setting', loadChildren: './restaurant/setting/setting.module#SettingModule' },
             
                  ]
     }

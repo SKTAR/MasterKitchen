@@ -44,15 +44,11 @@
     
       
                 <ng-container *ngIf="isExpanded">
-                        <ListView class="list-group" [items]="menuCategoryList" (itemTap)="customize($event)">
-                            <ng-template let-item="item">
-                                <GridLayout class="list-group-item" rows="*,*,*,*,*" columns="auto, *">
-                                    <!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
-                                    
-                                    <Label row="0" col="0" text="item"></Label>
+                        
+                </ng-container>
+
+
                             
-                                </GridLayout>
-                                </ng-template></ListView>
-                                </ng-container>
+
        </StackLayout>
     
