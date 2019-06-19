@@ -39,7 +39,7 @@ categorySelected: string;
                
 
 
-    this.cookingStation = new CookingStationModel(); // new  
+    this.cookingStation = new CookingStationModel(); // new
     this.cookingStation.products = [];
     
     this.station = new StationModel(); // Old 

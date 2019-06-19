@@ -93,4 +93,28 @@ $sidedrawer-list-icon-size: 20;
     }
 }
 
+.decrease-btn 
+{ 
+    background-color: red; 
+    font-family: FontAwesome;
+    font-size: 30;
+  
 
+}
+.increase-btn 
+{
+     background-color:green;
+     font-family: FontAwesome;
+     font-size: 30;
+}
+
+.circle-btn
+{
+    width: 50;
+    height: 50;
+    border-radius:50;
+   // border-width:2;
+    color:white;
+    text-align: center;
+   
+}

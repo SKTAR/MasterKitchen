@@ -1,12 +1,18 @@
 <app-actionbar [pageName]="'Station2'"></app-actionbar>
 
+<AbsoluteLayout>
+        <FlexboxLayout justifyContent="flex-end" width="100%" id="addButtonContainer"
+        left="0">
+        <Button class="add-button" row="0" col="1" text="+" (tap)="addNewStation()"></Button>
+        </FlexboxLayout>
 <StackLayout>
+
     <GridLayout >		
-               <ListView  class="list-group"   [items]="menuListByCategory">
+               <ListView  class="list-group"   [items]="menuCategoryList">
                 <ng-template let-item="item">
-                    <GridLayout class="list-group-item"  rows="*,*,*,*" columns="300, *,auto,*">
+                    <GridLayout class="list-group-item"  rows="*,*,*,*" columns="300, *,auto,*,*">
                         <!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
-                        <Label row="0" col="0" fontSize ="30"[text]="item.name"   id="{{'txt_'+i}}" ></Label>
+                        <Label row="0" col="0" fontSize ="30" [text]="item.name"   ></Label>
                         <Label row="0" col="1" fontSize ="40" text="&#xf0c1;" class="fa"></Label>
                         
                         <DropDown #dd
@@ -19,8 +25,10 @@
                               row="0"
                               col="2"
                               ></DropDown>
-                        <Button  row ="0" col="3"  class="btn btn-primary"  text="customize" width="100" height="75" (tap)="customize($event)"></Button>
-                   
+
+
+                        <Button  row ="0" col="4"  class="btn btn-primary"  text="customize" width="100" height="75" (tap)="customize($event)"></Button>
+                              
                         <ng-container *ngIf="isExpanded">
                                 
                          </ng-container>
@@ -38,7 +46,7 @@
 
 
                             
-
+                
        </StackLayout>
-    
-
+  
+    </AbsoluteLayout>
