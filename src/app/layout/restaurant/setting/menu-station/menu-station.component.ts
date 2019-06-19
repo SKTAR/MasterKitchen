@@ -11,30 +11,30 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./menu-station.component.scss']
 })
 export class MenuStationComponent implements OnInit {
-  @Input() categorySelected: string;
-  menuListByCategory: MenuModel[];
-  constructor(private stationService: StationService,
-    private menuService: MenuService,
+//   @Input() categorySelected: string;
+//   menuListByCategory: MenuModel[];
+   constructor(private stationService: StationService,
+     private menuService: MenuService,
     private util: UtilService) {
-      if(this.categorySelected !== null) {
-      this.loadMenuByCategory();
-      }
-    }
-  ngOnInit() {
-  }
-  public loadMenuByCategory() {
-    console.log('method load by category :'+ this.categorySelected);
-    this.menuService.listCategoryByName(this.categorySelected).pipe(map((response: MenuModel[]) =>  {
-     return this.menuListByCategory = response;
-   }))
-    .subscribe((response) => {
+//       if(this.categorySelected !== null) {
+//       this.loadMenuByCategory();
+//       }
+     }
+   ngOnInit() {
+   }
+//   public loadMenuByCategory() {
+//     console.log('method load by category :'+ this.categorySelected);
+//     this.menuService.listCategoryByName(this.categorySelected).pipe(map((response: MenuModel[]) =>  {
+//      return this.menuListByCategory = response;
+//    }))
+//     .subscribe((response) => {
     
-       console.log( response);
-     },
-  error => {
-       alert('Cannot get MenuItems ' + error);
-       console.log('error');
-       console.log(error);
-  });
- }
+//        console.log( response);
+//      },
+//   error => {
+//        alert('Cannot get MenuItems ' + error);
+//        console.log('error');
+//        console.log(error);
+//   });
+//  }
 }

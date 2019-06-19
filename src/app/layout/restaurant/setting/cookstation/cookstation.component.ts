@@ -6,6 +6,8 @@ import { MenuService } from '../../../../shared/services/restaurant/menu.service
 import { map } from 'rxjs/operators';
 import { MenuModel } from '../../../../shared/models/menu.model';
 import { UtilService } from '../../../../shared/services/ui/util/util.service';
+import { DialogService } from '../../../../shared/services/ui/dialog/dialog.service';
+
 @Component({
   selector: 'app-cookstation',
   templateUrl: './cookstation.component.html',
@@ -32,7 +34,8 @@ categorySelected: string;
   @ViewChild('dd') dropDown: ElementRef;
   constructor(private stationService: StationService,
     private menuService: MenuService,
-    private util: UtilService) {
+    private util: UtilService,
+    private dialog: DialogService) {
 
      
 
@@ -68,20 +71,19 @@ error => {
  });
 }
 
-  listStation() {
-    this.stationService.list().pipe(map((response: CookingStationModel[]) =>  {
-			return this.stationList = response;
-		}))
-		.subscribe((response) => {
-      this.stationListPicker = response.map(x => x.name);
-      console.log('list station');
-		  console.log(response);
+listStation() {
+  this.stationService.list().pipe(map((response: CookingStationModel[]) =>  {
+    return this.stationList = response;
+  }))
+  .subscribe((response) => {
+    this.stationListPicker = response.map(x => x.name);
+  console.log(response);
 },
 error => {
-		alert('Cannot get Station List' + error);
-		console.log(error);
- });
-  }
+  alert('Cannot get Station List' + error);
+  console.log(error);
+});
+}
 
   ListStationbyUID(uid: string) {
     alert(uid);
@@ -97,6 +99,11 @@ error => {
 		console.log(error);
  });
   }
+
+  addNewStation() {
+    this.dialog.prompt();
+  }
+
 
   public loadMenuByCategory(category: string) {
     this.categorySelected = category
@@ -131,4 +138,7 @@ error => {
 
 
   //#endregion
+
+
+  
 }
