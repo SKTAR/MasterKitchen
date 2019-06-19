@@ -15,7 +15,7 @@ import { DialogService } from '../../../../shared/services/ui/dialog/dialog.serv
 })
 export class CookstationComponent implements OnInit {
   menuListByCategory: MenuModel[];
-  menuCategoryList: any = [];
+  menuCategoryList: string[] = [];
 
   stationList: CookingStationModel[] = [];
   stationListPicker = [];
@@ -59,10 +59,11 @@ this.listStation();
 }
 
   public listAllCategory() {
-		this.menuService.listCategories().pipe(map((response) =>  {
+		this.menuService.listCategories().pipe(map((response:string[]) =>  {
 			return this.menuCategoryList = response;
 		}))
 		.subscribe((response) => {
+      
 		console.log(response);
 },
 error => {
@@ -77,6 +78,7 @@ listStation() {
   }))
   .subscribe((response) => {
     this.stationListPicker = response.map(x => x.name);
+   // this.stationListPicker.unshift('Select Station')
   console.log(response);
 },
 error => {
@@ -126,6 +128,7 @@ error => {
   //#region DropDown
   public onchange(args: SelectedIndexChangedEventData) {
     console.log(`Drop Down selected index changed from ${args.oldIndex} to ${args.newIndex}`);
+    
   }
   
   public onopen() {

@@ -1,15 +1,16 @@
 /* Add mobile styles for the component here.  */
 .item-drop-down{
     font-size: 20;
-    color: red;
+    color: blue;
     text-align: center;
     padding: 4;
     height: 50;
-    width: auto;
-    border-width: 0.5;
-    //border-color:blue;
+    width: 50%;
+    border-width: 0;
+    border-radius: 40%;
+    border-color:lightblue;
     //background-color: transparent;
-    background-color: lightgreen;
+    //background-color: lightgreen;
 }
 
 .add-button {
@@ -23,4 +24,8 @@
     color: #fff;
     margin: 15 15 0 0; // top right bottom left
    // margin-top:15;
+}
+
+.icon-link{
+    margin: 0 15 0 0;
 }
