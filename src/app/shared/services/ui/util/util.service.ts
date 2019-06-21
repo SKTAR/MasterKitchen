@@ -12,4 +12,15 @@ export class UtilService {
     return "";
     
   }
+
+  getTextFromLabelID(args,label_id:string) :string{
+    
+    
+    return "";
+    
+  }
+
+  SetDropDownSelectIndexByID(args,id: string) {
+  
+  }
 }

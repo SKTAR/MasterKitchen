@@ -51,6 +51,11 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="1" text="Station2" class="p-r-10"></Label>
                 </GridLayout>
 
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('setting/linkstation')" (tap)="onNavItemTap('setting/linkstation')">
+                    <Label col="0" text="&#xf14c;" class="fa"></Label>
+                    <Label col="1" text="Station3" class="p-r-10"></Label>
+                </GridLayout>
+
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/viewmenu/menucategory')" (tap)="onNavItemTap('/viewmenu/menucategory')">
                     <Label col="0" text="&#xf01a;" class="fa"></Label>
                     <Label col="1" text="Menu" class="p-r-10"></Label>

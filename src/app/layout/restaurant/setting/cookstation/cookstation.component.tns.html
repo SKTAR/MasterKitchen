@@ -1,46 +1,71 @@
 <app-actionbar [pageName]="'Station2'"></app-actionbar>
 
 <StackLayout>
-    <FlexboxLayout justifyContent="flex-end" width="100%" id="addButtonContainer"
-    left="0">
-    <Button class="add-button" row="0" col="1" text="+" (tap)="addNewStation()"></Button>
-    </FlexboxLayout>
-
-</StackLayout>
-     
-    <GridLayout >		
-               <ListView  class="list-group"   [items]="menuCategoryList">
-                <ng-template let-item="item" let-i="index" >
-                    <GridLayout class="list-group-item"  rows="auto" columns="*,*,*,*,*">
-                        <!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
-                        <Label row="0" col="0" fontSize ="20" text="Cooking Station:"   ></Label>
-                        
-                        <DropDown 
-                              id="{{'dd'+i}}"
-                              hint="select station"
-                              class="item-drop-down"
-                              [items]="stationListPicker"
-                              (selectedIndexChanged)="onchange($event)"
-                              (opened)="onopen()"
-                              (closed)="onclose()"
-                              row="0"
-                              col="1"
-                              ></DropDown>
-
-                          <Label row="0" col="2" fontSize ="40" text="&#xf0c1;" class="fa"></Label>
-                      
-                          <Label row="0" col="3" fontSize ="20" [text]="item"   ></Label>
+      <!-- <FlexboxLayout justifyContent="flex-end" width="100%" id="addButtonContainer" left="0">
+        <Button class="add-button" row="0" col="1" text="+" (tap)="addNewStation()"></Button>
+    </FlexboxLayout>  -->
+<GridLayout  rows="auto" columns="*,*,*,100,100">
+        <Label row="0" col="0" fontSize ="30" text="Menu Category"  horizontalAlignment="center" verticalAlignment="center"></Label>
                        
-                            <Button  row ="0" col="4"  class="btn btn-primary"  text="customize" width="100" height="75" (tap)="customize($event)"></Button>
-                              
-                        <ng-container *ngIf="isExpanded">
-                                
+        <Label row="0" col="2" fontSize ="30" text="Cooking Station" horizontalAlignment="center" verticalAlignment="center"></Label>
+
+        <Button class="add-button" row="0" col="4" text="+" (tap)="addNewStation()" horizontalAlignment="right" verticalAlignment="top"></Button>
+</GridLayout>
+ 
+    
+    <GridLayout >		
+               <ListView  class="list-group"   [items]="menuCategoryList" background="lightgreen" horizontalAlignment="center">
+                <ng-template let-item="item" let-i="index" >
+                    <GridLayout class="list-group-item"  rows="*,*" columns="*,*,*,100,100">
+                        <!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
+                      
+                          <Label id="{{'category'+i}}" row="0" col="0" fontSize ="20" [text]="item" horizontalAlignment="center"  ></Label>
+                       
+                          <Label row="0" col="1" fontSize ="30" text="&#xf0c1;" class="fa" horizontalAlignment="center"></Label>
+     
+                        <DropDown 
+                                id="{{'dd'+i}}"
+                                hint="Select Station"
+                                class="item-drop-down"
+                                [items]="stationListPicker"
+                                (selectedIndexChanged)="onchange($event)"
+                                (opened)="onopen()"
+                                (closed)="onclose()"
+                                row="0"
+                                col="2"
+                        ></DropDown>
+  
+                            <Button  row ="0" col="3"  class="btn btn-primary"  text="Apply all" width="100" height="50" orizontalAlignment="right"></Button>
+                            <Button  row ="0" col="4"  class="btn btn-primary"  text="Custom" width="100" height="50" (tap)="customize($event,'category'+i,i)" orizontalAlignment="left"></Button>
+                               
+                        <ng-container *ngIf="isCatgoeryExpandedArray[i]"  >
+                            
+                            <ListView  class="list-group" row="1", colSpan="5" background="white" [items]="menuListByCategory" horizontalAlignment="center">
+                                <ng-template let-item="item" let-i="index" >
+                                    <GridLayout class="list-group-item"  rows="auto" columns="*,*,*,100,100">
+                                        
+                                        <Label row="0" col="0" fontSize ="15" fontColor="blue" text="{{item.name}}" horizontalAlignment="center"  ></Label>
+                                        <Label row="0" col="1" fontSize ="30" text="&#xf07e;" class="fa" color="green" horizontalAlignment="center"></Label>
+                                        <DropDown 
+                                        id="{{'substation'+i}}"
+                                        hint="Select Station"
+                                        class="item-drop-down2"
+                                        [items]="stationListPicker"
+                                       
+                                        row="0"
+                                        col="2"
+                                ></DropDown>
+
+                                    </GridLayout>
+                                </ng-template>
+                            </ListView>
+
                          </ng-container>
                     </GridLayout>
                 </ng-template>
             </ListView>
-            </GridLayout>
-            
+    </GridLayout>
+</StackLayout>           
    
 <!--       
                 <ng-container *ngIf="isExpanded">

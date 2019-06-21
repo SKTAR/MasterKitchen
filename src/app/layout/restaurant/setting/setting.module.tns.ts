@@ -10,9 +10,11 @@ import { SettingComponent } from './setting.component';
 import { DropDownModule } from 'nativescript-drop-down/angular';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 import { MenuStationComponent } from './menu-station/menu-station.component';
+import { LinkstationComponent } from './linkstation/linkstation.component';
+
 
 @NgModule({
-  declarations: [ZonetableComponent, CookstationComponent, SettingComponent, MenuStationComponent],
+  declarations: [ZonetableComponent, CookstationComponent, SettingComponent, MenuStationComponent, LinkstationComponent],
   imports: [
     SettingRoutingModule,
     NativeScriptCommonModule,

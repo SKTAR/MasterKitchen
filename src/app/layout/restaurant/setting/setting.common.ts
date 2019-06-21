@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { ZonetableComponent } from './zonetable/zonetable.component';
 import { SettingComponent } from './setting.component';
 import { CookstationComponent } from './cookstation/cookstation.component';
+import { LinkstationComponent } from './linkstation/linkstation.component';
+
 
 
 export const componentDeclarations: any[] = [
@@ -20,6 +22,9 @@ export const routes: Routes = [
             },
             {
                 path: 'zonetable' , component : ZonetableComponent,
+            },
+            {
+                path: 'linkstation' , component : LinkstationComponent,
             }
           ],
     }

@@ -1,0 +1,28 @@
+
+<app-actionbar [pageName]="'Select Menu'"></app-actionbar>
+<StackLayout>
+
+    <!--  Show Tab Menu Category -->
+   
+    <GridLayout>
+        <ScrollView class="anim-images" orientation="vertical"> 
+    	
+    <GridLayout col="0" class="left-column" (loaded)="onLoaded($event)">		
+             <StackLayout orientation="vertical" vericalAlignment="left"> 
+                           
+                 <GridLayout *ngFor="let imageString of images; let i = index" rows="auto"
+                     columns="*" (tap)="selectCategory(i)">
+                     <StackLayout >
+                     <Label [text]="menuCategoryList[i]" fontSize="20" color="blue" horizontalAlignment="center" ></Label>
+                     <Image class="card-img-thumb" row="0" col="0" [src]="imageString"
+                         stretch="aspectFill">
+                     </Image>
+                     </StackLayout>
+                 </GridLayout>
+             
+              </StackLayout>  
+    
+    </GridLayout>
+</ScrollView> 
+    </GridLayout>
+</StackLayout>

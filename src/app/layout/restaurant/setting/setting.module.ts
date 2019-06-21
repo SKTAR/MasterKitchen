@@ -7,9 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { CookstationComponent } from './cookstation/cookstation.component';
 import { SettingComponent } from './setting.component';
 import { MenuStationComponent } from './menu-station/menu-station.component';
+import { LinkstationComponent } from './linkstation/linkstation.component';
+
 
 @NgModule({
-  declarations: [ZonetableComponent, CookstationComponent, SettingComponent, MenuStationComponent],
+  declarations: [ZonetableComponent, CookstationComponent, SettingComponent, MenuStationComponent, LinkstationComponent],
   imports: [
     CommonModule,
     SettingRoutingModule,

@@ -10,6 +10,7 @@ import { KOTService } from '../../../../shared/services/restaurant/kot.service';
 import { map } from 'rxjs/operators';
 import { KotModel, CustomerModel,  KotPassData } from '../../../../shared/models/kot.model';
 import { IngredientService } from '../../../../shared/services/restaurant/ingredient.service';
+import { LocalDataService } from '../../../../shared/services/localdata.service';
 interface OrderItems {
 	"category": string;
 	"items": MenuModel[];
@@ -49,20 +50,7 @@ export class MenuSelectComponent implements OnInit {
   autoCreateColumns = 5;
   autoCreateRows = 1;
   imageSelected = '';
-  images = [
-  '~/assets/images/food/burger/burger1.jpg',
-  '~/assets/images/food/burger/burger2.jpg',
-  '~/assets/images/food/burger/burger3.jpg',
-  '~/assets/images/food/burger/burger4.jpg',
-  '~/assets/images/food/burger/burger5.jpg',
-  '~/assets/images/food/burger/burger6.jpg',
-  '~/assets/images/food/burger/burger1.jpg',
-  '~/assets/images/food/cake/cake1.jpg',
-  '~/assets/images/food/cake/cake2.jpg',
-  '~/assets/images/food/cake/cake3.jpg',
-  '~/assets/images/food/cake/cake4.jpg',
-  '~/assets/images/food/burger/burger6.jpg'
-  ];
+  images = [];
   // tableID: string;
   // numCustomer: number;
   // orderType: string;
@@ -80,10 +68,12 @@ export class MenuSelectComponent implements OnInit {
               private route: ActivatedRoute,
               private stationService: StationService,
               private kotService: KOTService,
-              private ingreService: IngredientService) {
+              private ingreService: IngredientService,
+              private localService: LocalDataService) {
   
      // this.tableID = null; // Clear
     //  this.numCustomer = null; // Clear
+      this.images  = this.localService.getImageStringArray();
       this.autoCreateColumns =this.menuCategoryList.length;
       this.autoCreateRows	=	1;
       this.listAllCategory();
