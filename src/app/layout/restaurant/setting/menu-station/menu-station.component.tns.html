@@ -1,2 +1,21 @@
+         <StackLayout>
+         <ListView  class="list-group" row="1", colSpan="5" background="white" [items]="menuListByCategory" horizontalAlignment="center">
+                                <ng-template let-item="item" let-i="index" >
+                                    <GridLayout class="list-group-item"  rows="auto" columns="*,*,*,100,100">
+                                        
+                                        <Label row="0" col="0" fontSize ="15" fontColor="blue" [text]="item.name" horizontalAlignment="center"  ></Label>
+                                        <Label row="0" col="1" fontSize ="30" text="&#xf07e;" class="fa" color="green" horizontalAlignment="center"></Label>
+                                    <DropDown 
+                                        id="{{'substation'+i}}"
+                                        hint="Select Station"
+                                        class="item-drop-down2"
+                                        [items]="stationListPicker"
+                                       
+                                        row="0"
+                                        col="2">
+                                    </DropDown>
 
-    
+                                    </GridLayout>
+                                </ng-template>
+                            </ListView> 
+                          </StackLayout>

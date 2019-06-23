@@ -17,6 +17,8 @@ export class CookstationComponent implements OnInit {
   menuListByCategory: MenuModel[];
   menuCategoryList: string[] = [];
 
+  subCategoryList: MenuModel[];
+
   stationList: CookingStationModel[] = [];
   stationListPicker = [];
   isCatgoeryExpandedArray :boolean[]= [false]; // initial value
@@ -109,14 +111,14 @@ export class CookstationComponent implements OnInit {
 
 
   public loadMenuByCategory(category: string,args) {
-    this.categorySelected = category
+    this.categorySelected = category;
     this.menuService.listCategoryByName(category).pipe(map((response: MenuModel[]) => {
       return this.menuListByCategory = response;
     }))
       .subscribe((response) => {
         //console.log('method load by category :' + category);
         //console.log(response);
-        this.findStationFromMenuName(args);
+       // this.findStationFromMenuName(args);
         
       },
         error => {
@@ -126,6 +128,8 @@ export class CookstationComponent implements OnInit {
           console.log(error);
         });
   }
+
+ 
 
   public findStationFromMenuName(args) {
   let selectIndex;
@@ -167,15 +171,15 @@ export class CookstationComponent implements OnInit {
 
   }
 
-  customize(args, id: string,categoryIndex: number) {
+  customize(args, id: string, categoryIndex: number) {
    
 
     if (this.isCatgoeryExpandedArray[categoryIndex]  === false) {
       this.isCatgoeryExpandedArray[categoryIndex] = true;
 
       const category = this.utilService.getTextFromLabelID(args, id);
-
-      this.loadMenuByCategory(category,args);
+      alert(category);
+      this.loadSubCategory(category);
      
       
     }
@@ -186,6 +190,26 @@ export class CookstationComponent implements OnInit {
     //alert(category);
     //this.loadMenuByCategory()
   }
+
+  public loadSubCategory(category: string) {
+    
+    this.menuService.listCategoryByName(category).pipe(map((response: MenuModel[]) => {
+      return this.subCategoryList = response;
+    }))
+      .subscribe((response) => {
+        //console.log('method load by category :' + category);
+        //console.log(response);
+       // this.findStationFromMenuName(args);
+        
+      },
+        error => {
+          alert('Cannot get MenuItems ' + error);
+        
+          console.log('error');
+          console.log(error);
+        });
+  }
+
   //#region DropDown
   public onchange(args: SelectedIndexChangedEventData, arg2) {
     console.log(`Drop Down selected index changed from ${args.oldIndex} to ${args.newIndex}`);
