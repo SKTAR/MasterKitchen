@@ -15,7 +15,7 @@
             <li class="nested" [class.expand]="showMenu === 'pages'">
                 <ul class="submenu">
                     <li>
-                        <a routerLink="/viewmenu/createmenu" routerLinkActive="active">
+                        <a routerLink="/bulk-load/menu-bulk-load" routerLinkActive="active">
                             <i class="fa fa-monument"></i>&nbsp;
                             <span>{{ 'Create Menu' | translate }}</span>
                         </a>
@@ -36,6 +36,27 @@
                 </ul>
             </li>
         </div>
+
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages')">
+                <i class="fa fa-book fa-fw"></i>&nbsp;
+                <span>{{ 'Bulk Load' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a routerLink="/viewmenu/createmenu" routerLinkActive="active">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'Menu Bulk Load' | translate }}</span>
+                        </a>
+                    </li>
+                   
+                </ul>
+            </li>
+        </div>
+
+
+
         <a [routerLink]="['/station']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
             <span>{{ 'Station' | translate }}</span>

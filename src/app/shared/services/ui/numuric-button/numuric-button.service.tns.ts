@@ -40,7 +40,7 @@ export class NumuricButtonService implements OnInit {
        // alert('button ID :' + button.id + 'X:' +  button.originX + 'Y:' + button.originY + 'counter:' + this.counter + ' times!');
   }
   public DecreaseValue(args: EventData, textId: string): number{
-   alert('send ID' +textId);
+  // alert('send ID' +textId);
   
     const button = <Button>args.object;
    // alert('InService');
@@ -49,7 +49,7 @@ export class NumuricButtonService implements OnInit {
     const id = button.id;
   
     const txtID = 'txt_'+ id.split('_')[1]; 
-    alert(txtID);
+   // alert(txtID);
 
    const page = button.page;
    const txtField =  <TextField>page.getViewById(txtID);

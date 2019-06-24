@@ -31,6 +31,7 @@ export const routes: Routes = [
             { path: 'viewkot', loadChildren: './restaurant/viewkot/viewkot.module#ViewkotModule' },
             { path: 'viewmenu', loadChildren: './restaurant/viewmenu/viewmenu.module#ViewmenuModule' },
             { path: 'setting', loadChildren: './restaurant/setting/setting.module#SettingModule' },
+            { path: 'bulk-load', loadChildren: './restaurant/bulk-load/bulk-load.module#BulkLoadModule' },
             
                  ]
     }
