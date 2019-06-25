@@ -15,42 +15,17 @@ export class MenuStationComponent implements OnInit {
   @Input() category: string;
   menuListByCategory: MenuModel[]=[];
   stationListPicker =[];
+  @Input() image: string;
+  img_folder = '~/assets/images/gallery/gallery';
    constructor(private stationService: StationService,
      private menuService: MenuService,
     private util: UtilService) {
       if (this.category !== null) {
-        this.loadMenuByCategory();
       }
 
      }
-   ngOnInit() {
+   
+  ngOnInit() {
    }
-  public loadMenuByCategory() {
-  
-    this.menuService.listCategoryByName(this.category).pipe(map((response: MenuModel[]) =>  {
-     return this.menuListByCategory = response;
-   }))
-    .subscribe((response) => {
-    
-       console.log( response);
-     },
-  error => {
-       alert('Cannot get MenuItems ' + error);
-       console.log('error');
-       console.log(error);
-  });
- }
-
- listStation() {
-  this.stationService.list().pipe()
-    .subscribe((response: CookingStationModel[]) => {
-      this.stationListPicker = response.map(x => x.name);
-      // this.stationListPicker.unshift('Select Station')
-     // console.log(response);
-    },
-      error => {
-        alert('Cannot get Station List' + error);
-        console.log(error);
-      });
-}
+ 
 }

@@ -1,21 +1,23 @@
-         <StackLayout>
-         <ListView  class="list-group" row="1", colSpan="5" background="white" [items]="menuListByCategory" horizontalAlignment="center">
-                                <ng-template let-item="item" let-i="index" >
-                                    <GridLayout class="list-group-item"  rows="auto" columns="*,*,*,100,100">
-                                        
-                                        <Label row="0" col="0" fontSize ="15" fontColor="blue" [text]="item.name" horizontalAlignment="center"  ></Label>
-                                        <Label row="0" col="1" fontSize ="30" text="&#xf07e;" class="fa" color="green" horizontalAlignment="center"></Label>
-                                    <DropDown 
-                                        id="{{'substation'+i}}"
-                                        hint="Select Station"
-                                        class="item-drop-down2"
-                                        [items]="stationListPicker"
-                                       
-                                        row="0"
-                                        col="2">
-                                    </DropDown>
-
-                                    </GridLayout>
-                                </ng-template>
-                            </ListView> 
-                          </StackLayout>
+<GridLayout>
+    <RadListView TKListViewLoadOnDemandDirective [items]="menuListByCategory" multipleSelection="true" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)">
+        
+        <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="3"></ListViewGridLayout>
+        <ng-template tkListItemSwipeTemplate let-item="item" let-i="index">
+            <StackLayout  orientation="vertical" borderWidth="2" borderColor="lightgreen"  >   
+                
+                <Image width="150" class="img-rounded m-b-20" [src]="image"></Image>
+                <!-- <Label  [text]="i" horizontalAlignment="center" fontSize="20"></Label> -->
+                <Label  [text]="item.name" horizontalAlignment="center" fontSize="20" ></Label>
+                <GridLayout  rows="*" columns="*,10,*" fontSize="20">
+                    <Label  [text]="item.price"   row="0"  col="0" horizontalAlignment="right"  fontSize="20"></Label>
+                    <Label  text  =""            row="0"  col="1"   fontSize="20"></Label>   
+                    <Label  [text]="item.currency"row="0"  col="2"  fontSize="20"></Label>   
+                </GridLayout>
+        
+          
+            </StackLayout>
+        </ng-template>
+       
+      
+    </RadListView>
+</GridLayout>

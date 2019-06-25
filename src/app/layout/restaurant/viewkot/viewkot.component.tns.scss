@@ -22,3 +22,52 @@ Card Layout Menu Items
 .card-layout .h1 {
     margin-bottom: 15;
 }
+
+
+.divider {
+    height: 15;
+    background-color: #e8e7e7;
+}
+
+
+.owe-list-item {
+    background-color: #fff;
+}
+
+.owe-main-info {
+    padding: 10 15;
+}
+
+.owe-category-icon {
+    width: 45;
+    height: 45;
+    margin-right: 15;
+}
+
+.owe-info-container {
+    color: #acacac;
+    font-size: 13;
+}
+
+.owe-title {
+    font-weight: 600;
+    margin-bottom: 5;
+    color: #000;
+    font-size: 15;
+}
+
+.lender-name,
+.debtor-name {
+    font-weight: 600;
+    color: #8f91de;
+}
+
+.owe-ammount {
+    font-weight: 600;
+    color: #f67979;
+}
+
+.pay-amount {
+    color: #8f91de;
+    font-size: 15;
+}

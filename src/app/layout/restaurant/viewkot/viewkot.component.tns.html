@@ -40,40 +40,90 @@
 			uid: string; -->
 
 		</GridLayout>
-	
-
+		<ListView class="list-group" [items]="selectedOrder.items" (itemTap)="select($event)">
+		
 		<StackLayout col="1" class="p-20" >
 		   <ng-container *ngIf="isTablet">
-			<ListView class="list-group" [items]="selectedOrder.items" (itemTap)="select($event)">
 				<ng-template let-item="item">
-					<GridLayout class="list-group-item" rows="*,*,*,*,*" columns="auto, *">
-						<!-- <Image row="0" col="0" [src]="item.src" class="thumb"></Image> -->
+					<!-- <GridLayout class="list-group-item" rows="*,*,*,*,*" columns="auto, *">
 						
 						<Label row="0" col="0" text="ID:"></Label>
 						<Label row="1" col="0" text="Price:"></Label>
 						<Label row="2" col="0" text="QTY:"></Label>
 						<Label row="3" col="0" text="Total"></Label>
-						<!-- price": 90,
-						JS:       "currency": "THB",
-						JS:       "createdDate": "2019-06-05T04:00:04.254Z",
-						JS:       "updatedDate": "2019-06-05T04:00:04.254Z",
-						JS:       "name": "ไส้กรอกอีสาน",
-						JS:       "quantity": 1,
-						JS:       "status": "Opened" -->
 						<Label row="0" col="1" [text]="item.uid"></Label>
 						<Label row="1" col="1" [text]="item.price"></Label>
 						<Label row="2" col="1" [text]="item.quantity"></Label>
 						<Label row="3" col="1" text="{{ item.quantity*item.price}}"></Label>
 					
+					</GridLayout> -->
+					<StackLayout id="item4" orientation="vertical" class="owe-list-item"
+					width="100%" (tap)="onNavigate()">
+					<GridLayout columns="auto, *, auto" rows="auto"
+						width="100%" height="auto" class="owe-main-info">
+						<Image row="0" col="0" src="~/assets/food-and-beverage-category.png"
+							class="owe-category-icon"
+							verticalAlignment="top"></Image>
+						<StackLayout row="0" col="1" orientation="vertical"
+							class="owe-info-container">
+							<Label class="owe-title" text="Coffee Break"></Label>
+							<GridLayout columns="auto,auto,auto,auto"
+								rows="auto" width="100%">
+								<Label text="You owe " row="0" col="0"></Label>
+								<Label text="Yura" class="lender-name"
+									row="0" col="1"></Label>
+								<Label text=" : " row="0" col="2"></Label>
+								<Label text="PRICE {{item.price}}" class="owe-ammount"
+									row="0" col="3"></Label>
+							</GridLayout>
+						</StackLayout>
+						<Label verticalAlignment="top" row="0" col="2"
+							text="Rp 54.540" class="pay-amount"></Label>
 					</GridLayout>
+					<GridLayout columns="auto, *, auto" rows="auto"
+						width="100%" height="auto" class="owe-secondary-info">
+						<Label row="0" col="0" text="23 Oct" class="time-information"></Label>
+						<GridLayout row="0" col="2" columns="auto, auto, auto"
+							rows="auto">
+							<Label row="0" col="0" text="Yura" class="lender-name"></Label>
+							<Label row="0" col="1" text=" paid for "></Label>
+							<GridLayout row="0" col="2" columns="auto,auto"
+								rows="auto" width="100%" class="debtor-list">
+								<StackLayout row="0" col="0"
+									orientation="vertical" class="debtor-list-item">
+									<Image row="0" col="0" src="~/assets/me.png"
+										class="debtor-list-item-image"></Image>
+								</StackLayout>
+								<StackLayout row="0" col="1"
+									orientation="vertical" class="debtor-list-item">
+									<Image row="0" col="0" src="~/assets/yura.png"
+										class="debtor-list-item-image"></Image>
+								</StackLayout>
+							</GridLayout>
+						</GridLayout>
+					</GridLayout>
+					<Label class="divider" text=""></Label>
+				</StackLayout>
+
+
 				</ng-template>
-			 </ListView>
+		
+
+
+
+			
+
+
 			</ng-container>
 		</StackLayout>
+	</ListView>
+		
+
+
 		</GridLayout>
 
 
-
+	
 
 </StackLayout>
 

@@ -1,14 +1,9 @@
-
-<app-actionbar [pageName]="'Select Menu'"></app-actionbar>
+<app-actionbar [pageName]="'Link Station'"></app-actionbar>
 <StackLayout>
 
     <!--  Show Tab Menu Category -->
-   
-    <GridLayout>
-        <ScrollView class="anim-images" orientation="vertical"> 
-    	
-    <GridLayout col="0" class="left-column" (loaded)="onLoaded($event)">		
-             <StackLayout orientation="vertical" vericalAlignment="left"> 
+    <ScrollView class="anim-images" orientation="horizontal"> 
+             <StackLayout orientation="horizontal" > 
                            
                  <GridLayout *ngFor="let imageString of images; let i = index" rows="auto"
                      columns="*" (tap)="selectCategory(i)">
@@ -21,8 +16,8 @@
                  </GridLayout>
              
               </StackLayout>  
+    </ScrollView> 
     
-    </GridLayout>
-</ScrollView> 
-    </GridLayout>
+ 
+ <app-menu-station  [menuListByCategory]="menuListByCategory" [image]="imageSelected"></app-menu-station>
 </StackLayout>

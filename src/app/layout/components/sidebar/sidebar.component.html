@@ -8,14 +8,14 @@
        
 
         <div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('pages')">
+            <a class="list-group-item" (click)="addExpandClass('menu')">
                 <i class="fa fa-book fa-fw"></i>&nbsp;
                 <span>{{ 'Menu' | translate }}</span>
             </a>
-            <li class="nested" [class.expand]="showMenu === 'pages'">
+            <li class="nested" [class.expand]="showMenu === 'menu'">
                 <ul class="submenu">
                     <li>
-                        <a routerLink="/bulk-load/menu-bulk-load" routerLinkActive="active">
+                        <a routerLink="/viewmenu/createmenu" routerLinkActive="active">
                             <i class="fa fa-monument"></i>&nbsp;
                             <span>{{ 'Create Menu' | translate }}</span>
                         </a>
@@ -38,14 +38,14 @@
         </div>
 
         <div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('pages')">
+            <a class="list-group-item" (click)="addExpandClass('bulk-load')">
                 <i class="fa fa-book fa-fw"></i>&nbsp;
                 <span>{{ 'Bulk Load' | translate }}</span>
             </a>
-            <li class="nested" [class.expand]="showMenu === 'pages'">
+            <li class="nested" [class.expand]="showMenu === 'bulk-load'">
                 <ul class="submenu">
                     <li>
-                        <a routerLink="/viewmenu/createmenu" routerLinkActive="active">
+                        <a routerLink="/bulk-load/menu-bulk-load" routerLinkActive="active">
                             <i class="fa fa-monument"></i>&nbsp;
                             <span>{{ 'Menu Bulk Load' | translate }}</span>
                         </a>
@@ -68,11 +68,11 @@
         </a>
 
         <div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('pages')">
+            <a class="list-group-item" (click)="addExpandClass('setting')">
                 <i class="fa fa-cog fa-fw"></i>&nbsp;
                 <span>{{ 'Setting' | translate }}</span>
             </a>
-            <li class="nested" [class.expand]="showMenu === 'pages'">
+            <li class="nested" [class.expand]="showMenu === 'setting'">
                 <ul class="submenu">
                     <li>
                         <a href="javascript:void(0)">

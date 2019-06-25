@@ -13,7 +13,7 @@ export class KOTService extends BaseAPI {
   constructor(
     protected httpClient: HttpClient) {
     super(httpClient);
-    this.subURL = '/order';
+    this.subURL = '/ordering';
   }
 
 
