@@ -40,10 +40,11 @@
 			uid: string; -->
 
 		</GridLayout>
-		<ListView class="list-group" [items]="selectedOrder.items" (itemTap)="select($event)">
-		
+			
 		<StackLayout col="1" class="p-20" >
 		   <ng-container *ngIf="isTablet">
+				<ListView class="list-group" [items]="selectedOrder.items" (itemTap)="select($event)">
+	
 				<ng-template let-item="item">
 					<!-- <GridLayout class="list-group-item" rows="*,*,*,*,*" columns="auto, *">
 						
@@ -57,16 +58,14 @@
 						<Label row="3" col="1" text="{{ item.quantity*item.price}}"></Label>
 					
 					</GridLayout> -->
-					<StackLayout id="item4" orientation="vertical" class="owe-list-item"
-					width="100%" (tap)="onNavigate()">
-					<GridLayout columns="auto, *, auto" rows="auto"
-						width="100%" height="auto" class="owe-main-info">
+					<StackLayout id="item4" orientation="vertical" class="owe-list-item" width="100%">
+					<GridLayout columns="auto, *, auto" rows="auto" width="100%" height="auto" class="owe-main-info">
 						<Image row="0" col="0" src="~/assets/food-and-beverage-category.png"
 							class="owe-category-icon"
 							verticalAlignment="top"></Image>
 						<StackLayout row="0" col="1" orientation="vertical"
 							class="owe-info-container">
-							<Label class="owe-title" text="Coffee Break"></Label>
+							<Label class="owe-title" text="{{item.name}}"></Label>
 							<GridLayout columns="auto,auto,auto,auto"
 								rows="auto" width="100%">
 								<Label text="You owe " row="0" col="0"></Label>
@@ -78,7 +77,7 @@
 							</GridLayout>
 						</StackLayout>
 						<Label verticalAlignment="top" row="0" col="2"
-							text="Rp 54.540" class="pay-amount"></Label>
+							text="Price {{item.price}}" class="pay-amount"></Label>
 					</GridLayout>
 					<GridLayout columns="auto, *, auto" rows="auto"
 						width="100%" height="auto" class="owe-secondary-info">
@@ -108,7 +107,8 @@
 
 				</ng-template>
 		
-
+			</ListView>
+	
 
 
 			
@@ -116,7 +116,6 @@
 
 			</ng-container>
 		</StackLayout>
-	</ListView>
 		
 
 
