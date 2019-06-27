@@ -5,8 +5,9 @@ import { BulkLoadComponent } from './bulk-load.component';
 import { MenuBulkLoadComponent } from './menu-bulk-load/menu-bulk-load.component';
 import { FormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { InventoryBulkLoadComponent } from './inventory-bulk-load/inventory-bulk-load.component';
 @NgModule({
-  declarations: [BulkLoadComponent, MenuBulkLoadComponent],
+  declarations: [BulkLoadComponent, MenuBulkLoadComponent, InventoryBulkLoadComponent],
   imports: [
     CommonModule,
     BulkLoadRoutingModule,

@@ -33,6 +33,8 @@ import { CommonModule } from '@angular/common';
    // NgbModule, // https://ng-bootstrap.github.io
   //  MDBBootstrapModule.forRoot(),
     LanguageTranslationModule,
+  
+
   //  BrowserAnimationsModule,
   //  AngularFontAwesomeModule
     
