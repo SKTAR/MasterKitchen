@@ -50,6 +50,13 @@
                             <span>{{ 'Menu Bulk Load' | translate }}</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a routerLink="/bulk-load/inventory-bulk-load" routerLinkActive="active">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>{{ 'Inventory Bulk Load' | translate }}</span>
+                        </a>
+                    </li>
                    
                 </ul>
             </li>
@@ -95,7 +102,7 @@
                 </ul>
             </li>
         </div>
-        
+       
         
         <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
