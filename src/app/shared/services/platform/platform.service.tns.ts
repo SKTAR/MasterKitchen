@@ -59,11 +59,11 @@ export class PlatformService  {
    public checkPlatformType(args) {
        let message = "";
        if (isAndroid) {
-           message = "You are using Android device";
+         //  message = "You are using Android device";
        } else if (isIOS) {
            message = "You are using IOS device";
        }
-       alert(message);
+      // alert(message);
    }
 
    public heightPixels(): number {

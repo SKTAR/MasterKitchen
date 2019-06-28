@@ -52,6 +52,7 @@ export class ViewkotComponent implements OnInit {
     
     console.log('Order by Type:' + orderType);
     this.orderList = [];
+    this.selectedOrder = new KotModel();
      //alert(tabIndex);
    //const temp = this.listAllOrder();
     if (tabIndex === 0) { // Show All
@@ -106,7 +107,7 @@ export class ViewkotComponent implements OnInit {
    onLoaded(args) {
     this.platform.checkPlatformType(args);
     this.isTablet = this.platform.checkIsTablet();
-    console.log('Is Table true or false' + this.isTablet);
+    console.log('Is Table true or false >>' + this.isTablet);
 
     this.selectedOrder = new KotModel();
     if (!this.isTablet) {
