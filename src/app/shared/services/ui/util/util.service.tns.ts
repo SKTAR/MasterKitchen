@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Button } from "tns-core-modules/ui/button";
 import { Label } from "tns-core-modules/ui/label";
 import { EventData } from 'tns-core-modules/ui/page/page';
-import { DropDown } from 'nativescript-drop-down';
+//import { DropDown } from 'nativescript-drop-down';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,15 +31,15 @@ export class UtilService {
     return text;
     
   }
-  SetDropDownSelectIndexByID(args,id: string,index: number) {
-    const page = args.object.page;
-    const dd = <DropDown>page.getViewById(id);
+  // SetDropDownSelectIndexByID(args,id: string,index: number) {
+  //   const page = args.object.page;
+  //   const dd = <DropDown>page.getViewById(id);
 
-    //const index = dd.selectedIndex;
+  //   //const index = dd.selectedIndex;
 
-    dd.selectedIndex = index;
+  //   dd.selectedIndex = index;
 
-  }
+  // }
 
 
 

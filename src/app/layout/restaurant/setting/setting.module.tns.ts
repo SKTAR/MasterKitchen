@@ -7,7 +7,7 @@ import { ZonetableComponent } from './zonetable/zonetable.component';
 import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
 import { CookstationComponent } from './cookstation/cookstation.component';
 import { SettingComponent } from './setting.component';
-import { DropDownModule } from 'nativescript-drop-down/angular';
+//import { DropDownModule } from 'nativescript-drop-down/angular';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 import { MenuStationComponent } from './menu-station/menu-station.component';
 import { LinkstationComponent } from './linkstation/linkstation.component';
@@ -21,7 +21,7 @@ import { LinkstationComponent } from './linkstation/linkstation.component';
     NativeScriptFormsModule,
     NativeScriptUIListViewModule,
     MobileModule,
-    DropDownModule,
+   // DropDownModule,
     
   ],
   schemas: [NO_ERRORS_SCHEMA]

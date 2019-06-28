@@ -40,12 +40,15 @@
 			uid: string; -->
 
 		</GridLayout>
-			
-		<StackLayout col="1" class="p-20" >
-		   <ng-container *ngIf="isTablet">
-				<ListView class="list-group" [items]="selectedOrder.items" (itemTap)="select($event)">
+		
+		
+		<ScrollView class="anim-images" orientation="vertical" > 
+     
+			<StackLayout *ngIf="isTablet" col="1" class="p-20" >
+		   	<ng-container  *ngFor="let item of selectedOrder.items">
+				<!-- <ListView class="list-group" [items]="selectedOrder.items" (itemTap)="select($event)"> -->
 	
-				<ng-template let-item="item">
+				<!-- <ng-template let-item="item"> -->
 					<!-- <GridLayout class="list-group-item" rows="*,*,*,*,*" columns="auto, *">
 						
 						<Label row="0" col="0" text="ID:"></Label>
@@ -68,12 +71,14 @@
 							<Label class="owe-title" text="{{item.name}}"></Label>
 							<GridLayout columns="auto,auto,auto,auto"
 								rows="auto" width="100%">
-								<Label text="You owe " row="0" col="0"></Label>
+								<!-- <Label text="You owe " row="0" col="0"></Label>
 								<Label text="Yura" class="lender-name"
 									row="0" col="1"></Label>
-								<Label text=" : " row="0" col="2"></Label>
-								<Label text="PRICE {{item.price}}" class="owe-ammount"
-									row="0" col="3"></Label>
+								<Label text=" : " row="0" col="2"></Label> -->
+								<!-- <Label text="PRICE {{item.price}}" class="owe-ammount"
+									row="0" col="3"></Label> -->
+									<Label text="PRICE {{item.price}}" class="owe-ammount"
+									row="0" col="0"></Label>
 							</GridLayout>
 						</StackLayout>
 						<Label verticalAlignment="top" row="0" col="2"
@@ -105,19 +110,19 @@
 				</StackLayout>
 
 
-				</ng-template>
+				<!-- </ng-template> -->
 		
-			</ListView>
+			<!-- </ListView> -->
 	
 
 
 			
 
 
-			</ng-container>
-		</StackLayout>
+				</ng-container>
+			</StackLayout>
 		
-
+		</ScrollView>
 
 		</GridLayout>
 

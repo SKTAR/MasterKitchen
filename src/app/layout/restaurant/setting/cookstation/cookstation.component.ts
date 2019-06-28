@@ -1,5 +1,4 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { SelectedIndexChangedEventData } from 'nativescript-drop-down';
 import { StationModel, CookingStationModel, StationProduct } from '../../../../shared/models/station.model';
 import { StationService } from '../../../../shared/services/restaurant/station.service';
 import { MenuService } from '../../../../shared/services/restaurant/menu.service';
@@ -211,18 +210,18 @@ export class CookstationComponent implements OnInit {
   }
 
   //#region DropDown
-  public onchange(args: SelectedIndexChangedEventData, arg2) {
-    console.log(`Drop Down selected index changed from ${args.oldIndex} to ${args.newIndex}`);
+  // public onchange(args, arg2) {
+  //   console.log(`Drop Down selected index changed from ${args.oldIndex} to ${args.newIndex}`);
 
-  }
+  // }
 
-  public onopen() {
-    console.log("Drop Down opened.");
-  }
+  // public onopen() {
+  //   console.log("Drop Down opened.");
+  // }
 
-  public onclose() {
-    console.log("Drop Down closed.");
-  }
+  // public onclose() {
+  //   console.log("Drop Down closed.");
+  // }
 
 
   //#endregion

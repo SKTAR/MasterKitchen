@@ -50,7 +50,6 @@
     "jquery": "^3.4.1",
     "nativescript": "^5.4.2",
     "nativescript-angular": "^8.0.0",
-    "nativescript-drop-down": "^5.0.0",
     "nativescript-localstorage": "^2.0.0",
     "nativescript-theme-core": "^1.0.6",
     "nativescript-ui-listview": "6.0.0",
