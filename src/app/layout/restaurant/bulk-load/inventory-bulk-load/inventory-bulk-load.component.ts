@@ -94,7 +94,7 @@ export class InventoryBulkLoadComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
+  } 
 
   onDeleteConfirm(args) {
   }
