@@ -78,7 +78,13 @@ export class KotComponent implements OnInit {
     this.kotPassData.orderType = this.orderTypeList[0];
   }
 
-  onSelectedIndexChange(arg) { // SELECT TAB
+
+  /**
+   *   Mobile
+   *   Select Tab // Dine In , Take Away ....
+   * 
+   */
+  onSelectedTabChange(arg) {
     this.selectedIndex = this.segmentedService.onSelectedIndexChange(arg);
     if(this.selectedIndex === 0) { // Dine In
       this.isDineInVisible = true;  this.isMenuVisible = false;
@@ -93,12 +99,8 @@ export class KotComponent implements OnInit {
     }
    }
 
-  showMessage() {
-    alert('TAP BUTTON');
-  }
 
   loadMenu(args) {
-    // alert();
      const img = <Image>args.object;
      const table = img.id;
     // alert('id' + table);
@@ -114,8 +116,8 @@ export class KotComponent implements OnInit {
   //         'orderType': this.orderTypeList[this.selectedIndex]
   //     }
   // };
-  this.isDineInVisible = false;
-  this.isMenuVisible = true;
+    this.isDineInVisible = false;
+    this.isMenuVisible = true;
   //  this.routerHelper.goToPageExtra('/menu', navigationExtras);
    
    }
