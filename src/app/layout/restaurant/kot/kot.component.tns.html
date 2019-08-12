@@ -3,7 +3,7 @@
 
 <!-- <StackLayout orientation="vertical"> -->
 <StackLayout orientation="vertical">
-  <SegmentedBar #tab  [items]="orderTypeSegmentBarList"  [(ngModel)]="selectedIndex" (selectedIndexChange)="onSelectedIndexChange($event)" ></SegmentedBar>
+  <SegmentedBar #tab  [items]="orderTypeSegmentBarList"  [(ngModel)]="selectedIndex" (selectedIndexChange)="onSelectedTabChange($event)" ></SegmentedBar>
 
     <GridLayout [visibility]="selectedIndex === 0 ? 'visible' : 'collapsed'" backgroundColor="white">
       <!-- <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label>
