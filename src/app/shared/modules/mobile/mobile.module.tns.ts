@@ -4,10 +4,11 @@ import { ActionbarComponent } from './components/actionbar/actionbar.component';
 import { NumricButtonComponent } from './components/numric-button/numric-button.component';
 import { HideActionBarDirective } from '../../directives/hide-actionbar-directive';
 import { DiaglogComponent } from './components/diaglog/diaglog.component';
+import { ActionbarComponent } from './components/actionbar/actionbar.component';
 
 
 @NgModule({
-  declarations: [ActionbarComponent, NumricButtonComponent, HideActionBarDirective, DiaglogComponent],
+  declarations: [NumricButtonComponent, HideActionBarDirective, DiaglogComponent, ActionbarComponent],
   imports: [
     NativeScriptCommonModule
   ],
