@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
     appName = 'Restaurant Intelligence';
     isLoggingIn = true;
     user: UserModel;
-    @ViewChild('password') password: ElementRef;
-    @ViewChild('confirmPassword') confirmPassword: ElementRef;
+    @ViewChild('password',{ static: false }) password: ElementRef;
+    @ViewChild('confirmPassword',{ static: false }) confirmPassword: ElementRef;
 
   constructor(public router: Router,
               public routerHelper: RouterHelperService,

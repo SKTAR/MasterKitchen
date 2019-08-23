@@ -27,8 +27,8 @@ export class KotComponent implements OnInit {
   prop = 0;
   visibleString = 'visibility';
 
-  @ViewChild('tab') tabBar: ElementRef;
-  @ViewChild('dragImage') dragImage: ElementRef;
+  @ViewChild('tab',{ static: false }) tabBar: ElementRef;
+  @ViewChild('dragImage',{ static: false }) dragImage: ElementRef;
   prevDeltaX: number;
   prevDeltaY: number;
   // tableID: string;

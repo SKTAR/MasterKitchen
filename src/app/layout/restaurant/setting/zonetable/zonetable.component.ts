@@ -10,12 +10,12 @@ import { Image } from 'tns-core-modules/ui/image';
 })
 export class ZonetableComponent implements OnInit {
 
-  @ViewChild('dragImage') dragImage: ElementRef;
+  @ViewChild('dragImage',{ static: false }) dragImage: ElementRef;
    dragImageItem: Image;
   prevDeltaX: number;
   prevDeltaY: number;
 
-  @ViewChild('container') container: ElementRef;
+  @ViewChild('container',{ static: false }) container: ElementRef;
   itemContainer: GridLayout;
 
    convFactor: any;

@@ -18,7 +18,7 @@ export class ViewstationComponent implements OnInit {
   orderTypeSegmentBarList; // SegmentBar UI Component List
   selectedIndex = 0;
   visibleString = 'visibility';
-  @ViewChild('tab') tabBar: ElementRef;
+  @ViewChild('tab',{ static: false }) tabBar: ElementRef;
   isTablet = false;
 
 

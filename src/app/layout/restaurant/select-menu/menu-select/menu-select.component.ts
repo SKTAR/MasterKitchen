@@ -36,7 +36,7 @@ export class MenuSelectComponent implements OnInit {
 
   menuCategoryList: any = [];
   menuListByCategory: MenuModel[];  //:  Array<MenuModel>; // send to Menu List By Category
-  @ViewChild('tabHighlight') tabHighlight: ElementRef;
+  @ViewChild('tabHighlight',{ static: false }) tabHighlight: ElementRef;
   selectedTab = 0;
   colNum = 5;
   rowNum = 1;

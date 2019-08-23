@@ -32,7 +32,7 @@ export class CookstationComponent implements OnInit {
 
   public selectedIndex = 1;
   public items: Array<string>;
-  @ViewChild('dd') dropDown: ElementRef;
+  @ViewChild('dd',{ static: false }) dropDown: ElementRef;
   constructor(private stationService: StationService,
     private menuService: MenuService,
     private utilService: UtilService,

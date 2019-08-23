@@ -13,14 +13,7 @@
 /platforms
 .history
 .tmp_backup
-
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
+.migration/
 *.sublime-workspace
 
 # IDE - VSCode
