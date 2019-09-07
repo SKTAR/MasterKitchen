@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { RadListView, ListViewEventData } from 'nativescript-ui-listview';
-import { MenuModel } from '../../../models/menu.model';
+
 
 @Injectable({providedIn: 'root'})
 export class RadlistviewMenuService {

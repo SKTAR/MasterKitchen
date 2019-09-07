@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuModel } from '../../../shared/models/menu.model';
-import { KDS, KotModel } from '../../../shared/models/kot.model';
-import { RouterHelperService } from '../../../shared/services/router-helper/router-helper.service';
-import { PlatformService } from '../../../shared/services/platform/platform.service';
-import { KOTService } from '../../../shared/services/restaurant/kot.service';
-import { MenuService } from '../../../shared/services/restaurant/menu.service';
 import { NavigationExtras } from '@angular/router';
 import { map, filter, flatMap } from 'rxjs/operators';
-import { SegmentedBarService } from '../../../shared/services/ui/segmentedbar/segmentedbar.service';
+import { MenuModel } from '~/app/@core/models-services/restaurant/menu.model';
+import { KotModel } from '~/app/@core/models-services/restaurant/kot.model';
+import { RouterHelperService } from '~/app/@core/models-services/router-helper/router-helper.service';
+import { PlatformService } from '~/app/@core/models-services/platform/platform.service';
+import { KOTService } from '~/app/@core/models-services/restaurant/kot.service';
+import { MenuService } from '~/app/@core/models-services/restaurant/menu.service';
+import { SegmentedBarService } from '~/app/@core/models-services/ui/segmentedbar/segmentedbar.service';
 
 @Component({
   selector: 'app-viewkot',

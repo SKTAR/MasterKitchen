@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { KDS } from '../../../../shared/models/kot.model';
-import { SegmentedBarService } from '../../../../shared/services/ui/segmentedbar/segmentedbar.service';
+import { KDS } from '~/app/@core/models-services/restaurant/kot.model';
+import { SegmentedBarService } from '~/app/@core/models-services/ui/segmentedbar/segmentedbar.service';
+import { RouterHelperService } from '~/app/@core/models-services/router-helper/router-helper.service';
 import { ActivatedRoute } from '@angular/router';
-import { KOTService } from '../../../../shared/services/restaurant/kot.service';
-import { RouterHelperService } from '../../../../shared/services/router-helper/router-helper.service';
+import { KOTService } from '~/app/@core/models-services/restaurant/kot.service';
 
 @Component({
   selector: 'app-viewstation',

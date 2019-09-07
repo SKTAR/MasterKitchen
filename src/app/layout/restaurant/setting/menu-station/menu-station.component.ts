@@ -1,10 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StationService } from '../../../../shared/services/restaurant/station.service';
-import { MenuService } from '../../../../shared/services/restaurant/menu.service';
-import { MenuModel } from '../../../../shared/models/menu.model';
-import { UtilService } from '../../../../shared/services/ui/util/util.service';
-import { map } from 'rxjs/operators';
-import { CookingStationModel } from '../../../../shared/models/station.model';
+import { MenuModel } from '~/app/@core/models-services/restaurant/menu.model';
+import { StationService } from '~/app/@core/models-services/restaurant/station.service';
+import { MenuService } from '~/app/@core/models-services/restaurant/menu.service';
+import { UtilService } from '~/app/@core/models-services/ui/util/util.service';
+
 
 @Component({
   selector: 'app-menu-station',

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { TableObj } from '../../../../models/dine-table.model';
+import { DineTableModel } from '~/app/@core/models-services/restaurant/dine-table.model';
+
 
 
 @Component({
@@ -13,7 +14,7 @@ export class NumricButtonComponent implements OnInit {
   minVal = 1;
   maxVal = 99;
   @Output() numberOfCustomer = new EventEmitter<number>();
-  @Input() tableObj: TableObj;
+  @Input() tableObj: DineTableModel;
 
  // @Input() currentValue: number;
 

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 import { Observable, Subject } from 'rxjs';
-import { MenuModel } from '../../models/menu.model';
+
 import { BaseAPI } from '../_base';
 
 @Injectable({

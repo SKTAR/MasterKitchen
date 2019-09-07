@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { TableObj } from '../../../shared/models/dine-table.model';
-import { MenuModel } from '../../../shared/models/menu.model';
-import { SegmentedBarService } from '../../../shared/services/ui/segmentedbar/segmentedbar.service';
-import { RouterHelperService } from '../../../shared/services/router-helper/router-helper.service';
 import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Image } from 'tns-core-modules/ui/image';
-import { KOTService } from '../../../shared/services/restaurant/kot.service';
-import { KotPassData } from '../../../shared/models/kot.model';
+import { DineTableModel } from '~/app/@core/models-services/restaurant/dine-table.model';
+import { MenuModel } from '~/app/@core/models-services/restaurant/menu.model';
+import { KotPassData } from '~/app/@core/models-services/restaurant/kot.model';
+import { SegmentedBarService } from '~/app/@core/models-services/ui/segmentedbar/segmentedbar.service';
+import { KOTService } from '~/app/@core/models-services/restaurant/kot.service';
+import { RouterHelperService } from '~/app/@core/models-services/router-helper/router-helper.service';
+
 
 @Component({
   selector: 'app-kot',
@@ -23,7 +24,7 @@ export class KotComponent implements OnInit {
   orderTypeSegmentBarList; // SegmentBar UI Component List
   menuCategoryList: string[]; // ของดี เมืองอุบล , ต้ม ，ทอด
   selectedIndex = 0;
-  tableList: TableObj[] = [];
+  tableList: DineTableModel[] = [];
   prop = 0;
   visibleString = 'visibility';
 
@@ -54,21 +55,21 @@ export class KotComponent implements OnInit {
               this.orderTypeSegmentBarList = segmentedService.getSegmentBarTab(this.orderTypeList);
              // console.log(this.orderTypeSegmentBarList);
               this.tableList = [
-                new TableObj('Table1', 50, 50),
-                new TableObj('Table2', 350, 50),
-                new TableObj('Table3', 650, 50),
-                new TableObj('Table4', 1000, 50),
-                new TableObj('Table5', 1350, 50),
+                new DineTableModel('Table1', 50, 50),
+                new DineTableModel('Table2', 350, 50),
+                new DineTableModel('Table3', 650, 50),
+                new DineTableModel('Table4', 1000, 50),
+                new DineTableModel('Table5', 1350, 50),
                 
-                new TableObj('Table6', 50, 300),
-                new TableObj('Table7', 350, 300),
-                new TableObj('Table8', 650, 300),
-                new TableObj('Table9', 1000, 300),
+                new DineTableModel('Table6', 50, 300),
+                new DineTableModel('Table7', 350, 300),
+                new DineTableModel('Table8', 650, 300),
+                new DineTableModel('Table9', 1000, 300),
 
-                new TableObj('Table10', 50, 600),
-                new TableObj('Table11', 350, 600),
-                new TableObj('Table12', 650, 600),
-                new TableObj('Table13', 1000, 600),
+                new DineTableModel('Table10', 50, 600),
+                new DineTableModel('Table11', 350, 600),
+                new DineTableModel('Table12', 650, 600),
+                new DineTableModel('Table13', 1000, 600),
               ];
   }
 

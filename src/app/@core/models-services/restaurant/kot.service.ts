@@ -1,9 +1,5 @@
 import { Injectable, Optional } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-
-import { Observable } from 'rxjs';
-import { MenuModel } from '../../models/menu.model';
 import { BaseAPI } from '../_base';
 
 @Injectable({

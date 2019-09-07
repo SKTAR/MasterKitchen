@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { RadSideDrawerService } from './shared/services/ui/radside-drawer-service/radsidedrawer.service';
+import { RadSideDrawerService } from './@core/models-services/ui/radside-drawer-service/radsidedrawer.service';
 
 
 @Component({

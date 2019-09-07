@@ -2,10 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
 import { AuthGuard } from '../shared/guard';
-import { UserModel } from '../shared/models/user.model';
-import { RouterHelperService } from '../shared/services/router-helper/router-helper.service';
-import { LoginService } from '../shared/services/login/login.service';
-
+import { RouterHelperService } from '../@core/models-services/router-helper/router-helper.service';
+import { UserModel } from '../@core/models-services/user.model';
+ import { LoginService } from '../@core/models-services/login/login.service';
 class login {
   email: string;
   password: string;

@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { MenuModel, IngredientModel } from '../../../../shared/models/menu.model';
-import { StationModel } from '../../../../shared/models/station.model';
-import { MenuService } from '../../../../shared/services/restaurant/menu.service';
-import { RadlistviewMenuService } from '../../../../shared/services/ui/radlistview-menu-service/radlistview-menu.service';
 import { ActivatedRoute } from '@angular/router';
-import { StationService } from '../../../../shared/services/restaurant/station.service';
-import { KOTService } from '../../../../shared/services/restaurant/kot.service';
 import { map } from 'rxjs/operators';
-import { KotModel, CustomerModel,  KotPassData } from '../../../../shared/models/kot.model';
-import { IngredientService } from '../../../../shared/services/restaurant/ingredient.service';
+import { MenuModel, IngredientModel } from '~/app/@core/models-services/restaurant/menu.model';
+import { StationModel } from '~/app/@core/models-services/restaurant/station.model';
+import { KotPassData, CustomerModel, KotModel } from '~/app/@core/models-services/restaurant/kot.model';
+import { MenuService } from '~/app/@core/models-services/restaurant/menu.service';
+import { RadlistviewMenuService } from '~/app/@core/models-services/ui/radlistview-menu-service/radlistview-menu.service';
+import { StationService } from '~/app/@core/models-services/restaurant/station.service';
+import { KOTService } from '~/app/@core/models-services/restaurant/kot.service';
+import { IngredientService } from '~/app/@core/models-services/restaurant/ingredient.service';
 interface OrderItems {
 	"category": string;
 	"items": MenuModel[];

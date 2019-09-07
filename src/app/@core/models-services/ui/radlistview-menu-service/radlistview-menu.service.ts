@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { MenuModel } from '../../../models/menu.model';
 
 
-
-
-@Injectable({providedIn: 'root'})
+@Injectable({
+    providedIn: 'root'
+  })
 export class RadlistviewMenuService {
     
     public getMenuObservableArray(menuListByCategory: Array<MenuModel>) {

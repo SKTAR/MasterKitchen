@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { LocalDataService } from '../../../../shared/services/localdata.service';
-import { MenuService } from '../../../../shared/services/restaurant/menu.service';
-import { MenuModel } from '../../../../shared/models/menu.model';
+import { MenuModel } from '~/app/@core/models-services/restaurant/menu.model';
+import { LocalDataService } from '~/app/@core/models-services/localdata.service';
+import { MenuService } from '~/app/@core/models-services/restaurant/menu.service';
 
 @Component({
   selector: 'app-linkstation',

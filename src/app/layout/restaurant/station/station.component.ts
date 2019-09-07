@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { StationModel, CookingStationModel, StationProduct } from '../../../shared/models/station.model';
-import { StationService } from '../../../shared/services/restaurant/station.service';
-import { MenuService } from '../../../shared/services/restaurant/menu.service';
 import { map } from 'rxjs/operators';
-import { Observable as RxObservable } from 'rxjs';
-import { MenuModel } from '../../../shared/models/menu.model';
-import { UtilService } from '../../../shared/services/ui/util/util.service';
+import { MenuModel } from '~/app/@core/models-services/restaurant/menu.model';
+import { CookingStationModel, StationModel, StationProduct } from '~/app/@core/models-services/restaurant/station.model';
+import { StationService } from '~/app/@core/models-services/restaurant/station.service';
+import { MenuService } from '~/app/@core/models-services/restaurant/menu.service';
+import { UtilService } from '~/app/@core/models-services/ui/util/util.service';
+
 @Component({
   selector: 'app-station',
   templateUrl: './station.component.html',

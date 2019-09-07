@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../../../../shared/services/restaurant/menu.service';
-import { MenuModel } from '../../../../shared/models/menu.model';
+
 import { map } from 'rxjs/operators';
+import { MenuModel } from '~/app/@core/models-services/restaurant/menu.model';
+import { MenuService } from '~/app/@core/models-services/restaurant/menu.service';
 
 @Component({
   selector: 'app-menucategory',
