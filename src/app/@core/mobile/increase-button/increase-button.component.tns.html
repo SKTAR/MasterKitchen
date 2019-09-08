@@ -1,0 +1,51 @@
+   
+<!--       
+<StackLayout orientation="vertical" verticalAlignment="center"  >
+      
+  <Label horizontalAlignment="center" [text]="tableObj.TableID"  textWrap="true"></Label> 
+              
+    <Image #dragImage class="table" width="100" height="100" horizontalAlignment="center" verticalAlignment="top" (tap)="loadMenu()" (pan)="onPan($event)" src="~/assets/images/restaurant-circle.png"></Image>
+     -->
+   <!-- 2. Increase and Decrease Button + - -->   
+   
+   <StackLayout orientation="horizontal" horizontalAlignment="center" >
+    <Button class="decrease-btn circle-btn btn" text="" (tap)="onTapDecrease($event)">+
+        <FormattedString>
+            <Span text="&#xf068;" horizontalAlignment="center" verticalAlignment="center"></Span>
+        </FormattedString>
+      </Button>
+     <!--<TextField hint="Enter date" 
+       [text]='birthDate | date:"MM/dd/yy"' 
+       secure="false"
+       keyboardTr"></TextField>
+       -->
+        
+       <TextField hint="1" 
+       [text] = "tableObj.NumberOfCustomer"
+       textAlignment ="center"
+       fontSize ="20"
+       secure="false"
+       keyboardType="number"
+       returnKeyType="done" 
+       (returnPress)="onReturnPress($event)"
+       autocorrect="false"
+       maxLength="2"
+       
+       (focus)="onFocus($event)" 
+       (blur)="onBlur($event)" 
+       class="input input-border"></TextField>
+        <Button  class="increase-btn circle-btn btn"  (tap)="onTapIncrease($event)">
+        <FormattedString>
+            <Span text="&#xf067;"></Span>
+        </FormattedString>
+       </Button>
+        
+     <!--   <Label  [text]="tableObj.PositionX" (textChange)="onTextChanged($event)" textWrap="true"></Label> 
+        <Label  [text]="tableObj.PositionY" (textChange)="onTextChanged($event)" textWrap="true"></Label> 
+        <Label  [text]="tableObj.NumberCustomer" (textChange)="onTextChanged($event)" textWrap="true"></Label> 
+     -->
+        
+</StackLayout>
+  <!-- End 2. Increase and Decrease Button + ---> 
+     
+<!-- </StackLayout> -->

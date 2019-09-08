@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MenuModel } from '../../restaurant/menu.model';
 
 
 @Injectable({

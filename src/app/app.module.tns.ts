@@ -7,8 +7,9 @@ import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { AutoGridRows, AutoGridColumns } from './shared/grid.directive';
 import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
-import { MobileModule } from './shared/modules/mobile/mobile.module.tns';
+
 import { AuthGuard } from './shared/guard';
+import { MobileModule } from './@core/mobile/mobile.module.tns';
 
 
 

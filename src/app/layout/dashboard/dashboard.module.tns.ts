@@ -6,7 +6,8 @@ import { DashboardComponent } from './dashboard.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
-import { MobileModule } from '../../shared/modules/mobile/mobile.module.tns';
+import { MobileModule } from '../../@core/mobile/mobile.module.tns';
+
 
 @NgModule({
   declarations: [DashboardComponent, ChatComponent, NotificationComponent, TimelineComponent],

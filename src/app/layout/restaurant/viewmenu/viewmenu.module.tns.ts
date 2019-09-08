@@ -4,8 +4,9 @@ import { ViewmenuRoutingModule } from './viewmenu-routing.module';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { ViewmenuComponent } from './viewmenu.component';
 import { MenucategoryComponent } from './menucategory/menucategory.component';
-import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
+
 import { CreatemenuComponent } from './createmenu/createmenu.component';
+import { MobileModule } from '../../../@core/mobile/mobile.module.tns';
 
 
 

@@ -2,11 +2,8 @@
   "name": "MasterKitchen",
   "nativescript": {
     "id": "org.nativescript.MasterKitchen",
-    "tns-ios": {
-      "version": "6.0.1"
-    },
     "tns-android": {
-      "version": "6.0.0"
+      "version": "5.4.0"
     }
   },
   "version": "0.0.0",
@@ -46,8 +43,7 @@
     "core-js": "^2.6.9",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
-    "nativescript": "^5.4.2",
-    "nativescript-angular": "^8.2.0",
+    "nativescript-angular": "^8.2.1",
     "nativescript-localstorage": "^2.0.0",
     "nativescript-theme-core": "^1.0.6",
     "nativescript-ui-listview": "7.0.0",
@@ -59,7 +55,7 @@
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.4.0",
     "rxjs-compat": "^6.5.2",
-    "tns-core-modules": "^6.0.6",
+    "tns-core-modules": "^6.2.0-next-2019-08-30-092904-01",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {
@@ -79,13 +75,13 @@
     "karma-coverage-istanbul-reporter": "~2.0.0",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "nativescript-dev-webpack": "^1.1.1",
+    "nativescript-dev-webpack": "^1.2.0",
     "node-sass": "4.12.0",
     "protractor": "~5.3.0",
     "rxjs-tslint": "^0.1.7",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
-    "typescript": "3.4.5",
+    "typescript": "~3.5.3",
     "uglifyjs-webpack-plugin": "^2.1.3"
   }
 }

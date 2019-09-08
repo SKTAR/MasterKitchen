@@ -4,13 +4,14 @@ import { SettingRoutingModule } from './setting-routing.module';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { ZonetableComponent } from './zonetable/zonetable.component';
-import { MobileModule } from '../../../shared/modules/mobile/mobile.module.tns';
+
 import { CookstationComponent } from './cookstation/cookstation.component';
 import { SettingComponent } from './setting.component';
 //import { DropDownModule } from 'nativescript-drop-down/angular';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 import { MenuStationComponent } from './menu-station/menu-station.component';
 import { LinkstationComponent } from './linkstation/linkstation.component';
+import { MobileModule } from '../../../@core/mobile/mobile.module.tns';
 
 
 @NgModule({

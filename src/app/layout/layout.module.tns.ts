@@ -4,11 +4,12 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { LayoutComponent } from './layout.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { MobileModule } from '../shared/modules/mobile/mobile.module.tns';
+
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
-import { HideActionBarDirective } from '../shared/directives/hide-actionbar-directive';
+
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
+import { MobileModule } from '../@core/mobile/mobile.module.tns';
 
 
 @NgModule({

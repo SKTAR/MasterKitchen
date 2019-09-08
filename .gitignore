@@ -13,7 +13,8 @@
 /platforms
 .history
 .tmp_backup
-.migration/
+.migration/*
+.cloud/*
 *.sublime-workspace
 
 # IDE - VSCode
