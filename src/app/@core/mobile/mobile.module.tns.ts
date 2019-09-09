@@ -4,10 +4,11 @@ import { DiaglogComponent } from './diaglog/diaglog.component';
 import { ActionbarComponent } from './actionbar/actionbar.component';
 import { IncreaseButtonComponent } from './increase-button/increase-button.component';
 import { HideActionBarDirective } from './directives/hide-actionbar-directive';
+import { FloatBtnComponent } from './float-btn/float-btn.component';
 
 
 @NgModule({
-  declarations: [IncreaseButtonComponent, HideActionBarDirective, DiaglogComponent, ActionbarComponent],
+  declarations: [IncreaseButtonComponent, HideActionBarDirective, DiaglogComponent, ActionbarComponent, FloatBtnComponent],
   imports: [
     NativeScriptCommonModule
   ],
@@ -15,7 +16,8 @@ import { HideActionBarDirective } from './directives/hide-actionbar-directive';
     ActionbarComponent,
     IncreaseButtonComponent,
     HideActionBarDirective,
-    DiaglogComponent
+    DiaglogComponent,
+    FloatBtnComponent
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })
