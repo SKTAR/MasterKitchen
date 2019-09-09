@@ -9,11 +9,13 @@
 /node_modules
 
 # NativeScript
-/hooks
+/hooks/*
 /platforms
 .history
-.tmp_backup
+.tmp_backup/*
 .migration/*
+.migration_backup/*
+.update_backup/*
 .cloud/*
 *.sublime-workspace
 
