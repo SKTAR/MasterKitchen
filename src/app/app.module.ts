@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module';
-import { AuthGuard } from './shared/guard';
+import { AuthGuard } from './@core/models-services/guard';
 import { CommonModule } from '@angular/common';
 
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
