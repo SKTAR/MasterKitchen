@@ -1,0 +1,17 @@
+<AbsoluteLayout>
+<ScrollView class="sv">
+    <StackLayout>
+        <StackLayout *ngFor="let item of list" class="list-item">
+            <Label [text]="item" textWrap="true"></Label>
+            
+        </StackLayout>
+    </StackLayout>
+</ScrollView>
+
+<StackLayout class="float-btn-container">
+    <StackLayout class="float-btn">
+        <Label text="+" class="float-btn-text" textWrap="true"></Label>
+    </StackLayout>
+</StackLayout>
+
+</AbsoluteLayout>

@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
-import { AuthGuard } from '../@core/models-services/guard';
 import { RouterHelperService } from '../@core/models-services/router-helper/router-helper.service';
 import { UserModel } from '../@core/models-services/user.model';
  import { LoginService } from '../@core/models-services/login/login.service';
+import { AuthGuard } from '../@core/models-services/guard/auth.guard';
 class login {
   email: string;
   password: string;

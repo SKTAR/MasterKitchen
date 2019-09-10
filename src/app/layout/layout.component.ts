@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthGuard } from '../@core/models-services/guard';
 import { RadSideDrawerService } from '../@core/models-services/ui/radside-drawer-service/radsidedrawer.service';
+import { AuthGuard } from '../@core/models-services/guard/auth.guard';
 
 @Component({
   selector: 'app-layout',
