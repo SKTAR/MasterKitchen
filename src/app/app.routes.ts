@@ -1,5 +1,6 @@
 import { Routes} from '@angular/router';
-import { AuthGuard } from './shared/guard';
+import { AuthGuard } from './@core/models-services/guard/auth.guard';
+
 
 
 

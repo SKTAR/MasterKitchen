@@ -8,7 +8,7 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { AutoGridRows, AutoGridColumns } from './shared/grid.directive';
 import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 
-import { AuthGuard } from './shared/guard';
+import { AuthGuard } from './@core/models-services/guard/auth.guard';
 import { MobileModule } from './@core/mobile/mobile.module.tns';
 
 
