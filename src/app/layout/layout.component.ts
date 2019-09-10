@@ -18,6 +18,8 @@ export class LayoutComponent implements OnInit {
   email     = 'surasak.kaewsiri@gmail.com';
   private _activatedUrl: string;
 //endregion
+
+private dataItems: any[];
   constructor(private drawerService: RadSideDrawerService,
               private auth: AuthGuard) {
 
@@ -28,7 +30,17 @@ export class LayoutComponent implements OnInit {
 }
 
     ngOnInit() {
-      
+      this.dataItems = [];
+      let itemsCount = 10;
+      for (var i = 1; i <= itemsCount; i++) {
+          this.dataItems.push({
+              name: "Item1",
+              icon: "&#xf016;",
+              path: "/ordering",
+              expanded: false
+          });
+      }
+   
     }
    
     
@@ -44,7 +56,7 @@ export class LayoutComponent implements OnInit {
       this.drawerService.load(args);
     }
   
-  
+
     onNavItemTap(navItemRout: string) {
     
       if (navItemRout === "login") {
@@ -59,4 +71,14 @@ export class LayoutComponent implements OnInit {
     }
     //#endregion
 
+
+    //#region  Test Accordion
+    templateSelector(item: any, index: number, items: any): string {
+      return item.expanded ? "expanded" : "default";
+  }
+
+  onItemTap(arg) {
+    this.drawerService.onItemTap(arg);
+  }
+    //#endregion
 }

@@ -4,6 +4,9 @@ import { RadSideDrawer, DrawerTransitionBase, SlideInOnTopTransition } from 'nat
 import { Router, NavigationEnd } from '@angular/router';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { filter } from 'rxjs/operators';
+import { isIOS, isAndroid } from 'tns-core-modules/platform/platform';
+import { RadListView, ListViewEventData } from "nativescript-ui-listview";
+declare var UIView, NSMutableArray, NSIndexPath;
 // import { Page } from 'tns-core-modules/ui/page';
 @Injectable({providedIn: 'root'})
 export class RadSideDrawerService {
@@ -56,5 +59,24 @@ export class RadSideDrawerService {
       this.sideDrawer.closeDrawer();
   }
  
+
+  onItemTap(event: ListViewEventData) {
+    const listView = event.object,
+        rowIndex = event.index,
+        dataItem = event.view.bindingContext;
+
+    dataItem.expanded = !dataItem.expanded;
+    if (isIOS) {
+        // Uncomment the lines below to avoid default animation
+        // UIView.animateWithDurationAnimations(0, () => {
+            var indexPaths = NSMutableArray.new();
+            indexPaths.addObject(NSIndexPath.indexPathForRowInSection(rowIndex, event.groupIndex));
+            listView.ios.reloadItemsAtIndexPaths(indexPaths);
+        // });
+    }
+    if (isAndroid) {
+        listView.androidListView.getAdapter().notifyItemChanged(rowIndex);
+    }
+}
 
 }

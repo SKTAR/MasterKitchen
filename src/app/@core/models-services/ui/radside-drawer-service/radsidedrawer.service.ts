@@ -22,4 +22,8 @@ export class RadSideDrawerService {
     public onNavItemTap(navItemRoute: string): void {
     }
 
+
+    public onItemTap(event:any){
+
+    }
 }
