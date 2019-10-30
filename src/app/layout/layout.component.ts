@@ -32,14 +32,28 @@ private dataItems: any[];
     ngOnInit() {
       this.dataItems = [];
       let itemsCount = 10;
-      for (var i = 1; i <= itemsCount; i++) {
+     // for (var i = 1; i <= itemsCount; i++) {
           this.dataItems.push({
               name: "Item1",
-              icon: "&#xf016;",
+              icon: String.fromCharCode(0xf016),
               path: "/ordering",
-              expanded: false
+              expanded: false,
+              submenu: {
+                 icon : String.fromCharCode(0xf018),
+                 name : "submenu-1"
+              }
           });
-      }
+
+          this.dataItems.push({
+            name: "Item2",
+            icon: String.fromCharCode(0xf017),
+            path: "/ordering",
+            expanded: true,
+            submenu: {
+             
+           }
+        });
+      //}
    
     }
    

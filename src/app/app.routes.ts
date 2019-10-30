@@ -7,7 +7,8 @@ import { AuthGuard } from './@core/models-services/guard/auth.guard';
 export const routes: Routes = [
 
  //#region DashBoard
-    { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
+   // { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
+    { path: '', loadChildren: './layout/layout.module#LayoutModule'},
     { path: 'login', loadChildren: './login/login.module#LoginModule' },
     { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
     { path: 'error', loadChildren: './server-error/server-error.module#ServerErrorModule' },

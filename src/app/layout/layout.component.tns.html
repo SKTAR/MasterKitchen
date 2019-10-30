@@ -81,19 +81,22 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         <ng-template tkListItemTemplate let-item="item">
                              
                             <GridLayout columns="auto, *" class="sidedrawer-list-item">
-                                    <Label col="0" text="&#xf017;" class="fa"></Label>
-                                    <Label col="1" text="Zone & Table" class="p-r-10"></Label>
+                                    <Label col="0" [text]="item.icon" class="fa"></Label>
+                                    <Label col="1" [text]="item.name" class="p-r-10"></Label>
                                 </GridLayout>
                         </ng-template>
-                        <ng-template tkTemplateKey="expanded" let-item="item">
+                        <ng-template tkTemplateKey="expanded" let-item="item" >
                             <GridLayout rows="auto,auto" columns="auto,auto" >
                                     <GridLayout row="0" col="0" columns="auto, *" class="sidedrawer-list-item">
-                                            <Label col="0" text="&#xf017;" class="fa"></Label>
-                                            <Label col="1" text="Zone & Table" class="p-r-10"></Label>
+                                            <Label col="0" [text]="item.icon" class="fa"></Label>
+                                            <Label col="1" [text]="item.name" class="p-r-10"></Label>
                                     </GridLayout>
-                                    <Label row="1" col="0" text="&#xf01a;" class="fa"></Label>
-                                    <Label row="1" col="1" text="Menu" ></Label>
-                                
+                                    <GridLayout row="1" col="0" columns="30,auto,10,*" class="sidedrawer-list-item">
+                                                          
+                                    <Label col="1" [text]="item.submenu.icon" class="fa"></Label>
+                                    <Label col="3" [text]="item.submenu.name" ></Label>
+                                    </GridLayout>
+
                             </GridLayout>        
                         </ng-template>
                        

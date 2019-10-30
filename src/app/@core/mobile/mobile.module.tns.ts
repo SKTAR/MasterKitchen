@@ -5,10 +5,11 @@ import { ActionbarComponent } from './actionbar/actionbar.component';
 import { IncreaseButtonComponent } from './increase-button/increase-button.component';
 import { HideActionBarDirective } from './directives/hide-actionbar-directive';
 import { FloatBtnComponent } from './float-btn/float-btn.component';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
 
 
 @NgModule({
-  declarations: [IncreaseButtonComponent, HideActionBarDirective, DiaglogComponent, ActionbarComponent, FloatBtnComponent],
+  declarations: [IncreaseButtonComponent, HideActionBarDirective, DiaglogComponent, ActionbarComponent, FloatBtnComponent, DragDropComponent],
   imports: [
     NativeScriptCommonModule
   ],
