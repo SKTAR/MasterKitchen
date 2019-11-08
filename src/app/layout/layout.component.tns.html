@@ -11,9 +11,10 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
             <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
             <Label class="sidedrawer-header-brand" text={{profile}}></Label>
             <Label class="footnote" text={{email}}></Label>
+           
         </StackLayout>
     
-        <ScrollView row="1">
+        <!-- <ScrollView row="1"> -->
             <StackLayout class="sidedrawer-content">
                 
                 <!-- <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/login')" (tap)="onNavItemTap('/login')">
@@ -74,7 +75,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="0" text="&#xf017;" class="fa"></Label>
                     <Label col="1" text="Zone & Table" class="p-r-10"></Label>
                 </GridLayout>   -->
-               
+<!--                
                 <RadListView [items]="dataItems" [itemTemplateSelector]="templateSelector"   (itemTap)="onItemTap($event)">
                                          
                        
@@ -102,10 +103,41 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                        
                      
                       
+                    </RadListView>  -->
+
+
+                    <RadListView [items]="dataItems" [itemTemplateSelector]="templateSelector"   (itemTap)="onItemTap($event)">
+                                         
+                       
+                        <ng-template tkListItemTemplate let-item="item">
+                             
+                            <GridLayout columns="auto, *" class="sidedrawer-list-item">
+                                    <Label col="0" text="&#xf017;" class="fa"></Label>
+                                    <Label col="1" [text]="item.name" class="p-r-10"></Label>
+                            </GridLayout>
+                        
+                        </ng-template>
+                        
+                        <ng-template tkTemplateKey="expanded" let-item="item">
+                            <GridLayout rows="auto,auto" columns="auto,auto" >
+                                    
+                                    <GridLayout row="0" col="0" columns="auto, *" class="sidedrawer-list-item">
+                                            <Label col="0" text="&#xf017;" class="fa"></Label>
+                                            <Label col="1" text="item.name" class="p-r-10"></Label>
+                                    </GridLayout>
+                                    <Label row="1" col="0" text="&#xf01a;" class="fa"></Label>
+                                    <Label row="1" col="1" text="Menu" ></Label>
+                                
+                            </GridLayout>        
+                        </ng-template>
+                       
+                     
+                      
                     </RadListView> 
+
               
             </StackLayout>
-        </ScrollView>
+        <!-- </ScrollView> -->
     </GridLayout>
 
     <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
@@ -135,3 +167,6 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
      </GridLayout>
      <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
 </RadListView> -->
+
+
+
