@@ -37,12 +37,12 @@ $sidedrawer-header-image-offset-top: 20;
 $sidedrawer-header-image-offset-bottom: 5;
 $sidedrawer-list-item-offset-left: 15;
 $sidedrawer-list-icon-offset: 10;
-$sidedrawer-list-icon-size: 20;
+$sidedrawer-list-icon-size: 60;
 
 .sidedrawer {
     &.sidedrawer-left {
-        background-color: $ab-background;
-
+      // background-color: $ab-background;
+     background-color:#ffffe8;  
         .sidedrawer-header-image {
             color: $background-dark;
             height: $sidedrawer-header-image-size;
@@ -71,7 +71,7 @@ $sidedrawer-list-icon-size: 20;
 
         $sidedrawer-list-item-offset-left: 15;
         $sidedrawer-list-icon-offset: 10;
-        $sidedrawer-list-icon-size: 20;
+        $sidedrawer-list-icon-size: 30;
 
         .sidedrawer-list-item {
             padding-left: $sidedrawer-list-item-offset-left;
@@ -79,10 +79,7 @@ $sidedrawer-list-icon-size: 20;
                 vertical-align: center;
                 color: $blue-dark;
             }
-            .fa {
-                width: $sidedrawer-list-icon-size;
-                margin-right: $sidedrawer-list-icon-offset;
-            }
+          
             &.selected {
                 background-color: $item-active-background;
                 Label {
@@ -91,6 +88,12 @@ $sidedrawer-list-icon-size: 20;
             }
         }
     }
+}
+
+.fa {
+    width: $sidedrawer-list-icon-size;
+    margin-right: $sidedrawer-list-icon-offset;
+   // font-size: 48;
 }
 
 .decrease-btn 
@@ -118,3 +121,5 @@ $sidedrawer-list-icon-size: 20;
     text-align: center;
    
 }
+
+

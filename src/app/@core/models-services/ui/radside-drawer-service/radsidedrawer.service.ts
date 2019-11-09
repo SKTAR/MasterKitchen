@@ -12,8 +12,8 @@ export class RadSideDrawerService {
   }
 
   public load(args) {
-}
 
+}
 
     public isComponentSelected(url: string): boolean {
         return false;
@@ -26,4 +26,7 @@ export class RadSideDrawerService {
     public onItemTap(event:any){
 
     }
+
+    
+
 }

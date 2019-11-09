@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RadSideDrawerService } from '../@core/models-services/ui/radside-drawer-service/radsidedrawer.service';
 import { AuthGuard } from '../@core/models-services/guard/auth.guard';
+import { HomeMenuService } from '../@core/models-services/ui/home-menu/home-menu.service';
+import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 
 @Component({
   selector: 'app-layout',
@@ -17,11 +19,62 @@ export class LayoutComponent implements OnInit {
   profile   = '';
   email     = 'surasak.kaewsiri@gmail.com';
   private _activatedUrl: string;
-//endregion
 
+  arrow =  "~/assets/images/icon/arrow.png"
+  arrow_white =  "~/assets/images/icon/arrow_white.png"
+//endregion
+quickNavItems = new ObservableArray([
+  {
+      icon: "~/assets/images/icon/wifi.png",
+      title: "Overview",
+      des: 'TEST',
+      expanded: false
+  },
+  {
+      icon: "~/assets/images/icon/bluetooth.png",
+      title: "Overview",
+      des: 'TEST',
+      expanded: false
+      
+      
+
+  },
+  {
+      icon: "~/assets/images/icon/battery.png",
+      title: "Overview",
+      des: 'TEST',
+      expanded: false
+  },
+  {
+      icon: "~/assets/images/icon/airplane.png",
+      title: "Overview",
+      des: 'TEST',
+      expanded: false
+  }
+]);
+
+appNavItems = [
+  {
+      icon: "~/assets/images/icon/home.png",
+      title: "Overview"
+  },
+  {
+      icon: "~/assets/images/icon/explore.png",
+      title: "Discover"
+  },
+  {
+      icon: "~/assets/images/icon/map.png",
+      title: "Maps"
+  },
+  {
+      icon: "~/assets/images/icon/question.png",
+      title: "About"
+  }
+];
 private dataItems: any[];
   constructor(private drawerService: RadSideDrawerService,
-              private auth: AuthGuard) {
+              private auth: AuthGuard,
+              private homeMenuService: HomeMenuService) {
 
     this.profile = this.username + ' ' + this.position;
  }
@@ -32,31 +85,26 @@ private dataItems: any[];
     ngOnInit() {
       this.dataItems = [];
       let itemsCount = 10;
-     // for (var i = 1; i <= itemsCount; i++) {
+      // for (var i = 1; i <= itemsCount; i++) {
+      //     this.dataItems.push({
+      //         name: "TEST " + i,
+      //         icon: "~/assets/images/icon/battery.png",
+      //         expanded: false
+      //     });
+      // }
+      let startcode = 0xf016;
+       for (var i = 1; i <= itemsCount; i++) {
           this.dataItems.push({
-              name: "Item1",
-              icon: String.fromCharCode(0xf016),
-              path: "/ordering",
-              expanded: false,
-              submenu: {
-                 icon : String.fromCharCode(0xf018),
-                 name : "submenu-1"
-              }
+              name: "TEST " + i,
+              icon:  String.fromCharCode(startcode+i),
+              expanded: false
           });
-
-          this.dataItems.push({
-            name: "Item2",
-            icon: String.fromCharCode(0xf017),
-            path: "/ordering",
-            expanded: true,
-            submenu: {
-             
-           }
-        });
-      //}
+         
+      }
    
     }
    
+    
     
     //#region Web Method
     receiveCollapsed($event) {
@@ -65,12 +113,11 @@ private dataItems: any[];
     //#endregion
   
     //#region Mobile Method
-    drawerLoaded(args) {
-     
-      this.drawerService.load(args);
-    }
   
-
+  
+  //   pageLoaded(args) {
+  //    this.drawerService.pageLoaded(args);
+  // }
     onNavItemTap(navItemRout: string) {
     
       if (navItemRout === "login") {
@@ -93,6 +140,12 @@ private dataItems: any[];
 
   onItemTap(arg) {
     this.drawerService.onItemTap(arg);
+  }
+
+
+  drawerLoaded(arg)
+  {
+    this.drawerService.load(arg);
   }
     //#endregion
 }

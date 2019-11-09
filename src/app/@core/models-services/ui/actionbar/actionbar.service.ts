@@ -24,7 +24,9 @@ export class ActionBarService implements OnInit {
   onLoadedActionBar() {
   }
 
- 
+//   pageLoaded(args) {
+  
+// }
 
 
 }

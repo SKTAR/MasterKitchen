@@ -3,31 +3,74 @@ RadSideDrawer is a UI component part of the Progress NativeScript UI set of comp
 Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
 http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
 -->
-<app-actionbar [pageName]="'Master Kitchen'"></app-actionbar>
+<app-actionbar  [pageName]="'Master Kitchen'"></app-actionbar> 
 
-  <RadSideDrawer  [drawerTransition]="sideDrawerTransition" (loaded)="drawerLoaded($event)" hideActionBar>
+  <RadSideDrawer  [drawerTransition]="sideDrawerTransition"  (loaded)="drawerLoaded($event)" hideActionBar>
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0" class="sidedrawer-header">
             <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
             <Label class="sidedrawer-header-brand" text={{profile}}></Label>
             <Label class="footnote" text={{email}}></Label>
+
+          
         </StackLayout>
-    
-        <ScrollView row="1">
-            <StackLayout class="sidedrawer-content">
-                
-                <!-- <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/login')" (tap)="onNavItemTap('/login')">
+        
+        <ScrollView class="coverImage" row="1">
+             <!-- <StackLayout class="sidedrawer-content"> -->
+               
+                 <!--    <GridLayout  class="sidedrawer-list-item" >  -->
+                    
+                    <RadListView [items]="dataItems" [itemTemplateSelector]="templateSelector" class="list-group" (itemTap)="onItemTap($event)">
+                            <ng-template tkListItemTemplate let-item="item">
+                               
+                        <GridLayout rows="auto,auto" columns="auto,auto" class="list-group-item">
+                            <!-- <GridLayout  row="0" col="0" rows="*" columns="35, 5*, *"  height="35"> -->
+                                    <GridLayout  row="0" col="0" rows="*" columns="35, *, auto"  height="35">
+                             <!-- <GridLayout col="0">
+                                 <Image   [src]="item.icon" ></Image>
+                             </GridLayout>   -->
+                             <Label col="0" [text]="item.icon"  fontSize="30" class="fa" backgroundColor="green"></Label>
+                             <Label col="1" [text]="item.name" class="h2 app-nav-title" horizontalAlignment="left" backgroundColor="yellow" ></Label>
+                             <!-- <GridLayout col="2" >
+                                    <Image  [src]="arrow" ></Image>
+                             </GridLayout> -->
+                             <Label col="2" text="&#xf054;"    fontSize="30" class="fa"></Label>
+                                              
+                            </GridLayout>
+                        </GridLayout>
+                             
+                           
+                            </ng-template>
+                            <ng-template tkTemplateKey="expanded" let-item="item">
+                                <GridLayout rows="auto,auto" columns="auto,auto" class="list-group-item">
+                                        <GridLayout row="0" col="0" columns="35, *, auto"  height="35">
+                                                <!-- <GridLayout col="0"  >
+                                                    <Image [src]="item.icon" ></Image>
+                                                </GridLayout>   -->
+                                                <Label col="0" [text]="item.icon"  color="blue"  fontSize="30" class="fa" backgroundColor="green"></Label>
+                                                <Label col="1" [text]="item.name" class="font-weight-bold" class="h2 app-nav-title" horizontalAlignment="left" backgroundColor="yellow"></Label>
+                                                <Label col="2" text="&#xf078;"  color="blue"  fontSize="30" class="fa"></Label>
+                                              
+                                                <!-- <GridLayout col="2" >
+                                                    <Image tintColor="blue"  [src]="arrow_white" ></Image>
+                                                </GridLayout> -->
+                                        </GridLayout>
+                                   
+                                    <Button row="1" col="0" text="Options" class="btn btn-primary"></Button>
+                                    
+                                </GridLayout>
+                            </ng-template>
+                        </RadListView>
+                   
+            <!--    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/login')" (tap)="onNavItemTap('/login')">
                     <Label col="0" text="&#xf014;" class="fa"></Label>
                     <Label col="1" text="Log out" class="p-r-10"></Label>
                 </GridLayout>
                 <StackLayout class="hr-light"></StackLayout>
-                <GridLayout  columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/dashboard')" (tap)="expand()">
+                <GridLayout  columns="auto, *" class="sidedrawer-list-item" (tap)="expand()">
                     <Label col="0" text="&#xf015;" class="fa"></Label>
                     <Label col="1" text="Dash Board" class="p-r-10"></Label>
-                    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/zonetable')" (tap)="onNavItemTap('/zonetable')">
-                        <Label col="0" text="&#xf017;" class="fa"></Label>
-                        <Label col="1" text="Zone & Table" class="p-r-10"></Label>
-                    </GridLayout>  
+                    
                 </GridLayout>
                 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/kot')" (tap)="onNavItemTap('/kot')">
@@ -74,7 +117,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="0" text="&#xf017;" class="fa"></Label>
                     <Label col="1" text="Zone & Table" class="p-r-10"></Label>
                 </GridLayout>   -->
-               
+<!--                
                 <RadListView [items]="dataItems" [itemTemplateSelector]="templateSelector"   (itemTap)="onItemTap($event)">
                                          
                        
@@ -103,35 +146,63 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                      
                       
                     </RadListView> 
-              
-            </StackLayout>
+               -->
+             <!-- </StackLayout> -->
         </ScrollView>
     </GridLayout>
 
     <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
 </RadSideDrawer>  
-<!-- <RadListView [items]="dataItems" [itemTemplateSelector]="templateSelector"   (itemTap)="onItemTap($event)">
-    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
-    <StackLayout row="0" class="sidedrawer-header">
-                    <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
-                    <Label class="sidedrawer-header-brand" text={{profile}}></Label>
-                    <Label class="footnote" text={{email}}></Label>
-     </StackLayout>
 
-     <ScrollView row="1">
-            <StackLayout class="sidedrawer-content">
-    <ng-template tkListItemTemplate let-item="item">
-		<Label [text]="item.name" class="list-group-item"></Label>
-	</ng-template>
-	<ng-template tkTemplateKey="expanded" let-item="item">
-		<GridLayout rows="auto,auto" columns="auto,auto" class="list-group-item">
-			<Label row="0" col="0" [text]="item.name" class="font-weight-bold"></Label>
-			<Button row="1" col="0" text="Options" class="btn btn-primary"></Button>
-			<Button row="1" col="1" text="Cancel" class="btn btn-danger"></Button>
-        </GridLayout>        
-    </ng-template>
-    </StackLayout>
-    </ScrollView>
-     </GridLayout>
-     <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
-</RadListView> -->
+
+<!--  -->
+<!-- <ScrollView class="scroll-view">
+    <StackLayout >
+        <Label>TEST</Label> -->
+        <!-- <Repeater class="quick-nav" items=" {{ quickNavItems }}">
+            <Repeater.itemsLayout>
+                <StackLayout orientation="horizontal" ></StackLayout>
+            </Repeater.itemsLayout>
+
+            <Repeater.itemTemplate>
+                <GridLayout width="25%">
+                    <Image src="{{ icon }}" class="quick-nav-icon"></Image>
+                </GridLayout>
+            </Repeater.itemTemplate>
+        </Repeater> -->
+
+        <!-- <GridLayout class="scroll-view-separator" height="50">
+        </GridLayout> -->
+
+        <!-- <Repeater class="app-nav" items="{{ appNavItems }}">
+            <Repeater.itemTemplate>
+                <GridLayout columns="35, 5*, *" class="app-nav-item" height="35">
+                    <Image col="0" src="{{ icon }}" stretch="aspectFill" ></Image>
+                    <Label col="1" text="{{ title }}" class="h2 app-nav-title" verticalAlignment="center" ></Label>
+                    <Image col="2" src="~/images/arrow.png" ></Image>
+                </GridLayout>
+            </Repeater.itemTemplate>
+        </Repeater> -->
+
+        <!-- <GridLayout class="scroll-view-separator-profile" height="75">
+            <GridLayout class="scroll-view-separator" height="50" verticalAlignment="top">
+            </GridLayout>
+            <GridLayout columns="*, 75" class="scroll-view-profile">
+                <Label col="0" text="{{ profile.name }}" class="h1 scroll-view-profile-name"
+                    verticalAlignment="bottom"> </Label>
+                <GridLayout col="1" class="scroll-view-profile-avatar" backgroundImage="{{ profile.avatar }}">
+                </GridLayout>
+            </GridLayout>
+        </GridLayout>
+
+        <Repeater class="profile-nav" items=" {{ profileNavItems }}">
+            <Repeater.itemTemplate>
+                <GridLayout columns="35, 5*, *" class="profile-nav-item" height="35">
+                    <Label col="0" colSpan="2" text="{{ title }}" class="h2" ></Label>
+                    <Image col="2" src="~/images/arrow_white.png" ></Image>
+                </GridLayout>
+            </Repeater.itemTemplate>
+        </Repeater> -->
+    <!-- </StackLayout> 
+</ScrollView>  -->
+

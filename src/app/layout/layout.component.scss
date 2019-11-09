@@ -29,3 +29,64 @@
         margin-left: 0px !important;
     }
 }
+
+//----------  REPEATER  TEST
+.scroll-view {
+    background-color: #01618B;
+}
+
+.quick-nav {
+    background-color: #01618B;
+}
+
+.quick-nav-icon {
+    margin: 25 25 5 25;
+}
+
+.scroll-view-separator {
+    background-color: #FFFFFF;
+    clip-path: polygon(0 75%, 100% 25%, 100% 100%, 0 100%);
+}
+
+.app-nav {
+    background-color: #FFFFFF;
+}
+
+.app-nav-item {
+    margin: 20 10 20 20;
+}
+
+.app-nav-title {
+    color: white;
+    margin: 0 10 0 10;
+}
+
+.scroll-view-separator-profile {
+    background-color: #01618B;
+}
+
+.scroll-view-separator-profile .scroll-view-separator {
+    background-color: #FFFFFF;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 25%);
+}
+
+.scroll-view-profile {
+    margin: 0 20 0 20;
+}
+
+.scroll-view-profile-name {
+    color: #FFFFFF;
+}
+
+.scroll-view-profile-avatar {
+    clip-path: circle(100% at 50% 50%);
+    background-size: contain;
+}
+
+.profile-nav {
+    background-color: #01618B;
+}
+
+.profile-nav-item {
+    margin: 10 10 10 20;
+}

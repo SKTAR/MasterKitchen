@@ -6,6 +6,8 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { filter } from 'rxjs/operators';
 import { isIOS, isAndroid } from 'tns-core-modules/platform/platform';
 import { RadListView, ListViewEventData } from "nativescript-ui-listview";
+import { EventData, Page } from 'tns-core-modules/ui/page/page';
+import { HomeViewModel} from '../../home-view.model';
 declare var UIView, NSMutableArray, NSIndexPath;
 // import { Page } from 'tns-core-modules/ui/page';
 @Injectable({providedIn: 'root'})
@@ -40,6 +42,7 @@ export class RadSideDrawerService {
       .subscribe((event: NavigationEnd) => this._activatedUrl = event.urlAfterRedirects);
   }
 
+
   public get sideDrawerTransition(): DrawerTransitionBase {
       return this._sideDrawerTransition;
   }
@@ -68,11 +71,11 @@ export class RadSideDrawerService {
     dataItem.expanded = !dataItem.expanded;
     if (isIOS) {
         // Uncomment the lines below to avoid default animation
-        // UIView.animateWithDurationAnimations(0, () => {
+         UIView.animateWithDurationAnimations(0, () => {
             var indexPaths = NSMutableArray.new();
             indexPaths.addObject(NSIndexPath.indexPathForRowInSection(rowIndex, event.groupIndex));
             listView.ios.reloadItemsAtIndexPaths(indexPaths);
-        // });
+         });
     }
     if (isAndroid) {
         listView.androidListView.getAdapter().notifyItemChanged(rowIndex);
