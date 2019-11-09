@@ -3,6 +3,7 @@ import { RadSideDrawerService } from '../@core/models-services/ui/radside-drawer
 import { AuthGuard } from '../@core/models-services/guard/auth.guard';
 import { HomeMenuService } from '../@core/models-services/ui/home-menu/home-menu.service';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
+import { HomeViewModel } from '../@core/models-services/home-view.model';
 
 @Component({
   selector: 'app-layout',
@@ -102,6 +103,9 @@ private dataItems: any[];
          
       }
    
+
+      const home = new HomeViewModel();
+      
     }
    
     

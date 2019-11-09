@@ -64,6 +64,28 @@ export class HomeViewModel extends Observable {
         }
     ];
 
+    
+
+    homeMenuItems = [
+        {
+            icon: String.fromCharCode(0xf015),
+            title: "Home"
+        },
+        {
+            icon: String.fromCharCode(0xf2e7),
+            title: "Order Food"
+        },
+        {
+            icon: String.fromCharCode(0xf085),
+            title: "Setting"
+        },
+        {
+            icon: "~/assets/images/icon/question.png",
+            title: "About"
+        }
+    ];
+
+
     constructor() {
         super();
     }
