@@ -32,8 +32,12 @@
 }
 
 .app-nav-title {
-    color: #01618B;
     margin: 0 10 0 10;
+    font-size:20;
+    font-weight: bold;
+    font-family: "Varela";
+    color : blue;
+    text-transform: uppercase;
 }
 
 .scroll-view-separator-profile {
@@ -68,4 +72,16 @@
 
 .profile-nav-item Label {
     color: #FECEBA;
+}
+
+.menu-text{
+    font-size: 20;
+    vertical-align: center;
+    
+}
+
+.menu-icon {
+    font-weight:bold;
+    font-size: 26;
+
 }

@@ -4,7 +4,12 @@ Learn more about the RadSideDrawer UI component and how it can be customized in 
 http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
 -->
 <app-actionbar  [pageName]="'Master Kitchen'"></app-actionbar> 
+<!-- <StackLayout *ngFor="let item of dataItems">
 
+        <Label [text]="item.title" textWrap="true"></Label>
+        
+        <Label [text]="getSubMenuRow(item.submenu)" textWrap="true"></Label>
+    </StackLayout> -->
   <RadSideDrawer  [drawerTransition]="sideDrawerTransition"  (loaded)="drawerLoaded($event)" hideActionBar>
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0" class="sidedrawer-header">
@@ -14,27 +19,32 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
           
         </StackLayout>
+
         
+
+               
+            
+          
         <ScrollView class="coverImage" row="1">
              <!-- <StackLayout class="sidedrawer-content"> -->
                
                  <!--    <GridLayout  class="sidedrawer-list-item" >  -->
                     
-                    <RadListView [items]="dataItems" [itemTemplateSelector]="templateSelector" class="list-group" (itemTap)="onItemTap($event)">
+                    <RadListView [items]="dataItems" [itemTemplateSelector]="templateSelector" class="list-group" (itemTap)="onItemTap($event)" (itemSelected)="onItemSelected($event)" (itemSelecting)="onItemSelecting($event)" (itemDeselecting)="onItemDeselecting($event)" (itemDeselected)="onItemDeselected($event)">
                             <ng-template tkListItemTemplate let-item="item">
                                
                         <GridLayout rows="auto,auto" columns="auto,auto" class="list-group-item">
                             <!-- <GridLayout  row="0" col="0" rows="*" columns="35, 5*, *"  height="35"> -->
-                                    <GridLayout  row="0" col="0" rows="*" columns="35, *, auto"  height="35">
+                                    <GridLayout  row="0" col="0" rows="*" columns="40, 150, auto"  height="35">
                              <!-- <GridLayout col="0">
                                  <Image   [src]="item.icon" ></Image>
                              </GridLayout>   -->
-                             <Label col="0" [text]="item.icon"  fontSize="30" class="fa" backgroundColor="green"></Label>
-                             <Label col="1" [text]="item.name" class="h2 app-nav-title" horizontalAlignment="left" backgroundColor="yellow" ></Label>
+                             <Label col="0" [text]="item.icon"  class="fas" fontSize="24" verticalAlignment="center"></Label>
+                             <Label col="1" [text]="item.title" class="menu-text font-weight-bold" horizontalAlignment="left"  ></Label>
                              <!-- <GridLayout col="2" >
                                     <Image  [src]="arrow" ></Image>
                              </GridLayout> -->
-                             <Label col="2" text="&#xf054;"    fontSize="30" class="fa"></Label>
+                             <Label col="2" text="&#xf0da;"    fontSize="30" class="fa"  *ngIf="item.submenu.length>0"></Label>
                                               
                             </GridLayout>
                         </GridLayout>
@@ -42,26 +52,51 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                            
                             </ng-template>
                             <ng-template tkTemplateKey="expanded" let-item="item">
-                                <GridLayout rows="auto,auto" columns="auto,auto" class="list-group-item">
-                                        <GridLayout row="0" col="0" columns="35, *, auto"  height="35">
+                                <!-- <GridLayout [rows]="getSubMenuRow(item)" columns="auto,auto" class="list-group-item"> -->
+                                        <GridLayout [rows]="getSubMenuRow(item.submenu)" columns="auto,auto" class="list-group-item">
+                                        <GridLayout row="0" col="0"  columns="40, 150, auto"  height="35">
                                                 <!-- <GridLayout col="0"  >
                                                     <Image [src]="item.icon" ></Image>
                                                 </GridLayout>   -->
-                                                <Label col="0" [text]="item.icon"  color="blue"  fontSize="30" class="fa" backgroundColor="green"></Label>
-                                                <Label col="1" [text]="item.name" class="font-weight-bold" class="h2 app-nav-title" horizontalAlignment="left" backgroundColor="yellow"></Label>
-                                                <Label col="2" text="&#xf078;"  color="blue"  fontSize="30" class="fa"></Label>
+                                                <Label col="0" [text]="item.icon"  class="fas" fontSize="24"  color="{{ selected ? 'blue' : 'white'}}"></Label>
+                                                <Label col="1" [text]="item.title" class="menu-text font-weight-bold" color="blue"  horizontalAlignment="left"></Label>
+                                                <Label col="2" text="&#xf0d7;"  color="blue"  fontSize="30" class="fa" *ngIf="item.submenu.length>0"></Label>
                                               
                                                 <!-- <GridLayout col="2" >
                                                     <Image tintColor="blue"  [src]="arrow_white" ></Image>
                                                 </GridLayout> -->
                                         </GridLayout>
-                                   
-                                    <Button row="1" col="0" text="Options" class="btn btn-primary"></Button>
-                                    
-                                </GridLayout>
+                                        
+                                        <!-- <Button *ngFor="let menu of item.submenu; let i = index;" [row]="i+1" col="0" [text]="menu.title" (tap)="onTap(item.submenu)" class="btn btn-primary"></Button>
+                                      -->
+                                        <GridLayout class="p-t-10" *ngFor="let menu of item.submenu; let i = index;" [row]="i+1" colSpan="3" columns='60,*'  [class.selected]="isComponentSelected(menu.path)" (tap)="onNavItemTap(menu.path)">
+                                            <Label col="0" class="fas" text="&#xf0da;" fontSize="20" verticalAlignment="center" horizontalAlignment="center" ></Label>
+                                            <Label col="1" class="font-weight-bold" [text]="menu.title" fontSize="20" ></Label>
+                                        </GridLayout>
+                                     
+                                        <!-- <ng-template tkTemplateKey="submenu" let-item="item">
+                                            <Label text="item.submenu.title"></Label>
+                                        </ng-template> -->
+<!--                                      
+                                        <GridLayout [rows]="getSubMenuRow(item.submenu)" columns="auto,auto">
+                                           
+                                       </GridLayout> -->
+                                        <!-- <Button row="1" col="0" text="Tap me!" (tap)="onTap(item.submenu)" class="btn btn-primary"></Button> -->
+                                        </GridLayout>
+                                      
+                        
                             </ng-template>
+
+
+
                         </RadListView>
-                   
+
+
+                  
+                                            
+                         
+
+                    
             <!--    <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/login')" (tap)="onNavItemTap('/login')">
                     <Label col="0" text="&#xf014;" class="fa"></Label>
                     <Label col="1" text="Log out" class="p-r-10"></Label>

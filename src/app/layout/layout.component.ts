@@ -93,26 +93,47 @@ private dataItems: any[];
       //         expanded: false
       //     });
       // }
-      let startcode = 0xf016;
-       for (var i = 1; i <= itemsCount; i++) {
-          this.dataItems.push({
-              name: "TEST " + i,
-              icon:  String.fromCharCode(startcode+i),
-              expanded: false
-          });
+
+      // let startcode = 0xf016;
+      //  for (var i = 1; i <= itemsCount; i++) {
+      //     this.dataItems.push({
+      //         name: "TEST " + i,
+      //         icon:  String.fromCharCode(startcode+i),
+      //         expanded: false
+      //     });
          
-      }
+      // }
    
 
       const home = new HomeViewModel();
+      this.dataItems = home.homeMenuItems;
+      console.log(this.dataItems);
       
     }
    
+    getSubMenuRow(item:any){
+      let rows = "auto,auto";
+    if(item != undefined)
+    {
+      console.log(item);
     
+         item.forEach((el)=>{
+         rows +=",auto";
+        })
+    }
+        console.log("rows"+ rows);
+        return rows;
+  }
     
     //#region Web Method
     receiveCollapsed($event) {
         this.collapedSideBar = $event;
+    }
+
+    onTap(item:any){
+     // console.log(item);
+     alert("test");
+     console.log(item);
     }
     //#endregion
   
@@ -136,14 +157,23 @@ private dataItems: any[];
     }
     //#endregion
 
-
+    selected = false;;
     //#region  Test Accordion
     templateSelector(item: any, index: number, items: any): string {
+      if(this.selected == false)
+      {
+          this.selected=true;
+      }
+      else{
+        this.selected=false;
+      }
       return item.expanded ? "expanded" : "default";
   }
 
   onItemTap(arg) {
+  
     this.drawerService.onItemTap(arg);
+    
   }
 
 
@@ -152,4 +182,13 @@ private dataItems: any[];
     this.drawerService.load(arg);
   }
     //#endregion
+
+
+
+
+
+
+
+
+    
 }

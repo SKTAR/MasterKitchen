@@ -26,10 +26,7 @@
     }
 }
 
-//Action bar
-ActionBar .action-bar-title {
-    horizontal-align: center;
-}
+
 
  // Drawer navigation custom styles
 $sidedrawer-header-image-size: 60;
@@ -90,11 +87,11 @@ $sidedrawer-list-icon-size: 60;
     }
 }
 
-.fa {
-    width: $sidedrawer-list-icon-size;
-    margin-right: $sidedrawer-list-icon-offset;
-   // font-size: 48;
-}
+// .fa {
+//     width: $sidedrawer-list-icon-size;
+//     margin-right: $sidedrawer-list-icon-offset;
+//    // font-size: 48;
+// }
 
 .decrease-btn 
 { 
@@ -119,7 +116,29 @@ $sidedrawer-list-icon-size: 60;
    // border-width:2;
     color:white;
     text-align: center;
-   
+    
 }
+ 
+.far {
+    font-family: "Font Awesome 5 Free", "fa-regular-400";
+    font-weight: 400;
+}
+
+.fab {
+    font-family: "Font Awesome 5 Brands", "fa-brands-400";
+    font-weight: 400;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+    font-weight: 900;
+}
+
+.ico {
+    font-family: "IcoMoon-Free";
+}
+
+
+
 
 

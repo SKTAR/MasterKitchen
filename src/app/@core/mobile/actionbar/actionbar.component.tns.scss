@@ -1,1 +1,13 @@
 /* Add mobile styles for the component here.  */
+// .action-bar {
+//     height: 100px;
+// }
+
+//Action bar
+ActionBar  {
+    .action-bar-title {
+    horizontal-align: center;
+    font-size: 25;
+    text-transform: uppercase;
+    }
+}
