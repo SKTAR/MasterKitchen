@@ -160,13 +160,7 @@ private dataItems: any[];
     selected = false;;
     //#region  Test Accordion
     templateSelector(item: any, index: number, items: any): string {
-      if(this.selected == false)
-      {
-          this.selected=true;
-      }
-      else{
-        this.selected=false;
-      }
+     
       return item.expanded ? "expanded" : "default";
   }
 

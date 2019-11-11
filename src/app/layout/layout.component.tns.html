@@ -3,7 +3,7 @@ RadSideDrawer is a UI component part of the Progress NativeScript UI set of comp
 Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
 http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
 -->
-<app-actionbar  [pageName]="'Master Kitchen'"></app-actionbar> 
+<app-actionbar  [pageName]="'Master Kitchen 2'"></app-actionbar> 
 <!-- <StackLayout *ngFor="let item of dataItems">
 
         <Label [text]="item.title" textWrap="true"></Label>
@@ -12,7 +12,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
     </StackLayout> -->
 
 
-  <RadSideDrawer  [drawerTransition]="sideDrawerTransition" (loaded)="drawerLoaded($event)"  >
+  <RadSideDrawer  [drawerTransition]="sideDrawerTransition" (loaded)="drawerLoaded($event)"  hideActionBar >
     
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
 
@@ -36,19 +36,20 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                                      <GridLayout  row="0" col="0" rows="*" columns="40, 150, auto"  height="35">
                                          <Label col="0" [text]="item.icon"  class="fas" fontSize="24" verticalAlignment="center"></Label>
                                          <Label col="1" [text]="item.title" class="menu-text font-weight-bold" horizontalAlignment="left"  ></Label>
-                                        <!-- <Label col="2" text="&#xf0da;"    fontSize="30" class="fa"  *ngIf="item.submenu.length>0"></Label> -->
+                                         <Label col="2" text="&#xf0da;"    fontSize="30" class="fa"  *ngIf="item.submenu.length>0"></Label> 
                                               
                                     </GridLayout>
                         </GridLayout>
                              
                            
                             </ng-template>
-                            <!-- <ng-template tkTemplateKey="expanded" let-item="item">
+                            <ng-template tkTemplateKey="expanded" let-item="item">
                                         <GridLayout [rows]="getSubMenuRow(item.submenu)" columns="auto,auto" class="list-group-item">
                                         <GridLayout row="0" col="0"  columns="40, 150, auto"  height="35">
-                                                  <Label col="0" [text]="item.icon"  class="fas" fontSize="24"  color="{{ selected ? 'blue' : 'white'}}"></Label>
-                                                <Label col="1" [text]="item.title" class="menu-text font-weight-bold" color="blue"  horizontalAlignment="left"></Label>
-                                                <Label col="2" text="&#xf0d7;"  color="blue"  fontSize="30" class="fa" *ngIf="item.submenu.length>0"></Label>
+                                                   <Label col="0" [text]="item.icon"  class="fas" fontSize="24" ></Label>
+                                              
+                                                  <Label col="1" [text]="item.title" class="menu-text font-weight-bold" color="blue"  horizontalAlignment="left"></Label>
+                                                    <Label col="2" text="&#xf0d7;"  color="blue"  fontSize="30" class="fa" *ngIf="item.submenu.length>0"></Label>
                                          </GridLayout>
                                          <GridLayout class="p-t-10" *ngFor="let menu of item.submenu; let i = index;" [row]="i+1" colSpan="3" columns='60,*'  [class.selected]="isComponentSelected(menu.path)" (tap)="onNavItemTap(menu.path)">
                                             <Label col="0" class="fas" text="&#xf0da;" fontSize="20" verticalAlignment="center" horizontalAlignment="center" ></Label>
@@ -57,7 +58,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                                                  </GridLayout>
                                       
                         
-                            </ng-template> -->
+                            </ng-template>
 
 
 
