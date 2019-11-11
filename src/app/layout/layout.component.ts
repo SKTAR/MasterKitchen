@@ -97,7 +97,7 @@ private dataItems: any[];
       // let startcode = 0xf016;
       //  for (var i = 1; i <= itemsCount; i++) {
       //     this.dataItems.push({
-      //         name: "TEST " + i,
+      //         title: "TEST " + i,
       //         icon:  String.fromCharCode(startcode+i),
       //         expanded: false
       //     });
@@ -106,8 +106,8 @@ private dataItems: any[];
    
 
       const home = new HomeViewModel();
-      this.dataItems = home.homeMenuItems;
-      console.log(this.dataItems);
+    this.dataItems = home.homeMenuItems;
+       console.log(this.dataItems);
       
     }
    

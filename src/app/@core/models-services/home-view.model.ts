@@ -71,7 +71,12 @@ export class HomeViewModel extends Observable {
             icon: String.fromCharCode(0xf015),
             title: "Home",
             expanded: false,
-            submenu :[]
+            submenu :[
+                { 
+                    title: "Create Menu",
+                    path : "/menu"
+                }
+            ]
            
         },
         {
@@ -87,31 +92,46 @@ export class HomeViewModel extends Observable {
             icon: String.fromCharCode(0xf2e7),
             title: "Order Food",
             expanded: false,
-            submenu :[]
+            submenu :[{ 
+                title: "Create Menu",
+                path : "/menu"
+            }]
         },
         {
             icon: String.fromCharCode(0xf108),
             title: "KDS",
             expanded: false,
-            submenu :[]
+            submenu :[{ 
+                title: "Create Menu",
+                path : "/menu"
+            }]
         },
         {
             icon: String.fromCharCode(0xf007),
             title: "Employee",
             expanded: false,
-            submenu :[]
+            submenu :[{ 
+                title: "Create Menu",
+                path : "/menu"
+            }]
         },
         {
             icon: String.fromCharCode(0xf085),
             title: "Setting",
             expanded: false,
-            submenu :[]
+            submenu :[{ 
+                title: "Create Menu",
+                path : "/menu"
+            }]
         },
         {
             icon: String.fromCharCode(0xf05a),
             title: "About",
             expanded: false,
-            submenu :[]
+            submenu :[{ 
+                title: "Create Menu",
+                path : "/menu"
+            }]
         }
     ];
 

@@ -7,12 +7,11 @@ import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angul
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 import { MobileModule } from '../@core/mobile/mobile.module.tns';
-
-
+//import { HideActionBarDirective } from '../@core/mobile/directives/hide-actionbar-directive';
 @NgModule({
   declarations: [
     LayoutComponent,
-   // HideActionBarDirective,
+  //  HideActionBarDirective,
    // MenuSelectComponent,
    //  IngredientComponent,
   //  MenuitemsComponent
@@ -25,8 +24,7 @@ import { MobileModule } from '../@core/mobile/mobile.module.tns';
     NativeScriptUISideDrawerModule, // RadSideDrawer
     NativeScriptUIListViewModule,   // RadListView
     NativeScriptFormsModule,
-      
-    
+
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

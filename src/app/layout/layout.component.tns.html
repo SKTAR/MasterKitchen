@@ -10,14 +10,16 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
         
         <Label [text]="getSubMenuRow(item.submenu)" textWrap="true"></Label>
     </StackLayout> -->
-  <RadSideDrawer  [drawerTransition]="sideDrawerTransition"  (loaded)="drawerLoaded($event)" hideActionBar>
+
+
+  <RadSideDrawer  [drawerTransition]="sideDrawerTransition" (loaded)="drawerLoaded($event)"  >
+    
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+
         <StackLayout row="0" class="sidedrawer-header">
             <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
             <Label class="sidedrawer-header-brand" text={{profile}}></Label>
-            <Label class="footnote" text={{email}}></Label>
-
-          
+            <Label class="footnote" text={{email}}></Label> 
         </StackLayout>
 
         
@@ -26,70 +28,40 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
             
           
         <ScrollView class="coverImage" row="1">
-             <!-- <StackLayout class="sidedrawer-content"> -->
-               
-                 <!--    <GridLayout  class="sidedrawer-list-item" >  -->
-                    
-                    <RadListView [items]="dataItems" [itemTemplateSelector]="templateSelector" class="list-group" (itemTap)="onItemTap($event)" (itemSelected)="onItemSelected($event)" (itemSelecting)="onItemSelecting($event)" (itemDeselecting)="onItemDeselecting($event)" (itemDeselected)="onItemDeselected($event)">
+                      
+                    <RadListView  [items]="dataItems" [itemTemplateSelector]="templateSelector" class="list-group" (itemTap)="onItemTap($event)" >
                             <ng-template tkListItemTemplate let-item="item">
                                
                         <GridLayout rows="auto,auto" columns="auto,auto" class="list-group-item">
-                            <!-- <GridLayout  row="0" col="0" rows="*" columns="35, 5*, *"  height="35"> -->
-                                    <GridLayout  row="0" col="0" rows="*" columns="40, 150, auto"  height="35">
-                             <!-- <GridLayout col="0">
-                                 <Image   [src]="item.icon" ></Image>
-                             </GridLayout>   -->
-                             <Label col="0" [text]="item.icon"  class="fas" fontSize="24" verticalAlignment="center"></Label>
-                             <Label col="1" [text]="item.title" class="menu-text font-weight-bold" horizontalAlignment="left"  ></Label>
-                             <!-- <GridLayout col="2" >
-                                    <Image  [src]="arrow" ></Image>
-                             </GridLayout> -->
-                             <Label col="2" text="&#xf0da;"    fontSize="30" class="fa"  *ngIf="item.submenu.length>0"></Label>
+                                     <GridLayout  row="0" col="0" rows="*" columns="40, 150, auto"  height="35">
+                                         <Label col="0" [text]="item.icon"  class="fas" fontSize="24" verticalAlignment="center"></Label>
+                                         <Label col="1" [text]="item.title" class="menu-text font-weight-bold" horizontalAlignment="left"  ></Label>
+                                        <!-- <Label col="2" text="&#xf0da;"    fontSize="30" class="fa"  *ngIf="item.submenu.length>0"></Label> -->
                                               
-                            </GridLayout>
+                                    </GridLayout>
                         </GridLayout>
                              
                            
                             </ng-template>
-                            <ng-template tkTemplateKey="expanded" let-item="item">
-                                <!-- <GridLayout [rows]="getSubMenuRow(item)" columns="auto,auto" class="list-group-item"> -->
+                            <!-- <ng-template tkTemplateKey="expanded" let-item="item">
                                         <GridLayout [rows]="getSubMenuRow(item.submenu)" columns="auto,auto" class="list-group-item">
                                         <GridLayout row="0" col="0"  columns="40, 150, auto"  height="35">
-                                                <!-- <GridLayout col="0"  >
-                                                    <Image [src]="item.icon" ></Image>
-                                                </GridLayout>   -->
-                                                <Label col="0" [text]="item.icon"  class="fas" fontSize="24"  color="{{ selected ? 'blue' : 'white'}}"></Label>
+                                                  <Label col="0" [text]="item.icon"  class="fas" fontSize="24"  color="{{ selected ? 'blue' : 'white'}}"></Label>
                                                 <Label col="1" [text]="item.title" class="menu-text font-weight-bold" color="blue"  horizontalAlignment="left"></Label>
                                                 <Label col="2" text="&#xf0d7;"  color="blue"  fontSize="30" class="fa" *ngIf="item.submenu.length>0"></Label>
-                                              
-                                                <!-- <GridLayout col="2" >
-                                                    <Image tintColor="blue"  [src]="arrow_white" ></Image>
-                                                </GridLayout> -->
-                                        </GridLayout>
-                                        
-                                        <!-- <Button *ngFor="let menu of item.submenu; let i = index;" [row]="i+1" col="0" [text]="menu.title" (tap)="onTap(item.submenu)" class="btn btn-primary"></Button>
-                                      -->
-                                        <GridLayout class="p-t-10" *ngFor="let menu of item.submenu; let i = index;" [row]="i+1" colSpan="3" columns='60,*'  [class.selected]="isComponentSelected(menu.path)" (tap)="onNavItemTap(menu.path)">
+                                         </GridLayout>
+                                         <GridLayout class="p-t-10" *ngFor="let menu of item.submenu; let i = index;" [row]="i+1" colSpan="3" columns='60,*'  [class.selected]="isComponentSelected(menu.path)" (tap)="onNavItemTap(menu.path)">
                                             <Label col="0" class="fas" text="&#xf0da;" fontSize="20" verticalAlignment="center" horizontalAlignment="center" ></Label>
                                             <Label col="1" class="font-weight-bold" [text]="menu.title" fontSize="20" ></Label>
                                         </GridLayout>
-                                     
-                                        <!-- <ng-template tkTemplateKey="submenu" let-item="item">
-                                            <Label text="item.submenu.title"></Label>
-                                        </ng-template> -->
-<!--                                      
-                                        <GridLayout [rows]="getSubMenuRow(item.submenu)" columns="auto,auto">
-                                           
-                                       </GridLayout> -->
-                                        <!-- <Button row="1" col="0" text="Tap me!" (tap)="onTap(item.submenu)" class="btn btn-primary"></Button> -->
-                                        </GridLayout>
+                                                 </GridLayout>
                                       
                         
-                            </ng-template>
+                            </ng-template> -->
 
 
 
-                        </RadListView>
+                    </RadListView>
 
 
                   
@@ -183,6 +155,8 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     </RadListView> 
                -->
              <!-- </StackLayout> -->
+
+
         </ScrollView>
     </GridLayout>
 
