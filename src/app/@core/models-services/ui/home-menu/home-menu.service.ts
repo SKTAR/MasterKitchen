@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
 export class HomeMenuService {
 
   
-  public pageLoaded(args) {
+//   public pageLoaded(args) {
     
-}
+// }
     
 
 }

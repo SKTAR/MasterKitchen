@@ -3,7 +3,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { StockRoutingModule } from './stock-routing.module';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { StockComponent } from './stock.component';
-import { MobileModule } from '../../../@core/mobile/mobile.module.tns';
+import { MobileModule } from '../../../@core/mobile-components/mobile.module.tns';
 
 
 @NgModule({

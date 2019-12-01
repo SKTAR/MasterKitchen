@@ -2,7 +2,7 @@ import {  Injectable, OnInit, Input } from '@angular/core';
 import { isAndroid, isIOS, device, screen } from 'tns-core-modules/platform';
 import { Page, EventData } from 'tns-core-modules/ui/page';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { HomeViewModel } from '../../home-view.model';
+
 
 declare var android: any;
 

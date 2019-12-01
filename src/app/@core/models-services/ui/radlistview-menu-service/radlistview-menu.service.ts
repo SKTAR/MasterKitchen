@@ -25,4 +25,8 @@ export class RadlistviewMenuService {
     public onItemDeselected(args): Array<MenuModel> {
         return null;
     }
+
+    onItemHomeMenuSelected(arg1) {
+
+    }
 }

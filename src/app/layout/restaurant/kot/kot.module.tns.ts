@@ -5,7 +5,7 @@ import { KotComponent } from './kot.component';
 
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { SelectMenuModule } from '../select-menu/select-menu.module.tns';
-import { MobileModule } from '../../../@core/mobile/mobile.module.tns';
+import { MobileModule } from '../../../@core/mobile-components/mobile.module.tns';
 @NgModule({
   declarations: [KotComponent],
   imports: [

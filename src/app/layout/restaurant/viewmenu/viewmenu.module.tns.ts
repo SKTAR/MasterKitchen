@@ -6,7 +6,7 @@ import { ViewmenuComponent } from './viewmenu.component';
 import { MenucategoryComponent } from './menucategory/menucategory.component';
 
 import { CreatemenuComponent } from './createmenu/createmenu.component';
-import { MobileModule } from '../../../@core/mobile/mobile.module.tns';
+import { MobileModule } from '../../../@core/mobile-components/mobile.module.tns';
 
 
 

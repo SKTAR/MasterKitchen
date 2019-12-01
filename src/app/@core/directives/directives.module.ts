@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AutoGridColumns, AutoGridRows } from './grid-auto-row-column/grid.directive';
+import { AutoGridColumns } from './custom/grid.directive';
+
 
 @NgModule({
-  declarations: [AutoGridColumns,AutoGridRows],
+  declarations: [],
   imports: [
     CommonModule
   ],
-exports: [
-    AutoGridColumns,
-    AutoGridRows
-   ]
+exports: []
 
 })
 export class DirectivesModule { }

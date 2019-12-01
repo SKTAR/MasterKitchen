@@ -3,7 +3,8 @@ import { RadSideDrawerService } from '../@core/models-services/ui/radside-drawer
 import { AuthGuard } from '../@core/models-services/guard/auth.guard';
 import { HomeMenuService } from '../@core/models-services/ui/home-menu/home-menu.service';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
-import { HomeViewModel } from '../@core/models-services/home-view.model';
+import { RadlistviewMenuService } from '../@core/models-services/ui/radlistview-menu-service/radlistview-menu.service';
+import { HomeViewModel } from './home-view.model';
 
 @Component({
   selector: 'app-layout',
@@ -75,8 +76,12 @@ appNavItems = [
 private dataItems: any[];
   constructor(private drawerService: RadSideDrawerService,
               private auth: AuthGuard,
-              private homeMenuService: HomeMenuService) {
-
+              private homeMenuService: HomeMenuService,
+              private radlistService: RadlistviewMenuService) {
+               
+                const home = new HomeViewModel();
+                this.dataItems = home.homeMenuItems;
+                   console.log(this.dataItems);
     this.profile = this.username + ' ' + this.position;
  }
  toggleCollapsed(): void {
@@ -84,8 +89,8 @@ private dataItems: any[];
 }
 
     ngOnInit() {
-      this.dataItems = [];
-      let itemsCount = 10;
+      //this.dataItems = [];
+      //let itemsCount = 10;
       // for (var i = 1; i <= itemsCount; i++) {
       //     this.dataItems.push({
       //         name: "TEST " + i,
@@ -105,9 +110,7 @@ private dataItems: any[];
       // }
    
 
-      const home = new HomeViewModel();
-    this.dataItems = home.homeMenuItems;
-       console.log(this.dataItems);
+   
       
     }
    
@@ -130,11 +133,7 @@ private dataItems: any[];
         this.collapedSideBar = $event;
     }
 
-    onTap(item:any){
-     // console.log(item);
-     alert("test");
-     console.log(item);
-    }
+   
     //#endregion
   
     //#region Mobile Method
@@ -178,7 +177,10 @@ private dataItems: any[];
     //#endregion
 
 
-
+    onItemSelected(event:any) {
+      console.log(event);
+    this.radlistService.onItemHomeMenuSelected(event);
+    }
 
 
 

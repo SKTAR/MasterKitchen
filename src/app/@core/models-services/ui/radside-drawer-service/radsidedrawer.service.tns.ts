@@ -6,8 +6,9 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { filter } from 'rxjs/operators';
 import { isIOS, isAndroid } from 'tns-core-modules/platform/platform';
 import { RadListView, ListViewEventData } from "nativescript-ui-listview";
-import { EventData, Page } from 'tns-core-modules/ui/page/page';
-import { HomeViewModel} from '../../home-view.model';
+import { EventData, Page, Color } from 'tns-core-modules/ui/page/page';
+import { HomeViewModel} from '../../../../layout/home-view.model';
+import { NgForOf } from '@angular/common';
 declare var UIView, NSMutableArray, NSIndexPath;
 // import { Page } from 'tns-core-modules/ui/page';
 @Injectable({providedIn: 'root'})
@@ -67,8 +68,9 @@ export class RadSideDrawerService {
     const listView = event.object,
         rowIndex = event.index,
         dataItem = event.view.bindingContext;
-
-    dataItem.expanded = !dataItem.expanded;
+        dataItem.expanded = !dataItem.expanded;
+        console.log("test");
+    console.log(listView.items);
     if (isIOS) {
         // Uncomment the lines below to avoid default animation
          UIView.animateWithDurationAnimations(0, () => {
@@ -77,9 +79,11 @@ export class RadSideDrawerService {
             listView.ios.reloadItemsAtIndexPaths(indexPaths);
          });
     }
+
     if (isAndroid) {
         listView.androidListView.getAdapter().notifyItemChanged(rowIndex);
     }
+   // event.view.backgroundColor = new Color("#FFFF00");
 }
 
 }

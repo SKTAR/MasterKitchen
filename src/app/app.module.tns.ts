@@ -8,7 +8,7 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 
 import { AuthGuard } from './@core/models-services/guard/auth.guard';
-import { MobileModule } from './@core/mobile/mobile.module.tns';
+import { MobileModule } from './@core/mobile-components/mobile.module.tns';
 
 
 

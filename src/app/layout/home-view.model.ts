@@ -1,5 +1,19 @@
 import { Observable } from 'tns-core-modules/data/observable';
 
+export class HomeMenuItemModel 
+{
+    icon : string;       
+    title: string;
+    expanded: boolean
+    submenu : SubMenuModel[];
+    
+}
+export class SubMenuModel 
+{
+    title:string;   
+    path:string;
+}
+
 export class HomeViewModel extends Observable {
     profile = {
         name: "John Smith",
@@ -72,10 +86,7 @@ export class HomeViewModel extends Observable {
             title: "Home",
             expanded: false,
             submenu :[
-                { 
-                    title: "Create Menu",
-                    path : "/menu"
-                }
+                
             ]
            
         },
@@ -92,28 +103,28 @@ export class HomeViewModel extends Observable {
             icon: String.fromCharCode(0xf2e7),
             title: "Order Food",
             expanded: false,
-            submenu :[{ 
-                title: "Create Menu",
-                path : "/menu"
-            }]
+            submenu :[]
         },
         {
             icon: String.fromCharCode(0xf108),
             title: "KDS",
             expanded: false,
-            submenu :[{ 
-                title: "Create Menu",
-                path : "/menu"
-            }]
+            submenu :[]
         },
         {
             icon: String.fromCharCode(0xf007),
             title: "Employee",
             expanded: false,
-            submenu :[{ 
-                title: "Create Menu",
-                path : "/menu"
-            }]
+            submenu :[
+                {
+                    title: "Manage Employee",
+                    path : "/menu"
+                },
+                {
+                    title: "Assign User",
+                    path : "/menu"
+                }
+            ]
         },
         {
             icon: String.fromCharCode(0xf085),
@@ -128,12 +139,11 @@ export class HomeViewModel extends Observable {
             icon: String.fromCharCode(0xf05a),
             title: "About",
             expanded: false,
-            submenu :[{ 
-                title: "Create Menu",
-                path : "/menu"
-            }]
+            submenu :[]
         }
     ];
+
+
 
 
     constructor() {

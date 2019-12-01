@@ -8,7 +8,7 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 
 import { IngredientModule } from '../ingredient/ingredient.module.tns';
-import { MobileModule } from '../../../@core/mobile/mobile.module.tns';
+import { MobileModule } from '../../../@core/mobile-components/mobile.module.tns';
 
 @NgModule({
   declarations: [MenuSelectComponent, MenuitemsComponent],

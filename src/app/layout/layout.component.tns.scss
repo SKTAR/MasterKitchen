@@ -85,3 +85,16 @@
     font-size: 26;
 
 }
+
+.content {
+    &.selected {
+        background-color: $item-active-background;
+        Label {
+            color: $item-active-color;
+        }
+        
+    }
+}
+
+
+

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { RadListView, ListViewEventData } from 'nativescript-ui-listview';
 import { MenuModel } from '../../restaurant/menu.model';
+import { HomeMenuItemModel } from '../../../../layout/home-view.model';
 
 
 @Injectable({providedIn: 'root'})
@@ -70,7 +71,34 @@ export class RadlistviewMenuService {
     }
 
 
+    public onItemHomeMenuSelected(args: ListViewEventData) {
+        //   alert('Select Item');
+           const listview = args.object as RadListView;
+           const selectedItems = listview.getSelectedItems() as Array<HomeMenuItemModel>;
+        
+          // let selectedTitles = 'Selected items: ';
+          
+           if(selectedItems == null){
+               alert('CRAP!!!');
+           }
+   
+      
+           for (let i = 0; i < selectedItems.length; i++) {
+            // selectedTitles += selectedItems[i] ? selectedItems[i].name : '';
 
+            // if (i < selectedItems.length - 1) {
+            //     selectedTitles += ', ';
+            // }
+
+            alert('item:'+i+'-- price'+ selectedItems[i].title);
+        }
+
+          // this._selectedItems = selectedTitles;
+           //const selectedItem = this.dataItems.getItem(args.index);
+           //console.log('Item selected: ' + (selectedItem && selectedItem.name));
+           //alert(selectedItem && selectedItem.name);
+           return selectedItems;
+       }
 
 }
 
